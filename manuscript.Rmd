@@ -104,7 +104,7 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 
 ```{r CFA, }
-LB.cfa <- read_excel("Processed Data/SpitschanSleepSurvey_DATA_2021-08-24_1819_redacted_199_CFA.xlsx")
+LB.cfa <- read_excel("SpitschanSleepSurvey_DATA_2021-08-24_1819_redacted_199_CFA.xlsx")
 LB.cfa$id <- NULL
 summarize <- summary(LB.cfa)
 Descriptives <- psych::describe(LB.cfa)
