@@ -66,7 +66,6 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library(papaja) # devtools::install_github("crsh/papaja")
-r_refs("r-references.bib")
 library(readr)
 library(readxl)
 library(lavaan)
@@ -78,6 +77,7 @@ library(dlookr)
 library(tidyverse)
 library(qgraph)
 library(kableExtra)
+r_refs("r-references.bib")
 ```
 
 ```{r analysis-preferences}
