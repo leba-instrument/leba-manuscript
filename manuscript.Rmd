@@ -101,131 +101,107 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 # Results
 
 # Confirmatory Factor Analysis
+# Confirmatory Factor Analysis
 
-
-```{r CFA, }
-LB.cfa <- read_excel("SpitschanSleepSurvey_DATA_2021-08-24_1819_redacted_199_CFA.xlsx")
-LB.cfa$id <- NULL
-summarize <- summary(LB.cfa)
-Descriptives <- psych::describe(LB.cfa)
-#Univariate Normality
-normality <- normality(LB.cfa) 
-#Multivariate Normality
-mardia(LB.cfa, na.rm = T, plot =F)
-
-
-# CFA with five factor (23 items)
-LB.model.Cor <- "F1 =~ item31+ item33+ item1+ item37 + item 24
+```{r CFA 23 items, include=FALSE}
+LB.cfa <- read_excel("recoded not reversed_CFA.xlsx")
+LB.model.Cor <- "F1 =~ item5 + item24 + item30 + item1 + item16 + item28
              F2 =~ item10 + item47 + item36 + item44 + item35 + item13
             F3 =~ item43 + item26 + item32
-           F4 =~  item14 + item 7 + item11 + item42 + item12 + item16 
+           F4 =~  item14 + item41+ item7 + item27 + item21
             F5 =~ item19 + item34 + item2" 
+
+
+
 fit.Cor <- cfa(LB.model.Cor, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+
 ## Summary of Model 
 summary(fit.Cor, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
 ## Selected Fit measures 
-fitmeasures (fit.Cor,c("gfi", "agfi", "nfi","rfi", 
+fit.1 <- fitmeasures (fit.Cor,c("gfi", "agfi", "nfi","rfi", 
                        "cfi.robust","tli.robust",
                        "rmsea.robust", 
                        "srmr","aic"))
+
 
 semTools::reliability(fit.Cor)
 
 ```
 
-Based on CFI, TLI, RMSEA and SRMR value the fitted five factor model is not acceptable.
-As a result a close inspection  on items with low factor-loadings and low R-square value was conducted. two items were found to be problematic **item7, item 24** with vary low R-square 
-value thus discarded from the model.
-
-```{r CFA23}
-#Five factor correlational Model without item24, item 7 [21 Items]
-LB.model.Cor.2 <- "F1 =~ item31+ item33+ item1+ item37
-             F2 =~ item10 + item47 + item36 +  item35 + item13 + item44
+```{r CFA23withMI, include=FALSE}
+LB.model.Cor.3 <- "F1 =~ item5 + item24 + item30 + item1 + item16 + item28
+             F2 =~ item10 + item47 + item36 + item44 + item35 + item13
             F3 =~ item43 + item26 + item32
-           F4 =~  item14 +  item42 + item12 + item11 + item16 
-             F5 =~ item19 + item34 + item2" 
-## Fit the model 
-fit.Cor.2 <- cfa(LB.model.Cor.2, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
-## Summary of Model 
-summary(fit.Cor.2, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
-## Selected Fit measures 
-fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
-                       "rmsea.robust", 
-                       "srmr","aic"))
-rownames <-  ("fitIndices")
-colnames <- c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
-                       "rmsea.robust", 
-                       "srmr","aic")
-dimnames <- list(rownames, colnames)
-fitmatrix <- matrix(fit.2, nrow = 1, ncol = 9, byrow = T, dimnames)
-semTools::reliability(fit.Cor.2)
-```
+           F4 =~  item14 + item41+ item7 + item27 + item21
+            F5 =~ item19 + item34 + item2
+item44 ~~ item13
+item14 ~~  item7
+item10 ~~ item13" 
 
 
-```{r CFA5Mod}
-modfit.Cor <- modindices(fit.Cor.2, sort. = TRUE) 
-modfit.Cor[modfit.Cor$mi>3.84,] 
-```
 
-```{r CFA5bestfit}
-#21 items
-LB.model.Cor.3 <- "F1 =~ item31+ item33+ item1+ item37
-             F2 =~ item10 + item47 + item36 +  item35 + item13 + item44
-            F3 =~ item43 + item26 + item32
-           F4 =~  item14 +  item42 + item12 + item11 + item16 
-             F5 =~ item19 + item34 + item2
-                    item31 ~~ item33
-                     item12 ~~ item11" 
+
+
 ## Fit the model 
 fit.Cor.3 <- cfa(LB.model.Cor.3, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+
+reliability <- semTools::reliability(fit.Cor.3, return.total = T)
+as.table(reliability)
 ## Summary of Model 
 summary(fit.Cor.3, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
+
 ## Selected Fit measures 
 fit.3 <- fitmeasures (fit.Cor.3,c("gfi", "agfi", "nfi","rfi", 
                        "cfi.robust","tli.robust",
                        "rmsea.robust", 
                        "srmr","aic"))
+
 rownames <-  ("fitIndices")
 colnames <- c("gfi", "agfi", "nfi","rfi", 
                        "cfi.robust","tli.robust",
                        "rmsea.robust", 
                        "srmr","aic")
-dimnames <- list(rownames, colnames)
-fitmatrix <- matrix(fit.3, nrow = 1, ncol = 9, byrow = T, dimnames)
-reliability1 <- semTools::reliability(fit.Cor.3, return.total = T)
-as.table(reliability1 )
+
+
 ```
 
-
-```{r CFA6}
-#24 items
-LB.model.Cor.4 <- "F1 =~ item31+ item33+ item1+ item37
-             F2 =~ item10 + item47 + item36 +  item35 + item13 + item44
+```{r CFI18items, include=FALSE}
+LB.model.Cor.2 <- "F1 =~ item5 + item24 + item30 + item16 
+             F2 =~ item10 + item47 + item36 + item44 + item35 
             F3 =~ item43 + item26 + item32
-           F4 =~  item14 +  item42 + item12 + item11 + item16 
-             F5 =~ item19 + item34 + item2
-             F6 =~ item38 + item28 + item45
-                   item31 ~~ item33
-                    item10 ~~ item13
-                     item12 ~~ item11
-                     item26 ~~ item19  "
+           F4 =~  item14 + item41+ item7 
+            F5 =~ item19 + item34 + item2
+item14 ~~  item7" 
+
+#item 1 &28 discarded from F1;
+#item13 discarded from F2
+#item 27 & 21 discarded from F4
 
 ## Fit the model 
-fit.Cor.4 <- cfa(LB.model.Cor.4, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+fit.Cor.2 <- cfa(LB.model.Cor.2, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
 
 ## Summary of Model 
-summary(fit.Cor.4, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+summary(fit.Cor.2, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
 
 
 ## Selected Fit measures 
-fit.4 <- fitmeasures (fit.Cor.4,c("gfi", "agfi", "nfi","rfi", 
+fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi", 
                        "cfi.robust","tli.robust",
                        "rmsea.robust", 
                        "srmr","aic"))
-reliability <- semTools::reliability(fit.Cor.4, return.total = T)
-as.table(reliability)
+
+rownames <-  ("fitIndices")
+colnames <- c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic")
+
+
+
 ```
 
 
@@ -235,7 +211,6 @@ as.table(reliability)
 
 
 \newpage
-
 # References
 
 \begingroup
