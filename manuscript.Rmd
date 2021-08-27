@@ -1,0 +1,246 @@
+---
+title             : "Light Exposure Behavior Assessment"
+shorttitle        : "Title"
+
+author: 
+  - name          : "Mushfiqul Anwar Siraji"
+    affiliation   : "1"
+    corresponding : no   
+    address       : "Monash University, Malaysia"
+    email         : "mushfiqul.anwarsiraji@monash.edu"
+    role:         
+      - Data Analysis
+      - Writing - Original Draft Preparation
+      - Data Visualization
+       
+  - name          : "Rafael Robert Lazar"
+    affiliation   : "2"
+    role:
+      - Writing - Original Draft Preparation
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+r_refs("r-references.bib")
+library(readr)
+library(readxl)
+library(lavaan)
+library(semPlot)
+library(semTools)
+library(hemp)
+library(psych)
+library(dlookr)
+library(tidyverse)
+library(qgraph)
+library(kableExtra)
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+# Methods
+
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+# Results
+
+# Confirmatory Factor Analysis
+
+
+```{r CFA, }
+LB.cfa <- read_excel("Processed Data/SpitschanSleepSurvey_DATA_2021-08-24_1819_redacted_199_CFA.xlsx")
+LB.cfa$id <- NULL
+summarize <- summary(LB.cfa)
+Descriptives <- psych::describe(LB.cfa)
+#Univariate Normality
+normality <- normality(LB.cfa) 
+#Multivariate Normality
+mardia(LB.cfa, na.rm = T, plot =F)
+
+
+# CFA with five factor (23 items)
+LB.model.Cor <- "F1 =~ item31+ item33+ item1+ item37 + item 24
+             F2 =~ item10 + item47 + item36 + item44 + item35 + item13
+            F3 =~ item43 + item26 + item32
+           F4 =~  item14 + item 7 + item11 + item42 + item12 + item16 
+            F5 =~ item19 + item34 + item2" 
+fit.Cor <- cfa(LB.model.Cor, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+## Summary of Model 
+summary(fit.Cor, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+## Selected Fit measures 
+fitmeasures (fit.Cor,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic"))
+
+semTools::reliability(fit.Cor)
+
+```
+
+Based on CFI, TLI, RMSEA and SRMR value the fitted five factor model is not acceptable.
+As a result a close inspection  on items with low factor-loadings and low R-square value was conducted. two items were found to be problematic **item7, item 24** with vary low R-square 
+value thus discarded from the model.
+
+```{r CFA23}
+#Five factor correlational Model without item24, item 7 [21 Items]
+LB.model.Cor.2 <- "F1 =~ item31+ item33+ item1+ item37
+             F2 =~ item10 + item47 + item36 +  item35 + item13 + item44
+            F3 =~ item43 + item26 + item32
+           F4 =~  item14 +  item42 + item12 + item11 + item16 
+             F5 =~ item19 + item34 + item2" 
+## Fit the model 
+fit.Cor.2 <- cfa(LB.model.Cor.2, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+## Summary of Model 
+summary(fit.Cor.2, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+## Selected Fit measures 
+fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic"))
+rownames <-  ("fitIndices")
+colnames <- c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic")
+dimnames <- list(rownames, colnames)
+fitmatrix <- matrix(fit.2, nrow = 1, ncol = 9, byrow = T, dimnames)
+semTools::reliability(fit.Cor.2)
+```
+
+
+```{r CFA5Mod}
+modfit.Cor <- modindices(fit.Cor.2, sort. = TRUE) 
+modfit.Cor[modfit.Cor$mi>3.84,] 
+```
+
+```{r CFA5bestfit}
+#21 items
+LB.model.Cor.3 <- "F1 =~ item31+ item33+ item1+ item37
+             F2 =~ item10 + item47 + item36 +  item35 + item13 + item44
+            F3 =~ item43 + item26 + item32
+           F4 =~  item14 +  item42 + item12 + item11 + item16 
+             F5 =~ item19 + item34 + item2
+                    item31 ~~ item33
+                     item12 ~~ item11" 
+## Fit the model 
+fit.Cor.3 <- cfa(LB.model.Cor.3, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+## Summary of Model 
+summary(fit.Cor.3, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+## Selected Fit measures 
+fit.3 <- fitmeasures (fit.Cor.3,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic"))
+rownames <-  ("fitIndices")
+colnames <- c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic")
+dimnames <- list(rownames, colnames)
+fitmatrix <- matrix(fit.3, nrow = 1, ncol = 9, byrow = T, dimnames)
+reliability1 <- semTools::reliability(fit.Cor.3, return.total = T)
+as.table(reliability1 )
+```
+
+
+```{r CFA6}
+#24 items
+LB.model.Cor.4 <- "F1 =~ item31+ item33+ item1+ item37
+             F2 =~ item10 + item47 + item36 +  item35 + item13 + item44
+            F3 =~ item43 + item26 + item32
+           F4 =~  item14 +  item42 + item12 + item11 + item16 
+             F5 =~ item19 + item34 + item2
+             F6 =~ item38 + item28 + item45
+                   item31 ~~ item33
+                    item10 ~~ item13
+                     item12 ~~ item11
+                     item26 ~~ item19  "
+
+## Fit the model 
+fit.Cor.4 <- cfa(LB.model.Cor.4, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
+
+## Summary of Model 
+summary(fit.Cor.4, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
+## Selected Fit measures 
+fit.4 <- fitmeasures (fit.Cor.4,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.robust","tli.robust",
+                       "rmsea.robust", 
+                       "srmr","aic"))
+reliability <- semTools::reliability(fit.Cor.4, return.total = T)
+as.table(reliability)
+```
+
+
+
+
+# Discussion
+
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
