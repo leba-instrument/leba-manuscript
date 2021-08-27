@@ -1,5 +1,5 @@
 ---
-title             : "Light Exposure Behavior Assessment"
+title             : "_Light Exposure Behavior Assessment (LEBA)_: Develop of a novel instrument to capture light exposure-related behaviours"
 shorttitle        : "Title"
 
 author: 
@@ -65,14 +65,14 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
-library("papaja")
+library(papaja) # devtools::install_github("crsh/papaja")
 r_refs("r-references.bib")
 library(readr)
 library(readxl)
 library(lavaan)
 library(semPlot)
 library(semTools)
-library(hemp)
+library(hemp) # devtools::install_github("cddesja/hemp")
 library(psych)
 library(dlookr)
 library(tidyverse)
