@@ -110,7 +110,7 @@ LB.model.Cor <- "F1 =~ item5 + item24 + item30 + item1 + item16 + item28
             F3 =~ item43 + item26 + item32
            F4 =~  item14 + item41+ item7 + item27 + item21
             F5 =~ item19 + item34 + item2" 
-
+# all items
 
 
 fit.Cor <- cfa(LB.model.Cor, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
