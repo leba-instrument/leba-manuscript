@@ -16,13 +16,24 @@ author:
   - name          : "Rafael Robert Lazar"
     affiliation   : "2"
     role:
+      - Data Analysis
       - Writing - Original Draft Preparation
+      - Data Visualization
+  - name          : "Manuel Spitschan "
+    affiliation   : "3"
+    corresponding : yes   
+    address       : ""
+    email         : ""
+    role:         
+      - Data Analysis
+      - Writing - Original Draft Preparation
+      - Data Visualization
 
 affiliation:
   - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
+    institution   : "Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Monash University, Malaysia"
   - id            : "2"
-    institution   : "Konstanz Business School"
+    institution   : "University of Basel"
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
@@ -80,11 +91,19 @@ library(kableExtra)
 r_refs("r-references.bib")
 ```
 
+
+---
+nocite: |
+  `r cite_r("r-references.bib")`
+---
+
 ```{r analysis-preferences}
 # Seed for random number generation
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
+# Introduction
+
 # Methods
 
 
@@ -94,10 +113,80 @@ This line is just a test for pushing in the github repo.
 
 ## Material
 
+```{r flowchart }
+Flowchart1 <- grViz("digraph nicegraph{
+         
+                    graph [layout = dot,fontsize = 14]
+                     
+                     node[shape = rectangle, margin = 0.2, width = 6.5, height = 1, fixedsize = true]  
+                     
+                    A[label = '48 items were generataed by a robust expert panel'] 
+                    B[label = 'Exploratory Factor Analysis on 48 Items (N = 428)']
+                    
+                    node[shape = rectangle, margin = 0.2, width = 6.5, height = 2, fixedsize = true]
+                    C[label = 'Factor Identification
+                    Scree Plot: 6 Factors
+                    Parallel Analysis: 6 Factors
+                    Minimum Average Partial Method: 5 Factors
+                    Hull Method: 5 Factors']
+                    
+                     subgraph cluster_1 {
+                      graph[shape = rectangle]
+                      style = rounded
+                     node[ margin = 0.2,width = 6.5, height = 1, fixedsize = true ]
+                    
+                     1[label = '5 Factor Solution Retained 23 Items']
+                     2[label = 'Reliability Analysis on EFA Sample (N=428)
+                    Alpha F1 =.49; F2 = .71; F3 = .86; F4 =.62; F5 =.77']
+                    
+                     3[label = 'Confirmatory Factor Analysis on Modified Model
+                     on the Five Factor Model (21 Items; N=199)
+                      Acceptable Fit ( CFI = .92; TLI .91; RMSEA = .05, SRMR = .07)']
+                    
+                     4[label = 'Reliability Analysis on CFA (N=199) 
+                      Alpha F1=.47; F2=.67; F3 =.92; F4=.58; F5= .74']
+                    }
+                subgraph cluster_2 {
+                      graph[shape = rectangle]
+                      style = rounded
+                     node[ margin = 0.2,width = 6.5, height = 1, fixedsize = true ]
+                    5[label = '6-Factor  one factor with only two salient loadings']
+                    6[label = 'Rejected']
+                    }     
+                     
+                    
+                     edge[color = black,arrowhead = vee, arrowsize = 1.25]
+                     A ->B
+                     B ->C
+                     C ->1
+                     1 ->2
+                     2 ->3
+                     3 ->4
+                     C ->5
+                     5 ->6
+                     
+                     
+}")
+
+export_svg(Flowchart1) %>%
+  charToRaw() %>%
+  rsvg() %>%
+  png::writePNG("Flowchart1.png")
+
+```
+
+
+
+```{r, out.height= "50%",  fig.align='center', fig.cap='ABC'}
+knitr::include_graphics('Flowchart1.png')
+```
+
 ## Procedure
+Our study had three objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis to understand the latent structure. Third to gather validity evidences [@furrPsychometricsIntroduction2014]. 
+
 
 ## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
+
 
 
 # Results
