@@ -107,11 +107,6 @@ nocite: |
   `r cite_r("references.bib")`
 ---
 
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
-```
 
 ```{r setup-chunk, include=FALSE}
 knitr::opts_chunk$set(dev = "png",
