@@ -7,8 +7,8 @@
   man]{apa6}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -38,7 +38,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Light Exposure Behavior Assessment (LEBA): Develop of a novel instrument to capture light exposure-related behaviours},
-  pdfauthor={Mushfiqul Anwar Siraji1 \& Rafael Robert Lazar2},
+  pdfauthor={Mushfiqul Anwar Siraji1, Rafael Robert Lazar2, Manuel Spitschan3, \& Manuel Spitschan3},
   pdflang={en-EN},
   pdfkeywords={keywords},
   hidelinks,
@@ -100,6 +100,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -123,7 +137,7 @@
 
 \linenumbers
 \usepackage{csquotes}
-\ifXeTeX
+\ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
@@ -133,7 +147,7 @@
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 \fi
-\ifLuaTeX
+\ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \newlength{\cslhangindent}
@@ -158,7 +172,7 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \title{\emph{Light Exposure Behavior Assessment (LEBA)}: Develop of a novel instrument to capture light exposure-related behaviours}
-\author{Mushfiqul Anwar Siraji\textsuperscript{1} \& Rafael Robert Lazar\textsuperscript{2}}
+\author{Mushfiqul Anwar Siraji\textsuperscript{1}, Rafael Robert Lazar\textsuperscript{2}, Manuel Spitschan\textsuperscript{3}, \& Manuel Spitschan\textsuperscript{3}}
 \date{}
 
 
@@ -168,13 +182,13 @@ Add complete departmental affiliations for each author here. Each new line herei
 
 Enter author note here.
 
-The authors made the following contributions. Mushfiqul Anwar Siraji: Data Analysis, Writing - Original Draft Preparation, Data Visualization; Rafael Robert Lazar: Writing - Original Draft Preparation.
+The authors made the following contributions. Mushfiqul Anwar Siraji: Data Analysis, Writing - Original Draft Preparation, Data Visualization; Rafael Robert Lazar: Data Analysis, Writing - Original Draft Preparation, Data Visualization; Manuel Spitschan: Data Analysis, Writing - Original Draft Preparation, Data Visualization; Manuel Spitschan: Data Analysis, Writing - Original Draft Preparation, Data Visualization.
 
-Correspondence concerning this article should be addressed to Mushfiqul Anwar Siraji, Monash University, Malaysia. E-mail: \href{mailto:mushfiqul.anwarsiraji@monash.edu}{\nolinkurl{mushfiqul.anwarsiraji@monash.edu}}
+Correspondence concerning this article should be addressed to Manuel Spitschan, . E-mail:
 
 }
 
-\affiliation{\vspace{0.5cm}\textsuperscript{1} Wilhelm-Wundt-University\\\textsuperscript{2} Konstanz Business School}
+\affiliation{\vspace{0.5cm}\textsuperscript{1} Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Monash University, Malaysia\\\textsuperscript{2} University of Basel}
 
 \abstract{
 One or two sentences providing a \textbf{basic introduction} to the field, comprehensible to a scientist in any discipline.
@@ -197,949 +211,140 @@ Two or three sentences to provide a \textbf{broader perspective}, readily compre
 \begin{document}
 \maketitle
 
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
 
 \hypertarget{participants}{%
 \subsection{Participants}\label{participants}}
 
+This line is just a test for pushing in the github repo.
+
 \hypertarget{material}{%
 \subsection{Material}\label{material}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.17in,height=0.5\textheight]{Flowchart1} 
+
+}
+
+\caption{ABC}\label{fig:unnamed-chunk-1}
+\end{figure}
 
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
 
-\hypertarget{data-analysis}{%
-\subsection{Data analysis}\label{data-analysis}}
+Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA (Furr, 2014). Lastly, we gathered item information using Item response theory (IRT)(Baker, 2017)
 
-We used R {[}Version 4.0.3; R Core Team (2020){]} and the R-packages \emph{boot} {[}Version 1.3.28; Davison and Hinkley (1997){]}, \emph{dlookr} {[}Version 0.5.0; Ryu (2021){]}, \emph{dplyr} {[}Version 1.0.7; Wickham, François, Henry, and Müller (2021){]}, \emph{equate} {[}Version 2.0.7; Albano (2016){]}, \emph{forcats} {[}Version 0.5.1; Wickham (2021a){]}, \emph{ggplot2} {[}Version 3.3.3; Wickham (2016){]}, \emph{hemp} {[}Version 0.1.0; Bulut (2021){]}, \emph{kableExtra} {[}Version 1.3.4; Zhu (2021){]}, \emph{lattice} {[}Version 0.20.44; Sarkar (2008){]}, \emph{lavaan} {[}Version 0.6.9; Rosseel (2012){]}, \emph{lme4} {[}Version 1.1.27.1; Bates, Mächler, Bolker, and Walker (2015){]}, \emph{Matrix} {[}Version 1.3.3; Bates and Maechler (2021){]}, \emph{mirt} {[}Version 1.34; Chalmers (2012){]}, \emph{papaja} {[}Version 0.1.0.9997; Aust and Barth (2020){]}, \emph{psych} {[}Version 2.1.6; Revelle (2021){]}, \emph{purrr} {[}Version 0.3.4; Henry and Wickham (2020){]}, \emph{qgraph} {[}Version 1.6.9; Epskamp, Cramer, Waldorp, Schmittmann, and Borsboom (2012){]}, \emph{readr} {[}Version 1.4.0; Wickham and Hester (2020){]}, \emph{readxl} {[}Version 1.3.1; Wickham and Bryan (2019){]}, \emph{reshape2} {[}Version 1.4.4; Wickham (2007){]}, \emph{semPlot} {[}Version 1.1.2; Epskamp (2019){]}, \emph{semTools} {[}Version 0.5.5; Jorgensen, Pornprasertmanit, Schoemann, and Rosseel (2021){]}, \emph{stringr} {[}Version 1.4.0; Wickham (2019){]}, \emph{tibble} {[}Version 3.1.2; Müller and Wickham (2021){]}, \emph{tidyr} {[}Version 1.1.3; Wickham (2021b){]}, and \emph{tidyverse} {[}Version 1.3.1; Wickham et al. (2019){]} for all our analyses.
+\hypertarget{data-collection}{%
+\subsubsection{Data Collection}\label{data-collection}}
+
+Timeline of data collection, ethical approval, mode of data collection, how consent was recorded.
+
+\hypertarget{item-generation-and-content-validity-expert-panel-review}{%
+\subsubsection{Item generation and Content Validity: Expert Panel Review}\label{item-generation-and-content-validity-expert-panel-review}}
+
+How we developed the 48 items?
+
+\hypertarget{analytic-strategies}{%
+\subsection{Analytic Strategies}\label{analytic-strategies}}
+
+We used R (version 4.1.0), including several R-packages for our analyses. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data we used polychoric correlation matrix (Desjardins \& Bulut, 2018) for the EFA. We employed principal axis (pa) a factor extraction method with varimax rotation. PA is apparently robust to the normality assumption violations (Watkins, 2020). The obtained latent structure was confirmed by weighted least squares (WLS) extraction method as well. We used a combination factor indentification method including scree plot(Cattell, 1966), Horn's parallel analysis (Horn, 1965), minimum average partials method(Velicer, 1976), and hull method (Lorenzo-Seva, Timmerman, \& Kiers, 2011) to identify factor numbers. Additionally, to identify the simple structure we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading \textless0.3 (iii) no items with cross-loading greater than .3 across factors (Bandalos \& Finney, 2018; Child, 2006; Mulaik, 2009; Watkins, 2020)
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
+Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy(Kaiser, 1974) . The overall KMO vale for 23 items was 0.63 which was above the cutoff value of .50 indicating a mediocre sample (Hutcheson, 1999).
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:tabDes}Descriptive Statistics}
+
+\begin{tabular}{llllllll}
+\toprule
+ & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Skew} & \multicolumn{1}{c}{Kurtosis} & \multicolumn{1}{c}{Shapiro-Wilk Statistics} & \multicolumn{1}{c}{p} & \multicolumn{1}{c}{Item-Total Correlation}\\
+\midrule
+Item1 & 1.12 & 0.49 & 5.02 & 27.80 & 0.25 & .00 & .16\\
+Item2 & 2.16 & 1.19 & 0.71 & -0.54 & 0.84 & .00 & .14\\
+Item3 & 4.14 & 0.99 & -1.23 & 1.14 & 0.79 & .00 & .19\\
+Item4 & 2.87 & 1.59 & 0.08 & -1.60 & 0.83 & .00 & .19\\
+Item5 & 1.76 & 1.23 & 1.35 & 0.44 & 0.66 & .00 & .38\\
+Item6 & 2.73 & 1.46 & 0.20 & -1.36 & 0.87 & .00 & .33\\
+Item7 & 3.86 & 1.67 & -0.99 & -0.85 & 0.65 & .00 & .23\\
+Item8 & 3.76 & 1.14 & -0.68 & -0.45 & 0.86 & .00 & .00\\
+Item9 & 3.42 & 1.83 & -0.45 & -1.69 & 0.69 & .00 & .33\\
+Item10 & 2.74 & 1.04 & 0.09 & -0.74 & 0.91 & .00 & .28\\
+Item11 & 2.60 & 1.25 & 0.29 & -0.86 & 0.89 & .00 & .35\\
+Item12 & 2.11 & 1.17 & 0.77 & -0.39 & 0.83 & .00 & .32\\
+Item13 & 2.94 & 1.03 & -0.12 & -0.40 & 0.91 & .00 & .10\\
+Item14 & 3.62 & 1.64 & -0.68 & -1.25 & 0.74 & .00 & .32\\
+Item15 & 1.64 & 1.18 & 1.79 & 2.02 & 0.60 & .00 & .15\\
+Item16 & 3.51 & 1.30 & -0.70 & -0.59 & 0.85 & .00 & .39\\
+Item17 & 1.96 & 0.98 & 1.02 & 0.69 & 0.82 & .00 & .05\\
+Item18 & 2.44 & 1.31 & 0.38 & -1.14 & 0.86 & .00 & .11\\
+Item19 & 3.80 & 1.29 & -0.87 & -0.42 & 0.82 & .00 & .17\\
+Item20 & 4.01 & 1.40 & -1.22 & 0.07 & 0.70 & .00 & .13\\
+Item21 & 1.33 & 0.91 & 3.03 & 8.43 & 0.41 & .00 & .01\\
+Item22 & 2.59 & 1.41 & 0.27 & -1.27 & 0.86 & .00 & .19\\
+Item23 & 1.31 & 0.81 & 2.75 & 6.92 & 0.43 & .00 & .21\\
+Item24 & 1.47 & 1.18 & 2.38 & 4.00 & 0.43 & .00 & .28\\
+Item25 & 2.56 & 1.27 & 0.33 & -1.00 & 0.89 & .00 & .11\\
+Item26 & 1.54 & 1.25 & 2.13 & 2.86 & 0.46 & .00 & .36\\
+Item27 & 4.30 & 1.08 & -1.79 & 2.53 & 0.67 & .00 & .22\\
+Item28 & 2.27 & 1.39 & 0.74 & -0.81 & 0.81 & .00 & .25\\
+Item29 & 3.26 & 1.09 & -0.26 & -0.45 & 0.91 & .00 & .14\\
+Item30 & 2.22 & 1.48 & 0.71 & -1.02 & 0.76 & .00 & .30\\
+Item31 & 1.05 & 0.36 & 7.23 & 52.98 & 0.13 & .00 & .18\\
+Item32 & 1.54 & 1.21 & 2.07 & 2.75 & 0.49 & .00 & .31\\
+Item33 & 1.04 & 0.33 & 8.99 & 85.28 & 0.10 & .00 & .16\\
+Item34 & 3.36 & 1.38 & -0.48 & -1.03 & 0.87 & .00 & .16\\
+Item35 & 2.26 & 1.25 & 0.70 & -0.60 & 0.85 & .00 & .19\\
+Item36 & 2.36 & 1.22 & 0.59 & -0.62 & 0.87 & .00 & .25\\
+Item37 & 1.14 & 0.59 & 4.79 & 24.05 & 0.25 & .00 & .16\\
+Item38 & 2.25 & 1.27 & 0.69 & -0.64 & 0.84 & .00 & .18\\
+Item39 & 3.93 & 1.48 & -1.06 & -0.44 & 0.71 & .00 & .18\\
+Item40 & 3.57 & 1.07 & -0.65 & -0.17 & 0.88 & .00 & .21\\
+Item41 & 3.55 & 1.65 & -0.60 & -1.34 & 0.76 & .00 & .43\\
+Item42 & 3.00 & 1.62 & -0.08 & -1.61 & 0.83 & .00 & .44\\
+Item43 & 1.56 & 1.23 & 2.00 & 2.45 & 0.50 & .00 & .32\\
+Item44 & 2.97 & 1.20 & -0.06 & -0.94 & 0.91 & .00 & -.10\\
+Item45 & 2.79 & 1.55 & 0.19 & -1.48 & 0.85 & .00 & .20\\
+Item46 & 2.14 & 1.31 & 0.77 & -0.78 & 0.80 & .00 & .26\\
+Item47 & 2.18 & 0.90 & 0.60 & 0.12 & 0.86 & .00 & .26\\
+Item48 & 1.48 & 1.11 & 2.18 & 3.35 & 0.48 & .00 & .24\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{manuscript_files/figure-latex/figCor-1} \caption{Iter-correlation of the items}\label{fig:figCor}
+\end{figure}
+
+Table\ref{tab:tabDes} summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. The Shapiro-Wilk test of normality (Shapiro \& Wilk, 1965) indicated all the items violated normality assumptions. Multivariate normality assumptions were investigated by Marida's test (Mardia, 1970). Multivariate skew = 583.80 (p \textless0.001) and multivariate kurtosis = 2,749.15 (p \textless0.001) indicated multivariate normality assumptions violation. Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen (Desjardins \& Bulut, 2018). Bartlett's test of sphericity (Bartlett, 1954), \(\chi^2\) (1128) = 5042.86, p \textless{} .001{]} indicated the correlations between items are adequate for the EFA. However only 4.96\% of the inter-item correlation coefficients were greater than .30 in the obtained matrix. The inter item correlation ranged between .44 to .91. The corrected item-total correlations ranged between .10 to .44.
+
+Scree plot ( Fig@ref(fig:fac.id)) suggested a six-factor solution.Horn's parallel analysis (Horn, 1965), like the Monte Carlo study, draws several sets of random data with the same number of participants as the original data set and compares the mean eigenvalues among the simulated and original data sets to retain optimal factors.This extraction method also supported a five-factor model. In our data set parallel analysis with 500 iterations indicated six-factor solution. However, In MAP method (Velicer, 1976) and Hull method (Lorenzo-Seva, Timmerman, \& Kiers, 2011) suggested a five-factor solution Parallel analysis is also more immune to the normality assumptions violation(\textbf{RN1263?}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth,height=0.5\textheight]{parallel} \includegraphics[width=0.5\linewidth,height=0.5\textheight]{manuscript_files/figure-latex/fac.id-2} \includegraphics[width=0.5\linewidth,height=0.5\textheight]{HUll method} 
+
+}
+
+\caption{Factor Identification (A) Parallel analysis (B) Scree Plot, (C) Hull method}(\#fig:fac.id)
+\end{figure}
+
 \hypertarget{confirmatory-factor-analysis}{%
 \section{Confirmatory Factor Analysis}\label{confirmatory-factor-analysis}}
-
-\begin{verbatim}
-## Call: mardia(x = LB.cfa, na.rm = T, plot = F)
-## 
-## Mardia tests of multivariate skew and kurtosis
-## Use describe(x) the to get univariate tests
-## n.obs = 199   num.vars =  48 
-## b1p =  761.72   skew =  25263.82  with probability  <=  8.8e-152
-##  small sample skew =  25660.39  with probability <=  1.2e-171
-## b2p =  2540.5   kurtosis =  14.3  with probability <=  0
-\end{verbatim}
-
-\begin{verbatim}
-## lavaan 0.6-9 ended normally after 64 iterations
-## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of model parameters                        79
-##                                                       
-##   Number of observations                           199
-##   Number of missing patterns                         1
-##                                                       
-## Model Test User Model:
-##                                                Standard      Robust
-##   Test Statistic                                406.275     387.999
-##   Degrees of freedom                                220         220
-##   P-value (Chi-square)                            0.000       0.000
-##   Scaling correction factor                                   1.047
-##        Yuan-Bentler correction (Mplus variant)                     
-## 
-## Model Test Baseline Model:
-## 
-##   Test statistic                              1700.445    1368.235
-##   Degrees of freedom                               253         253
-##   P-value                                        0.000       0.000
-##   Scaling correction factor                                  1.243
-## 
-## User Model versus Baseline Model:
-## 
-##   Comparative Fit Index (CFI)                    0.871       0.849
-##   Tucker-Lewis Index (TLI)                       0.852       0.827
-##                                                                   
-##   Robust Comparative Fit Index (CFI)                         0.873
-##   Robust Tucker-Lewis Index (TLI)                            0.854
-## 
-## Loglikelihood and Information Criteria:
-## 
-##   Loglikelihood user model (H0)              -6371.304   -6371.304
-##   Scaling correction factor                                  1.877
-##       for the MLR correction                                      
-##   Loglikelihood unrestricted model (H1)      -6168.166   -6168.166
-##   Scaling correction factor                                  1.266
-##       for the MLR correction                                      
-##                                                                   
-##   Akaike (AIC)                               12900.607   12900.607
-##   Bayesian (BIC)                             13160.778   13160.778
-##   Sample-size adjusted Bayesian (BIC)        12910.502   12910.502
-## 
-## Root Mean Square Error of Approximation:
-## 
-##   RMSEA                                          0.065       0.062
-##   90 Percent confidence interval - lower         0.055       0.052
-##   90 Percent confidence interval - upper         0.075       0.072
-##   P-value RMSEA <= 0.05                          0.007       0.026
-##                                                                   
-##   Robust RMSEA                                               0.063
-##   90 Percent confidence interval - lower                     0.053
-##   90 Percent confidence interval - upper                     0.074
-## 
-## Standardized Root Mean Square Residual:
-## 
-##   SRMR                                           0.075       0.075
-## 
-## Parameter Estimates:
-## 
-##   Standard errors                             Sandwich
-##   Information bread                           Observed
-##   Observed information based on                Hessian
-## 
-## Latent Variables:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##   F1 =~                                                                 
-##     item31            1.000                               0.397    0.873
-##     item33            0.823    0.123    6.685    0.000    0.327    0.724
-##     item1             0.990    0.158    6.246    0.000    0.393    0.644
-##     item37            0.901    0.284    3.176    0.001    0.358    0.507
-##     item24            0.437    0.265    1.647    0.100    0.173    0.175
-##   F2 =~                                                                 
-##     item10            1.000                               0.859    0.783
-##     item47            0.856    0.111    7.729    0.000    0.736    0.808
-##     item36            0.945    0.137    6.876    0.000    0.812    0.701
-##     item44           -0.714    0.139   -5.131    0.000   -0.613   -0.490
-##     item35            0.739    0.139    5.300    0.000    0.635    0.508
-##     item13            0.472    0.113    4.163    0.000    0.406    0.373
-##   F3 =~                                                                 
-##     item43            1.000                               1.291    0.951
-##     item26            0.918    0.056   16.313    0.000    1.186    0.843
-##     item32            0.895    0.064   13.928    0.000    1.155    0.872
-##   F4 =~                                                                 
-##     item14            1.000                               0.493    0.263
-##     item7             0.640    0.267    2.392    0.017    0.316    0.171
-##     item11            1.850    0.684    2.706    0.007    0.912    0.708
-##     item42            0.788    0.314    2.513    0.012    0.389    0.225
-##     item12            1.953    0.779    2.509    0.012    0.963    0.845
-##     item16            1.017    0.410    2.479    0.013    0.501    0.343
-##   F5 =~                                                                 
-##     item19            1.000                               0.875    0.683
-##     item34            1.312    0.174    7.555    0.000    1.148    0.831
-##     item2             0.974    0.143    6.827    0.000    0.852    0.606
-## 
-## Covariances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##   F1 ~~                                                                 
-##     F2                0.038    0.033    1.169    0.243    0.112    0.112
-##     F3               -0.019    0.051   -0.372    0.710   -0.037   -0.037
-##     F4                0.013    0.024    0.532    0.595    0.064    0.064
-##     F5                0.027    0.034    0.795    0.427    0.078    0.078
-##   F2 ~~                                                                 
-##     F3               -0.076    0.076   -0.998    0.318   -0.069   -0.069
-##     F4                0.077    0.054    1.443    0.149    0.182    0.182
-##     F5               -0.259    0.088   -2.929    0.003   -0.344   -0.344
-##   F3 ~~                                                                 
-##     F4                0.032    0.065    0.501    0.616    0.051    0.051
-##     F5               -0.035    0.103   -0.339    0.735   -0.031   -0.031
-##   F4 ~~                                                                 
-##     F5               -0.015    0.044   -0.350    0.726   -0.036   -0.036
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.879    0.032   27.295    0.000    0.879    1.935
-##    .item33            0.869    0.032   27.150    0.000    0.869    1.925
-##    .item1             0.990    0.043   22.904    0.000    0.990    1.624
-##    .item37            0.995    0.050   19.900    0.000    0.995    1.411
-##    .item24            1.131    0.070   16.129    0.000    1.131    1.143
-##    .item10            2.543    0.078   32.704    0.000    2.543    2.318
-##    .item47            2.035    0.065   31.553    0.000    2.035    2.237
-##    .item36            2.095    0.082   25.511    0.000    2.095    1.808
-##    .item44            2.995    0.089   33.796    0.000    2.995    2.396
-##    .item35            2.070    0.089   23.362    0.000    2.070    1.656
-##    .item13            2.834    0.077   36.750    0.000    2.834    2.605
-##    .item43            1.578    0.096   16.401    0.000    1.578    1.163
-##    .item26            1.482    0.100   14.868    0.000    1.482    1.054
-##    .item32            1.533    0.094   16.314    0.000    1.533    1.156
-##    .item14            3.020    0.133   22.749    0.000    3.020    1.613
-##    .item7             3.688    0.131   28.175    0.000    3.688    1.997
-##    .item11            2.382    0.091   26.054    0.000    2.382    1.847
-##    .item42            2.935    0.122   23.959    0.000    2.935    1.698
-##    .item12            2.005    0.081   24.793    0.000    2.005    1.758
-##    .item16            3.211    0.104   30.991    0.000    3.211    2.197
-##    .item19            3.930    0.091   43.244    0.000    3.930    3.065
-##    .item34            3.583    0.098   36.558    0.000    3.583    2.592
-##    .item2             2.482    0.100   24.897    0.000    2.482    1.765
-##     F1                0.000                               0.000    0.000
-##     F2                0.000                               0.000    0.000
-##     F3                0.000                               0.000    0.000
-##     F4                0.000                               0.000    0.000
-##     F5                0.000                               0.000    0.000
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.049    0.032    1.533    0.125    0.049    0.237
-##    .item33            0.097    0.058    1.678    0.093    0.097    0.476
-##    .item1             0.217    0.058    3.718    0.000    0.217    0.585
-##    .item37            0.370    0.125    2.952    0.003    0.370    0.743
-##    .item24            0.948    0.200    4.729    0.000    0.948    0.969
-##    .item10            0.465    0.130    3.582    0.000    0.465    0.386
-##    .item47            0.287    0.054    5.359    0.000    0.287    0.347
-##    .item36            0.683    0.094    7.283    0.000    0.683    0.509
-##    .item44            1.187    0.139    8.551    0.000    1.187    0.760
-##    .item35            1.160    0.156    7.447    0.000    1.160    0.742
-##    .item13            1.019    0.112    9.133    0.000    1.019    0.861
-##    .item43            0.175    0.101    1.726    0.084    0.175    0.095
-##    .item26            0.573    0.164    3.500    0.000    0.573    0.289
-##    .item32            0.422    0.114    3.694    0.000    0.422    0.240
-##    .item14            3.264    0.236   13.831    0.000    3.264    0.931
-##    .item7             3.311    0.274   12.104    0.000    3.311    0.971
-##    .item11            0.831    0.172    4.816    0.000    0.831    0.499
-##    .item42            2.835    0.171   16.555    0.000    2.835    0.949
-##    .item12            0.373    0.155    2.413    0.016    0.373    0.287
-##    .item16            1.885    0.199    9.453    0.000    1.885    0.882
-##    .item19            0.877    0.130    6.769    0.000    0.877    0.534
-##    .item34            0.592    0.179    3.319    0.001    0.592    0.310
-##    .item2             1.252    0.144    8.687    0.000    1.252    0.633
-##     F1                0.158    0.033    4.750    0.000    1.000    1.000
-##     F2                0.738    0.147    5.035    0.000    1.000    1.000
-##     F3                1.667    0.246    6.764    0.000    1.000    1.000
-##     F4                0.243    0.170    1.431    0.152    1.000    1.000
-##     F5                0.766    0.164    4.669    0.000    1.000    1.000
-## 
-## R-Square:
-##                    Estimate
-##     item31            0.763
-##     item33            0.524
-##     item1             0.415
-##     item37            0.257
-##     item24            0.031
-##     item10            0.614
-##     item47            0.653
-##     item36            0.491
-##     item44            0.240
-##     item35            0.258
-##     item13            0.139
-##     item43            0.905
-##     item26            0.711
-##     item32            0.760
-##     item14            0.069
-##     item7             0.029
-##     item11            0.501
-##     item42            0.051
-##     item12            0.713
-##     item16            0.118
-##     item19            0.466
-##     item34            0.690
-##     item2             0.367
-\end{verbatim}
-
-\begin{verbatim}
-##          gfi         agfi          nfi          rfi   cfi.robust   tli.robust 
-##        0.974        0.965        0.761        0.725        0.873        0.854 
-## rmsea.robust         srmr          aic 
-##        0.063        0.075    12900.607
-\end{verbatim}
-
-\begin{verbatim}
-##               F1        F2        F3        F4        F5
-## alpha  0.6310368 0.4818562 0.9175522 0.5837683 0.7413266
-## omega  0.6175478 0.6258140 0.9185279 0.5055608 0.7523535
-## omega2 0.6175478 0.6258140 0.9185279 0.5055608 0.7523535
-## omega3 0.5953438 0.6255108 0.9183889 0.4373745 0.7559532
-## avevar 0.2554061 0.3750499 0.7902138 0.1670288 0.5080283
-\end{verbatim}
-
-Based on CFI, TLI, RMSEA and SRMR value the fitted five factor model is not acceptable.
-As a result a close inspection on items with low factor-loadings and low R-square value was conducted. two items were found to be problematic \textbf{item7, item 24} with vary low R-square
-value thus discarded from the model.
-
-\begin{verbatim}
-## lavaan 0.6-9 ended normally after 67 iterations
-## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of model parameters                        73
-##                                                       
-##   Number of observations                           199
-##   Number of missing patterns                         1
-##                                                       
-## Model Test User Model:
-##                                                Standard      Robust
-##   Test Statistic                                273.193     263.376
-##   Degrees of freedom                                179         179
-##   P-value (Chi-square)                            0.000       0.000
-##   Scaling correction factor                                   1.037
-##        Yuan-Bentler correction (Mplus variant)                     
-## 
-## Model Test Baseline Model:
-## 
-##   Test statistic                              1557.809    1230.314
-##   Degrees of freedom                               210         210
-##   P-value                                        0.000       0.000
-##   Scaling correction factor                                  1.266
-## 
-## User Model versus Baseline Model:
-## 
-##   Comparative Fit Index (CFI)                    0.930       0.917
-##   Tucker-Lewis Index (TLI)                       0.918       0.903
-##                                                                   
-##   Robust Comparative Fit Index (CFI)                         0.932
-##   Robust Tucker-Lewis Index (TLI)                            0.921
-## 
-## Loglikelihood and Information Criteria:
-## 
-##   Loglikelihood user model (H0)              -5691.495   -5691.495
-##   Scaling correction factor                                  1.890
-##       for the MLR correction                                      
-##   Loglikelihood unrestricted model (H1)      -5554.899   -5554.899
-##   Scaling correction factor                                  1.284
-##       for the MLR correction                                      
-##                                                                   
-##   Akaike (AIC)                               11528.990   11528.990
-##   Bayesian (BIC)                             11769.401   11769.401
-##   Sample-size adjusted Bayesian (BIC)        11538.134   11538.134
-## 
-## Root Mean Square Error of Approximation:
-## 
-##   RMSEA                                          0.051       0.049
-##   90 Percent confidence interval - lower         0.039       0.036
-##   90 Percent confidence interval - upper         0.063       0.061
-##   P-value RMSEA <= 0.05                          0.412       0.559
-##                                                                   
-##   Robust RMSEA                                               0.050
-##   90 Percent confidence interval - lower                     0.036
-##   90 Percent confidence interval - upper                     0.062
-## 
-## Standardized Root Mean Square Residual:
-## 
-##   SRMR                                           0.068       0.068
-## 
-## Parameter Estimates:
-## 
-##   Standard errors                             Sandwich
-##   Information bread                           Observed
-##   Observed information based on                Hessian
-## 
-## Latent Variables:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##   F1 =~                                                                 
-##     item31            1.000                               0.397    0.873
-##     item33            0.828    0.119    6.962    0.000    0.328    0.727
-##     item1             0.992    0.153    6.503    0.000    0.394    0.645
-##     item37            0.890    0.278    3.203    0.001    0.353    0.501
-##   F2 =~                                                                 
-##     item10            1.000                               0.859    0.783
-##     item47            0.856    0.111    7.739    0.000    0.735    0.808
-##     item36            0.946    0.138    6.876    0.000    0.812    0.701
-##     item35            0.739    0.139    5.300    0.000    0.635    0.508
-##     item13            0.472    0.113    4.162    0.000    0.405    0.373
-##     item44           -0.714    0.139   -5.133    0.000   -0.613   -0.490
-##   F3 =~                                                                 
-##     item43            1.000                               1.291    0.951
-##     item26            0.919    0.056   16.331    0.000    1.186    0.843
-##     item32            0.895    0.064   13.941    0.000    1.155    0.872
-##   F4 =~                                                                 
-##     item14            1.000                               0.444    0.237
-##     item42            0.867    0.332    2.614    0.009    0.385    0.223
-##     item12            2.245    0.830    2.704    0.007    0.996    0.873
-##     item11            2.009    0.720    2.791    0.005    0.891    0.691
-##     item16            1.108    0.445    2.488    0.013    0.492    0.336
-##   F5 =~                                                                 
-##     item19            1.000                               0.875    0.683
-##     item34            1.312    0.173    7.568    0.000    1.148    0.831
-##     item2             0.974    0.143    6.828    0.000    0.852    0.606
-## 
-## Covariances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##   F1 ~~                                                                 
-##     F2                0.037    0.032    1.143    0.253    0.108    0.108
-##     F3               -0.020    0.051   -0.400    0.689   -0.040   -0.040
-##     F4                0.011    0.020    0.535    0.593    0.062    0.062
-##     F5                0.029    0.034    0.843    0.399    0.083    0.083
-##   F2 ~~                                                                 
-##     F3               -0.076    0.076   -0.998    0.318   -0.069   -0.069
-##     F4                0.069    0.048    1.434    0.152    0.181    0.181
-##     F5               -0.259    0.088   -2.931    0.003   -0.344   -0.344
-##   F3 ~~                                                                 
-##     F4                0.025    0.056    0.449    0.654    0.044    0.044
-##     F5               -0.035    0.103   -0.339    0.735   -0.031   -0.031
-##   F4 ~~                                                                 
-##     F5               -0.015    0.039   -0.376    0.707   -0.038   -0.038
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.879    0.032   27.295    0.000    0.879    1.935
-##    .item33            0.869    0.032   27.150    0.000    0.869    1.925
-##    .item1             0.990    0.043   22.904    0.000    0.990    1.624
-##    .item37            0.995    0.050   19.900    0.000    0.995    1.411
-##    .item10            2.543    0.078   32.704    0.000    2.543    2.318
-##    .item47            2.035    0.065   31.553    0.000    2.035    2.237
-##    .item36            2.095    0.082   25.511    0.000    2.095    1.808
-##    .item35            2.070    0.089   23.362    0.000    2.070    1.656
-##    .item13            2.834    0.077   36.750    0.000    2.834    2.605
-##    .item44            2.995    0.089   33.796    0.000    2.995    2.396
-##    .item43            1.578    0.096   16.401    0.000    1.578    1.163
-##    .item26            1.482    0.100   14.868    0.000    1.482    1.054
-##    .item32            1.533    0.094   16.314    0.000    1.533    1.156
-##    .item14            3.020    0.133   22.749    0.000    3.020    1.613
-##    .item42            2.935    0.122   23.959    0.000    2.935    1.698
-##    .item12            2.005    0.081   24.793    0.000    2.005    1.758
-##    .item11            2.382    0.091   26.054    0.000    2.382    1.847
-##    .item16            3.211    0.104   30.991    0.000    3.211    2.197
-##    .item19            3.930    0.091   43.244    0.000    3.930    3.065
-##    .item34            3.583    0.098   36.558    0.000    3.583    2.592
-##    .item2             2.482    0.100   24.897    0.000    2.482    1.765
-##     F1                0.000                               0.000    0.000
-##     F2                0.000                               0.000    0.000
-##     F3                0.000                               0.000    0.000
-##     F4                0.000                               0.000    0.000
-##     F5                0.000                               0.000    0.000
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.049    0.031    1.578    0.115    0.049    0.238
-##    .item33            0.096    0.058    1.669    0.095    0.096    0.472
-##    .item1             0.217    0.058    3.717    0.000    0.217    0.583
-##    .item37            0.373    0.124    3.005    0.003    0.373    0.749
-##    .item10            0.465    0.130    3.584    0.000    0.465    0.387
-##    .item47            0.287    0.054    5.343    0.000    0.287    0.347
-##    .item36            0.683    0.094    7.276    0.000    0.683    0.509
-##    .item35            1.160    0.156    7.452    0.000    1.160    0.742
-##    .item13            1.019    0.112    9.133    0.000    1.019    0.861
-##    .item44            1.187    0.139    8.549    0.000    1.187    0.759
-##    .item43            0.175    0.101    1.731    0.083    0.175    0.095
-##    .item26            0.572    0.164    3.498    0.000    0.572    0.289
-##    .item32            0.422    0.114    3.695    0.000    0.422    0.240
-##    .item14            3.310    0.213   15.534    0.000    3.310    0.944
-##    .item42            2.838    0.170   16.714    0.000    2.838    0.950
-##    .item12            0.310    0.180    1.719    0.086    0.310    0.238
-##    .item11            0.869    0.182    4.765    0.000    0.869    0.522
-##    .item16            1.895    0.201    9.419    0.000    1.895    0.887
-##    .item19            0.877    0.129    6.775    0.000    0.877    0.534
-##    .item34            0.593    0.178    3.327    0.001    0.593    0.310
-##    .item2             1.252    0.144    8.693    0.000    1.252    0.633
-##     F1                0.157    0.032    4.874    0.000    1.000    1.000
-##     F2                0.738    0.146    5.037    0.000    1.000    1.000
-##     F3                1.667    0.246    6.765    0.000    1.000    1.000
-##     F4                0.197    0.132    1.493    0.136    1.000    1.000
-##     F5                0.766    0.164    4.669    0.000    1.000    1.000
-## 
-## R-Square:
-##                    Estimate
-##     item31            0.762
-##     item33            0.528
-##     item1             0.417
-##     item37            0.251
-##     item10            0.613
-##     item47            0.653
-##     item36            0.491
-##     item35            0.258
-##     item13            0.139
-##     item44            0.241
-##     item43            0.905
-##     item26            0.711
-##     item32            0.760
-##     item14            0.056
-##     item42            0.050
-##     item12            0.762
-##     item11            0.478
-##     item16            0.113
-##     item19            0.466
-##     item34            0.690
-##     item2             0.367
-\end{verbatim}
-
-\begin{verbatim}
-##               F1        F2        F3        F4        F5
-## alpha  0.7547222 0.4818562 0.9175522 0.5566040 0.7413266
-## omega  0.7466444 0.6258291 0.9185357 0.5272886 0.7523499
-## omega2 0.7466444 0.6258291 0.9185357 0.5272886 0.7523499
-## omega3 0.7344825 0.6255092 0.9184124 0.4921277 0.7559546
-## avevar 0.4256850 0.3750895 0.7902299 0.2046565 0.5080155
-\end{verbatim}
-
-\begin{verbatim}
-##        lhs op    rhs     mi    epc sepc.lv sepc.all sepc.nox
-## 168 item31 ~~ item33 17.975  0.090   0.090    1.313    1.313
-## 136     F4 =~  item1 14.553  0.339   0.150    0.247    0.247
-## 245 item10 ~~ item13 13.377  0.222   0.222    0.322    0.322
-## 134     F4 =~ item31 11.467 -0.210  -0.093   -0.205   -0.205
-## 359 item42 ~~ item16 11.094  0.562   0.562    0.242    0.242
-## 207  item1 ~~ item37 10.910  0.078   0.078    0.274    0.274
-## 104     F2 =~ item37 10.403  0.184   0.158    0.224    0.224
-## 363 item12 ~~ item11  9.624  1.312   1.312    2.529    2.529
-## 339 item26 ~~ item19  8.623  0.177   0.177    0.250    0.250
-## 137     F4 =~ item37  7.959  0.316   0.140    0.199    0.199
-## 101     F2 =~ item31  7.808 -0.089  -0.076   -0.167   -0.167
-## 237 item37 ~~ item11  7.249  0.122   0.122    0.215    0.215
-## 218  item1 ~~ item42  7.190  0.159   0.159    0.203    0.203
-## 188 item33 ~~  item1  6.541 -0.046  -0.046   -0.318   -0.318
-## 308 item13 ~~ item16  6.525  0.258   0.258    0.186    0.186
-## 332 item43 ~~  item2  6.427  0.140   0.140    0.300    0.300
-## 350 item14 ~~ item42  5.773  0.530   0.530    0.173    0.173
-## 362 item42 ~~  item2  5.298  0.330   0.330    0.175    0.175
-## 100     F1 =~  item2  5.261 -0.547  -0.217   -0.154   -0.154
-## 233 item37 ~~ item32  5.251  0.074   0.074    0.186    0.186
-## 173 item31 ~~ item36  5.150 -0.045  -0.045   -0.248   -0.248
-## 330 item43 ~~ item19  5.106 -0.109  -0.109   -0.277   -0.277
-## 192 item33 ~~ item36  4.870  0.048   0.048    0.187    0.187
-## 167     F5 =~ item16  4.750  0.278   0.243    0.166    0.166
-## 170 item31 ~~ item37  4.638 -0.042  -0.042   -0.313   -0.313
-## 141     F4 =~ item35  4.630  0.435   0.193    0.154    0.154
-## 258 item47 ~~ item36  4.608  0.121   0.121    0.273    0.273
-## 358 item42 ~~ item11  4.551 -0.293  -0.293   -0.187   -0.187
-## 115     F2 =~  item2  4.513 -0.260  -0.224   -0.159   -0.159
-## 226 item37 ~~ item47  4.505  0.060   0.060    0.184    0.184
-## 114     F2 =~ item34  4.482  0.276   0.237    0.172    0.172
-## 219  item1 ~~ item12  4.328  0.064   0.064    0.247    0.247
-## 206 item33 ~~  item2  4.291 -0.060  -0.060   -0.173   -0.173
-## 96      F1 =~ item11  4.020 -0.412  -0.164   -0.127   -0.127
-\end{verbatim}
-
-\begin{verbatim}
-## lavaan 0.6-9 ended normally after 67 iterations
-## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of model parameters                        75
-##                                                       
-##   Number of observations                           199
-##   Number of missing patterns                         1
-##                                                       
-## Model Test User Model:
-##                                                Standard      Robust
-##   Test Statistic                                233.643     228.963
-##   Degrees of freedom                                177         177
-##   P-value (Chi-square)                            0.003       0.005
-##   Scaling correction factor                                   1.020
-##        Yuan-Bentler correction (Mplus variant)                     
-## 
-## Model Test Baseline Model:
-## 
-##   Test statistic                              1557.809    1230.314
-##   Degrees of freedom                               210         210
-##   P-value                                        0.000       0.000
-##   Scaling correction factor                                  1.266
-## 
-## User Model versus Baseline Model:
-## 
-##   Comparative Fit Index (CFI)                    0.958       0.949
-##   Tucker-Lewis Index (TLI)                       0.950       0.940
-##                                                                   
-##   Robust Comparative Fit Index (CFI)                         0.959
-##   Robust Tucker-Lewis Index (TLI)                            0.951
-## 
-## Loglikelihood and Information Criteria:
-## 
-##   Loglikelihood user model (H0)              -5671.720   -5671.720
-##   Scaling correction factor                                  1.907
-##       for the MLR correction                                      
-##   Loglikelihood unrestricted model (H1)      -5554.899   -5554.899
-##   Scaling correction factor                                  1.284
-##       for the MLR correction                                      
-##                                                                   
-##   Akaike (AIC)                               11493.441   11493.441
-##   Bayesian (BIC)                             11740.438   11740.438
-##   Sample-size adjusted Bayesian (BIC)        11502.834   11502.834
-## 
-## Root Mean Square Error of Approximation:
-## 
-##   RMSEA                                          0.040       0.038
-##   90 Percent confidence interval - lower         0.024       0.022
-##   90 Percent confidence interval - upper         0.053       0.052
-##   P-value RMSEA <= 0.05                          0.884       0.920
-##                                                                   
-##   Robust RMSEA                                               0.039
-##   90 Percent confidence interval - lower                     0.022
-##   90 Percent confidence interval - upper                     0.052
-## 
-## Standardized Root Mean Square Residual:
-## 
-##   SRMR                                           0.061       0.061
-## 
-## Parameter Estimates:
-## 
-##   Standard errors                             Sandwich
-##   Information bread                           Observed
-##   Observed information based on                Hessian
-## 
-## Latent Variables:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##   F1 =~                                                                 
-##     item31            1.000                               0.293    0.645
-##     item33            0.755    0.145    5.204    0.000    0.221    0.490
-##     item1             1.782    0.655    2.721    0.007    0.522    0.856
-##     item37            1.345    0.379    3.548    0.000    0.394    0.559
-##   F2 =~                                                                 
-##     item10            1.000                               0.858    0.782
-##     item47            0.859    0.109    7.846    0.000    0.736    0.809
-##     item36            0.947    0.137    6.937    0.000    0.813    0.701
-##     item35            0.740    0.139    5.318    0.000    0.634    0.507
-##     item13            0.475    0.114    4.169    0.000    0.407    0.374
-##     item44           -0.714    0.139   -5.146    0.000   -0.612   -0.490
-##   F3 =~                                                                 
-##     item43            1.000                               1.291    0.951
-##     item26            0.918    0.056   16.327    0.000    1.185    0.843
-##     item32            0.895    0.064   13.889    0.000    1.155    0.872
-##   F4 =~                                                                 
-##     item14            1.000                               0.658    0.351
-##     item42            1.470    0.481    3.058    0.002    0.967    0.559
-##     item12            0.797    0.266    2.995    0.003    0.524    0.459
-##     item11            0.527    0.254    2.078    0.038    0.347    0.269
-##     item16            0.993    0.429    2.313    0.021    0.653    0.447
-##   F5 =~                                                                 
-##     item19            1.000                               0.870    0.679
-##     item34            1.313    0.167    7.871    0.000    1.142    0.826
-##     item2             0.995    0.150    6.653    0.000    0.866    0.615
-## 
-## Covariances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##  .item31 ~~                                                             
-##    .item33            0.070    0.027    2.632    0.008    0.070    0.513
-##  .item12 ~~                                                             
-##    .item11            0.716    0.139    5.135    0.000    0.716    0.569
-##   F1 ~~                                                                 
-##     F2                0.050    0.027    1.849    0.064    0.197    0.197
-##     F3               -0.008    0.035   -0.239    0.811   -0.022   -0.022
-##     F4                0.080    0.031    2.530    0.011    0.413    0.413
-##     F5                0.010    0.026    0.395    0.693    0.040    0.040
-##   F2 ~~                                                                 
-##     F3               -0.076    0.076   -1.000    0.317   -0.069   -0.069
-##     F4                0.119    0.083    1.424    0.154    0.210    0.210
-##     F5               -0.259    0.087   -2.972    0.003   -0.347   -0.347
-##   F3 ~~                                                                 
-##     F4                0.073    0.102    0.716    0.474    0.086    0.086
-##     F5               -0.034    0.102   -0.336    0.737   -0.031   -0.031
-##   F4 ~~                                                                 
-##     F5                0.089    0.076    1.171    0.242    0.155    0.155
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.879    0.032   27.295    0.000    0.879    1.935
-##    .item33            0.869    0.032   27.150    0.000    0.869    1.925
-##    .item1             0.990    0.043   22.904    0.000    0.990    1.624
-##    .item37            0.995    0.050   19.900    0.000    0.995    1.411
-##    .item10            2.543    0.078   32.704    0.000    2.543    2.318
-##    .item47            2.035    0.065   31.553    0.000    2.035    2.237
-##    .item36            2.095    0.082   25.511    0.000    2.095    1.808
-##    .item35            2.070    0.089   23.362    0.000    2.070    1.656
-##    .item13            2.834    0.077   36.750    0.000    2.834    2.605
-##    .item44            2.995    0.089   33.796    0.000    2.995    2.396
-##    .item43            1.578    0.096   16.401    0.000    1.578    1.163
-##    .item26            1.482    0.100   14.868    0.000    1.482    1.054
-##    .item32            1.533    0.094   16.314    0.000    1.533    1.156
-##    .item14            3.020    0.133   22.749    0.000    3.020    1.613
-##    .item42            2.935    0.122   23.959    0.000    2.935    1.698
-##    .item12            2.005    0.081   24.793    0.000    2.005    1.758
-##    .item11            2.382    0.091   26.054    0.000    2.382    1.847
-##    .item16            3.211    0.104   30.991    0.000    3.211    2.197
-##    .item19            3.930    0.091   43.244    0.000    3.930    3.065
-##    .item34            3.583    0.098   36.558    0.000    3.583    2.592
-##    .item2             2.482    0.100   24.897    0.000    2.482    1.765
-##     F1                0.000                               0.000    0.000
-##     F2                0.000                               0.000    0.000
-##     F3                0.000                               0.000    0.000
-##     F4                0.000                               0.000    0.000
-##     F5                0.000                               0.000    0.000
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.121    0.035    3.491    0.000    0.121    0.584
-##    .item33            0.155    0.070    2.218    0.027    0.155    0.760
-##    .item1             0.099    0.090    1.099    0.272    0.099    0.267
-##    .item37            0.342    0.130    2.621    0.009    0.342    0.688
-##    .item10            0.468    0.128    3.650    0.000    0.468    0.389
-##    .item47            0.286    0.054    5.312    0.000    0.286    0.345
-##    .item36            0.682    0.094    7.244    0.000    0.682    0.508
-##    .item35            1.161    0.155    7.465    0.000    1.161    0.743
-##    .item13            1.018    0.112    9.101    0.000    1.018    0.860
-##    .item44            1.188    0.138    8.579    0.000    1.188    0.760
-##    .item43            0.175    0.101    1.731    0.083    0.175    0.095
-##    .item26            0.573    0.164    3.503    0.000    0.573    0.290
-##    .item32            0.422    0.114    3.684    0.000    0.422    0.240
-##    .item14            3.075    0.292   10.534    0.000    3.075    0.877
-##    .item42            2.051    0.322    6.376    0.000    2.051    0.687
-##    .item12            1.027    0.150    6.867    0.000    1.027    0.789
-##    .item11            1.543    0.172    8.957    0.000    1.543    0.928
-##    .item16            1.710    0.272    6.292    0.000    1.710    0.800
-##    .item19            0.886    0.131    6.783    0.000    0.886    0.539
-##    .item34            0.606    0.178    3.402    0.001    0.606    0.317
-##    .item2             1.229    0.150    8.214    0.000    1.229    0.621
-##     F1                0.086    0.036    2.376    0.017    1.000    1.000
-##     F2                0.735    0.145    5.067    0.000    1.000    1.000
-##     F3                1.667    0.246    6.771    0.000    1.000    1.000
-##     F4                0.433    0.228    1.902    0.057    1.000    1.000
-##     F5                0.757    0.162    4.668    0.000    1.000    1.000
-## 
-## R-Square:
-##                    Estimate
-##     item31            0.416
-##     item33            0.240
-##     item1             0.733
-##     item37            0.312
-##     item10            0.611
-##     item47            0.655
-##     item36            0.492
-##     item35            0.257
-##     item13            0.140
-##     item44            0.240
-##     item43            0.905
-##     item26            0.710
-##     item32            0.760
-##     item14            0.123
-##     item42            0.313
-##     item12            0.211
-##     item11            0.072
-##     item16            0.200
-##     item19            0.461
-##     item34            0.683
-##     item2             0.379
-\end{verbatim}
-
-\begin{verbatim}
-##               F1        F2        F3        F4        F5     total
-## alpha  0.7547222 0.4818562 0.9175522 0.5566040 0.7413266 0.5705737
-## omega  0.7047603 0.6261744 0.9185244 0.4777356 0.7527269 0.7006145
-## omega2 0.7047603 0.6261744 0.9185244 0.4777356 0.7527269 0.7006145
-## omega3 0.6939390 0.6265598 0.9183878 0.4742914 0.7572671 0.6879404
-## avevar 0.4397748 0.3749622 0.7902041 0.1887734 0.5081583 0.4058147
-\end{verbatim}
-
-\begin{verbatim}
-## lavaan 0.6-9 ended normally after 86 iterations
-## 
-##   Estimator                                         ML
-##   Optimization method                           NLMINB
-##   Number of model parameters                        91
-##                                                       
-##   Number of observations                           199
-##   Number of missing patterns                         1
-##                                                       
-## Model Test User Model:
-##                                                Standard      Robust
-##   Test Statistic                                312.650     319.502
-##   Degrees of freedom                                233         233
-##   P-value (Chi-square)                            0.000       0.000
-##   Scaling correction factor                                   0.979
-##        Yuan-Bentler correction (Mplus variant)                     
-## 
-## Model Test Baseline Model:
-## 
-##   Test statistic                              1718.830    1439.817
-##   Degrees of freedom                               276         276
-##   P-value                                        0.000       0.000
-##   Scaling correction factor                                  1.194
-## 
-## User Model versus Baseline Model:
-## 
-##   Comparative Fit Index (CFI)                    0.945       0.926
-##   Tucker-Lewis Index (TLI)                       0.935       0.912
-##                                                                   
-##   Robust Comparative Fit Index (CFI)                         0.939
-##   Robust Tucker-Lewis Index (TLI)                            0.928
-## 
-## Loglikelihood and Information Criteria:
-## 
-##   Loglikelihood user model (H0)              -6703.605   -6703.605
-##   Scaling correction factor                                  1.802
-##       for the MLR correction                                      
-##   Loglikelihood unrestricted model (H1)      -6547.280   -6547.280
-##   Scaling correction factor                                  1.210
-##       for the MLR correction                                      
-##                                                                   
-##   Akaike (AIC)                               13589.210   13589.210
-##   Bayesian (BIC)                             13888.900   13888.900
-##   Sample-size adjusted Bayesian (BIC)        13600.607   13600.607
-## 
-## Root Mean Square Error of Approximation:
-## 
-##   RMSEA                                          0.041       0.043
-##   90 Percent confidence interval - lower         0.028       0.031
-##   90 Percent confidence interval - upper         0.053       0.055
-##   P-value RMSEA <= 0.05                          0.885       0.830
-##                                                                   
-##   Robust RMSEA                                               0.043
-##   90 Percent confidence interval - lower                     0.030
-##   90 Percent confidence interval - upper                     0.054
-## 
-## Standardized Root Mean Square Residual:
-## 
-##   SRMR                                           0.065       0.065
-## 
-## Parameter Estimates:
-## 
-##   Standard errors                             Sandwich
-##   Information bread                           Observed
-##   Observed information based on                Hessian
-## 
-## Latent Variables:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##   F1 =~                                                                 
-##     item31            1.000                               0.294    0.646
-##     item33            0.752    0.145    5.183    0.000    0.221    0.489
-##     item1             1.776    0.638    2.781    0.005    0.521    0.855
-##     item37            1.344    0.379    3.549    0.000    0.395    0.560
-##   F2 =~                                                                 
-##     item10            1.000                               0.830    0.757
-##     item47            0.899    0.124    7.268    0.000    0.747    0.821
-##     item36            0.997    0.151    6.609    0.000    0.828    0.714
-##     item35            0.766    0.147    5.201    0.000    0.636    0.509
-##     item13            0.398    0.119    3.347    0.001    0.330    0.303
-##     item44           -0.751    0.146   -5.135    0.000   -0.624   -0.499
-##   F3 =~                                                                 
-##     item43            1.000                               1.297    0.956
-##     item26            0.904    0.055   16.458    0.000    1.173    0.838
-##     item32            0.887    0.063   14.039    0.000    1.150    0.868
-##   F4 =~                                                                 
-##     item14            1.000                               0.632    0.337
-##     item42            1.476    0.486    3.039    0.002    0.932    0.540
-##     item12            0.855    0.351    2.437    0.015    0.540    0.474
-##     item11            0.595    0.375    1.586    0.113    0.376    0.292
-##     item16            1.088    0.568    1.916    0.055    0.687    0.470
-##   F5 =~                                                                 
-##     item19            1.000                               0.889    0.689
-##     item34            1.271    0.147    8.639    0.000    1.130    0.817
-##     item2             0.990    0.147    6.759    0.000    0.880    0.626
-##   F6 =~                                                                 
-##     item38            1.000                               0.526    0.388
-##     item28            2.058    3.153    0.653    0.514    1.083    0.737
-##     item45            1.518    0.693    2.192    0.028    0.799    0.512
-## 
-## Covariances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##  .item31 ~~                                                             
-##    .item33            0.070    0.026    2.680    0.007    0.070    0.513
-##  .item10 ~~                                                             
-##    .item13            0.218    0.098    2.213    0.027    0.218    0.293
-##  .item12 ~~                                                             
-##    .item11            0.694    0.153    4.549    0.000    0.694    0.560
-##  .item26 ~~                                                             
-##    .item19            0.179    0.072    2.487    0.013    0.179    0.250
-##   F1 ~~                                                                 
-##     F2                0.047    0.026    1.860    0.063    0.195    0.195
-##     F3               -0.008    0.035   -0.238    0.812   -0.022   -0.022
-##     F4                0.075    0.036    2.120    0.034    0.407    0.407
-##     F5                0.011    0.027    0.403    0.687    0.041    0.041
-##     F6                0.021    0.053    0.406    0.685    0.138    0.138
-##   F2 ~~                                                                 
-##     F3               -0.086    0.072   -1.181    0.237   -0.079   -0.079
-##     F4                0.094    0.084    1.116    0.265    0.179    0.179
-##     F5               -0.258    0.086   -3.002    0.003   -0.350   -0.350
-##     F6               -0.035    0.146   -0.240    0.810   -0.080   -0.080
-##   F3 ~~                                                                 
-##     F4                0.079    0.098    0.804    0.421    0.096    0.096
-##     F5               -0.039    0.105   -0.374    0.708   -0.034   -0.034
-##     F6               -0.025    0.132   -0.187    0.851   -0.036   -0.036
-##   F4 ~~                                                                 
-##     F5                0.087    0.076    1.133    0.257    0.154    0.154
-##     F6                0.081    0.054    1.488    0.137    0.243    0.243
-##   F5 ~~                                                                 
-##     F6                0.114    0.150    0.759    0.448    0.244    0.244
-## 
-## Intercepts:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.879    0.032   27.295    0.000    0.879    1.935
-##    .item33            0.869    0.032   27.150    0.000    0.869    1.925
-##    .item1             0.990    0.043   22.904    0.000    0.990    1.624
-##    .item37            0.995    0.050   19.900    0.000    0.995    1.411
-##    .item10            2.543    0.078   32.704    0.000    2.543    2.318
-##    .item47            2.035    0.065   31.553    0.000    2.035    2.237
-##    .item36            2.095    0.082   25.511    0.000    2.095    1.808
-##    .item35            2.070    0.089   23.362    0.000    2.070    1.656
-##    .item13            2.834    0.077   36.750    0.000    2.834    2.605
-##    .item44            2.995    0.089   33.796    0.000    2.995    2.396
-##    .item43            1.578    0.096   16.401    0.000    1.578    1.163
-##    .item26            1.482    0.100   14.868    0.000    1.482    1.060
-##    .item32            1.533    0.094   16.314    0.000    1.533    1.156
-##    .item14            3.020    0.133   22.749    0.000    3.020    1.613
-##    .item42            2.935    0.122   23.959    0.000    2.935    1.698
-##    .item12            2.005    0.081   24.793    0.000    2.005    1.758
-##    .item11            2.382    0.091   26.054    0.000    2.382    1.847
-##    .item16            3.211    0.104   30.991    0.000    3.211    2.197
-##    .item19            3.930    0.091   43.244    0.000    3.930    3.043
-##    .item34            3.583    0.098   36.558    0.000    3.583    2.592
-##    .item2             2.482    0.100   24.897    0.000    2.482    1.765
-##    .item38            2.201    0.096   22.896    0.000    2.201    1.623
-##    .item28            2.111    0.104   20.264    0.000    2.111    1.437
-##    .item45            2.432    0.111   21.981    0.000    2.432    1.558
-##     F1                0.000                               0.000    0.000
-##     F2                0.000                               0.000    0.000
-##     F3                0.000                               0.000    0.000
-##     F4                0.000                               0.000    0.000
-##     F5                0.000                               0.000    0.000
-##     F6                0.000                               0.000    0.000
-## 
-## Variances:
-##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-##    .item31            0.120    0.034    3.520    0.000    0.120    0.583
-##    .item33            0.155    0.070    2.220    0.026    0.155    0.761
-##    .item1             0.100    0.087    1.155    0.248    0.100    0.269
-##    .item37            0.342    0.129    2.641    0.008    0.342    0.687
-##    .item10            0.513    0.131    3.925    0.000    0.513    0.427
-##    .item47            0.270    0.057    4.734    0.000    0.270    0.327
-##    .item36            0.657    0.096    6.878    0.000    0.657    0.490
-##    .item35            1.158    0.157    7.382    0.000    1.158    0.741
-##    .item13            1.075    0.103   10.395    0.000    1.075    0.908
-##    .item44            1.174    0.137    8.550    0.000    1.174    0.751
-##    .item43            0.160    0.091    1.757    0.079    0.160    0.087
-##    .item26            0.582    0.166    3.505    0.000    0.582    0.297
-##    .item32            0.434    0.114    3.813    0.000    0.434    0.247
-##    .item14            3.108    0.316    9.836    0.000    3.108    0.886
-##    .item42            2.116    0.334    6.345    0.000    2.116    0.709
-##    .item12            1.009    0.148    6.804    0.000    1.009    0.776
-##    .item11            1.522    0.190    8.005    0.000    1.522    0.915
-##    .item16            1.664    0.316    5.267    0.000    1.664    0.779
-##    .item19            0.877    0.132    6.664    0.000    0.877    0.526
-##    .item34            0.634    0.162    3.905    0.000    0.634    0.332
-##    .item2             1.203    0.151    7.993    0.000    1.203    0.608
-##    .item38            1.562    0.478    3.270    0.001    1.562    0.849
-##    .item28            0.985    1.584    0.622    0.534    0.985    0.456
-##    .item45            1.798    0.670    2.681    0.007    1.798    0.738
-##     F1                0.086    0.036    2.407    0.016    1.000    1.000
-##     F2                0.690    0.150    4.608    0.000    1.000    1.000
-##     F3                1.682    0.244    6.901    0.000    1.000    1.000
-##     F4                0.399    0.251    1.588    0.112    1.000    1.000
-##     F5                0.791    0.161    4.899    0.000    1.000    1.000
-##     F6                0.277    0.473    0.586    0.558    1.000    1.000
-## 
-## R-Square:
-##                    Estimate
-##     item31            0.417
-##     item33            0.239
-##     item1             0.731
-##     item37            0.313
-##     item10            0.573
-##     item47            0.673
-##     item36            0.510
-##     item35            0.259
-##     item13            0.092
-##     item44            0.249
-##     item43            0.913
-##     item26            0.703
-##     item32            0.753
-##     item14            0.114
-##     item42            0.291
-##     item12            0.224
-##     item11            0.085
-##     item16            0.221
-##     item19            0.474
-##     item34            0.668
-##     item2             0.392
-##     item38            0.151
-##     item28            0.544
-##     item45            0.262
-\end{verbatim}
-
-\begin{verbatim}
-##               F1        F2        F3        F4        F5        F6     total
-## alpha  0.7547222 0.4818562 0.9175522 0.5566040 0.7413266 0.5529540 0.5867087
-## omega  0.7047233 0.5882585 0.9176537 0.4814294 0.7559836 0.5718535 0.6975681
-## omega2 0.7047233 0.5882585 0.9176537 0.4814294 0.7559836 0.5718535 0.6975681
-## omega3 0.6939357 0.5880241 0.9123335 0.4801057 0.7686670 0.5694246 0.6768555
-## avevar 0.4396193 0.3689684 0.7883714 0.1875180 0.5116007 0.3247497 0.3906214
-\end{verbatim}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -1155,85 +360,133 @@ value thus discarded from the model.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-R-equate}{}}%
-Albano, A. D. (2016). {equate}: An {R} package for observed-score linking and equating. \emph{Journal of Statistical Software}, \emph{74}(8), 1--36. \url{https://doi.org/10.18637/jss.v074.i08}
+\leavevmode\hypertarget{ref-R-papaja}{}%
+Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Prepare} reproducible {APA} journal articles with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
-Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Create} {APA} manuscripts with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
+\leavevmode\hypertarget{ref-bakerBasicsItemResponse2017}{}%
+Baker, F. B. (2017). \emph{The {Basics} of {Item Response Theory Using R}} (1st ed. 2017.). {Springer}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-Matrix}{}}%
-Bates, D., \& Maechler, M. (2021). \emph{Matrix: Sparse and dense matrix classes and methods}. Retrieved from \url{https://CRAN.R-project.org/package=Matrix}
+\leavevmode\hypertarget{ref-bandalosFactorAnalysisExploratory2018}{}%
+Bandalos, D. L., \& Finney, S. J. (2018). Factor analysis: {Exploratory} and confirmatory. In \emph{The reviewer's guide to quantitative methods in the social sciences} (pp. 98--122). {Routledge}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lme4}{}}%
-Bates, D., Mächler, M., Bolker, B., \& Walker, S. (2015). Fitting linear mixed-effects models using {lme4}. \emph{Journal of Statistical Software}, \emph{67}(1), 1--48. \url{https://doi.org/10.18637/jss.v067.i01}
+\leavevmode\hypertarget{ref-R-tinylabels}{}%
+Barth, M. (2021). \emph{{tinylabels}: Lightweight variable labels}. Retrieved from \url{https://github.com/mariusbarth/tinylabels}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-hemp}{}}%
-Bulut, O. (2021). \emph{Hemp: Handbook of educational measurement and psychometrics using r companion package}.
+\leavevmode\hypertarget{ref-bartlettNoteMultiplyingFactors1954}{}%
+Bartlett, M. (1954). A {Note} on the {Multiplying Factors} for {Various Chi}-square {Approximations}. \emph{Journal of the Royal Statistical Society. Series B, Methodological}, \emph{16}(2), 296--298.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-mirt}{}}%
-Chalmers, R. P. (2012). {mirt}: A multidimensional item response theory package for the {R} environment. \emph{Journal of Statistical Software}, \emph{48}(6), 1--29. \url{https://doi.org/10.18637/jss.v048.i06}
+\leavevmode\hypertarget{ref-R-MOTE}{}%
+Buchanan, E. M., Gillenwaters, A., Scofield, J. E., \& Valentine, K. D. (2019). \emph{{MOTE: Measure of the Effect}: Package to assist in effect size calculations and their confidence intervals}. Retrieved from \url{http://github.com/doomlab/MOTE}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-boot}{}}%
-Davison, A. C., \& Hinkley, D. V. (1997). \emph{Bootstrap methods and their applications}. Cambridge: Cambridge University Press. Retrieved from \url{http://statwww.epfl.ch/davison/BMA/}
+\leavevmode\hypertarget{ref-cattellScreeTestNumber1966}{}%
+Cattell, R. B. (1966). The {Scree Test For The Number Of Factors}. \emph{Multivariate Behavioral Research}, \emph{1}(2), 245--276. \url{https://doi.org/10.1207/s15327906mbr0102_10}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-semPlot}{}}%
+\leavevmode\hypertarget{ref-childEssentialsFactorAnalysis2006}{}%
+Child, D. (2006). \emph{Essentials of factor analysis} (3rd ed.). {New York: Continuum}.
+
+\leavevmode\hypertarget{ref-desjardinsHandbookEducationalMeasurement2018}{}%
+Desjardins, C., \& Bulut, O. (2018). \emph{Handbook of {Educational Measurement} and {Psychometrics Using R}}. \url{https://doi.org/10.1201/b20498}
+
+\leavevmode\hypertarget{ref-R-paran}{}%
+Dinno, A. (2018). \emph{Paran: Horn's test of principal components/factors}. Retrieved from \url{https://CRAN.R-project.org/package=paran}
+
+\leavevmode\hypertarget{ref-R-semPlot}{}%
 Epskamp, S. (2019). \emph{semPlot: Path diagrams and visual analysis of various SEM packages' output}. Retrieved from \url{https://CRAN.R-project.org/package=semPlot}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-qgraph}{}}%
+\leavevmode\hypertarget{ref-R-qgraph}{}%
 Epskamp, S., Cramer, A. O. J., Waldorp, L. J., Schmittmann, V. D., \& Borsboom, D. (2012). {qgraph}: Network visualizations of relationships in psychometric data. \emph{Journal of Statistical Software}, \emph{48}(4), 1--18.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-purrr}{}}%
+\leavevmode\hypertarget{ref-furrPsychometricsIntroduction2014}{}%
+Furr, R. M. (2014). \emph{Psychometrics : An introduction} (2nd ed.). {Thousand Oaks}: {Thousand Oaks : SAGE}.
+
+\leavevmode\hypertarget{ref-R-purrr}{}%
 Henry, L., \& Wickham, H. (2020). \emph{Purrr: Functional programming tools}. Retrieved from \url{https://CRAN.R-project.org/package=purrr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-semTools}{}}%
+\leavevmode\hypertarget{ref-hornRationaleTestNumber1965}{}%
+Horn, J. L. (1965). A rationale and test for the number of factors in factor analysis. \emph{Psychometrika}, \emph{30}(2), 179--185. \url{https://doi.org/10.1007/BF02289447}
+
+\leavevmode\hypertarget{ref-hutchesonMultivariateSocialScientist1999}{}%
+Hutcheson, G. D. (1999). \emph{The multivariate social scientist : Introductory statistics using generalized linear models}. {London : SAGE}.
+
+\leavevmode\hypertarget{ref-R-DiagrammeRsvg}{}%
+Iannone, R. (2016). \emph{DiagrammeRsvg: Export DiagrammeR graphviz graphs as SVG}. Retrieved from \url{https://CRAN.R-project.org/package=DiagrammeRsvg}
+
+\leavevmode\hypertarget{ref-R-DiagrammeR}{}%
+Iannone, R. (2021). \emph{DiagrammeR: Graph/network visualization}. Retrieved from \url{https://github.com/rich-iannone/DiagrammeR}
+
+\leavevmode\hypertarget{ref-R-semTools}{}%
 Jorgensen, T. D., Pornprasertmanit, S., Schoemann, A. M., \& Rosseel, Y. (2021). \emph{\texttt{semTools}: {U}seful tools for structural equation modeling}. Retrieved from \url{https://CRAN.R-project.org/package=semTools}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tibble}{}}%
+\leavevmode\hypertarget{ref-kaiserIndexFactorialSimplicity1974}{}%
+Kaiser, H. F. (1974). An index of factorial simplicity. \emph{Psychometrika}, \emph{39}(1), 31--36. \url{https://doi.org/10.1007/bf02291575}
+
+\leavevmode\hypertarget{ref-lorenzo-sevaHullMethodSelecting2011}{}%
+Lorenzo-Seva, U., Timmerman, M., \& Kiers, H. (2011). The {Hull Method} for {Selecting} the {Number} of {Common Factors}. \emph{Multivariate Behavioral Research}, \emph{46}, 340--364. \url{https://doi.org/10.1080/00273171.2011.564527}
+
+\leavevmode\hypertarget{ref-mardiaMeasuresMultivariateSkewness1970}{}%
+Mardia, K. V. (1970). Measures of multivariate skewness and kurtosis with applications. \emph{Biometrika}, \emph{57}(3), 519--530. \url{https://doi.org/10.1093/biomet/57.3.519}
+
+\leavevmode\hypertarget{ref-mulaikFoundationsFactorAnalysis2009}{}%
+Mulaik, S. A. (2009). \emph{Foundations of {Factor Analysis}} (Vol. 7). {London}: {London: Chapman and Hall/CRC}. \url{https://doi.org/10.1201/b15851}
+
+\leavevmode\hypertarget{ref-R-tibble}{}%
 Müller, K., \& Wickham, H. (2021). \emph{Tibble: Simple data frames}. Retrieved from \url{https://CRAN.R-project.org/package=tibble}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
-R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+\leavevmode\hypertarget{ref-R-EFA.MRFA}{}%
+Navarro-Gonzalez, D., \& Lorenzo-Seva, U. (2021). \emph{EFA.MRFA: Dimensionality assessment using minimum rank factor analysis}. Retrieved from \url{https://CRAN.R-project.org/package=EFA.MRFA}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-psych}{}}%
+\leavevmode\hypertarget{ref-R-rsvg}{}%
+Ooms, J. (2021). \emph{Rsvg: Render SVG images into PDF, PNG, PostScript, or bitmap arrays}. Retrieved from \url{https://CRAN.R-project.org/package=rsvg}
+
+\leavevmode\hypertarget{ref-R-base}{}%
+R Core Team. (2021). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-R-psych}{}%
 Revelle, W. (2021). \emph{Psych: Procedures for psychological, psychometric, and personality research}. Evanston, Illinois: Northwestern University. Retrieved from \url{https://CRAN.R-project.org/package=psych}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lavaan}{}}%
+\leavevmode\hypertarget{ref-R-lavaan}{}%
 Rosseel, Y. (2012). {lavaan}: An {R} package for structural equation modeling. \emph{Journal of Statistical Software}, \emph{48}(2), 1--36. Retrieved from \url{https://www.jstatsoft.org/v48/i02/}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-dlookr}{}}%
+\leavevmode\hypertarget{ref-R-dlookr}{}%
 Ryu, C. (2021). \emph{Dlookr: Tools for data diagnosis, exploration, transformation}. Retrieved from \url{https://CRAN.R-project.org/package=dlookr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lattice}{}}%
-Sarkar, D. (2008). \emph{Lattice: Multivariate data visualization with r}. New York: Springer. Retrieved from \url{http://lmdvr.r-forge.r-project.org}
+\leavevmode\hypertarget{ref-shapiroAnalysisVarianceTest1965}{}%
+Shapiro, S. S., \& Wilk, M. B. (1965). An analysis of variance test for normality (complete samples). \emph{Biometrika}, \emph{52}(3-4), 591--611. \url{https://doi.org/10.1093/biomet/52.3-4.591}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-reshape2}{}}%
-Wickham, H. (2007). Reshaping data with the {reshape} package. \emph{Journal of Statistical Software}, \emph{21}(12), 1--20. Retrieved from \url{http://www.jstatsoft.org/v21/i12/}
+\leavevmode\hypertarget{ref-velicerDeterminingNumberComponents1976}{}%
+Velicer, W. (1976). Determining the {Number} of {Components} from the {Matrix} of {Partial Correlations}. \emph{Psychometrika}, \emph{41}, 321--327. \url{https://doi.org/10.1007/BF02293557}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-ggplot2}{}}%
+\leavevmode\hypertarget{ref-R-MASS}{}%
+Venables, W. N., \& Ripley, B. D. (2002). \emph{Modern applied statistics with s} (Fourth). New York: Springer. Retrieved from \url{https://www.stats.ox.ac.uk/pub/MASS4/}
+
+\leavevmode\hypertarget{ref-watkinsStepbyStepGuideExploratory2020}{}%
+Watkins, M. (2020). \emph{A {Step}-by-{Step Guide} to {Exploratory Factor Analysis} with {R} and {RStudio}}. \url{https://doi.org/10.4324/9781003120001}
+
+\leavevmode\hypertarget{ref-R-ggplot2}{}%
 Wickham, H. (2016). \emph{ggplot2: Elegant graphics for data analysis}. Springer-Verlag New York. Retrieved from \url{https://ggplot2.tidyverse.org}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-stringr}{}}%
+\leavevmode\hypertarget{ref-R-stringr}{}%
 Wickham, H. (2019). \emph{Stringr: Simple, consistent wrappers for common string operations}. Retrieved from \url{https://CRAN.R-project.org/package=stringr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-forcats}{}}%
+\leavevmode\hypertarget{ref-R-forcats}{}%
 Wickham, H. (2021a). \emph{Forcats: Tools for working with categorical variables (factors)}. Retrieved from \url{https://CRAN.R-project.org/package=forcats}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tidyr}{}}%
+\leavevmode\hypertarget{ref-R-tidyr}{}%
 Wickham, H. (2021b). \emph{Tidyr: Tidy messy data}. Retrieved from \url{https://CRAN.R-project.org/package=tidyr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tidyverse}{}}%
+\leavevmode\hypertarget{ref-R-tidyverse}{}%
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., \ldots{} Yutani, H. (2019). Welcome to the {tidyverse}. \emph{Journal of Open Source Software}, \emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-readxl}{}}%
+\leavevmode\hypertarget{ref-R-readxl}{}%
 Wickham, H., \& Bryan, J. (2019). \emph{Readxl: Read excel files}. Retrieved from \url{https://CRAN.R-project.org/package=readxl}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-dplyr}{}}%
+\leavevmode\hypertarget{ref-R-dplyr}{}%
 Wickham, H., François, R., Henry, L., \& Müller, K. (2021). \emph{Dplyr: A grammar of data manipulation}. Retrieved from \url{https://CRAN.R-project.org/package=dplyr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-readr}{}}%
-Wickham, H., \& Hester, J. (2020). \emph{Readr: Read rectangular text data}. Retrieved from \url{https://CRAN.R-project.org/package=readr}
+\leavevmode\hypertarget{ref-R-readr}{}%
+Wickham, H., \& Hester, J. (2021). \emph{Readr: Read rectangular text data}. Retrieved from \url{https://CRAN.R-project.org/package=readr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-kableExtra}{}}%
+\leavevmode\hypertarget{ref-R-kableExtra}{}%
 Zhu, H. (2021). \emph{kableExtra: Construct complex table with 'kable' and pipe syntax}. Retrieved from \url{https://CRAN.R-project.org/package=kableExtra}
 
 \end{CSLReferences}
