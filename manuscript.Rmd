@@ -17,6 +17,7 @@ author:
     affiliation   : "2"
     role:
       - Data Analysis
+<<<<<<< HEAD
       - Writing - Original Draft Preparation
       - Data Visualization
   - name          : "Manuel Spitschan "
@@ -28,6 +29,19 @@ author:
       - Data Analysis
       - Writing - Original Draft Preparation
       - Data Visualization
+=======
+      - Writing - Original Draft Preparation
+      - Data Visualization
+  - name          : "Manuel Spitschan "
+    affiliation   : "3"
+    corresponding : yes   
+    address       : ""
+    email         : ""
+    role:         
+      - Data Analysis
+      - Writing - Original Draft Preparation
+      - Data Visualization
+>>>>>>> d07d11f2e97a4783dcab2e9726aaa9280178432f
 
 affiliation:
   - id            : "1"
