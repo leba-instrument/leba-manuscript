@@ -29,6 +29,17 @@ author:
       - Writing - Original Draft Preparation
       - Data Visualization
 
+  - name          : "Manuel Spitschan "
+    affiliation   : "3"
+    corresponding : yes   
+    address       : ""
+    email         : ""
+    role:         
+      - Data Analysis
+      - Writing - Original Draft Preparation
+      - Data Visualization
+
+
 affiliation:
   - id            : "1"
     institution   : "Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Monash University, Malaysia"
@@ -88,6 +99,9 @@ library(dlookr)
 library(tidyverse)
 library(qgraph)
 library(kableExtra)
+library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
+library(DiagrammeRsvg)
+library(rsvg)
 r_refs("r-references.bib")
 ```
 
@@ -185,12 +199,19 @@ knitr::include_graphics('Flowchart1.png')
 Our study had three objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis to understand the latent structure. Third to gather validity evidences [@furrPsychometricsIntroduction2014]. 
 
 
+
 ## Data analysis
 
 
 
 # Results
+```{r Normality assumption EFA}
+LB <- read_excel("recoded not reversed_EFA.xlsx")
+LB$X1 <- NULL
+KMO <- KMO(LB) 
 
+```
+Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy . The overall KMO vale for 23 items was `r printnum(KMO$MSA)` which was above the cutoff value of .50 indicating a mediocre sample [@RN1179].
 # Confirmatory Factor Analysis
 # Confirmatory Factor Analysis
 
