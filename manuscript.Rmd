@@ -195,13 +195,14 @@ knitr::include_graphics('Flowchart1.png')
 ```
 
 ## Procedure
-Our study had three objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis to understand the latent structure. Third to gather validity evidences [@furrPsychometricsIntroduction2014]. 
+Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA.
+[@furrPsychometricsIntroduction2014]. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 
 
 
-## Data analysis
+## Analytic Strategies
 
-
+We used R (version 4.1.0), including several R-packages for our analyses. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the  ordinal nature of our response data we used polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (pa) a factor extraction method with varimax rotation. PA is apparently robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by weighted least squares (WLS) extraction method as well. We used a combination factor indentification method including scree plot[@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method[@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers.  Additionally, to identify the simple structure we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018; @childEssentialsFactorAnalysis2006; @mulaikFoundationsFactorAnalysis2009; @watkinsStepbyStepGuideExploratory2020]
 
 # Results
 ```{r Normality assumption EFA}
@@ -211,8 +212,10 @@ KMO <- KMO(LB)
 
 ```
 Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 23 items was `r printnum(KMO$MSA)` which was above the cutoff value of .50 indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].
+
+
 # Confirmatory Factor Analysis
-# Confirmatory Factor Analysis
+
 
 ```{r CFA 23 items, include=FALSE}
 LB.cfa <- read_excel("recoded not reversed_CFA.xlsx")
