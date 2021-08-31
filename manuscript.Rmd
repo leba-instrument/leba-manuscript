@@ -98,16 +98,18 @@ library(dlookr)
 library(tidyverse)
 library(qgraph)
 library(kableExtra)
+library(paran) # Parallel analysis
+library(EFA.MRFA) # Hull method
 library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
-library(DiagrammeRsvg)
-library(rsvg)
-r_refs("r-references.bib")
+library(DiagrammeRsvg) #For DiagrammeR
+library(rsvg) #For DiagrammeR
+r_refs("references.bib")
 ```
 
 
 ---
 nocite: |
-  `r cite_r("r-references.bib")`
+  `r cite_r("references.bib")`
 ---
 
 ```{r analysis-preferences}
@@ -115,6 +117,14 @@ nocite: |
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
+
+```{r setup-chunk, include=FALSE}
+knitr::opts_chunk$set(dev = "png",
+                      dpi = 300,
+                      echo = FALSE,
+                      cache = TRUE)
+```
+
 # Introduction
 
 # Methods
@@ -126,7 +136,7 @@ This line is just a test for pushing in the github repo.
 
 ## Material
 
-```{r flowchart }
+```{r flowchart, include=FALSE}
 Flowchart1 <- grViz("digraph nicegraph{
          
                     graph [layout = dot,fontsize = 14]
@@ -195,8 +205,7 @@ knitr::include_graphics('Flowchart1.png')
 ```
 
 ## Procedure
-Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA.
-[@furrPsychometricsIntroduction2014]. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
+Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA [@furrPsychometricsIntroduction2014]. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 
 
 ### Data Collection
@@ -210,7 +219,7 @@ How we developed the 48 items?
 We used R (version 4.1.0), including several R-packages for our analyses. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the  ordinal nature of our response data we used polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (pa) a factor extraction method with varimax rotation. PA is apparently robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by weighted least squares (WLS) extraction method as well. We used a combination factor indentification method including scree plot[@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method[@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers.  Additionally, to identify the simple structure we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018; @childEssentialsFactorAnalysis2006; @mulaikFoundationsFactorAnalysis2009; @watkinsStepbyStepGuideExploratory2020]
 
 # Results
-```{r Normality assumption EFA}
+```{r Normality assumption EFA, include=FALSE}
 LB <- read_excel("recoded not reversed_EFA.xlsx")
 LB$X1 <- NULL
 #KMO test
@@ -245,7 +254,6 @@ LB.factor <- sapply(LB, as.factor)
 correlations <- polychoric(LB.factor, correct = 0)
 upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 
-as.data.frame(upper)
 min.cor <- abs(min(upper)) #minimum cor.coefficient of the matrix
 max.cor <- abs(max(upper)) # max. correlation coefficent of the matrix
 
@@ -272,7 +280,7 @@ Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampl
 apa_table(Des.combined, caption = "Descriptive Statistics")
 ```
 
-```{r figCor,fig.cap= "Iter-correlation of the items",results='asis'}
+```{r figCor,out.width="50%",fig.cap= "Iter-correlation of the items",results='asis'}
 
 qgraph(correlations$rho, cut =.30, details =T, posCol = "green", negCol = "orangered3", 
        labels = names(LB))
@@ -282,8 +290,34 @@ qgraph(correlations$rho, cut =.30, details =T, posCol = "green", negCol = "orang
 Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. The Shapiro-Wilk test of normality [@shapiroAnalysisVarianceTest1965] indicated all the items violated normality assumptions. Multivariate normality assumptions were investigated by Marida's test [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis = `r printnum(mardia$b2p)` (p <0.001) indicated  multivariate normality assumptions violation. Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(((BigR/totR)*100), 2,T)`% of the inter-item correlation coefficients were greater than .30 in the obtained matrix. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. The corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
 
 
+```{r factor_identification, eval=FALSE, include=FALSE}
+
+#correlations <- polychoric(LB.factor, correct = 0)
+
+# Parallel analysis
+ paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
+      status=TRUE, all=FALSE, cfa=FALSE, graph=TRUE,
+      color=TRUE, col=c("black","red","blue"),
+      lty=c(1,2,3), lwd=1, legend=TRUE, file="parallel.png",
+      width=640, height=640, grdevice=png, seed=0, mat=NA, n=NA)
+
+# HULL
+hullEFA(LB,extr = "ULS", index_hull = "CAF", display = TRUE, graph = TRUE,
+        details = TRUE)
 
 
+```
+
+Scree plot ( Fig\@ref(fig:fac.id)) suggested a six-factor solution.Horn's parallel analysis [@hornRationaleTestNumber1965], like the Monte Carlo study, draws several sets of random data with the same number of participants as the original data set and compares the mean eigenvalues among the simulated and original data sets to retain optimal factors.This extraction method also supported a five-factor model. In our data set parallel analysis with 500 iterations indicated six-factor solution. However, In MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution.
+
+
+```{r fac.id, out.height= "50%",  fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, (C) Hull method', fig.show="hold",fig.ncol = 2, out.width="50%",  warning=FALSE}
+knitr::include_graphics('parallel.png')
+scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
+      hline=NULL,add=F)
+knitr::include_graphics('HUll method.png')
+
+```
 
 # Confirmatory Factor Analysis
 
