@@ -75,7 +75,7 @@ draft             : no
 documentclass     : "apa6"
 classoption       : "man"
 output            : papaja::apa6_pdf
-
+fontfamily        : arev
 ---
 
 ```{r setup, include = FALSE}
@@ -115,9 +115,10 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 ```{r setup-chunk, include=FALSE}
 knitr::opts_chunk$set(dev = "png",
-                      dpi = 300,
+                      dpi = 600,
                       echo = FALSE,
                       cache = TRUE)
+
 ```
 
 # Introduction
@@ -131,7 +132,7 @@ This line is just a test for pushing in the github repo.
 
 ## Material
 
-```{r flowchart, include=FALSE, out.height= "100%", out.width= "100%"}
+```{r flowchart, include=FALSE }
 Flowchart1 <- grViz("digraph nicegraph{
          
                     graph [layout = dot,fontsize = 14]
@@ -195,12 +196,12 @@ export_svg(Flowchart1) %>%
 
 
 
-```{r, out.height= "50%",  fig.align='center', fig.cap='ABC'}
+```{r,  out.width = '100%', out.height= '100%', fig.align = 'center', fig.cap='ABC'}
 knitr::include_graphics('Flowchart1.png')
 ```
 
 ## Procedure
-Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA [@furrPsychometricsIntroduction2014]. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
+Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 
 
 ### Data Collection
@@ -272,7 +273,7 @@ Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampl
 
 
 ```{r tabDes, results='asis'}
-apa_table(Des.combined, caption = "Descriptive Statistics")
+apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", longtable = TRUE)
 ```
 
 ```{r figCor,out.width="50%",fig.cap= "Iter-correlation of the items",results='asis'}
@@ -504,7 +505,7 @@ sumR <- sum(BigRR/totRR*100)
 
 ```
 
-The initial five-factor solution with all 48 items showed the presence of cross-loading items (item 42, 16, & 1) and poor factor loading (<.30) items (item 20,3 ,15, 17, 40, 4, 11, 39, 18, 45, 29, 25, 8 , & 46). At first we discard the items with poor  factor loading and ran another EFA on the remaining 34 items. This iteration of EFA also appeared as a misfit in terms of poor factor loading (Item 12, 22, 38, 6) and cross-loading (items 23, 31, 37, 48) . Another two rounds of EFA were conducted with gradually identifying problematic items and discarding them from the model. Finally, a five-factor EFA solution with 23 items was accepted with low RMSR = 0.04, no loading smaller than .30 and no cross-loading greater than .30. The latent construct was also confirmed by using minimum residual  extraction method (see the supplementary). Table\@ref(tab:tabEFA5) displays the structural coefficients and commonality of the items. The absolute value of the structural coefficients ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. However, the histogram of the absolute values of non-redundant residual-correlations (Fig\@ref(fig:Residuals) showed `r apa(sumR,2, T)`% correlations greater than the absolute value of .05, indicating under-factoring. [@desjardinsHandbookEducationalMeasurement2018a]. Subsequently, we fitted a six-factor solution. However, in the six factor solution a factor emerged with only two salient variable loading thus disqualifying the six-factor solution. 
+The initial five-factor solution with all 48 items showed the presence of cross-loading items (item 42, 16, & 1) and poor factor loading (<.30) items (item 20,3 ,15, 17, 40, 4, 11, 39, 18, 45, 29, 25, 8 , & 46). At first we discarded the items with poor  factor loading and ran another EFA on the remaining 34 items. This iteration of EFA also appeared as a misfit in terms of poor factor-loading (Item 12, 22, 38, 6) and cross-loading (items 23, 31, 37, 48) . Another two rounds of EFA were conducted with gradually identifying problematic items and discarding them from the model. Finally, a five-factor EFA solution with 23 items was accepted with low RMSR = 0.04, no loading smaller than .30 and no cross-loading greater than .30. The obtained latent construct was also confirmed by using minimum residual  extraction method (see the supplementary). Table\@ref(tab:tabEFA5) displays the factor loadin (structural coefficients) and commonality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. However, the histogram of the absolute values of non-redundant residual-correlations (Fig\@ref(fig:Residuals) showed `r apa(sumR,2, T)`% correlations greater than the absolute value of .05, indicating under-factoring. [@desjardinsHandbookEducationalMeasurement2018a]. Subsequently, we fitted a six-factor solution. However, in the six factor solution a factor emerged with only two salient variable loading thus disqualifying the six-factor solution. 
 
 
 ```{r TabEFA5, results='asis'}
