@@ -221,6 +221,11 @@ bartlet <- cortest.bartlett(LB, n =428)
 
 # Univariante normality
 normality <- normality(LB) 
+normalityprefix <- apa(normality$statistic, 2,T)
+normalitysufix <- "*"
+normality.names <- paste(normalityprefix,normalitysufix, sep = "" )
+
+
 
 # Multivariate Normality
 mardia <- mardia(LB, na.rm = T, plot =F)
@@ -230,9 +235,11 @@ Descriptives <- psych::describe(LB)
 alpha <- psych::alpha(LB)
 Item.total <- alpha$item.stats
 
-Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), apa(normality$statistic,2,T), apa(normality$p_value,2,F), apa(Item.total$r.cor,2,F))
+Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), normality.names,  apa(Item.total$r.cor,2,F))
 
-colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics", "p", "Item-Total Correlation")
+
+
+colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics", "Item-Total Correlation")
 
 rownameprefix <- "Item"
 rownamesufix <- seq(1:48)
@@ -268,7 +275,7 @@ Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampl
 
 
 ```{r tabDes, results='asis'}
-apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", longtable = TRUE)
+apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
 ```{r figCor,out.width="50%",fig.cap= "Iter-correlation of the items",results='asis'}
@@ -500,7 +507,7 @@ sumR <- sum(BigRR/totRR*100)
 
 ```
 
-The initial five-factor solution with all 48 items showed the presence of cross-loading items (item 42, 16, & 1) and poor factor loading (<.30) items (item 20,3 ,15, 17, 40, 4, 11, 39, 18, 45, 29, 25, 8 , & 46). At first we discarded the items with poor  factor loading and ran another EFA on the remaining 34 items. This iteration of EFA also appeared as a misfit in terms of poor factor-loading (Item 12, 22, 38, 6) and cross-loading (items 23, 31, 37, 48) . Another two rounds of EFA were conducted with gradually identifying problematic items and discarding them from the model. Finally, a five-factor EFA solution with 23 items was accepted with low RMSR = 0.04, no loading smaller than .30 and no cross-loading greater than .30. The obtained latent construct was also confirmed by using minimum residual  extraction method (see the supplementary). Table\@ref(tab:tabEFA5) displays the factor loadin (structural coefficients) and commonality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. However, the histogram of the absolute values of non-redundant residual-correlations (Fig\@ref(fig:Residuals) showed `r apa(sumR,2, T)`% correlations greater than the absolute value of .05, indicating under-factoring. [@desjardinsHandbookEducationalMeasurement2018a]. Subsequently, we fitted a six-factor solution. However, in the six factor solution a factor emerged with only two salient variable loading thus disqualifying the six-factor solution. 
+The initial five-factor solution with all 48 items showed the presence of cross-loading items (item 42, 16, & 1) and poor factor loading (<.30) items (item 20,3 ,15, 17, 40, 4, 11, 39, 18, 45, 29, 25, 8 , & 46). At first we discarded the items with poor  factor loading and ran another EFA on the remaining 34 items. This iteration of EFA also appeared as a misfit in terms of poor factor-loading (Item 12, 22, 38, 6) and cross-loading (items 23, 31, 37, 48) . Another two rounds of EFA were conducted with gradually identifying problematic items and discarding them from the model. Finally, a five-factor EFA solution with 23 items was accepted with low RMSR = 0.04, no loading smaller than .30 and no cross-loading greater than .30. The obtained latent construct was also confirmed by using minimum residual  extraction method (see the supplementary). Table\@ref(tab:tabEFA5) displays the factor-loading (structural coefficients) and commonality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. However, the histogram of the absolute values of non-redundant residual-correlations (Fig\@ref(fig:Residuals) showed `r apa(sumR,2, T)`% correlations greater than the absolute value of .05, indicating under-factoring. [@desjardinsHandbookEducationalMeasurement2018a]. Subsequently, we fitted a six-factor solution. However, in the six factor solution a factor emerged with only two salient variable loading thus disqualifying the six-factor solution. 
 
 
 ```{r TabEFA5, results='asis'}
