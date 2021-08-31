@@ -229,20 +229,28 @@ mardia <- mardia(LB, na.rm = T, plot =F)
 Descriptives <- psych::describe(LB)
 alpha <- psych::alpha(LB)
 Item.total <- alpha$item.stats
-Item.total$r.cor
+
 Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), apa(normality$statistic,2,T), apa(normality$p_value,2,F), apa(Item.total$r.cor,2,F))
+
 colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics", "p", "Item-Total Correlation")
+
 rownameprefix <- "Item"
 rownamesufix <- seq(1:48)
 my.names <- paste(rownameprefix,rownamesufix, sep = "" )
+
 rownames(Des.combined) = (my.names)
-
-
 
 #Polychoric Correlation matrix
 LB.factor <- sapply(LB, as.factor)
 correlations <- polychoric(LB.factor, correct = 0)
+upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 
+as.data.frame(upper)
+min.cor <- abs(min(upper)) #minimum cor.coefficient of the matrix
+max.cor <- abs(max(upper)) # max. correlation coefficent of the matrix
+
+
+# Calulating the percentange of correlations higher than .30
 
 BigR = sum(correlations$rho >= abs(.30) & correlations$rho < abs(1.0), na.rm =T)/2 
 totR = length(LB)*(length(LB)-1)/2
@@ -253,19 +261,25 @@ A <- print (BigR/totR)*100
 Item_analysis <- psych::alpha(LB)
 Item_analysis$item.stats$r.cor
 R.cor.sum <- summary(Item_analysis$item.stats$r.cor)
-low.r.cor <- abs(R.cor.sum[1])
-high.r.cor <- R.cor.sum[6]
+low.r.corec <- abs(R.cor.sum[1])  #minimum item total correlation
+high.r.corec <- R.cor.sum[6]     # maximum item total correlation
 ```
-Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 23 items was `r printnum(KMO$MSA)` which was above the cutoff value of .50 indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].
 
+Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 23 items was `r printnum(KMO$MSA)` which was above the cutoff value of .50 indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].
 
 
 ```{r tabDes, results='asis'}
 apa_table(Des.combined, caption = "Descriptive Statistics")
 ```
 
+```{r figCor,fig.cap= "Iter-correlation of the items",results='asis'}
 
-Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. The Shapiro-Wilk test of normality [@shapiroAnalysisVarianceTest1965] indicated all the items violated normality assumptions. Multivariate normality assumptions were investigated by Marida's test [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis = `r printnum(mardia$b2p)` (p <0.001) indicated  multivariate normality assumptions violation. Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(((BigR/totR)*100), 2,T)`% of the inter-item correlation coefficients were greater than .30 in the obtained matrix. The corrected item-total correlations ranged between `r apa(low.r.cor,2,F)` to `r apa(high.r.cor,2,F)`. 
+qgraph(correlations$rho, cut =.30, details =T, posCol = "green", negCol = "orangered3", 
+       labels = names(LB))
+```
+
+
+Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. The Shapiro-Wilk test of normality [@shapiroAnalysisVarianceTest1965] indicated all the items violated normality assumptions. Multivariate normality assumptions were investigated by Marida's test [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis = `r printnum(mardia$b2p)` (p <0.001) indicated  multivariate normality assumptions violation. Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(((BigR/totR)*100), 2,T)`% of the inter-item correlation coefficients were greater than .30 in the obtained matrix. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. The corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
 
 
 
