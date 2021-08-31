@@ -16,13 +16,24 @@ author:
   - name          : "Rafael Robert Lazar"
     affiliation   : "2"
     role:
+      - Data Analysis
       - Writing - Original Draft Preparation
+      - Data Visualization
+  - name          : "Manuel Spitschan "
+    affiliation   : "3"
+    corresponding : yes   
+    address       : ""
+    email         : ""
+    role:         
+      - Data Analysis
+      - Writing - Original Draft Preparation
+      - Data Visualization
 
 affiliation:
   - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
+    institution   : "Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Monash University, Malaysia"
   - id            : "2"
-    institution   : "Konstanz Business School"
+    institution   : "University of Basel"
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
@@ -85,6 +96,8 @@ r_refs("r-references.bib")
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
+# Introduction
+
 # Methods
 
 
