@@ -132,7 +132,7 @@ knitr::opts_chunk$set(dev = "png",
 
 EFA: For exploring initial factor structure, a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]
 
-CFA: For estimating the sample size for the confirmatory factor analysis we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006] where 10 participants per parameters is required to earn trustworthiness of the result. Our sample size exceeds the requirement.
+CFA: For estimating the sample size for the confirmatory factor analysis we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006] where 10 participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds the requirement.
 
 
 
