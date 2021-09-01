@@ -278,7 +278,7 @@ Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampl
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
-```{r figCor,out.width="50%",fig.cap= "Iter-correlation of the items",results='asis'}
+```{r figCor,out.width="50%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower")
 #p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
@@ -364,14 +364,97 @@ DD <- print(fa.5F.4, cut = .3, digits = 3, sort = TRUE)
 
 ```
 
-```{r include=FALSE}
-fa.diagram(fa.5F.4,sort=TRUE,labels=NULL,flabels=NULL,cut=.3,
-                 simple=TRUE,errors=F,
-                 digits=1,e.size=.1,rsize=3,side=2,main= "Five Factor Solution Oblique",cex=NULL,color.lines=TRUE,
-                 marg=c(.5,.5,1.5,.5),adj=2) 
+```{r EFAplotcode, include=FALSE}
+#library(DiagrammeR)
+EFAplot.LR <- grViz("
+digraph boxes_and_circles {
+
+graph [layout = dot,rankdir = LR, fontsize = 40]
+
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = circle,  margin = 0.5, width = 3.5, height = .5,
+fixedsize = true, fontsize = 35]
+F1 [label = 'Blue 
+Filter']
+F2 [label = 'Natural 
+Light']
+F3 [label = 'Sleep
+Environment']
+F4 [label = 'Cell Phone']
+F5 [label = 'Awareness']
+node [fontname = Helvetica, shape = box]
+b [label = 'item43']
+c [label = 'item26']
+d [label = 'item32']
+e [label = 'item10']
+f [label = 'item47']
+g [label = 'item36']
+h [label = 'item44']
+i [label = 'item35']
+j [label = 'item13']
+k [label = 'item14']
+l [label = 'item41']
+m [label = 'item7']
+n [label = 'item27']
+o [label = 'item21']
+p [label = 'item34']
+q [label = 'item19']
+r [label = 'item2']
+s [label = 'item5']
+t [label = 'item24']
+u [label = 'item30']
+v [label = 'item1']
+w [label = 'item16']
+x [label = 'item28']
+
+{rank = same; F1 F2 F3 F4 F5}
+# edge definitions with the node IDs
+edge [fontname = Helvetica, fontsize = 35]
+F1 -> b[label = '0.99']
+F1-> c [label = '0.93']
+F1-> d [label = '0.80']
+F2 -> e [label = '0.82']
+F2 -> f[label = '0.82']
+F2 -> g [label = '0.63']
+F2 -> h[ label = '-0.47', color =red]
+F2 -> i [label = '0.46']
+F2 -> j [label = '0.34']
+F3 -> k [label = '0.89']
+F3 -> l [label = '0.70']
+F3 -> m [label = '0.66']
+F3 -> n [label = '0.38']
+F3 -> o [label = '-0.34', color =red]
+F4 -> p [label = '0.84']
+F4 -> q [label = '0.80']
+F4 -> r [label = '0.69']
+F5 -> s [label = '0.69']
+F5 -> t [label = '0.54']
+F5 -> u [label = '0.52']
+F5 -> v [label = '0.35']
+F5 -> w [label = '0.31']
+F5 -> x [label = '0.31']
+
+
+}
+")
+
+
+export_svg(EFAplot.LR) %>%
+  charToRaw() %>%
+  rsvg() %>%
+  png::writePNG("EFAplot.LR.png")
+
+```
+
+```{r EFAplot,  fig.cap='Five Factor Solution', fig.align='center', out.width= "120%", out.height= "100%", warning=FALSE}
+knitr::include_graphics('EFAplot.LR.png')
+
 ```
 
 ```{r minres 5 factor supplimentary analyisis, eval=FALSE, include=FALSE}
+
+#Supplementary EFA with Minres Extraction
+
 fa.5F.min.1 <- fa(r=correlations$rho, nfactors = 5, fm= "minres",rotate ="varimax",
                 residuals = TRUE, SMC = TRUE, n.obs =428)
 EE <- print(fa.5F.min.1, cut = .3, digits = 3, sort = TRUE)
@@ -420,6 +503,9 @@ HH <- print(fa.5F.min.4, cut = .3, digits = 3, sort = TRUE)
 
 
 ```{r EFA 6 Factors Promax, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+# EFA with 6 factor (rejected)
+
+
 #LB.factor <- sapply(LB, as.factor)
 #correlations <- polychoric(LB.factor, correct = 0)
 
@@ -478,18 +564,47 @@ abline(v =.05,lwd = 2, lty = 2)
 ```
 
 ```{r factordetails, include=FALSE}
-Fac.5 <- fa.5F.4 
+#Preparing the EFA table
+
+factor.des = matrix(, nrow = 24, ncol = 6)
+as.table(factor.des)
+rownames(factor.des) <- c("item43", "item26",  "item32",   
+                          "item10",  "item47",  "item36", "item44",  "item35",  "item13", 
+                          "item14", "item41",  "item7","item27","item21",
+                          "item34", "item19", "item2",
+                          "item5", "item24", "item30", "item1", "item16", "item28","% of variance")
+
+
+colnames(factor.des) <- c("F1", "F2", "F3", "F4", "F5", "Communality")
+
+factor.des[,1] <- c(.99, .93, .80, "-","-","-","-","-","-","-","-","-","-","-","-",
+                    "-","-","-","-","-","-","-","-", 11)
+
+factor.des[,2] <- c("-", "-", "-", .82,.82,.63,-.47,.46,.34,"-","-","-","-","-","-",
+                    "-","-","-","-","-","-","-","-", 10)
+
+
+factor.des[,3] <- c("-", "-", "-", "-","-","-","-","-","-",.89,.70,.66,.38,-.34,"-",
+                    "-","-","-","-","-","-","-","-", 9)
+
+
+
+factor.des[,4] <- c("-", "-", "-", "-","-","-","-","-","-","-","-","-","-","-",.84,
+                    .80,.67,"-","-","-","-","-","-", 9)
+
+factor.des[,5] <- c("-", "-", "-", "-","-","-","-","-","-","-","-","-","-","-","-","-","-"
+                    ,.69,.54,.52,.35,.31,.31, 6)
+
+factor.des[,6] <- c (.99, .90,.67,.68,.70,.45,.24,.24,.13,.81,.60,.45,.21,.12,.74,.64,.54,
+                     .51,.33,.29,.13,.21,.10, "-")
+
 #Commonality
+Fac.5 <- fa.5F.4
 min.com <- min(Fac.5$communality)
 max.com <- max(Fac.5$communality)
 
-
-# factor loadings
-
-Factorloading <- cbind(Fac.5$loadings, Fac.5$communality)
-colnames(Factorloading)= c("F1", "F2","F3", "F4", "F5", "Communalities")
-
-min.loadings <- abs(min(Fac.5$loadings))
+# loadings
+min.loadings <- min(Fac.5$loadings)
 max.loadings <- max(Fac.5$loadings)
 
 # Residuals
@@ -512,7 +627,7 @@ The initial five-factor solution with all 48 items showed the presence of cross-
 
 ```{r TabEFA5, results='asis'}
 
-apa_table(unclass(Factorloading))
+apa_table(factor.des,align = "c", note = "Only loading higher than .30 is reported")
 ```
 
 ```{r Residuals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residulas:  five-factor solution',  out.width="50%",  warning=FALSE}
