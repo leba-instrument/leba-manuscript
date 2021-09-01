@@ -123,9 +123,25 @@ knitr::opts_chunk$set(dev = "png",
 
 ## Participants
 
-This line is just a test for pushing in the github repo.
+1. Describe EFA and CFA sample separately.
+2. Sampling technique: Convince sampling (non-probability sample)
+3. Method: cross-sectional survey
+4. How many missing data?
+5. How incomplete data were addressed.
+6. Why such sample was chosen?
 
-## Material
+EFA: For exploring initial factor structure, a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]
+
+CFA: For estimating the sample size for the confirmatory factor analysis we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006] where 10 participants per parameters is required to earn trustworthiness of the result. Our sample size exceeds the requirement.
+
+
+
+
+## Procedure
+### Development of the Scale
+1. How the items were generated
+2. How the literature was reviewed to identify construct adequacy of the items.
+3. Discuss the expert panel review process to assess content validity
 
 ```{r flowchart, include=FALSE }
 Flowchart1 <- grViz("digraph nicegraph{
@@ -191,25 +207,30 @@ export_svg(Flowchart1) %>%
 
 
 
-```{r,  out.width = '100%', out.height= '100%', fig.align = 'center', fig.cap='ABC'}
+```{r,  out.width = '100%', out.height= '100%', fig.align = 'center', fig.cap='Development and psychometric properties of LEBA '}
 knitr::include_graphics('Flowchart1.png')
 ```
 
+
+
 ## Procedure
-Our study had four objectives. First, to develop an instrument to assess individual's light exposure behavior . Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. Third to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
+Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA)  to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 
 
 ### Data Collection
-Timeline of data collection, ethical approval, mode of data collection, how consent was recorded.
+Timeline of data collection, 
+ethical approval
+mode of data collection
+how consent was recorded.
 
-### Item generation and Content Validity: Expert Panel Review
-How we developed the 48 items?
+
 
 ## Analytic Strategies
 
-We used R (version 4.1.0), including several R-packages for our analyses. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the  ordinal nature of our response data we used polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (pa) a factor extraction method with varimax rotation. PA is apparently robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by minimum residuals extraction method as well. We used a combination factor indentification method including scree plot[@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method[@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers.  Additionally, to identify the simple structure we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018; @childEssentialsFactorAnalysis2006; @mulaikFoundationsFactorAnalysis2009; @watkinsStepbyStepGuideExploratory2020]
+We used R (version 4.1.0), including several R packages, for our analyses. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix, were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, we used a polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (pa) a factor extraction method with varimax rotation. PA is robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by the minimum residuals extraction method as well. We used a combination factor identification method including scree plot[@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method[@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers.  Additionally, to determine the simple structure, we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018; 
 
 # Results
+
 ```{r Normality assumption EFA, include=FALSE}
 LB <- read_excel("recoded not reversed_EFA.xlsx")
 LB$X1 <- NULL
@@ -271,8 +292,7 @@ low.r.corec <- abs(R.cor.sum[1])  #minimum item total correlation
 high.r.corec <- R.cor.sum[6]     # maximum item total correlation
 ```
 
-Sampling adequacy was investigated by Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 23 items was `r printnum(KMO$MSA)` which was above the cutoff value of .50 indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].
-
+Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].
 
 ```{r tabDes, results='asis'}
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
@@ -285,8 +305,7 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 #to show pvalue in the fig add p.mat=p.mat
 ```
 
-
-Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. The Shapiro-Wilk test of normality [@shapiroAnalysisVarianceTest1965] indicated all the items violated normality assumptions. Multivariate normality assumptions were investigated by Marida's test [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis = `r printnum(mardia$b2p)` (p <0.001) indicated  multivariate normality assumptions violation. Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30 in the obtained matrix. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. The corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
+Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions (Marida's test;[@mardiaMeasuresMultivariateSkewness1970]). Multivariate skew was  = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. And the corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
 
 
 ```{r factor_identification, eval=FALSE, include=FALSE}
@@ -307,7 +326,7 @@ hullEFA(LB,extr = "ULS", index_hull = "CAF", display = TRUE, graph = TRUE,
 
 ```
 
-Scree plot ( Fig\@ref(fig:facid)) suggested a six-factor solution.Horn's parallel analysis [@hornRationaleTestNumber1965], like the Monte Carlo study, draws several sets of random data with the same number of participants as the original data set and compares the mean eigenvalues among the simulated and original data sets to retain optimal factors.This extraction method also supported a five-factor model. In our data set parallel analysis with 500 iterations indicated six-factor solution. However, In MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five factor and six factor solutions. 
+Scree plot ( Figure \@ref(fig:facid)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions. 
 
 ```{r facid, out.height= "50%",  fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, (C) Hull method', fig.show="hold",fig.ncol = 2, out.width="50%",  warning=FALSE}
 knitr::include_graphics('parallel.png')
@@ -376,8 +395,7 @@ node [fontname = Helvetica, shape = circle,  margin = 0.5, width = 3.5, height =
 fixedsize = true, fontsize = 35]
 F1 [label = 'Blue 
 Filter']
-F2 [label = 'Natural 
-Light']
+F2 [label = 'Outdoor']
 F3 [label = 'Sleep
 Environment']
 F4 [label = 'Cell Phone']
@@ -450,6 +468,24 @@ export_svg(EFAplot.LR) %>%
 knitr::include_graphics('EFAplot.LR.png')
 
 ```
+
+
+```{r Cronbach alpha for 5 fators, message=TRUE, warning=FALSE, include=FALSE}
+Five.F1 <- dplyr::select(LB, item43, item26, item32)
+Five.F2 <- dplyr::select(LB, item10, item47, item36, item44, item35, item13) 
+Five.F3 <-  dplyr::select(LB, item14, item41,item7, item27, item21)
+Five.F4 <-  dplyr::select(LB, item19,item34,item2)
+Five.F5 <- dplyr::select(LB, item5, item24, item30, item1, item16, item28)
+
+
+Five.F1.alpha <- psych::alpha(Five.F1, check.keys = T) 
+Five.F2.alpha <- psych::alpha(Five.F2, check.keys = T)
+Five.F3.alpha <- psych::alpha(Five.F3, check.keys = T)
+Five.F4.alpha <- psych::alpha(Five.F4, check.keys = T) 
+Five.F5.alpha <- psych::alpha(Five.F5, check.keys = T) 
+```
+
+
 
 ```{r minres 5 factor supplimentary analyisis, eval=FALSE, include=FALSE}
 
@@ -565,38 +601,37 @@ abline(v =.05,lwd = 2, lty = 2)
 
 ```{r factordetails, include=FALSE}
 #Preparing the EFA table
-
-factor.des = matrix(, nrow = 24, ncol = 6)
+factor.des = matrix(, nrow = 25, ncol = 6)
 as.table(factor.des)
 rownames(factor.des) <- c("item43", "item26",  "item32",   
                           "item10",  "item47",  "item36", "item44",  "item35",  "item13", 
                           "item14", "item41",  "item7","item27","item21",
                           "item34", "item19", "item2",
-                          "item5", "item24", "item30", "item1", "item16", "item28","% of variance")
+                          "item5", "item24", "item30", "item1", "item16", "item28", "internal Consistency","% of variance")
 
 
 colnames(factor.des) <- c("F1", "F2", "F3", "F4", "F5", "Communality")
 
 factor.des[,1] <- c(.99, .93, .80, "-","-","-","-","-","-","-","-","-","-","-","-",
-                    "-","-","-","-","-","-","-","-", 11)
+                    "-","-","-","-","-","-","-","-",apa(Five.F1.alpha$total[,1],2,F), 11)
 
 factor.des[,2] <- c("-", "-", "-", .82,.82,.63,-.47,.46,.34,"-","-","-","-","-","-",
-                    "-","-","-","-","-","-","-","-", 10)
+                    "-","-","-","-","-","-","-","-",apa(Five.F2.alpha$total[,1],2,F), 10)
 
 
 factor.des[,3] <- c("-", "-", "-", "-","-","-","-","-","-",.89,.70,.66,.38,-.34,"-",
-                    "-","-","-","-","-","-","-","-", 9)
+                    "-","-","-","-","-","-","-","-", apa(Five.F3.alpha$total[,1],2,F),9)
 
 
 
 factor.des[,4] <- c("-", "-", "-", "-","-","-","-","-","-","-","-","-","-","-",.84,
-                    .80,.67,"-","-","-","-","-","-", 9)
+                    .80,.67,"-","-","-","-","-","-",apa(Five.F4.alpha$total[,1],2,F), 9)
 
 factor.des[,5] <- c("-", "-", "-", "-","-","-","-","-","-","-","-","-","-","-","-","-","-"
-                    ,.69,.54,.52,.35,.31,.31, 6)
+                    ,.69,.54,.52,.35,.31,.31,apa(Five.F5.alpha$total[,1],2,F), 6)
 
 factor.des[,6] <- c (.99, .90,.67,.68,.70,.45,.24,.24,.13,.81,.60,.45,.21,.12,.74,.64,.54,
-                     .51,.33,.29,.13,.21,.10, "-")
+                     .51,.33,.29,.13,.21,.10, "-", "-")
 
 #Commonality
 Fac.5 <- fa.5F.4
@@ -622,7 +657,9 @@ sumR <- sum(BigRR/totRR*100)
 
 ```
 
-The initial five-factor solution with all 48 items showed the presence of cross-loading items (item 42, 16, & 1) and poor factor loading (<.30) items (item 20,3 ,15, 17, 40, 4, 11, 39, 18, 45, 29, 25, 8 , & 46). At first we discarded the items with poor  factor loading and ran another EFA on the remaining 34 items. This iteration of EFA also appeared as a misfit in terms of poor factor-loading (Item 12, 22, 38, 6) and cross-loading (items 23, 31, 37, 48) . Another two rounds of EFA were conducted with gradually identifying problematic items and discarding them from the model. Finally, a five-factor EFA solution with 23 items was accepted with low RMSR = 0.04, no loading smaller than .30 and no cross-loading greater than .30. The obtained latent construct was also confirmed by using minimum residual  extraction method (see the supplementary). Table\@ref(tab:tabEFA5) displays the factor-loading (structural coefficients) and commonality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. However, the histogram of the absolute values of non-redundant residual-correlations (Fig\@ref(fig:Residuals) showed `r apa(sumR,2, T)`% correlations greater than the absolute value of .05, indicating under-factoring. [@desjardinsHandbookEducationalMeasurement2018a]. Subsequently, we fitted a six-factor solution. However, in the six factor solution a factor emerged with only two salient variable loading thus disqualifying the six-factor solution. 
+The initial five-factor solution with all 48 items showed presence of cross-loading items (item 42, 16, & 1) and poor factor loading (<.30) items (item 20, 3 ,15, 17, 40, 4, 11, 39, 18, 45, 29, 25, 8 , & 46). At first, we discarded the items with poor factor-loading and ran another EFA on the remaining 34 items. This iteration of EFA also appeared as a misfit with items with poor factor-loading (Item 12, 22, 38, 6) and cross-loading (items 23, 31, 37, 48) . Another two rounds of EFA were conducted with gradually identifying problematic items and discarding them from the model. Finally, a five-factor EFA solution with 23 items was accepted with low RMSR = 0.04 [@brownConfirmatoryFactorAnalysis2015], all factor-loading higher than .30 and no cross-loading greater than .30. We confirmed this five-factor latent structure using varimax rotation with a minimum residual extraction method (see the supplementary). Table\@ref(tab:TabEFA5) displays the factor-loading (structural coefficients) and communality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. However, the histogram of the absolute values of non-redundant residual-correlations (Fig\@ref(fig:Residuals) showed `r apa(sumR,2, T)`% correlations greater than the absolute value of .05, indicating under-factoring. [@desjardinsHandbookEducationalMeasurement2018a]. Subsequently, we fitted a six-factor solution. However, a factor emerged with only two salient variable loading in the six-factor solution, thus disqualifying the six-factor solution. 
+
+In the five-factor solution, the first factor contained three items and explained 11% of the total variance with a satisfactory internal reliability coefficient ($\alpha$ =.86). All the items in this factor stemmed from the individual's preference to use blue light filters in different light environments. The second factor contained six items and explained 10% of the total variance with a satisfactory internal reliability coefficient ($\alpha$ =.71). Items under this factor commonly investigate an individual's hours spent outdoor. The third factor contained five items and explained 9% of the total variance. Items under this factor dealt with the specific behaviors pertaining to sleep. However, the internal consistency reliability coefficient was not satisfactory ($\alpha$ =.62). The fourth factor contained three items and explained 9% of the total variance with a satisfactory internal consistency ($\alpha$ =.77). These three items stemmed from the behavior related to an individual's cellphone usage during the sleep-wakeup time. Lastly, the fifth factor contained six items and explained 6% of the total variance. Under this factor tried to measure an individual's behavior lead by the awareness of light's influence on health. However, this factor showed unsatisfactory internal consistency reliability ($\alpha$ =.49). It is essential to attain a balance between psychometric properties and the interpretability of the common themes when exploring the latent structure. As all of the emerged factors are highly interpretable, regardless of the apparent low reliability of the two factors,  we retain the five-factor solution with 23 items for our confirmatory factor analysis (CFA). Two items showed negative factor-loading (items 44 and 21). Upon inspection, it was understood that these items are negatively correlated to the common theme, and thus in the CFA analysis, we reversed the response code for these two items.
 
 
 ```{r TabEFA5, results='asis'}
@@ -646,11 +683,11 @@ abline(v =.05,lwd = 2, lty = 2)
 
 ```{r CFA 23 items, include=FALSE}
 LB.cfa <- read_excel("recoded not reversed_CFA.xlsx")
-LB.model.Cor <- "F1 =~ item5 + item24 + item30 + item1 + item16 + item28
+LB.model.Cor <- "F1 =~ item43 + item26 + item32
              F2 =~ item10 + item47 + item36 + item44 + item35 + item13
-            F3 =~ item43 + item26 + item32
-           F4 =~  item14 + item41+ item7 + item27 + item21
-            F5 =~ item19 + item34 + item2" 
+            F3 =~  item14 + item41+ item7 + item27 + item21
+            F4 =~ item19 + item34 + item2
+F5 =~ item5 + item24 + item30 + item1 + item16 + item28" 
 
 
 
@@ -672,11 +709,11 @@ semTools::reliability(fit.Cor)
 ```
 
 ```{r CFA23withMI, include=FALSE}
-LB.model.Cor.3 <- "F1 =~ item5 + item24 + item30 + item1 + item16 + item28
+LB.model.Cor.3 <- "F1 =~ item43 + item26 + item32
              F2 =~ item10 + item47 + item36 + item44 + item35 + item13
-            F3 =~ item43 + item26 + item32
-           F4 =~  item14 + item41+ item7 + item27 + item21
-            F5 =~ item19 + item34 + item2
+            F3 =~  item14 + item41+ item7 + item27 + item21
+            F4 =~ item19 + item34 + item2
+F5 =~ item5 + item24 + item30 + item1 + item16 + item28 
 item44 ~~ item13
 item14 ~~  item7
 item10 ~~ item13" 
@@ -711,16 +748,16 @@ colnames <- c("gfi", "agfi", "nfi","rfi",
 ```
 
 ```{r CFI18items, include=FALSE}
-LB.model.Cor.2 <- "F1 =~ item5 + item24 + item30 + item16 
+LB.model.Cor.2 <- "F1 =~ item43 + item26 + item32
              F2 =~ item10 + item47 + item36 + item44 + item35 
-            F3 =~ item43 + item26 + item32
-           F4 =~  item14 + item41+ item7 
-            F5 =~ item19 + item34 + item2
+            F3 =~  item14 + item41+ item7 
+            F4 =~ item19 + item34 + item2
+F5 =~ item5 + item24 + item30 + item16 
 item14 ~~  item7" 
 
-#item 1 &28 discarded from F1;
+#item 1 &28 discarded from F5;
 #item13 discarded from F2
-#item 27 & 21 discarded from F4
+#item 27 & 21 discarded from F3
 
 ## Fit the model 
 fit.Cor.2 <- cfa(LB.model.Cor.2, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
@@ -746,6 +783,7 @@ colnames <- c("gfi", "agfi", "nfi","rfi",
 ```
 
 
+## IRT
 
 
 # Discussion
