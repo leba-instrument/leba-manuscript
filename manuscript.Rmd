@@ -81,7 +81,7 @@ fontfamily        : arev
 ```{r setup, include = FALSE}
 library(papaja) # devtools::install_github("crsh/papaja")
 library(lavaan)
-library(semPlot)
+library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 library(semTools)
 library(MOTE)
 library(psych)
@@ -133,7 +133,7 @@ descriptives.data <- data
 descriptives.data[ , 6:53 ][ descriptives.data[ , 6:53 ] == 0 ] <- 1
 EFA.descriptives <- descriptives.data[1:428,]
 CFA.descriptives <- descriptives.data[429:690, ]
-
+IRT.descriptives <- descriptives.data
 
 #Separating the EFA and CFA(only items)
 sem.data <- data[, 6:53] #EFA & CFA data
@@ -145,15 +145,8 @@ sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 
-### EFA data
-EFA.data <- sem.data[1:428, ]
 
-### CFA Data
-CFA.data <- sem.data[429:690,]
-CFARitem8 = recode(CFA.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
-CFARitem37 = recode(CFA.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
-CFA.data <- CFA.data %>% 
-  mutate(Ritem8 = CFARitem8, Ritem37 = CFARitem37)
+
 
 ### IRT data
 IRT.data <- sem.data
@@ -166,9 +159,9 @@ IRT.data <- IRT.data %>%
 
 ```{r descriptives, eval=FALSE, include=FALSE}
 #Use these  data frames for descriptive
-EFA.descriptives #Only EFA
-CFA.descriptives #Only CFA  
-
+EFA.descriptives #Only EFA, n =428
+CFA.descriptives #Only CFA, n =262  
+IRT.descriptives# Total sample, n = 690
 
 ```
 
@@ -283,7 +276,12 @@ We used R (version 4.1.0), including several R packages, for our analyses. Neces
 
 # Results
 
-```{r Normality assumption EFA, include=FALSE}
+```{r EFAdata, include=FALSE}
+### EFA data
+EFA.data <- sem.data[1:428, ]
+```
+
+```{r EFAassumptions, include=FALSE}
 
 #KMO test
 KMO <- KMO(EFA.data) 
@@ -343,15 +341,11 @@ n47 <- shapiro.test(EFA.data$item47)
 n48 <- shapiro.test(EFA.data$item48)
 
 
-
-
 normality.tab = matrix(, nrow = 48, ncol = 2)
 as.table(normality.tab)
-
 rownameprefix <- "Item"
 rownamesufix <- seq(1:48)
 my.item.names <- paste(rownameprefix,rownamesufix, sep = "" )
-
 rownames(normality.tab) <- my.item.names
 colnames(normality.tab) <- c("statistic", "p")
 
@@ -462,44 +456,43 @@ normalitysufix <- "*"
 normality.names <- paste(normalityprefix,normalitysufix, sep = "" )
 
 
-
 # Multivariate Normality
 mardia <- mardia(EFA.data, na.rm = T, plot =F)
 
-# Descriptives
+# Descriptive Stats
 Descriptives <- psych::describe(EFA.data)
 alpha <- psych::alpha(EFA.data)
 Item.total <- alpha$item.stats
 
 Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), normality.names,  apa(Item.total$r.cor,2,F))
 
-
-
-colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics", 
-                           "Item-Total Correlation")
+colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics","Item-Total Correlation")
 
 rownameprefix <- "Item"
 rownamesufix <- seq(1:48)
 my.names <- paste(rownameprefix,rownamesufix, sep = "" )
-
 rownames(Des.combined) = (my.names)
+```
 
+
+```{r CorrelationMatrix, include=FALSE}
 #Polychoric Correlation matrix
 
 correlations <- polychoric(EFA.data, correct = 0)
 upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 
 min.cor <- abs(min(upper)) #minimum cor.coefficient of the matrix
-max.cor <- abs(max(upper)) # max. correlation coefficent of the matrix
+max.cor <- abs(max(upper)) # max. correlation coefficient of the matrix
 
 
-# Calculating the percentange of correlations higher than .30
+# Calculating the percentage of correlations higher than .30
 
 BigR = sum(correlations$rho >= abs(.30) & correlations$rho < abs(1.0), na.rm =T)/2 
 totR = length(EFA.data)*(length(EFA.data)-1)/2
 cor.per <- print (BigR/totR)*100
+```
 
-
+```{r ItemAnalysis, include=FALSE}
 # Item analysis
 Item_analysis <- psych::alpha(EFA.data)
 Item_analysis$item.stats$r.cor
@@ -508,7 +501,8 @@ low.r.corec <- abs(R.cor.sum[1])  #minimum item total correlation
 high.r.corec <- R.cor.sum[6]     # maximum item total correlation
 ```
 
-Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].
+Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999]. Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions (Marida's test;[@mardiaMeasuresMultivariateSkewness1970]). Multivariate skew was  = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. And the corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
+
 
 ```{r tabDes, results='asis'}
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
@@ -520,9 +514,6 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 #p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
 #to show pvalue in the fig add p.mat=p.mat
 ```
-
-Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions (Marida's test;[@mardiaMeasuresMultivariateSkewness1970]). Multivariate skew was  = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. And the corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
-
 
 ```{r factor_identification, include=FALSE}
 
@@ -677,6 +668,7 @@ knitr::include_graphics('EFAplot.LR.png')
 
 
 ```{r Cronbach alpha for 5 fators, message=TRUE, warning=FALSE, include=FALSE}
+
 Five.F1 <- dplyr::select(EFA.data, item16, item36, item17)
 Five.F2 <- dplyr::select(EFA.data, item11, item10, item12, item7, item8, item9) 
 Five.F3 <-  dplyr::select(EFA.data, item27, item3,item40, item30, item41)
@@ -696,7 +688,6 @@ F3.alpha <- Five.F3.alpha$total$raw_alpha
 F4.alpha <- Five.F4.alpha$total$raw_alpha
 F5.alpha <- Five.F5.alpha$total$raw_alpha
 ```
-
 
 
 ```{r minres 5 factor supplimentary analyisis, eval=FALSE, include=FALSE}
@@ -734,7 +725,6 @@ GG <- print(fa.5F.min.3, cut = .3, digits = 3, sort = TRUE)
 # EFA with 6 factor (rejected)
 
 
-#EFA.factor <- sapply(EFA.data, as.factor)
 #correlations <- polychoric(EFA.factor, correct = 0)
 
 fa.6F.1 <- fa(r=correlations$rho, nfactors = 6, fm= "pa",rotate ="varimax",
@@ -861,115 +851,116 @@ abline(v =.05,lwd = 2, lty = 2)
 # Confirmatory Factor Analysis
 
 
-```{r CFA 23 items, eval=FALSE, include=FALSE}
+```{r CFA data frame, include=FALSE}
 
-#CFA.data <- sem.data[429:690,]
-
-Ritem44 = recode(CFA.data$item44, '1=5; 2=4; 3=3; 4=2; 5=1')
-Ritem21 = recode(CFA.data$item44, '1=5; 2=4; 3=3; 4=2; 5=1')
-
+### CFA Data
+CFA.data <- sem.data[429:690,]
+CFARitem8 = recode(CFA.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
+CFARitem37 = recode(CFA.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
+CFARitem26 = recode(CFA.data$item26, '1=5; 2=4; 3=3; 4=2; 5=1')
 CFA.data <- CFA.data %>% 
-  mutate(Ritem44 = Ritem44, Ritem21 = Ritem21)
+  mutate(Ritem8 = CFARitem8, Ritem37 = CFARitem37, Ritem26 = CFARitem26)
+```
+
+```{r CFA 25items, include=FALSE }
+
+LB.model.Cor.1 <- "F1 =~ item16 + item36 + item17
+                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
+                 F3 =~  item27+ item3+ item40 + item30 + item41
+                 F4 =~ a1*item32 +item35 + Ritem37 + item38+ a2*item33 
+                 F5 =~ item46+ item45+ item25+ item4+ item1+ item26
+                       
+a1==a2" 
 
 
-LB.model.Cor <- "F1 =~ item43 + item26 + item32
-                 F2 =~ item10 + item47 + item36 + Ritem44 + item35 + item13
-                 F3 =~  item14 + item41+ item7 + item27 + Ritem21
-                 F4 =~ item19 + item34 + item2
-                 F5 =~ item5 + item24 + item30 + item1 + item16 + item28" 
-
-
-
-fit.Cor <- cfa(LB.model.Cor, data = CFA.data, estimator = "MLR", mimic = "Mplus", check.gradient = FALSE) 
+fit.Cor.1 <- cfa(LB.model.Cor.1, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
 
 ## Summary of Model 
-summary(fit.Cor, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+summary(fit.Cor.1, fit.measures =TRUE,standardized = TRUE)
 
 
 ## Selected Fit measures 
-fit.1 <- fitmeasures (fit.Cor,c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
+fit.1 <- fitmeasures (fit.Cor.1,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.scaled","tli.scaled",
                        "rmsea.robust", 
                        "srmr","aic"))
 
 
-semTools::reliability(fit.Cor)
+semTools::reliability(fit.Cor.1)
 
 ```
 
-```{r CFA23withMI, eval=FALSE, include=FALSE}
-LB.model.Cor.3 <- "F1 =~ item43 + item26 + item32
-             F2 =~ item10 + item47 + item36 + item44 + item35 + item13
-            F3 =~  item14 + item41+ item7 + item27 + item21
-            F4 =~ item19 + item34 + item2
-F5 =~ item5 + item24 + item30 + item1 + item16 + item28 
-item44 ~~ item13
-item14 ~~  item7
-item10 ~~ item13" 
+```{r mod1, include=FALSE}
+modfit.Cor.one <- modindices(fit.Cor.1, sort. = TRUE) 
+modfit.Cor.one[modfit.Cor.one$mi>3.84,]
+```
 
+```{r CFA23withMI, include=FALSE}
+LB.model.Cor.2 <- "F1 =~ item16 + item36 + item17
+                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
+                 F3 =~  item27+ item3+ item40 + item30 + item41
+                 F4 =~ a1*item32 +item35 + item38+ a2*item33 
+                 F5 =~ item46+ item45+ item25+ item4+ item1
+                       a1==a2 
+                item30 ~~  item41" 
 
-
-
-
+#Ritem26 & 37 are removed
+                
 ## Fit the model 
-fit.Cor.3 <- cfa(LB.model.Cor.3, data = CFA.data, estimator = "MLR", mimic = "Mplus") 
+fit.Cor.2 <- cfa(LB.model.Cor.2, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
 
-reliability <- semTools::reliability(fit.Cor.3, return.total = T)
+reliability <- semTools::reliability(fit.Cor.2, return.total = T)
 as.table(reliability)
-## Summary of Model 
-summary(fit.Cor.3, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
-
-
-
-## Selected Fit measures 
-fit.3 <- fitmeasures (fit.Cor.3,c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
-                       "rmsea.robust", 
-                       "srmr","aic"))
-
-rownames <-  ("fitIndices")
-colnames <- c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
-                       "rmsea.robust", 
-                       "srmr","aic")
-
-
-```
-
-```{r CFI18items, eval=FALSE, include=FALSE}
-LB.model.Cor.2 <- "F1 =~ item43 + item26 + item32
-             F2 =~ item10 + item47 + item36 + item44 + item35 
-            F3 =~  item14 + item41+ item7 
-            F4 =~ item19 + item34 + item2
-F5 =~ item5 + item24 + item30 + item16 
-item14 ~~  item7" 
-
-#item 1 &28 discarded from F5;
-#item13 discarded from F2
-#item 27 & 21 discarded from F3
-
-## Fit the model 
-fit.Cor.2 <- cfa(LB.model.Cor.2, data = LB.cfa, estimator = "MLR", mimic = "Mplus") 
-
 ## Summary of Model 
 summary(fit.Cor.2, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
 
 
+
 ## Selected Fit measures 
 fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
-                       "rmsea.robust", 
+                       "cfi.scaled","tli.scaled",
+                       "rmsea.scaled", 
                        "srmr","aic"))
-
-rownames <-  ("fitIndices")
-colnames <- c("gfi", "agfi", "nfi","rfi", 
-                       "cfi.robust","tli.robust",
-                       "rmsea.robust", 
-                       "srmr","aic")
 
 
 
 ```
+
+```{r mod2, include=FALSE}
+modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE) 
+modfit.Cor.one[modfit.Cor.one$mi>3.84,]
+```
+
+
+```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE}
+library(semPlot)
+
+semPaths (fit.Cor.2 , 
+          what= "std",
+          #whatLabels = "std",
+          intercepts = F,
+          #style ="lisrel",
+          #residScale = 6,
+          theme = "colorblind",
+          nCharNodes = 0,
+          reorder =T,
+          rotation =2,
+          layout ="tree",
+          cardinal = T,
+          curvePivot =T,
+          sizeMan =8,
+          sizeMan2 = 1.5,
+          sizeLat = 8,
+          #edge.color = "black",
+          thresholds = FALSE,
+          equalizeManifests =T,
+          fade = FALSE,
+          edge.label.cex = .65,
+          exoCov = FALSE)
+
+           
+```
+
 
 
 ## IRT
