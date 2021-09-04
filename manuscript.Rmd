@@ -340,7 +340,6 @@ n46 <- shapiro.test(EFA.data$item46)
 n47 <- shapiro.test(EFA.data$item47)
 n48 <- shapiro.test(EFA.data$item48)
 
-
 normality.tab = matrix(, nrow = 48, ncol = 2)
 as.table(normality.tab)
 rownameprefix <- "Item"
@@ -398,8 +397,6 @@ normality.tab[,1] <- c(apa((n1$statistic),2,T),
                        apa((n46$statistic),2,T),
                        apa((n47$statistic),2,T),
                        apa((n48$statistic),2,T))
-                       
-                       
 
 normality.tab[,2] <- c(apa((n1$p.value),2,T),
                        apa((n1$p.value),2,T),
@@ -803,12 +800,12 @@ factor.des[,5] <- c("-", "-", "-", "-","-","-","-","-","-","-","-","-","-","-","
 
 factor.des[,6] <- c (.99, .90,.66,.64, .59, .47, .27, .25, .11, .66, .68, .46, .35, .33, .56, .62, .45, .17, .18, .42, .37, .19, .22, .17, .17, "-", "-")
 
-#Commonality
+#Communality
 Fac.5 <- fa.5F.3
 min.com <- min(Fac.5$communality)
 max.com <- max(Fac.5$communality)
 
-# loadings
+# loading
 min.loadings <- min(Fac.5$loadings)
 max.loadings <- max(Fac.5$loadings)
 
@@ -868,7 +865,7 @@ LB.model.Cor.1 <- "F1 =~ item16 + item36 + item17
                  F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
                  F3 =~  item27+ item3+ item40 + item30 + item41
                  F4 =~ a1*item32 +item35 + Ritem37 + item38+ a2*item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1+ item26
+                 F5 =~ item46+ item45+ item25+ item4+ item1+ Ritem26
                        
 a1==a2" 
 
@@ -882,8 +879,8 @@ summary(fit.Cor.1, fit.measures =TRUE,standardized = TRUE)
 ## Selected Fit measures 
 fit.1 <- fitmeasures (fit.Cor.1,c("gfi", "agfi", "nfi","rfi", 
                        "cfi.scaled","tli.scaled",
-                       "rmsea.robust", 
-                       "srmr","aic"))
+                       "rmsea.scaled", 
+                       "srmr"))
 
 
 semTools::reliability(fit.Cor.1)
@@ -920,7 +917,7 @@ summary(fit.Cor.2, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
 fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi", 
                        "cfi.scaled","tli.scaled",
                        "rmsea.scaled", 
-                       "srmr","aic"))
+                       "srmr"))
 
 
 
