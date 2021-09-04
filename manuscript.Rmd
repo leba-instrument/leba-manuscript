@@ -123,20 +123,52 @@ knitr::opts_chunk$set(dev = "png",
 
 ## Participants
 
-```{r include=FALSE}
+```{r preparingData, include=FALSE}
 data <- readRDS("leba_2021-09-03.rds")
+
+# Separating EFA and CFA samples with descriptive column
+descriptives.data <- data
+
+## Merge "0"s and "1"s into "1"s 9select,subset assign)
+descriptives.data[ , 6:53 ][ descriptives.data[ , 6:53 ] == 0 ] <- 1
+EFA.descriptives <- descriptives.data[1:428,]
+CFA.descriptives <- descriptives.data[429:690, ]
+
+
+#Separating the EFA and CFA(only items)
 sem.data <- data[, 6:53] #EFA & CFA data
 sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
 
-#renaming the column-header
+## renaming the column-header
 prefix <- "item"
 sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 
-#Separating the EFA and CFA sample
+### EFA data
 EFA.data <- sem.data[1:428, ]
+
+### CFA Data
 CFA.data <- sem.data[429:690,]
+CFARitem8 = recode(CFA.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
+CFARitem37 = recode(CFA.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
+CFA.data <- CFA.data %>% 
+  mutate(Ritem8 = CFARitem8, Ritem37 = CFARitem37)
+
+### IRT data
+IRT.data <- sem.data
+IRTRitem8 = recode(IRT.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
+IRTRitem37 = recode(IRT.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
+IRT.data <- IRT.data %>% 
+  mutate(Ritem8 = IRTRitem8, Ritem37 = IRTRitem37)
+```
+
+
+```{r descriptives, eval=FALSE, include=FALSE}
+#Use these  data frames for descriptive
+EFA.descriptives #Only EFA
+CFA.descriptives #Only CFA  
+
 
 ```
 
@@ -260,12 +292,6 @@ KMO <- KMO(EFA.data)
 bartlet <- cortest.bartlett(EFA.data, n =428)
 
 # Univariate normality
-
-#for ( i in 1:length (EFA.data)){numeric <- is.numeric(i) print(numeric)}
-
-
-
-shapiro.test(EFA.data$item1)
 
 n1 <- shapiro.test(EFA.data$item1)
 n2 <- shapiro.test(EFA.data$item2)
@@ -431,11 +457,6 @@ normality.tab[,2] <- c(apa((n1$p.value),2,T),
                        apa((n48$p.value),2,T))
                        
 
-
-
-
-
-
 normalityprefix <- normality.tab[,1]
 normalitysufix <- "*"
 normality.names <- paste(normalityprefix,normalitysufix, sep = "" )
@@ -472,7 +493,7 @@ min.cor <- abs(min(upper)) #minimum cor.coefficient of the matrix
 max.cor <- abs(max(upper)) # max. correlation coefficent of the matrix
 
 
-# Calulating the percentange of correlations higher than .30
+# Calculating the percentange of correlations higher than .30
 
 BigR = sum(correlations$rho >= abs(.30) & correlations$rho < abs(1.0), na.rm =T)/2 
 totR = length(EFA.data)*(length(EFA.data)-1)/2
@@ -503,7 +524,7 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions (Marida's test;[@mardiaMeasuresMultivariateSkewness1970]). Multivariate skew was  = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data  polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. And the corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`. 
 
 
-```{r factor_identification, eval=FALSE, include=FALSE}
+```{r factor_identification, include=FALSE}
 
 #correlations <- polychoric(EFA.factor, correct = 0)
 
@@ -531,7 +552,7 @@ Scree plot ( Figure \@ref(fig:facid)) suggested a six-factor solution. Horn's pa
 knitr::include_graphics('parallel.png')
 scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
       hline=NULL,add=F)
-knitr::include_graphics('HUll method.png')
+knitr::include_graphics('HUll method.jpeg')
 
 ```
 
