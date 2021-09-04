@@ -133,7 +133,6 @@ descriptives.data <- data
 descriptives.data[ , 6:53 ][ descriptives.data[ , 6:53 ] == 0 ] <- 1
 EFA.descriptives <- descriptives.data[1:428,]
 CFA.descriptives <- descriptives.data[429:690, ]
-IRT.descriptives <- descriptives.data
 
 #Separating the EFA and CFA(only items)
 sem.data <- data[, 6:53] #EFA & CFA data
@@ -144,16 +143,6 @@ prefix <- "item"
 sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
-
-
-
-
-### IRT data
-IRT.data <- sem.data
-IRTRitem8 = recode(IRT.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
-IRTRitem37 = recode(IRT.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
-IRT.data <- IRT.data %>% 
-  mutate(Ritem8 = IRTRitem8, Ritem37 = IRTRitem37)
 ```
 
 
@@ -161,7 +150,7 @@ IRT.data <- IRT.data %>%
 #Use these  data frames for descriptive
 EFA.descriptives #Only EFA, n =428
 CFA.descriptives #Only CFA, n =262  
-IRT.descriptives# Total sample, n = 690
+descriptives.data# Total sample, n = 690
 
 ```
 
@@ -961,6 +950,27 @@ semPaths (fit.Cor.2 ,
 
 
 ## IRT
+
+```{r IRT data, include=FALSE}
+
+F1.IRT.data <- sem.data %>% 
+  select(item16, item36,  item17)
+
+F2.IRT.data <- sem.data %>% 
+  select(item16, item36,  item17)
+
+"F1 =~ item16 + item36 + item17
+                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
+                 F3 =~  item27+ item3+ item40 + item30 + item41
+                 F4 =~ a1*item32 +item35 + item38+ a2*item33 
+                 F5 =~ item46+ item45+ item25+ item4+ item1
+
+
+IRTRitem8 = recode(IRT.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
+
+IRT.data <- IRT.data %>% 
+  mutate(Ritem8 = IRTRitem8, Ritem37 = IRTRitem37)
+```
 
 
 # Discussion
