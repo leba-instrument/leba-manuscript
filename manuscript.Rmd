@@ -98,6 +98,7 @@ library(correlation)
 library(ggcorrplot)
 library(car) #Reversecoding
 library(Hmisc)
+library(semTable)
 r_refs("references.bib")
 ```
 
@@ -1083,7 +1084,7 @@ structural <-cfa(model = LB.model.Cor.2,
                   estimator = "WLSMV",  
                  group.equal = c("loadings", "intercepts", "residuals", "means","lv.variances","lv.covariances"))
 
-summary(strucrural, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+summary(structural, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
 fitmeasures (structural,c("gfi", "agfi", "nfi","rfi", "cfi","tli","rmsea", "srmr","aic"))
 
 fourth.comp <- compareFit  (structural,strict)
@@ -1091,8 +1092,6 @@ summary(fourth.comp)
 comfit.par <- compareFit(configural, weak, strong, strict, structural)
 summary (comfit.par)
 
-
-#library("semTable")
 models <-  list("Configural" = configural, 
                 "Metric" = weak, 
                 "Scalar" = strong, 
