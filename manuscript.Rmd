@@ -81,12 +81,43 @@ fontfamily        : arev
 ```{r dependencymanager, include = FALSE}
 library(packrat)
 packrat::init()
-packrat::snapshot()
+#packrat::snapshot(ignore.stale=TRUE) #use to find and install required dependencies.
 ```
+
+
+```{r eval=FALSE, include=FALSE}
+#if "packrat" doesnot work you can run this chunk manually to get all required packs"
+
+install.packages("devtools")
+install.packages("semTools")
+install.packages("MOTE")
+install.packages("psych")
+install.packages("dlookr")
+install.packages("tidyverse")
+install.packages("qgraph")
+install.packages("kableExtra")
+install.packages("paran")
+install.packages("EFA.MRFA")
+install.packages("rsvg")
+install.packages("ggcorrplot")
+install.packages("car")
+install.packages("semTable")
+install.packages("magick")
+devtools::install_github('rich-iannone/DiagrammeR')
+devtools::install_github("crsh/papaja", force = T)
+install.packages("DiagrammeRsvg")
+devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
+devtools::install_github("crsh/citr")
+
+
+```
+
+
+
 
 ```{r setup}
 
-knitr::opts_chunk$set(include = FALSE)
+
 library(papaja) # devtools::install_github("crsh/papaja")
 library(lavaan)
 library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
@@ -106,7 +137,7 @@ library(rsvg) #For DiagrammeR
 library(ggcorrplot)
 library(car) #Reversecoding
 library(semTable)
-
+library(magick)
 r_refs("references.bib")
 ```
 
@@ -250,7 +281,7 @@ export_svg(Flowchart1) %>%
 
 
 
-```{r FlowchartFig, fig.align='center', fig.cap='Development', include=FALSE, out.height='100%', out.width='100%'}
+```{r FlowchartFig, fig.align='center', fig.cap='Development', out.height='100%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
 
@@ -500,7 +531,7 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 
 
 
-```{r tabDes, results='asis'}
+```{r tabDes}
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
@@ -535,7 +566,7 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 
 Scree plot ( Figure \@ref(fig:facid)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r factor_identification_fig, eval=FALSE, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, fig.ncol=2, warning=FALSE, (C) Hull method', fig.show="hold", include=FALSE, out.height="50%", out.width="50%"}
+```{r factor_identification_fig, eval=FALSE, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, fig.ncol=2, warning=FALSE, (C) Hull method', fig.show="hold", out.height="50%", out.width="50%"}
 knitr::include_graphics('Manuscript.figures/parallel.png')
 scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
       hline=NULL,add=F)
@@ -578,7 +609,7 @@ var5 <- CC$Vaccounted[2,5]*100
 
 ```{r EFAplotcode, include=FALSE}
 #library(DiagrammeR)
-EFAplot.LR <- grViz("
+EFAplot <- grViz("
 digraph boxes_and_circles {
 
 graph [layout = dot,rankdir = LR, fontsize = 40]
@@ -650,15 +681,15 @@ F5 -> z [label = '0.35']
 ")
 
 
-export_svg(EFAplot.LR) %>%
+export_svg(EFAplot) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("Manuscript.figures/EFAplot.LR.png")
+  png::writePNG("Manuscript.figures/EFAplot.png")
 
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, include=FALSE, out.height="100%", out.width="120%"}
-knitr::include_graphics('Manuscript.figures/EFAplot.LR.png')
+```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="100%", out.width="120%"}
+knitr::include_graphics('Manuscript.figures/EFAplot.png')
 
 ```
 
@@ -927,7 +958,7 @@ modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Commonly used Model fit suggestions of [@huCutoffCriteriaFit1999] focused on (i) the comparative fit index (CFI;) (ii) the Tucker Lewis index (TLI) (CFI/TLI, $goodfit \geq .95$, $acceptable fit\geq .90$) (ii) the root mean square error of approximation (RMSEA; close to .06 or below), (iii) the standardized root mean square (SRMR; close to .08 or below) to estimate the model fit. The chi-square test is also used to estimate the absolute model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@RN1231]. The other absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the incremental fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`).  Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI])   and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. 
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Commonly used Model fit suggestions of [@huCutoffCriteriaFit1999] focused on (i) the comparative fit index (CFI;) (ii) the Tucker Lewis index (TLI) (CFI/TLI, $goodfit \geq .95$, $acceptable fit\geq .90$) (ii) the root mean square error of approximation (RMSEA; close to .06 or below), (iii) the standardized root mean square (SRMR; close to .08 or below) to estimate the model fit. The chi-square test is also used to estimate the absolute model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. The other absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the incremental fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`).  Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI])   and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. 
 
  
 
@@ -955,7 +986,7 @@ CFa.matrix[2,] = c("Five factor model",
                    apa(cfa.sum.2$FIT[29],2,T),
                    apa(cfa.sum.2$FIT[35],2,T))
 
-apa_table(CFa.matrix, caption = "Fit indices of CFA")
+apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T)
 
 ```
 
@@ -963,7 +994,7 @@ apa_table(CFa.matrix, caption = "Fit indices of CFA")
 
 
 ```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE}
-library(semPlot)
+#library(semPlot)
 
 semPaths (fit.Cor.2 , 
           what= "std",
@@ -1000,31 +1031,11 @@ invariance.data %>%
   count()
 ```
 
-```{r Invarianceshortcut, include=FALSE}
-#library("semTools")
-invariance.model <- measurementInvariance(model = LB.model.Cor.2,
-                                          data = invariance.data,
-                                          group = "English_Speaking",
-                                          ordered =   names(CFA.data),
-                                          estimator = "WLSMV",
-                                          strict = T)
-invariance.model$fit.configural
-```
 
 
 
 ```{r Invariance detail, include=FALSE}
 # Configural invariance ####
-
-LB.model.Cor.3 <- "F1 =~ a1*item16 + a2*item36 + item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 + item30 + item41
-                 F4 =~ a4*item32 +a3*item35 + item38+ item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1 
-                       a1==a2
-                       a4==a3
-                item30 ~~  item41
-F4~~1*F4" 
 
 
 configural <- cfa(model = LB.model.Cor.2,
@@ -1110,15 +1121,20 @@ models <-  list("Configural" = configural,
 
 Invariance.table <- compareLavaan(models,
               nesting = "Configural > Metric > Scalar > Residual  > Structural", 
-              fitmeas = c("chisq", "df", "pvalue", "cfi.scaled","tli.scaled","rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr" ),
-              scaled = TRUE,
-              chidif = TRUE, digits = 2)
+              fitmeas = c("chisq.scaled", "df",  "cfi.scaled","tli.scaled","rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr" ),
+              scaled = T,
+              chidif = T, digits = 2)
+
+colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper", "SRMR", "Chi-Sqr comparison", "df*", "p")
 
 
 ```
 
-```{r Invariance Tab}
-apa_table(Invariance.table)
+```{r InvarianceTab}
+apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "scriptsize" )
+
+
+
 ```
 
 
