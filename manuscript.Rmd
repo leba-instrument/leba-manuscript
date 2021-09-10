@@ -78,7 +78,14 @@ output            : papaja::apa6_pdf
 fontfamily        : arev
 ---
 
-```{r setup, include = FALSE}
+```{r dependencymanager, include = FALSE}
+library(packrat)
+packrat::init()
+```
+
+```{r setup}
+
+knitr::opts_chunk$set(include = FALSE)
 library(papaja) # devtools::install_github("crsh/papaja")
 library(lavaan)
 library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
@@ -94,10 +101,9 @@ library(EFA.MRFA) # Hull method
 library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
 library(DiagrammeRsvg) #For DiagrammeR
 library(rsvg) #For DiagrammeR
-library(correlation)
+#library(correlation)
 library(ggcorrplot)
 library(car) #Reversecoding
-library(Hmisc)
 library(semTable)
 
 r_refs("references.bib")
@@ -126,18 +132,18 @@ knitr::opts_chunk$set(dev = "png",
 ## Participants
 
 ```{r preparingData, include=FALSE}
-data <- readRDS("leba_2021-09-03.rds")
+data <- readRDS("leba_2021-09-08.rds")
 
 # Separating EFA and CFA samples with descriptive column
 descriptives.data <- data
 
 ## Merge "0"s and "1"s into "1"s 9select,subset assign)
-descriptives.data[ , 6:53 ][ descriptives.data[ , 6:53 ] == 0 ] <- 1
+descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
 EFA.descriptives <- descriptives.data[1:428,]
 CFA.descriptives <- descriptives.data[429:690, ]
 
 #Separating the EFA and CFA(only items)
-sem.data <- data[, 6:53] #EFA & CFA data
+sem.data <- data[, 9:56] #EFA & CFA data
 sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
 
 ## renaming the column-header
@@ -237,14 +243,14 @@ Flowchart1 <- grViz("digraph nicegraph{
 export_svg(Flowchart1) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("Flowchart1.png")
+  png::writePNG("mFlowchart1.png")
 
 ```
 
 
 
-```{r FlowchartFig,  out.width = '100%', out.height= '100%', fig.align = 'center', fig.cap='Development and psychometric properties of LEBA '}
-knitr::include_graphics('Flowchart1.png')
+```{r FlowchartFig, fig.align='center', fig.cap='Development', include=FALSE, out.height='100%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
 
 
@@ -506,17 +512,17 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 
 ```{r factor_identification, include=FALSE}
 
-#correlations <- polychoric(EFA.factor, correct = 0)
+
 
 # Parallel analysis
- paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
+paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
       status=TRUE, all=FALSE, cfa=FALSE, graph=TRUE,
       color=TRUE, col=c("black","red","blue"),
-      lty=c(1,2,3), lwd=1, legend=TRUE, file="parallel.png",
+      lty=c(1,2,3), lwd=1, legend=TRUE, file="Manuscript.figures/parallel.png",
       width=640, height=640, grdevice=png, seed=0, mat=NA, n=NA)
 
 # HULL
-hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = TRUE,
+hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
         details = TRUE)
 
 
@@ -529,10 +535,10 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 Scree plot ( Figure \@ref(fig:facid)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
 ```{r factor_identification_fig, eval=FALSE, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, fig.ncol=2, warning=FALSE, (C) Hull method', fig.show="hold", include=FALSE, out.height="50%", out.width="50%"}
-knitr::include_graphics('parallel.png')
+knitr::include_graphics('Manuscript.figures/parallel.png')
 scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
       hline=NULL,add=F)
-knitr::include_graphics('HUll method.jpeg')
+knitr::include_graphics('Manuscript.figures/Hull.png')
 
 ```
 
@@ -646,12 +652,12 @@ F5 -> z [label = '0.35']
 export_svg(EFAplot.LR) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("EFAplot.LR.png")
+  png::writePNG("Manuscript.figures/EFAplot.LR.png")
 
 ```
 
-```{r EFAplot, eval=FALSE, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, include=FALSE, out.height="100%", out.width="120%"}
-knitr::include_graphics('EFAplot.LR.png')
+```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, include=FALSE, out.height="100%", out.width="120%"}
+knitr::include_graphics('Manuscript.figures/EFAplot.LR.png')
 
 ```
 
@@ -993,7 +999,7 @@ invariance.data %>%
   count()
 ```
 
-```{r Invarianceshortcut}
+```{r Invarianceshortcut, include=FALSE}
 #library("semTools")
 invariance.model <- measurementInvariance(model = LB.model.Cor.2,
                                           data = invariance.data,
