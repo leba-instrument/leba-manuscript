@@ -99,6 +99,7 @@ library(ggcorrplot)
 library(car) #Reversecoding
 library(Hmisc)
 library(semTable)
+
 r_refs("references.bib")
 ```
 
@@ -527,7 +528,7 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 
 Scree plot ( Figure \@ref(fig:facid)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r factor_identification_fig, out.height= "50%",  fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, (C) Hull method', fig.show="hold",fig.ncol = 2, out.width="50%",  warning=FALSE}
+```{r factor_identification_fig, eval=FALSE, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot, fig.ncol=2, warning=FALSE, (C) Hull method', fig.show="hold", include=FALSE, out.height="50%", out.width="50%"}
 knitr::include_graphics('parallel.png')
 scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
       hline=NULL,add=F)
@@ -649,7 +650,7 @@ export_svg(EFAplot.LR) %>%
 
 ```
 
-```{r EFAplot,  fig.cap='Five Factor Solution', fig.align='center', out.width= "120%", out.height= "100%", warning=FALSE}
+```{r EFAplot, eval=FALSE, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, include=FALSE, out.height="100%", out.width="120%"}
 knitr::include_graphics('EFAplot.LR.png')
 
 ```
@@ -1117,7 +1118,7 @@ apa_table(Invariance.table)
 
 ## IRT
 
-```{r IRT data, include=FALSE}
+```{r IRT data, eval=FALSE, include=FALSE}
 
 F1.IRT.data <- sem.data %>% 
   select(item16, item36,  item17)
@@ -1125,17 +1126,7 @@ F1.IRT.data <- sem.data %>%
 F2.IRT.data <- sem.data %>% 
   select(item16, item36,  item17)
 
-"F1 =~ item16 + item36 + item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 + item30 + item41
-                 F4 =~ a1*item32 +item35 + item38+ a2*item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1
 
-
-IRTRitem8 = recode(IRT.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
-
-IRT.data <- IRT.data %>% 
-  mutate(Ritem8 = IRTRitem8, Ritem37 = IRTRitem37)
 ```
 
 
