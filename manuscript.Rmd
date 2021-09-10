@@ -81,7 +81,7 @@ fontfamily        : arev
 ```{r dependencymanager, include = FALSE}
 library(packrat)
 packrat::init()
-#packrat::snapshot(ignore.stale=TRUE) #use to find and install required dependencies.
+packrat::snapshot(ignore.stale=TRUE) #use to find and install required dependencies.
 ```
 
 
@@ -103,6 +103,8 @@ install.packages("ggcorrplot")
 install.packages("car")
 install.packages("semTable")
 install.packages("magick")
+install.packages("mirt")
+install.packages("cowplot")
 devtools::install_github('rich-iannone/DiagrammeR')
 devtools::install_github("crsh/papaja", force = T)
 install.packages("DiagrammeRsvg")
@@ -138,6 +140,7 @@ library(ggcorrplot)
 library(car) #Reversecoding
 library(semTable)
 library(magick)
+library(mirt)
 r_refs("references.bib")
 ```
 
@@ -218,16 +221,16 @@ CFA: For estimating the sample size for the confirmatory factor analysis we foll
 ```{r flowchart, include=FALSE }
 Flowchart1 <- grViz("digraph nicegraph{
          
-                    graph [layout = dot,fontsize = 14]
+                    graph [layout = dot,fontsize = 20]
                      
                      node[shape = rectangle, margin = 0.2, width = 6.5, height = 1, 
-                    fixedsize = true]  
+                    fixedsize = true,fontsize = 20]  
                      
                     A[label = '48 items were generataed by a robust expert panel'] 
                     B[label = 'Exploratory Factor Analysis on 48 Items (N = 428)']
                     
                     node[shape = rectangle, margin = 0.2, width = 6.5, height = 2, 
-                    fixedsize = true]
+                    fixedsize = true, fontsize = 20]
                     C[label = 'Factor Identification
                     Scree Plot: 6 Factors
                     Parallel Analysis: 6 Factors
@@ -237,25 +240,28 @@ Flowchart1 <- grViz("digraph nicegraph{
                      subgraph cluster_1 {
                       graph[shape = rectangle]
                       style = rounded
-                     node[ margin = 0.2,width = 6.5, height = 1, fixedsize = true ]
+                     node[ margin = 0.2,width = 6.5, height = 1, fixedsize = true, fontsize = 18 ]
                     
-                     1[label = '5 Factor Solution Retained 23 Items']
+                     1[label = '5 Factor Solution Retained 25 Items']
                      2[label = 'Reliability Analysis on EFA Sample (N=428)
-                    Alpha F1 =.49; F2 = .71; F3 = .86; F4 =.62; F5 =.77']
+                    Alpha F1 =.86; F2 = .71; F3 = .68; F4 =.62; F5 =.52']
                     
-                     3[label = 'Confirmatory Factor Analysis on Modified Model
-                     on the Five Factor Model (21 Items; N=199)
-                      Acceptable Fit ( CFI = .92; TLI .91; RMSEA = .05, SRMR = .07)']
+                     3[label = 'Confirmatory Factor Analysis 
+                     on the Five Factor Model (25 Items; N=262)
+                      Acceptable Fit ( CFI = .94; TLI .93; RMSEA = .06, SRMR = .11)']
                     
-                     4[label = 'Reliability Analysis on CFA (N=199) 
-                      Alpha F1=.47; F2=.67; F3 =.92; F4=.58; F5= .74']
+                    4[label = 'Confirmatory Factor Analysis 
+                     on the Five Factor Model (23 Items; N=262)
+                      Acceptable Fit ( CFI = .97; TLI .96; RMSEA = .04, SRMR = .09)']
+                     5[label = 'Reliability Analysis on CFA (23 Items; N=262) 
+                      Alpha F1=.93; F2=.80; F3 =.62; F4=.72; F5=.45']
                     }
                 subgraph cluster_2 {
                       graph[shape = rectangle]
                       style = rounded
                      node[ margin = 0.2,width = 6.5, height = 1, fixedsize = true ]
-                    5[label = '6-Factor  one factor with only two salient loadings']
-                    6[label = 'Rejected']
+                    6[label = '6-Factor  one factor with only two salient loadings']
+                    7[label = 'Rejected']
                     }     
                      
                     
@@ -266,8 +272,9 @@ Flowchart1 <- grViz("digraph nicegraph{
                      1 ->2
                      2 ->3
                      3 ->4
-                     C ->5
-                     5 ->6
+                     4 ->5
+                     C ->6
+                     6 ->7
                      
                      
 }")
@@ -317,6 +324,10 @@ KMO <- KMO(EFA.data)
 
 # Test of correlation matrix
 bartlet <- cortest.bartlett(EFA.data, n =428)
+
+
+#Histogram
+#psych::multi.hist(EFA.data[,sapply(EFA.data, is.numeric)])
 
 # Univariate normality
 
@@ -510,7 +521,7 @@ upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 min.cor <- abs(min(upper)) #minimum cor.coefficient of the matrix
 max.cor <- abs(max(upper)) # max. correlation coefficient of the matrix
 
-
+determinets <- det(correlations$rho) 
 # Calculating the percentage of correlations higher than .30
 
 BigR = sum(correlations$rho >= abs(.30) & correlations$rho < abs(1.0), na.rm =T)/2 
@@ -792,8 +803,8 @@ totRRR = length(reduced.model.6F.2)*(length(reduced.model.6F.2)-1)/2
 # Proportion of off-diagonal elements >.10
 sumRRR <- sum(BigRRR/totRRR*100)
 
-hist(residual.6F, col ="red", main = NULL, xlab = "Five factor oblique rotation: Residuals",ylim=c(0, 250))
-abline(h =27, lwd = 2, lty = 2)
+hist(residual.6F, main = NULL, xlab = "Six factor Solution: Residuals",ylim=c(0, 400))
+abline(h =65, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
 ```
 
@@ -865,7 +876,7 @@ apa_table(factor.des,align = "c", note = "Only loading higher than .30 is report
 ```
 
 ```{r Residuals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residulas:  five-factor solution',  out.width="50%",  warning=FALSE}
-hist(residual.5F, col ="red", main = NULL, xlab = "Five-factor solution", ylim=c(0, 250))
+hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =51, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
 
@@ -887,6 +898,9 @@ CFARitem37 = recode(CFA.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
 CFARitem26 = recode(CFA.data$item26, '1=5; 2=4; 3=3; 4=2; 5=1')
 CFA.data <- CFA.data %>% 
   mutate(Ritem8 = CFARitem8, Ritem37 = CFARitem37, Ritem26 = CFARitem26)
+
+#Hitogram
+#psych::multi.hist(CFA.data[,sapply(CFA.data, is.numeric)])
 ```
 
 ```{r CFA 25items, include=FALSE }
@@ -965,7 +979,7 @@ We conducted a categorical confirmatory factor analysis with robust weighted lea
 ```{r tabCfa, results='asis'}
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
 colnames(CFa.matrix) = c("Model", "Chi-Squre", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper CI", "SRMR")
-CFa.matrix[1,] = c("Five factor model", 
+CFa.matrix[1,] = c("Five factor model:25", 
                    apa(cfa.sum.1$FIT[6],2,T), 
                    apa(cfa.sum.1$FIT[7],2,T), 
                    apa(cfa.sum.1$FIT[19],2,F), 
@@ -976,7 +990,7 @@ CFa.matrix[1,] = c("Five factor model",
                    apa(cfa.sum.1$FIT[35],2,T))
 
 
-CFa.matrix[2,] = c("Five factor model", 
+CFa.matrix[2,] = c("Five factor model:23", 
                    apa(cfa.sum.2$FIT[6],2,T), 
                    apa(cfa.sum.2$FIT[7],2,T), 
                    apa(cfa.sum.2$FIT[19],2,F), 
@@ -1143,11 +1157,205 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 
 ```{r IRT data, eval=FALSE, include=FALSE}
 
-F1.IRT.data <- sem.data %>% 
-  select(item16, item36,  item17)
 
-F2.IRT.data <- sem.data %>% 
-  select(item16, item36,  item17)
+IRTitem8 = recode(sem.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
+IRTitem37 = recode(sem.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
+IRTitem26 = recode(sem.data$item26, '1=5; 2=4; 3=3; 4=2; 5=1')
+sem.data <- sem.data %>% 
+  mutate(Ritem8 = IRTitem8, Ritem37 = IRTitem37, Ritem26 = IRTitem26)
+
+
+F1 <- sem.data %>% 
+  dplyr::select(item16, item36,  item17)
+
+F2 <- sem.data %>% 
+  dplyr::select(item11,  item10 , item12, item7, Ritem8, item9)
+
+F3 <- sem.data %>% 
+ dplyr::select(item27, item3,  item40,  item30,  item41)
+
+
+F4 <- sem.data %>% 
+ dplyr::select(item32, item35,  item38,  item33)
+
+F5 <- sem.data %>% 
+  dplyr::select(item46, item45, item25, item4, item1 )
+
+
+
+
+## F1 IRT model####
+F1_fit <- mirt(F1, model = 1, itemtype = 'graded', 
+               SE = TRUE, Se.type = 'MHRM',
+               technical = list(NCYCLES = 10000))
+
+
+## F2 IRT model####
+F2_fit <- mirt(F2, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+## F3 IRT model####
+F3_fit <- mirt(F3, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+## F4 IRT model####
+F4_fit <- mirt(F4, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+## F5 IRT model####
+F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+# Model Parameters ####
+## F1 Model Parameters####
+F1_params <- coef(F1_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F1_items <- data.frame(F1_params$items)
+F1l_se <- coef(F1_fit, printSE = TRUE)
+
+## F2 Model Parameters####
+F2_params <- coef(F2_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F2_items <- data.frame(F2_params$items)
+F2_se <- coef(F2_fit, printSE = TRUE)
+
+## F3 Model Parameters####
+F3_params <- coef(F3_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F3_items <- data.frame(F3_params$items)
+F3_se <- coef(F3_fit, printSE = TRUE)
+
+## F4 Model Parameters####
+F4_params <- coef(F4_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F4_items <- data.frame(F4_params$items)
+F4_se <- coef(F4_fit, printSE = TRUE)
+
+## F5 Model Parameters####
+F5_params <- coef(F5_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F5_items <- data.frame(F5_params$items)
+F5_se <- coef(F5_fit, printSE = TRUE)
+
+
+# Person Fit ####
+## F1 Person fit ####
+F1.personfit <- personfit(F1_fit) 
+F1.personfit_model_misfits <- subset(F1.personfit, Zh < -2)
+rownames(F1.personfit_model_misfits)
+nrow(F1.personfit_model_misfits)
+hist(F1.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F2 Person fit ####
+F2.personfit <- personfit(F2_fit) 
+F2.personfit_model_misfits <- subset(F2.personfit, Zh < -2)
+rownames(F2.personfit_model_misfits)
+nrow(F2.personfit_model_misfits)
+hist(F2.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F3 Person fit ####
+F3.personfit <- personfit(F3_fit) 
+F3.personfit_model_misfits <- subset(F3.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F3.personfit_model_misfits)
+hist(F3.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F4 Person fit ####
+F4.personfit <- personfit(F4_fit) 
+F4.personfit_model_misfits <- subset(F4.personfit, Zh < -2)
+rownames(F4.personfit_model_misfits)
+nrow(F4.personfit_model_misfits)
+hist(F4.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+
+## F5 Person fit ####
+F5.personfit <- personfit(F5_fit) 
+F5.personfit_model_misfits <- subset(F5.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F5.personfit_model_misfits)
+hist(F5.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+# Item Fit ####
+
+## F1 Item Fit ####
+F1_itemfit <- itemfit(F1_fit,fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+
+F1.missfit <- F1_itemfit[F1_itemfit$p.S_X2 < 0.05, ]
+
+
+## F2 Item Fit ####
+F2_itemfit <- itemfit(F2_fit,fit_stats = c("S_X2", "G2","Zh", "infit"),
+                      impute=10)
+
+
+F2.missfit <- F2_itemfit[F2_itemfit$p.S_X2 < 0.05, ]
+
+
+## F3 Item Fit ####
+F3_itemfit <- itemfit(F3_fit,fit_stats = c("S_X2", "G2","Zh", "infit"),
+                      impute=10)
+
+
+F3.missfit <- F3_itemfit[F3_itemfit$p.S_X2 < 0.05, ]
+
+## F4 Item Fit ####
+F4_itemfit <- itemfit(F4_fit,fit_stats = c("S_X2", "G2","Zh", "infit"),
+                      impute=10)
+
+
+F4.missfit <- F4_itemfit[F4_itemfit$p.S_X2 < 0.05, ]
+
+## F5 Item Fit ####
+F5_itemfit <- itemfit(F5_fit,fit_stats = c("S_X2", "G2","Zh", "infit"),
+                      impute=10)
+
+
+F5.missfit <- F5_itemfit[F5_itemfit$p.S_X2 < 0.05, ]
+
+
+
+# Plots ####
+## F1 Plots ####
+F1_OCC <- plot(F1_fit, type = "trace", facet =T, main = "Blue Filter OCC")
+F1_info <- plot(F1_fit, type = "infoSE", main = "Blue Filter Test Information")
+F1_iteminfo <- plot(F1_fit, type = "infotrace", main = "Blue Filter Item Information")
+
+## F2 Plots ####
+F2_OCC <- plot(F2_fit, type = "trace", facet =T, main = "Natural Light OCC")
+F2_info <- plot(F2_fit, type = "infoSE", main = "Natural Light Test Information")
+F2_iteminfo <- plot(F2_fit, type = "infotrace", main = "Natural Light Item Information")
+
+## F3 Plots ####
+F3_OCC <-plot(F3_fit, type = "trace", facet =T, main = "Smart Device OCC")
+F3_info <- plot(F3_fit, type = "infoSE", main = "Smart Device Test Information")
+F3_iteminfo <- plot(F3_fit, type = "infotrace", main = "Smart Device Item Information")
+
+## F4 Plots ####
+F4_OCC <-plot(F4_fit, type = "trace", facet =T, main = "Sleep Environment OCC")
+F4_info <- plot(F4_fit, type = "infoSE", main = "Sleep Environment Test Information")
+F4_iteminfo <- plot(F4_fit, type = "infotrace", main = "Sleep Environment Item Information")
+
+
+## F5 Plots ####
+F5_OCC <-plot(F5_fit, type = "trace", facet =T, main = "Electric Light OCC")
+F5_info <- plot(F5_fit, type = "infoSE", main = "Electric Light Test Information")
+F5_iteminfo <- plot(F5_fit, type = "infotrace", main = "Electric Light Item Information")
+
+## Plot grid ####
+library(cowplot)
+plot_grid(F1_OCC, F2_OCC,F3_OCC,F4_OCC,F5_OCC, 
+          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+
+plot_grid(F1_info, F2_info,F3_info,F4_info,F5_info, 
+          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+
+plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
+          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
 
 
 ```
