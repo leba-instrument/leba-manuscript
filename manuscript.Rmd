@@ -81,6 +81,7 @@ fontfamily        : arev
 ```{r dependencymanager, include = FALSE}
 library(packrat)
 packrat::init()
+packrat::snapshot()
 ```
 
 ```{r setup}
@@ -243,7 +244,7 @@ Flowchart1 <- grViz("digraph nicegraph{
 export_svg(Flowchart1) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("mFlowchart1.png")
+  png::writePNG("Manuscript.figures/Flowchart1.png")
 
 ```
 
