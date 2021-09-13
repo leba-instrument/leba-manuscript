@@ -81,7 +81,9 @@ fontfamily        : arev
 ```{r dependencymanager, include = FALSE}
 library(packrat)
 packrat::init()
-packrat::snapshot(ignore.stale=TRUE) #use to find and install required dependencies.
+#use to find and install required dependencies.
+#packrat::snapshot(ignore.stale=TRUE) 
+packrat::restore()
 ```
 
 
