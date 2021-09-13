@@ -224,6 +224,12 @@ Source: CRAN
 Version: 0.1-3
 Hash: c590d29e555926af053055e23ee79efb
 
+Package: bayestestR
+Source: CRAN
+Version: 0.11.0
+Hash: 596df1a88bff63465aff1df7af06cbdb
+Requires: datawizard, insight
+
 Package: bibtex
 Source: CRAN
 Version: 0.4.2.3
@@ -385,6 +391,12 @@ Source: CRAN
 Version: 1.6.9
 Hash: f641167f85158bfc7cd4b97ac1c26701
 
+Package: correlation
+Source: CRAN
+Version: 0.7.0
+Hash: 5514cc6ac8e74d61571101c4f76ab363
+Requires: bayestestR, datawizard, insight, parameters
+
 Package: corrplot
 Source: CRAN
 Version: 0.90
@@ -428,6 +440,12 @@ Package: data.table
 Source: CRAN
 Version: 1.14.0
 Hash: f606b167539da14e861ff5e145b04525
+
+Package: datawizard
+Source: CRAN
+Version: 0.2.0.1
+Hash: 0f9552750d7bdc8891a351e4bcddd399
+Requires: insight
 
 Package: dbplyr
 Source: CRAN
@@ -778,6 +796,11 @@ Source: CRAN
 Version: 0.3.1
 Hash: 9d6de5178c1cedabfb24e7d2acc9a092
 
+Package: insight
+Source: CRAN
+Version: 0.14.4
+Hash: a5633aa71afe901a2939b72f99c44158
+
 Package: inum
 Source: CRAN
 Version: 1.0-4
@@ -1041,6 +1064,12 @@ RemoteRepo: papaja
 RemoteUsername: crsh
 RemoteRef: HEAD
 RemoteSha: a231c3628ccf24359cc17f11a5bbc743e3fed920
+
+Package: parameters
+Source: CRAN
+Version: 0.14.0
+Hash: 7b29a836a3304a5e93b33f58e053afc5
+Requires: bayestestR, insight
 
 Package: paran
 Source: CRAN

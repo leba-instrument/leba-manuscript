@@ -140,7 +140,6 @@ library(EFA.MRFA) # Hull method
 library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
 library(DiagrammeRsvg) #For DiagrammeR
 library(rsvg) #For DiagrammeR
-#library(correlation)
 library(ggcorrplot)
 library(car) #Reversecoding
 library(semTable)
