@@ -78,7 +78,8 @@ output            : papaja::apa6_pdf
 fontfamily        : arev
 ---
 
-```{r dependencymanager, include = FALSE}
+```{r dependencymanager, include = FALSE, warning=F}
+knitr::opts_chunk$set(warning = F, error = F, message = F)
 library(packrat)
 packrat::init()
 #Only use when you have added some pack
