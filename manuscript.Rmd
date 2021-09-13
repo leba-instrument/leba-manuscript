@@ -145,6 +145,7 @@ library(car) #Reversecoding
 library(semTable)
 library(magick)
 library(mirt)
+library(gtsummary)
 r_refs("references.bib")
 ```
 
