@@ -1,0 +1,45 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{Manuscript.figures/Flowchart1}
+
+}
+
+\caption{Development}\label{fig:FlowchartFig}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics[width=0.5\linewidth]{manuscript_files/figure-latex/figCor-1}
+
+}
+
+\caption{Correlation plot of the items}\label{fig:figCor}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics[width=1.2\linewidth,height=1\textheight]{Manuscript.figures/EFAplot}
+
+}
+
+\caption{Five Factor Solution}\label{fig:EFAplot}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+{\centering \includegraphics[width=0.5\linewidth,height=0.5\textheight]{manuscript_files/figure-latex/Residuals-1}
+
+}
+
+\caption{ Histogram of residulas:  five-factor solution}\label{fig:Residuals}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\includegraphics[width=1\linewidth]{manuscript_files/figure-latex/figcfa-1} \caption{(A) Five Factor Model of LEBA}\label{fig:figcfa}
+\end{figure*}

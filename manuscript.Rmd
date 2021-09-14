@@ -4,38 +4,119 @@ shorttitle        : "LEBA"
 
 author: 
   - name          : "Mushfiqul Anwar Siraji"
-    affiliation   : "1"
-    corresponding : no   
-    address       : "Monash University, Malaysia"
+    affiliation   : "1, *"
     email         : "mushfiqul.anwarsiraji@monash.edu"
     role:         
-      - Data Analysis
-      - Writing - Original Draft Preparation
-      - Data Visualization
+      - Formal Analysis
+      - Visualization
+      - Writing – original draft
        
   - name          : "Rafael Robert Lazar"
-    affiliation   : "2"
+    affiliation   : "2, 3, *"
     role:
-      - Data Analysis
-      - Writing - Original Draft Preparation
-      - Data Visualization
-  - name          : "Manuel Spitschan "
-    affiliation   : "3"
-    corresponding : yes   
-    address       : ""
-    email         : ""
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing;
+      
+  - name          : "Juliëtte	van Duijnhoven"
+    affiliation   : "4"
+    email         : "j.v.duijnhoven1@tue.nl"
     role:         
-      - Data Analysis
-      - Writing - Original Draft Preparation
-      - Data Visualization
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
 
-  
+  - name          : "Luc Schlangen"
+    affiliation   : "5"
+    email         : "l.j.m.schlangen@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Shamsul Haque"
+    affiliation   : "1"
+    email         : "shamsul@monash.edu"
+    role:         
+      - Conceptualization
+      - Supervision
+      - Writing – review & editing
+      
+  - name          : "Vineetha Kalavally"
+    affiliation   : "6"
+    email         : "vineetha@monash.edu"
+    role:         
+      - Supervision
+      - Writing – review & editing
+      
+  - name          : "Céline Vetter"
+    affiliation   : "7, 8"
+    email         : "celine.vetter@colorado.edu"
+    role:         
+      - Conceptualization
+      - Writing – review & editing
+      
+  - name          : "Gena Glickman"
+    affiliation   : "9"
+    email         : "gena.glickman@usuhs.edu"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+      
+  - name          : "Karin Smolders"
+    affiliation   : "10"
+    email         : "k.c.h.j.smolders@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+
+  - name          : "Manuel Spitschan"
+    corresponding : yes
+    affiliation   : "11, 2, 3"
+    email         : "manuel.spitschan@psy.ox.ac.uk"
+    role:         
+      - Conceptualization
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Methodology
+      - Writing – original draft
+      - Writing – review & editing
 
 affiliation:
   - id            : "1"
-    institution   : "Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Monash University, Malaysia"
+    institution   : "Monash University, Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
   - id            : "2"
-    institution   : "University of Basel"
+    institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+  - id            : "3"
+    institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
+  - id            : "4"
+    institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
+  - id            : "5"
+    institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Intelligent Lighting Institute, Eindhoven, Netherlands"
+  - id            : "6"
+    institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Malaysia, Selangor, Malaysia"
+  - id            : "7"
+    institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
+  - id            : "8"
+    institution   : "Ximes GmbH, Frankfurt, Germany"
+  - id            : "9"
+    institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"   
+  - id            : "10"
+    institution   : "Eindhoven University of Technology, Human-Technology Interaction Group, Eindhoven, Netherlands"
+  - id            : "11"
+    institution   : "University of Oxford, Department of Experimental Psychology, Oxford, UK"
+  - id            : "*"
+    institution   : "Joint first author"   
+
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
