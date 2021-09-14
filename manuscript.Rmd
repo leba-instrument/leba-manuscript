@@ -1,5 +1,5 @@
 ---
-title             : "_Light Exposure Behavior Assessment (LEBA)_: Develop of a novel instrument to capture light exposure-related behaviours"
+title             : "_Light Exposure Behavior Assessment (LEBA)_: Development of a novel instrument to capture light exposure-related behaviours"
 shorttitle        : "LEBA"
 
 author: 
