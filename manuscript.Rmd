@@ -1443,8 +1443,7 @@ plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo,
 
 ```
 
-<<<<<<< HEAD
-=======
+
 ```{r}
 F2.redu <- sem.data %>% 
   dplyr::select(item11,  item10 , item12, item7, Ritem8)
