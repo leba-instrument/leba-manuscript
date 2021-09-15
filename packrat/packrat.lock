@@ -34,11 +34,6 @@ GithubRepo: DiagrammeR
 GithubUsername: rich-iannone
 GithubRef: HEAD
 GithubSha1: d2464923c7b409bbbd1e8f67b2694a2d295c1358
-RemoteHost: api.github.com
-RemoteRepo: DiagrammeR
-RemoteUsername: rich-iannone
-RemoteRef: HEAD
-RemoteSha: d2464923c7b409bbbd1e8f67b2694a2d295c1358
 
 Package: DiagrammeRsvg
 Source: CRAN
@@ -284,11 +279,6 @@ GithubRepo: broom
 GithubUsername: tidymodels
 GithubRef: HEAD
 GithubSha1: 80d466ce7a810bba9511ab37fb11fd9b3ca04bd0
-RemoteHost: api.github.com
-RemoteRepo: broom
-RemoteUsername: tidymodels
-RemoteRef: HEAD
-RemoteSha: 80d466ce7a810bba9511ab37fb11fd9b3ca04bd0
 
 Package: broom.helpers
 Source: CRAN
@@ -348,11 +338,6 @@ GithubRepo: citr
 GithubUsername: crsh
 GithubRef: HEAD
 GithubSha1: 0e8243d55676888546a383b98adbfd454603f547
-RemoteHost: api.github.com
-RemoteRepo: citr
-RemoteUsername: crsh
-RemoteRef: HEAD
-RemoteSha: 0e8243d55676888546a383b98adbfd454603f547
 
 Package: cli
 Source: CRAN
@@ -1059,11 +1044,6 @@ GithubRepo: papaja
 GithubUsername: crsh
 GithubRef: HEAD
 GithubSha1: a231c3628ccf24359cc17f11a5bbc743e3fed920
-RemoteHost: api.github.com
-RemoteRepo: papaja
-RemoteUsername: crsh
-RemoteRef: HEAD
-RemoteSha: a231c3628ccf24359cc17f11a5bbc743e3fed920
 
 Package: parameters
 Source: CRAN
@@ -1401,11 +1381,6 @@ GithubRepo: semPlot
 GithubUsername: SachaEpskamp
 GithubRef: HEAD
 GithubSha1: a2ee9df8ff3020989c4809e39aec6b6c73c49a16
-RemoteHost: api.github.com
-RemoteRepo: semPlot
-RemoteUsername: SachaEpskamp
-RemoteRef: HEAD
-RemoteSha: a2ee9df8ff3020989c4809e39aec6b6c73c49a16
 
 Package: semTable
 Source: CRAN
