@@ -1436,7 +1436,7 @@ We combined the EFA and CFA sample (N= 690) and fit each factor of LEBA as a uni
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r Iteminformationcurve, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
+```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = c('A', 'B','C', 'D', 'E' ), label_size = 10 )
 
