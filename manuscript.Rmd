@@ -155,8 +155,11 @@ draft             : no
 
 documentclass     : "apa6"
 classoption       : "man"
-output            : papaja::apa6_pdf
-fontfamily        : arev
+output            : 
+  papaja::apa6_pdf:
+    latex_engine: xelatex
+mainfont: Helvetica
+
 ---
 
 ```{r dependencymanager, include = FALSE, warning=F}
