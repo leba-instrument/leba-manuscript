@@ -1337,9 +1337,6 @@ F5_items <- data.frame(F5_params$items)
 F5_se <- coef(F5_fit, printSE = TRUE)
 
 
-
-
-
 itemparameters <- rbind(F1_items,F2_items, F3_items, F4_items,F5_items)
 
 
