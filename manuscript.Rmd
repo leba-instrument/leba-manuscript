@@ -244,7 +244,7 @@ knitr::opts_chunk$set(dev = "png",
 ```
 
 # Introduction
-
+Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 # Methods
 
 ## Participants
@@ -419,9 +419,9 @@ export_svg(Flowchart1) %>%
 knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
 
-## Procedure
 
-Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
+
+
 
 ### Data Collection
 
