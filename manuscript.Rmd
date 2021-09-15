@@ -1380,29 +1380,29 @@ abline(v = -2, lwd = 2, lty = 2)
 F1_OCC <- plot(F1_fit, type = "trace", facet =T, main = "Blue Filter OCC")
 F1_info <- plot(F1_fit, type = "infoSE", main = "Blue Filter Test Information")
 F1_iteminfo <- plot(F1_fit, type = "infotrace", 
-                    facet_items = T, main = NULL)
+                    facet_items = T, main = "Blue Filter")
 
 ## F2 Plots ####
 F2_OCC <- plot(F2_fit, type = "trace", facet =T, main = "Natural Light OCC")
 F2_info <- plot(F2_fit, type = "infoSE", main = "Natural Light Test Information")
-F2_iteminfo <- plot(F2_fit, type = "infotrace", facet_items = T, main = NULL)
+F2_iteminfo <- plot(F2_fit, type = "infotrace", facet_items = T, main = "Natural Light")
 
 ## F3 Plots ####
 F3_OCC <-plot(F3_fit, type = "trace", facet =T, main = "Smart Device OCC")
 F3_info <- plot(F3_fit, type = "infoSE", main = "Smart Device Test Information")
 F3_iteminfo <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, main = NULL)
+                    facet_items = T, main = "Smart Device")
 
 ## F4 Plots ####
 F4_OCC <-plot(F4_fit, type = "trace", facet =T, main = "Sleep Environment OCC")
 F4_info <- plot(F4_fit, type = "infoSE", main = "Sleep Environment Test Information")
-F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = NULL)
+F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "Sleep Environment")
 
 
 ## F5 Plots ####
 F5_OCC <-plot(F5_fit, type = "trace", facet =T, main = "Electric Light OCC")
 F5_info <- plot(F5_fit, type = "infoSE", main = "Electric Light Test Information")
-F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = NULL)
+F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = "Electric Light")
 
 ## Plot grid ####
 library(cowplot)
@@ -1426,7 +1426,7 @@ We combined the EFA and CFA sample (N= 690) and fit each factor of LEBA as a uni
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r Iteminformationcurve, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="120%", out.height="150%"}
+```{r Iteminformationcurve, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = c('A', 'B','C', 'D', 'E' ), label_size = 10 )
 
