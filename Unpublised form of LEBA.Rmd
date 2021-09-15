@@ -64,7 +64,7 @@ colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 ```
 
-**Disclaimer**: This is a non-public version.
+**Disclaimer**: This is a non-public version of LEBA and still a work in progress.
 
 LEBA captures light exposure-related behaviours on a 5 point Likert type scale ranging from 1 to 5 (Never =1; Rarely= 2; Sometimes =3; Often = 4; Always =5). The score of each factor is calculated by the summation of scores of items belonging to the corresponding factor.
 
