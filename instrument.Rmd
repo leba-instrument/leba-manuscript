@@ -4,7 +4,9 @@ shorttitle        : "LEBA"
 
 author: 
   - name          : "Mushfiqul Anwar Siraji"
+    affiliation   : "*"
   - name          : "Rafael Robert Lazar"
+    affiliation   : "*"
   - name          : "Juliëtte	van Duijnhoven"
   - name          : "Luc Schlangen"
   - name          : "Shamsul Haque"
@@ -13,7 +15,13 @@ author:
   - name          : "Gena Glickman"
   - name          : "Karin Smolders"
   - name          : "Manuel Spitschan"
-    corresponding : yes
+    affiliation   : "**"
+
+affiliation:
+  - id            : "*"
+    institution   : "Joint first authors"
+  - id            : "**"
+    institution   : "Corresponding author: manuel.spitschan@psy.ox.ac.uk"
 
 floatsintext      : yes
 figurelist        : no
@@ -41,9 +49,11 @@ colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 ```
 
-**Disclaimer**: This is a non-public version of LEBA and still a work in progress. Please do not distribute
+**Disclaimer**: This is a non-public version of LEBA (dated \today) and still a work in progress. Please do not distribute!
 
 LEBA captures light exposure-related behaviours on a 5 point Likert type scale ranging from 1 to 5 (Never/Does not apply/I don't know = 1; Rarely = 2; Sometimes = 3; Often = 4; Always = 5). The score of each factor is calculated by the summation of scores of items belonging to the corresponding factor.
+
+\newpage
 
 | Long Form (23 Items)       |
 |----------------------------|
