@@ -255,7 +255,7 @@ data <- readRDS("leba_2021-09-08.rds")
 # Separating EFA and CFA samples with descriptive column
 descriptives.data <- data
 
-## Merge "0"s and "1"s into "1"s 9select,subset assign)
+## Merge "0"s and "1"s into "1"s select,subset assign)
 descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
 EFA.descriptives <- descriptives.data[1:428,]
 CFA.descriptives <- descriptives.data[429:690, ]
