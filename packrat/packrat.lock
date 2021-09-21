@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.7.0
-RVersion: 4.1.0
+RVersion: 4.1.1
 Repos: CRAN=https://cran.rstudio.com/
 
 Package: AsioHeaders
@@ -668,8 +668,8 @@ Requires: gtable
 
 Package: gsl
 Source: CRAN
-Version: 2.1-6
-Hash: ea1268d0032b4afb4cd582d755f750d3
+Version: 2.1-7
+Hash: 19f0e7755f78d561ee834791ed8abd2d
 
 Package: gsubfn
 Source: CRAN

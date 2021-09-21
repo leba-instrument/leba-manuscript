@@ -162,19 +162,19 @@ output            :
 mainfont: Arial
 ---
 
-```{r dependencymanager, include = FALSE, warning=F}
+```{r dependencymanager, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(warning = F, error = F, message = F)
 library(packrat)
 packrat::init()
 #Only use when you have added some pack
-#packrat::snapshot(ignore.stale=TRUE) 
+packrat::snapshot(ignore.stale=TRUE) 
 
 #To find and install required dependencies.
 packrat::restore()
 ```
 
 ```{r eval=FALSE, include=FALSE}
-#if "packrat" doesnot work you can run this chunk manually to get all required packs"
+#if "packrat" does not work you can run this chunk manually to get all required packs"
 
 install.packages("devtools")
 install.packages("semTools")
@@ -1105,7 +1105,7 @@ modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE)
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Commonly used Model fit suggestions of [@huCutoffCriteriaFit1999] focused on (i) the comparative fit index (CFI;) (ii) the Tucker Lewis index (TLI) (CFI/TLI, $goodfit \geq .95$, $acceptable fit\geq .90$) (ii) the root mean square error of approximation (RMSEA; close to .06 or below), (iii) the standardized root mean square (SRMR; close to .08 or below) to estimate the model fit. The chi-square test is also used to estimate the absolute model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. The other absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the incremental fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients McDonald's omega were `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] focused on (i) the comparative fit index (CFI;) (ii) the Tucker Lewis index (TLI) (CFI/TLI, $goodfit \geq .95$, $acceptable fit\geq .90$) (ii) the root mean square error of approximation (RMSEA; close to .06 or below), (iii) the standardized root mean square (SRMR; close to .08 or below) to estimate the model fit. The chi-square test is also used to estimate the absolute model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. The other absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the incremental fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients McDonald's omega were `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
 
 ```{r cfaMat, results='asis'}
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
