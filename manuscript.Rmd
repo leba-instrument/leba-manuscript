@@ -158,9 +158,8 @@ documentclass     : "apa6"
 classoption       : "man"
 output            : 
   papaja::apa6_pdf:
-  latex_engine: xelatex
-mainfont: Helvetica
-
+    latex_engine: xelatex
+mainfont: Arial
 ---
 
 ```{r dependencymanager, include = FALSE, warning=F}
@@ -205,7 +204,6 @@ devtools::install_github("crsh/citr")
 
 ```{r setup}
 
-
 library(papaja) # devtools::install_github("crsh/papaja")
 library(lavaan)
 library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
@@ -235,17 +233,43 @@ nocite: |
   `r cite_r("references.bib")`
 ---
 
-```{r setup-chunk, include=FALSE}
-knitr::opts_chunk$set(dev = "png",
-                      dpi = 600,
-                      echo = FALSE,
-                      cache = TRUE)
 
-```
 
 # Introduction
-Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
+
+Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017] 
+
 # Methods
+
+## Ethical approval
+
+The cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, project ID Req-2021-00488) reviewed this project and issued an official clarification of responsibility (full document see Suppl. Fig X in appendix) stating: "The research project does not fall under the scope of the Human Research Act, because your project is using only anonymised data. An authorisation from the ethics committee is therefore not required and the EKNZ is not responsible for its review."
+
+## Data Availability
+
+## Survey characteristics
+
+Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [CITE REDCAP HERE 1, 2] by way of the University of Basel (sciCORE; <https://redcap.scicore.unibas.ch/>). Participants for the anonymous online survey were recruited via the website of a Comic co-released with the survey [CITE COMIC HERE; <https://enlightenyourclock.org/participate-in-research/>], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution via f.lux software [CITE f.lux Michael Herf?].
+
+Completing the online survey took approx. 15 to 20 minutes and was not compensated. The first page of the survey comprised a participant information sheet, where participants' informed consent to participate was obtained before any of the questions were displayed. Underaged participants (\<18 years) were urged to obtain assent from their parents/legal guardians, before filling in the survey. Information on the first page included the objectives of the study, inclusion criteria, estimated duration, the use, storage and sharing of the data, compensation (none), and information about the type of questions in the survey. Moreover, participants needed to confirm that they were participating the survey for the first time. To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). The data analysed in this study was collected between 17.05.2021 and 03.09.2021. Questions incorporating retrospective recall were all aligned to the period of "past four weeks", matching the presented LEBA instrument.
+
+In addition to the LEBA questionnaire, which is subject of the current study, the following variables and items were assessed but not included in the analysis:
+
+-   Sleep disturbance and sleep-related impairment [CITE]
+-   Sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration [CITE]
+-   Meal timing & caffeine consumption [CITE]
+-   Light sensitivity (photophobia vs. photophilia) [CITE]
+-   Self-reported pubertal stage (only if younger than 18 years old) [CITE]
+
+Furthermore, the following 1-item demographic variables were assessed:
+
+-   Age
+-   Sex
+-   Gender identity
+-   Occupational Status
+-   COVID-related Occupational setting during the past four weeks
+-   Time zone & country of residence
+-   English as native language
 
 ## Participants
 
@@ -315,18 +339,24 @@ desctable.data %>%
                  ),
     missing = "no"
     ) %>% add_overall() %>% bold_labels() %>% add_p() %>% add_q() %>%
-modify_header(label ~ "**Variable**") %>%
-as_kable(format = 'pipe') -> desc_kable #save it as a kable
+modify_header(label ~ "**Variable**") %>% 
+as_kable(format = 'pipe') -> desc_kable #save it as a knitr::kable
 
 ```
 
 ```{r DescTabPrint, results='asis'}
 
-desc_kable
+desc_kable %>% kable_styling(desc_kable, repeat_header_text = "Participants' Demographic Characteristics")
 
 ```
 
-Table 1 summarizes the demographic characteristics of the online survey participants. Anonymous online questionnaire responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. The EFA sample included participants filling out the questionnaire from XX.XX.XXXX to YY.YY.YYYY, whereas participants who filled out the questionnaire from ZZ.ZZ.ZZZZ to 03.09.2021 were included in the CFA analysis. Participants reported filling out the online survey from a diverse range of geographic locations. The four most common geographic locations included:
+Table 1 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The four most common geographic locations included:
+
+`r kable(head(summary(descriptives.data$slypos_demographics_tz.factor), 4), format = "latex")`
+
+For a full list of geographic locations, see Suppl. Table X in the appendix.
+
+Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years (EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`), with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age (Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`). In total 47% of participants indicated female sex (EFA: 44%; CFA: 52%), 51% indicated male (EFA: 54%; CFA: 46%) and 2% indicated other sex (EFA: 2.1%, CFA: 1.9%). Overall 7.2% (EFA: 7.8%; CFA: 6.2%) participants indicated a gender-variant identity. In a "Yes/No" question regarding native language 46% of respondents (EFA: 46%; CFA: 45%) indicated to be native English speakers. For their "Occupational Status", more than half (57%) of the overall sample reported that they currently work (EFA: 55%; CFA: 61%), whereas 25% (EFA: 29%; CFA: 20%) reported that they go to school and 17% (EFA: 17%; CFA: 19%) responded that they do neither. With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample 44% (EFA: 45%; CFA: 42%) of the participants indicated that they were in a home office/ home schooling setting., while 16% overall (EFA: 16%; CFA: 16%) reported face-to-face work/schooling. Lastly, 21% overall (EFA: 22%; CFA: 20%) reported a combination of home- and face-to-face work/schooling, whereas 19% overall (EFA: 17%; CFA: 23%) filled in the "Neither (no work or school, or indication)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's Chi-squared test for all other categorical variables via the gtsummary R package's "add_p" function [CITE]. The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* ≥ .2, indicating equivalence.
 
 1.  Describe EFA and CFA sample separately.
 2.  Sampling technique: Convince sampling (non-probability sample)
@@ -415,13 +445,9 @@ export_svg(Flowchart1) %>%
 
 ```
 
-```{r FlowchartFig, fig.align='center', fig.cap='Development', out.height='100%', out.width='100%'}
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development', out.height='100%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
-
-
-
-
 
 ### Data Collection
 
@@ -660,11 +686,11 @@ high.r.corec <- R.cor.sum[6]     # maximum item total correlation
 
 Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy[@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999]. Table\@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions (Marida's test;[@mardiaMeasuresMultivariateSkewness1970]). Multivariate skew was = `r printnum(mardia$b1p)` (p \<0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p \<0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p \< .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. And the corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`.
 
-```{r tabDes}
+```{r tabDes,results='asis'}
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
-```{r figCor,out.width="50%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
+```{r figCor,out.width="70%",out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower")
 #p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
@@ -672,8 +698,6 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 ```
 
 ```{r factor_identification, include=FALSE}
-
-
 
 # Parallel analysis
 paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
@@ -817,7 +841,7 @@ export_svg(EFAplot) %>%
 
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="100%", out.width="120%"}
+```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="50%", out.width="100%", results='asis'}
 knitr::include_graphics('Manuscript.figures/EFAplot.png')
 
 ```
@@ -986,10 +1010,10 @@ In the five-factor solution, the first factor contained three items and explaine
 
 ```{r TabEFA5, results='asis'}
 
-apa_table(factor.des,align = "c", note = "Only loading higher than .30 is reported")
+apa_table(factor.des,align = "c", caption = "Factor loadings and communality of the retained items", note = "Only loading higher than .30 is reported", font_size = "tiny")
 ```
 
-```{r Residuals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residulas:  five-factor solution',  out.width="50%",  warning=FALSE}
+```{r Residuals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residulas:  five-factor solution',  out.width="50%",  warning=FALSE, results='asis'}
 hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =51, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
@@ -1080,10 +1104,9 @@ modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE)
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Commonly used Model fit suggestions of [@huCutoffCriteriaFit1999] focused on (i) the comparative fit index (CFI;) (ii) the Tucker Lewis index (TLI) (CFI/TLI, $goodfit \geq .95$, $acceptable fit\geq .90$) (ii) the root mean square error of approximation (RMSEA; close to .06 or below), (iii) the standardized root mean square (SRMR; close to .08 or below) to estimate the model fit. The chi-square test is also used to estimate the absolute model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. The other absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the incremental fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999.
-The internal consistency reliability coefficients McDonald's omega were `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Commonly used Model fit suggestions of [@huCutoffCriteriaFit1999] focused on (i) the comparative fit index (CFI;) (ii) the Tucker Lewis index (TLI) (CFI/TLI, $goodfit \geq .95$, $acceptable fit\geq .90$) (ii) the root mean square error of approximation (RMSEA; close to .06 or below), (iii) the standardized root mean square (SRMR; close to .08 or below) to estimate the model fit. The chi-square test is also used to estimate the absolute model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. The other absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the incremental fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients McDonald's omega were `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
 
-```{r tabCfa, results='asis'}
+```{r cfaMat, results='asis'}
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
 colnames(CFa.matrix) = c("Model", "Chi-Squre", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper CI", "SRMR")
 CFa.matrix[1,] = c("Five factor model:25", 
@@ -1106,12 +1129,15 @@ CFa.matrix[2,] = c("Five factor model:23",
                    apa(cfa.sum.2$FIT[28],2,T),
                    apa(cfa.sum.2$FIT[29],2,T),
                    apa(cfa.sum.2$FIT[35],2,T))
-
-apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T)
-
 ```
 
-```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE}
+```{r tabCfa, results='asis'}
+apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
+```
+
+
+
+```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE, results='asis'}
 #library(semPlot)
 
 semPaths (fit.Cor.2 , 
@@ -1245,15 +1271,14 @@ colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSE
 
 ```
 
-```{r InvarianceTab}
+```{r InvarianceTab, results='asis'}
 apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "scriptsize" )
 
 
 
 ```
 
-## IRT
-
+## Developing the short form of LEBA
 
 ```{r IRT data, include=FALSE}
 
@@ -1429,21 +1454,20 @@ Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F
 
 ```
 
+To develop a shorter form of the LEBA we sought to Item response theory.IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item’s quality is judged based on item information in relation to participants’ latent trait level ($\theta$). We gathered evidence on item quality  by fitting  each factor of LEBA with the graded response model to the combined EFA sample and CFA sample (n =690)(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \<.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \>1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating  a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
 
-We combined the EFA and CFA sample (N= 690) and fit each factor of LEBA as a unidimensional construct, and used the graded response model to obtain item parameters(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. In this current study, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2). @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Among the 23 items, 10 items were highly discriminating. Items 16 and 33 had very high discrimination parameters (28.55 & 13.50), indicating their limited applicability to people with a very high level of the latent attribute. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
-
-```{r IRTparameters}
+```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
 ```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
-plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
-          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10 )
+knitr::include_graphics('Manuscript.figures/Item Informationjpg.jpg')
 
 ```
 
-
-```{r}
+```{r shortIRT, include=FALSE}
+F1 <- sem.data %>% 
+  dplyr::select(item16, item36,  item17)
 F2.redu <- sem.data %>% 
   dplyr::select(item11,  item10 , item12, item7, Ritem8)
 F3.redu <- sem.data %>% 
@@ -1454,7 +1478,226 @@ F4.redu <- sem.data %>%
 
 F5 <- sem.data %>% 
   dplyr::select(item46, item45, item25 )
+
+
+
+
+F1_fit <- mirt(F1, model = 1, itemtype = 'graded', 
+               SE = TRUE, Se.type = 'MHRM',
+               technical = list(NCYCLES = 10000))
+
+F2_fit.redu <- mirt(F2.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+F3_fit.redu <- mirt(F3.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+F4_fit.redu <- mirt(F4.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+# Plots2 ####
+
+F1_info <- plot(F1_fit, type = "infoSE", main = "Blue Filter") 
+
+F2_info.redu <- plot(F2_fit.redu, type = "infoSE", main = "Natural Light Test Information")
+
+
+F3_info.redu <- plot(F3_fit.redu, type = "infoSE", main = "Smart Device Test Information")
+
+F4_info.redu <- plot(F4_fit.redu, type = "infoSE", main = "Sleep Environment Test Information")
+
+F5_info <- plot(F5_fit, type = "infoSE", main = "Electric Light Test Information")
+
+
+
+Test_Info <- plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info, 
+          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+
+
+
 ```
+
+
+Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$).
+Thus we conferred the LEBA scale (except blue filter)  estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
+
+
+```{r fscore, include=FALSE}
+LEBA.Total <- sem.data %>% 
+  rowwise() %>% 
+  mutate(F1.Total = sum(item16, item36,  item17))
+
+
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F2.Total = sum(item11,  item10 , item12, item7, Ritem8))
+
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F3.Total = sum(item27, item3,  item40))
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F4.Total = sum(item32, item35,  item33))
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F5.Total = sum(item46, item45, item25))
+
+
+
+F1.estimation <- as.vector(fscores(F1_fit, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+
+F2.estimation <- as.vector(fscores(F2_fit.redu, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+F3.estimation <- as.vector(fscores(F3_fit.redu, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+F4.estimation <- as.vector(fscores(F4_fit.redu, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+F5.estimation <- as.vector(fscores(F5_fit, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+
+
+
+Ability.F1 <- data.frame(Rawscore = LEBA.Total$F1.Total,
+                      Theta =  F1.estimation)
+
+
+
+Ability.F2 <- data.frame(Rawscore = LEBA.Total$F2.Total,
+                      Theta =  F2.estimation)
+
+Ability.F3 <- data.frame(Rawscore = LEBA.Total$F3.Total,
+                      Theta =  F3.estimation)
+
+Ability.F4 <- data.frame(Rawscore = LEBA.Total$F3.Total,
+                      Theta =  F3.estimation)
+
+Ability.F5 <- data.frame(Rawscore = LEBA.Total$F3.Total,
+                      Theta =  F3.estimation)
+
+
+
+
+ggplot(Ability.F1, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+ggplot(Ability.F2, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+
+ggplot(Ability.F3, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+ggplot(Ability.F4, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+ggplot(Ability.F5, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+Score.correation <- cbind(Ability.F1,Ability.F2, Ability.F3, Ability.F4, Ability.F5)
+colnames(Score.correation) <- c("F1.Raw", "F1.Estimated","F2.Raw", "F2.Estimated","F3.Raw", "F3.Estimated","F4.Raw", "F4.Estimated","F5.Raw", "F5.Estimated")
+
+F1.cor <- corr.test(Score.correation$F1.Raw, Score.correation$F1.Estimated)
+
+F2.cor <- corr.test(Score.correation$F2.Raw, Score.correation$F2.Estimated)
+
+F3.cor <- corr.test(Score.correation$F3.Raw, Score.correation$F3.Estimated)
+
+F4.cor <- corr.test(Score.correation$F4.Raw, Score.correation$F4.Estimated)
+
+F5.cor <- corr.test(Score.correation$F5.Raw, Score.correation$F5.Estimated)
+
+
+#Putting significance star for correlation
+F1.p <-F1.cor$p
+F1.stars <- ifelse(F1.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+
+F2.p <-F2.cor$p
+F2.stars <- ifelse(F2.p < .001, "**"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+
+F3.p <-F3.cor$p
+F3.stars <- ifelse(F3.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+F4.p <-F4.cor$p
+F4.stars <- ifelse(F4.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+F5.p <-F5.cor$p
+F5.stars <- ifelse(F5.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+
+theta.correlation.matrix <- matrix("NA", nrow =1, ncol = 5)
+
+theta.correlation.matrix[1,1] <- paste(apa(F1.cor$r,2,F), F1.stars,sep="")
+theta.correlation.matrix[1,2] <- paste(apa(F2.cor$r,2,F), F2.stars,sep="")
+theta.correlation.matrix[1,3] <- paste(apa(F3.cor$r,2,F), F3.stars,sep="")
+theta.correlation.matrix[1,4] <- paste(apa(F4.cor$r,2,F), F4.stars,sep="")
+theta.correlation.matrix[1,5] <- paste(apa(F5.cor$r,2,F), F5.stars,sep="")
+
+
+as.data.frame(theta.correlation.matrix)
+colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
+```
+
+
+```{r, results='asis'}
+apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
+```
+
 
 
 # Discussion
