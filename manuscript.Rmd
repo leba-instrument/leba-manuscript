@@ -233,11 +233,9 @@ nocite: |
   `r cite_r("references.bib")`
 ---
 
-
-
 # Introduction
 
-Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017] 
+Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 
 # Methods
 
@@ -249,7 +247,7 @@ The cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, pr
 
 ## Survey characteristics
 
-Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [CITE REDCAP HERE 1, 2] by way of the University of Basel (sciCORE; <https://redcap.scicore.unibas.ch/>). Participants for the anonymous online survey were recruited via the website of a Comic co-released with the survey [CITE COMIC HERE; <https://enlightenyourclock.org/participate-in-research/>], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution via f.lux software [CITE f.lux Michael Herf?].
+Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel (sciCORE; <https://redcap.scicore.unibas.ch/>). Participants were recruited via the website of a Comic co-released with the survey [CITE COMIC HERE; <https://enlightenyourclock.org/participate-in-research/>], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution via f.lux software [CITE f.lux Michael Herf?].
 
 Completing the online survey took approx. 15 to 20 minutes and was not compensated. The first page of the survey comprised a participant information sheet, where participants' informed consent to participate was obtained before any of the questions were displayed. Underaged participants (\<18 years) were urged to obtain assent from their parents/legal guardians, before filling in the survey. Information on the first page included the objectives of the study, inclusion criteria, estimated duration, the use, storage and sharing of the data, compensation (none), and information about the type of questions in the survey. Moreover, participants needed to confirm that they were participating the survey for the first time. To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). The data analysed in this study was collected between 17.05.2021 and 03.09.2021. Questions incorporating retrospective recall were all aligned to the period of "past four weeks", matching the presented LEBA instrument.
 
@@ -1136,8 +1134,6 @@ CFa.matrix[2,] = c("Five factor model:23",
 apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
 ```
 
-
-
 ```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE, results='asis'}
 #library(semPlot)
 
@@ -1455,7 +1451,7 @@ Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F
 
 ```
 
-To develop a shorter form of the LEBA we sought to Item response theory.IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item’s quality is judged based on item information in relation to participants’ latent trait level ($\theta$). We gathered evidence on item quality  by fitting  each factor of LEBA with the graded response model to the combined EFA sample and CFA sample (n =690)(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \<.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \>1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating  a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
+To develop a shorter form of the LEBA we sought to Item response theory.IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model to the combined EFA sample and CFA sample (n =690)(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \<.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \>1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
 
 ```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
@@ -1523,10 +1519,7 @@ Test_Info <- plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info,
 
 ```
 
-
-Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$).
-Thus we conferred the LEBA scale (except blue filter)  estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
-
+Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
 ```{r fscore, include=FALSE}
 LEBA.Total <- sem.data %>% 
@@ -1694,12 +1687,9 @@ as.data.frame(theta.correlation.matrix)
 colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
 ```
 
-
 ```{r, results='asis'}
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
-
-
 
 # Discussion
 
