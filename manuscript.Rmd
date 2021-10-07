@@ -167,7 +167,7 @@ knitr::opts_chunk$set(warning = F, error = F, message = F)
 library(packrat)
 packrat::init()
 #Only use when you have added some pack
-packrat::snapshot(ignore.stale=TRUE) 
+#packrat::snapshot(ignore.stale=TRUE) 
 
 #To find and install required dependencies.
 packrat::restore()
