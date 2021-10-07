@@ -235,6 +235,16 @@ nocite: |
 
 # Introduction
 
+-   Light exposure is important
+
+-   Light exposure Behavior is important
+
+-   Table: Overview Existing Related Scales: items in total / items on light exposure (behaviour)
+
+-   Existing Scales: Review them in text
+
+-   None of these do light exposure behavior.
+
 Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
 
 # Methods
