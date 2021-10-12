@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.7.0
-RVersion: 4.0.2
+RVersion: 4.1.1
 Repos: CRAN=https://cran.rstudio.com/
 
 Package: AsioHeaders
@@ -17,6 +17,13 @@ Package: DBI
 Source: CRAN
 Version: 1.1.1
 Hash: 95ac95db152115f1cbaef1b7f765e65d
+
+Package: DT
+Source: CRAN
+Version: 0.19
+Hash: a747602b0ad8c50a7e4739c8b3948e61
+Requires: crosstalk, htmltools, htmlwidgets, jquerylib, jsonlite,
+    magrittr, promises
 
 Package: Deriv
 Source: CRAN
@@ -46,6 +53,13 @@ Source: CRAN
 Version: 1.1.2
 Hash: e9905350e6f11c3d54f7f19c794a6576
 Requires: ggplot2, psych, reshape2, scales, PCovR
+
+Package: FactoMineR
+Source: CRAN
+Version: 2.4
+Hash: ac798702675f30141d3d563f28bcc037
+Requires: DT, car, ellipse, ggplot2, ggrepel, flashClust, leaps,
+    scatterplot3d
 
 Package: Formula
 Source: CRAN
@@ -175,8 +189,8 @@ Requires: truncnorm
 
 Package: Rttf2pt1
 Source: CRAN
-Version: 1.3.8
-Hash: 423c2ce5a03d99baef7b17d6d5b0dbe2
+Version: 1.3.9
+Hash: 0992f0ae95481847755cb101643f2466
 
 Package: SparseM
 Source: CRAN
@@ -361,11 +375,6 @@ GithubRepo: citr
 GithubUsername: crsh
 GithubRef: HEAD
 GithubSha1: 0e8243d55676888546a383b98adbfd454603f547
-RemoteHost: api.github.com
-RemoteRepo: citr
-RemoteUsername: crsh
-RemoteRef: HEAD
-RemoteSha: 0e8243d55676888546a383b98adbfd454603f547
 
 Package: classInt
 Source: CRAN
@@ -450,6 +459,12 @@ Version: 1.3.1
 Hash: 4142c6c5c45e43473c2f5629d16c9591
 Requires: askpass, curl, jsonlite, openssl, sys
 
+Package: crosstalk
+Source: CRAN
+Version: 1.1.1
+Hash: 40844571ab8c7b3009cde6e49a1ace16
+Requires: R6, htmltools, jsonlite, lazyeval
+
 Package: curl
 Source: CRAN
 Version: 4.3.2
@@ -478,6 +493,12 @@ Source: CRAN
 Version: 0.9.2
 Hash: a13a47e8d02f99283876246c905b611c
 Requires: Rcpp, RcppArmadillo
+
+Package: dendextend
+Source: CRAN
+Version: 1.15.1
+Hash: 8ffdd5c3a5896ecd3b63665a90097171
+Requires: ggplot2, magrittr, viridis
 
 Package: desc
 Source: CRAN
@@ -538,6 +559,11 @@ Version: 1.7-9
 Hash: e95f554d2fb83b022c26584cd54cb947
 Requires: proxy
 
+Package: ellipse
+Source: CRAN
+Version: 0.4.2
+Hash: eff7b672cd820a3c6aee64e46b0c028d
+
 Package: ellipsis
 Source: CRAN
 Version: 0.3.2
@@ -566,6 +592,13 @@ Version: 4.4-0
 Hash: 5591c9342327a37e4be11ebb941ec10a
 Requires: car, ggplot2, lme4, plyr, reshape2, scales, stringr
 
+Package: factoextra
+Source: CRAN
+Version: 1.0.7
+Hash: 58880805c24eabcedfe1884f4a7dac91
+Requires: abind, dendextend, ggplot2, ggpubr, ggrepel, reshape2, tidyr,
+    FactoMineR
+
 Package: fansi
 Source: CRAN
 Version: 0.5.0
@@ -591,6 +624,11 @@ Package: fdrtool
 Source: CRAN
 Version: 1.2.16
 Hash: a39887bbe151333e6c5766353ca266bf
+
+Package: flashClust
+Source: CRAN
+Version: 1.01-2
+Hash: 023ac07c165d659e6535c689864ef205
 
 Package: fontawesome
 Source: CRAN
@@ -714,8 +752,8 @@ Requires: gtable
 
 Package: gsl
 Source: CRAN
-Version: 2.1-6
-Hash: ea1268d0032b4afb4cd582d755f750d3
+Version: 2.1-7
+Hash: 19f0e7755f78d561ee834791ed8abd2d
 
 Package: gsubfn
 Source: CRAN
@@ -923,6 +961,16 @@ Source: CRAN
 Version: 0.6-9
 Hash: 8f95465a3e363fb66eb573578fa4192a
 Requires: mnormt, numDeriv, pbivnorm
+
+Package: lazyeval
+Source: CRAN
+Version: 0.2.2
+Hash: 563563691bea3cde6945a98996d7c166
+
+Package: leaps
+Source: CRAN
+Version: 3.1
+Hash: 1ac0fd68c4ee390ab87663004a20f859
 
 Package: libcoin
 Source: CRAN
@@ -1444,6 +1492,11 @@ Version: 1.1.1
 Hash: b67ae9f62ecb8912751eb664055d8f8a
 Requires: R6, RColorBrewer, farver, labeling, lifecycle, munsell,
     viridisLite
+
+Package: scatterplot3d
+Source: CRAN
+Version: 0.3-41
+Hash: b888e3767f9823ef3a1cbdcacca00836
 
 Package: selectr
 Source: CRAN
