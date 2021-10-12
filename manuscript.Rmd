@@ -164,14 +164,21 @@ mainfont: Arial
 
 ```{r dependencymanager, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(warning = F, error = F, message = F)
+set.seed(123)
+```
+
+
+```{undefined eval=FALSE, include=FALSE}
 library(packrat)
 packrat::init()
 #Only use when you have added some pack
-#packrat::snapshot(ignore.stale=TRUE) 
+packrat::snapshot(ignore.stale=TRUE) 
 
 #To find and install required dependencies.
 packrat::restore()
 ```
+
+
 
 ```{r eval=FALSE, include=FALSE}
 #if "packrat" does not work you can run this chunk manually to get all required packs"
@@ -431,9 +438,9 @@ Flowchart1 <- grViz("digraph nicegraph{
                 subgraph cluster_2 {
                       graph[fontname = Helvetica,shape = rectangle]
                       style = rounded
-                     node[fontname = Helvetica, margin = 0.2,width = 6.5, height = 1, 
+                     node[fontname = Helvetica, margin = 0.2,width = 8, height = 1, 
                 fixedsize = true, fontsize = 18 ]
-                    6[label = '6-Factor  one factor with only two salient loadings']
+                    6[label = '6-Factor solution: one factor emerged with only two salient loadings']
                     7[label = 'Rejected']
                     }     
                      
@@ -730,8 +737,18 @@ hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
 #MAP
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 
-
 ```
+
+```{r MinVar, eval=FALSE, include=FALSE}
+# ScreePlot with minimum variance explained, message=FALSE, warning=FALSE}
+library(FactoMineR)
+library(factoextra)
+#PCA graph of variables
+pca = PCA(EFA.data)
+#Component ploted against percentage of explained variables
+fviz_eig(pca, addlabels = T, max.overlaps = Inf)
+```
+
 
 Scree plot ( Figure \@ref(fig:facid)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
