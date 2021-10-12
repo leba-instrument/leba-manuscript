@@ -770,7 +770,7 @@ var5 <- CC$Vaccounted[2,5]*100
 ```
 
 ```{r EFAplotcode, include=FALSE}
-#library(DiagrammeR)
+
 EFAplot <- grViz("
 digraph boxes_and_circles {
 
@@ -779,11 +779,12 @@ graph [layout = dot,rankdir = LR, fontsize = 40]
 # node definitions with substituted label text
 node [fontname = Helvetica, shape = circle,  margin = 0.5, width = 3.5, height = .5,
 fixedsize = true, fontsize = 35]
-F1 [label = 'F1']
-F2 [label = 'F2']
-F3 [label = 'F3']
-F4 [label = 'F4']
 F5 [label = 'F5']
+F4 [label = 'F4']
+F3 [label = 'F3']
+F2 [label = 'F2']
+F1 [label = 'F1']
+
 node [fontname = Helvetica, shape = box]
 b [label = 'item16']
 c [label = 'item36']
@@ -814,31 +815,31 @@ z [label = 'item26']
 {rank = same; F1 F2 F3 F4 F5}
 # edge definitions with the node IDs
 edge [fontname = Helvetica, fontsize = 35]
-F1 -> b[label = '0.99']
-F1-> c [label = '0.93']
-F1-> d [label = '0.80']
-F2 -> e [label = '0.79']
-F2 -> f[label = '0.76']
-F2 -> g [label = '0.65']
-F2 -> h[ label = '0.50']
-F2 -> i [label = '-.49',color =red]
-F2 -> j [label = '0.32']
-F3 -> k [label = '0.80']
-F3 -> l [label = '0.80']
-F3 -> m [label = '0.65']
-F3 -> n [label = '0.49']
-F3 -> o [label = '36']
-F4 -> p [label = '0.74']
-F4 -> q [label = '0.73']
-F4 -> r [label = '0.66']
-F4 -> s [label = '-0.39', color =red]
-F4 -> t [label = '0.39']
 F5 -> u [label = '0.60']
 F5 -> v [label = '0.59']
 F5 -> w [label = '0.41']
 F5 -> x [label = '0.41']
 F5 -> y [label = '0.40']
 F5 -> z [label = '0.35']
+F4 -> p [label = '0.74']
+F4 -> q [label = '0.73']
+F4 -> r [label = '0.66']
+F4 -> s [label = '-0.39', color =red]
+F4 -> t [label = '0.39']
+F3 -> k [label = '0.80']
+F3 -> l [label = '0.80']
+F3 -> m [label = '0.65']
+F3 -> n [label = '0.49']
+F3 -> o [label = '36']
+F2 -> e [label = '0.79']
+F2 -> f[label = '0.76']
+F2 -> g [label = '0.65']
+F2 -> h[ label = '0.50']
+F2 -> i [label = '-.49',color =red]
+F2 -> j [label = '0.32']
+F1 -> b[label = '0.99']
+F1-> c [label = '0.93']
+F1-> d [label = '0.80']
 }
 ")
 
