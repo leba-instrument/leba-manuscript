@@ -207,8 +207,8 @@ devtools::install_github("crsh/papaja", force = T)
 install.packages("DiagrammeRsvg")
 devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 devtools::install_github("crsh/citr")
-
-
+remotes::install_github("jthomasmock/gtExtras")
+install.packages("gt")
 ```
 
 ```{r setup}
