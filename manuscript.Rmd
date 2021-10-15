@@ -209,6 +209,7 @@ devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 devtools::install_github("crsh/citr")
 remotes::install_github("jthomasmock/gtExtras")
 install.packages("gt")
+install.packages("plyr")
 ```
 
 ```{r setup}
@@ -220,6 +221,7 @@ library(semTools)
 library(MOTE)
 library(psych)
 library(dlookr)
+library(plyr)
 library(tidyverse)
 library(qgraph)
 library(kableExtra)

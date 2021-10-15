@@ -143,6 +143,11 @@ Source: CRAN
 Version: 2.5.1
 Hash: 54378e523d0281f8d38c379484a3b7b5
 
+Package: RApiSerialize
+Source: CRAN
+Version: 0.1.0
+Hash: 553befc27c0b6b051be9ff060dca47f7
+
 Package: RColorBrewer
 Source: CRAN
 Version: 1.1-2
@@ -594,6 +599,12 @@ Package: evaluate
 Source: CRAN
 Version: 0.14
 Hash: 18306cc3bc1aec7b7360eea8a0eb0ee1
+
+Package: expss
+Source: CRAN
+Version: 0.10.7
+Hash: e8a3b6738fd7a38280f102bbc9896bf9
+Requires: data.table, htmlTable, magrittr, matrixStats
 
 Package: extrafont
 Source: CRAN
@@ -1386,6 +1397,12 @@ Requires: Hmisc, Rcpp, abind, colorspace, corpcor, dplyr, fdrtool,
     ggplot2, glasso, gtools, igraph, jpeg, lavaan, pbapply, plyr, png,
     psych, reshape2
 
+Package: qs
+Source: CRAN
+Version: 0.25.1
+Hash: c6bd04e6cff6b2cc0edad445152c8153
+Requires: Rcpp, RApiSerialize, stringfish
+
 Package: quantreg
 Source: CRAN
 Version: 5.86
@@ -1654,6 +1671,12 @@ Source: CRAN
 Version: 0.98.30
 Hash: 02614db32c0968f36c4d4fe657b3b15a
 Requires: knitr, kutils, rmarkdown
+
+Package: stringfish
+Source: CRAN
+Version: 0.15.3
+Hash: 437d53fb99c6c6d08b1efe1b2dd572e8
+Requires: Rcpp, RcppParallel
 
 Package: stringi
 Source: CRAN
