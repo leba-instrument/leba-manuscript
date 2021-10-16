@@ -73,8 +73,8 @@ Hash: 4821625833bcab5af24257ead9119e01
 
 Package: Hmisc
 Source: CRAN
-Version: 4.5-0
-Hash: 9a98f10a8366f81f1eb60283f4a8aaf2
+Version: 4.6-0
+Hash: 2838dbd8fce782dbd6dd3d0e2c950975
 Requires: Formula, base64enc, data.table, ggplot2, gridExtra, gtable,
     htmlTable, htmltools, latticeExtra, viridis
 
@@ -105,7 +105,7 @@ Requires: checkmate, coda, data.table, digest, fastDummies, ggplot2,
 Package: OpenMx
 Source: CRAN
 Version: 2.19.8
-Hash: 8ca11e8d469e8d47739c462c795658f4
+Hash: b0e2ebb7daaf5bfdd3fe62befde8e208
 Requires: BH, Rcpp, RcppEigen, digest, lifecycle, RcppParallel,
     StanHeaders, rpf
 
@@ -165,8 +165,8 @@ Hash: 3067a413f1457c3c1d88bf39026b179f
 
 Package: RcppArmadillo
 Source: CRAN
-Version: 0.10.6.0.0
-Hash: 8c258daccb070700155e8b085cba10e8
+Version: 0.10.7.0.0
+Hash: 802dc6657a8350a53c63205869a2906c
 Requires: Rcpp
 
 Package: RcppEigen
@@ -323,15 +323,11 @@ Version: 1.1.2
 Hash: 6c51499fd4323a26e03e293ff98d808b
 
 Package: broom
-Source: github
-Version: 0.7.9.9000
-Hash: a85342df9345fec2e4dd0702c2e9c6ae
+Source: CRAN
+Version: 0.7.9
+Hash: 016f4dc38bd1e635a8557a7542ec0212
 Requires: backports, ellipsis, glue, rlang, stringr, tibble, dplyr,
     generics, purrr, tidyr
-GithubRepo: broom
-GithubUsername: tidymodels
-GithubRef: HEAD
-GithubSha1: 80d466ce7a810bba9511ab37fb11fd9b3ca04bd0
 
 Package: broom.helpers
 Source: github
@@ -343,11 +339,6 @@ GithubRepo: broom.helpers
 GithubUsername: larmarange
 GithubRef: HEAD
 GithubSha1: 9e7e818174309805f635763de5bc239798281cc1
-RemoteHost: api.github.com
-RemoteRepo: broom.helpers
-RemoteUsername: larmarange
-RemoteRef: HEAD
-RemoteSha: 9e7e818174309805f635763de5bc239798281cc1
 
 Package: bslib
 Source: CRAN
@@ -436,7 +427,7 @@ Hash: 77f4ba718e2bad1877ef26e48cf8fa43
 Package: conquer
 Source: CRAN
 Version: 1.0.2
-Hash: f4441d3778333f7747a07dc90c8831a8
+Hash: 9862821045916a973947d01b9786c218
 Requires: Rcpp, RcppArmadillo, matrixStats
 
 Package: corpcor
@@ -497,8 +488,8 @@ Hash: d86657acb12374a8e24ed4568ed63359
 
 Package: data.table
 Source: CRAN
-Version: 1.14.0
-Hash: f606b167539da14e861ff5e145b04525
+Version: 1.14.2
+Hash: 6e09e74cc9e29021c9e95fe7ed38dc68
 
 Package: datawizard
 Source: CRAN
@@ -516,7 +507,7 @@ Requires: DBI, R6, assertthat, blob, dplyr, ellipsis, glue, lifecycle,
 Package: dcurver
 Source: CRAN
 Version: 0.9.2
-Hash: a13a47e8d02f99283876246c905b611c
+Hash: d85c9fd55ad43cf38e183ec52f592bc6
 Requires: Rcpp, RcppArmadillo
 
 Package: dendextend
@@ -815,11 +806,6 @@ GithubRepo: gtExtras
 GithubUsername: jthomasmock
 GithubRef: HEAD
 GithubSha1: 2bc1e29c19e116b45f60f45148d5451173e41b60
-RemoteHost: api.github.com
-RemoteRepo: gtExtras
-RemoteUsername: jthomasmock
-RemoteRef: HEAD
-RemoteSha: 2bc1e29c19e116b45f60f45148d5451173e41b60
 
 Package: gtable
 Source: CRAN
@@ -841,11 +827,6 @@ GithubRepo: gtsummary
 GithubUsername: ddsjoberg
 GithubRef: HEAD
 GithubSha1: b5a820c5cd694cca205cfc73c40bfe1028bd54d1
-RemoteHost: api.github.com
-RemoteRepo: gtsummary
-RemoteUsername: ddsjoberg
-RemoteRef: HEAD
-RemoteSha: b5a820c5cd694cca205cfc73c40bfe1028bd54d1
 
 Package: haven
 Source: CRAN
@@ -1026,8 +1007,8 @@ Hash: 1ac0fd68c4ee390ab87663004a20f859
 
 Package: libcoin
 Source: CRAN
-Version: 1.0-8
-Hash: 39a2bb0af6a5f2d78b2ae14e5d6ecad5
+Version: 1.0-9
+Hash: b4f9dd924b4b5e6d7466556c523db7de
 Requires: mvtnorm
 
 Package: lifecycle
@@ -1090,8 +1071,8 @@ Requires: mime, xfun
 
 Package: matrixStats
 Source: CRAN
-Version: 0.60.1
-Hash: ed1a60a9fa939c69cbcbfc946a90178e
+Version: 0.61.0
+Hash: 6a70f6814dfb34b3aface1f8e4e403d2
 
 Package: matrixcalc
 Source: CRAN
@@ -1136,7 +1117,7 @@ Requires: Rcpp
 Package: mirt
 Source: CRAN
 Version: 1.34
-Hash: e20445e5990665734ce4ee5476897522
+Hash: 45ae01b21a04ba56058fb6a4ee922e32
 Requires: Deriv, GPArotation, Rcpp, RcppArmadillo, dcurver, vegan
 
 Package: mnormt
@@ -1171,8 +1152,8 @@ Requires: colorspace
 
 Package: mvtnorm
 Source: CRAN
-Version: 1.1-2
-Hash: 1f28d4f4918aa17cc60007640889ed08
+Version: 1.1-3
+Hash: fec6d3ac6c3ed5a096c465dcf4cd0606
 
 Package: nloptr
 Source: CRAN
@@ -1257,11 +1238,6 @@ GithubRepo: patchwork
 GithubUsername: thomasp85
 GithubRef: HEAD
 GithubSha1: 79223d3002e7bd7e715a270685c6507d684b2622
-RemoteHost: api.github.com
-RemoteRepo: patchwork
-RemoteUsername: thomasp85
-RemoteRef: HEAD
-RemoteSha: 79223d3002e7bd7e715a270685c6507d684b2622
 
 Package: pbapply
 Source: CRAN
@@ -1456,7 +1432,7 @@ Requires: Rcpp, progress, tibble, cellranger
 Package: regsem
 Source: CRAN
 Version: 1.8.0
-Hash: 9d3b123f8bb5cd9a663599761008dc2b
+Hash: bb53bd564cf27f2930d551e144d6b667
 Requires: Rcpp, RcppArmadillo, lavaan, Rsolnp
 
 Package: rematch
@@ -1533,8 +1509,8 @@ Requires: R6, brew, commonmark, cpp11, desc, digest, knitr, pkgload,
 
 Package: rpf
 Source: CRAN
-Version: 1.0.8
-Hash: 5ca1d7055b0ed0b1f5a2bee5fff0d34e
+Version: 1.0.9
+Hash: 6cb65ccc6e1f4e195b01e78f10e59198
 Requires: Rcpp, RcppEigen, lifecycle, mvtnorm
 
 Package: rprojroot
@@ -1603,9 +1579,9 @@ Requires: R6, stringr
 
 Package: sem
 Source: CRAN
-Version: 3.1-11
-Hash: 2bbb977484051832589dcbf6c5c6cc49
-Requires: matrixcalc, mi
+Version: 3.1-13
+Hash: fc06ddc0bc7b01c82fda894970f09d0d
+Requires: mi
 
 Package: semPlot
 Source: github
@@ -1699,7 +1675,7 @@ Requires: backports, cli, glue, magrittr, purrr, rematch2, rlang,
 Package: svglite
 Source: CRAN
 Version: 2.0.0
-Hash: 45dd61bee6d45b95646f038f613e59dd
+Hash: 4a7ff649d24f4a617efa59b20a6ae9a0
 Requires: cpp11, systemfonts
 
 Package: sys
