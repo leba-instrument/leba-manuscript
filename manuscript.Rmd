@@ -159,7 +159,7 @@ classoption       : "man"
 output            : 
   papaja::apa6_pdf:
     latex_engine: xelatex
-mainfont: Arial
+mainfont: Helvetica
 ---
 
 ```{r dependencymanager, warning=FALSE, include=FALSE}
@@ -194,7 +194,6 @@ install.packages("paran")
 install.packages("EFA.MRFA")
 install.packages("rsvg")
 install.packages("ggcorrplot")
-install.packages("car")
 install.packages("semTable")
 install.packages("magick")
 install.packages("mirt")
@@ -208,6 +207,7 @@ remotes::install_github("jthomasmock/gtExtras")
 install.packages("gt")
 remotes::install_github("jthomasmock/gtExtras")
 install.packages("questionr")
+devtools::install_github("lbusett/insert_table")
 ```
 
 ```{r setup, include=FALSE}
@@ -217,6 +217,7 @@ library(lavaan)
 library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 library(semTools)
 library(MOTE)
+library(car)#revercoding 
 library(psych)
 library(dlookr)
 library(plyr)
@@ -229,11 +230,14 @@ library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
 library(DiagrammeRsvg) #For DiagrammeR
 library(rsvg) #For DiagrammeR
 library(ggcorrplot)
-library(car) #Reversecoding
 library(semTable)
 library(magick)
 library(mirt)
 library(gtsummary)
+library(gt)
+library(gtExtras)
+library(likert)
+library(kutils)
 r_refs("references.bib")
 ```
 
@@ -254,31 +258,39 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Name                                            | Authors | Translations | Description                                                                            | Relevant Items |
-+=================================================+=========+==============+========================================================================================+================+
-| Visual Light Sensitivity Questionnaire-8        |         |              | Eight-question survey to assess the presence and severity of photosensitivity symptoms |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Office Light Survey                             |         |              | To assess electrical lighting environment in Office                                    |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Harvard Light Exposure Assessment Questionnaire |         |              | Self-administered semiquantitative light questionnaire                                 |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Hospital Lighting Survey                        |         |              | 23 items questionnaire to assess light environment in a hospital                       |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Morningness-Eveningness Questionnaire           |         |              | 19 items questionnaire to understand your body clock                                   |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Munich Chronotype Questionnaire (MCTQ)          |         |              | 17 items questionnaire to understand individuals phase of entrainment                  |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| Assessment of Sleep Environment                 |         |              | 13 items questionnaire measuring your sleep environment quality                        |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-| The Pittsburgh Sleep Quality Index (PSQI)       |         |              | 9 items inventory to measure sleep quality and sleeping pattern                        |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-|                                                 |         |              |                                                                                        |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
-|                                                 |         |              |                                                                                        |                |
-+-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+```{=html}
+<!-- -->
+```
+    \newpage
+    \begin{landscape}
+
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Name                                            | Authors | Description                                                                            | Relevant Items | Adaptations |
++=================================================+=========+========================================================================================+:==============:+=============+
+| Visual Light Sensitivity Questionnaire-8        | a       | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Office Light Survey                             | b       | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Harvard Light Exposure Assessment Questionnaire | c       | Self-administered semiquantitative light qestionnaire                                  | aa             | as          |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Hospital Lighting Survey                        | d       | 23 items questionnaire to assess light environment in a hospital                       | dd             | fg          |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Morningness-Eveningness Questionnaire           | e       | 19 items questionnaire to understand your body clock                                   | ff             | hj          |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Munich Chronotype Questionnaire (MCTQ)          | f       | 17 items questionnaire to understand individuals phase of entrainment                  | ff             | jk          |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Assessment of Sleep Environment                 | g       | 13 items questionnaire measuring your sleep environment quality                        | ff             | kl          |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+| The Pittsburgh Sleep Quality Index (PSQI)       | h       | 9 items inventory to measure sleep quality and sleeping pattern                        | ff             | klfrgfgvfg  |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+|                                                 |         |                                                                                        |                |             |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
+|                                                 |         |                                                                                        |                |             |
++-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
 
 : Existing related Scales
+
+    \end{landscape}
 
 # Methods
 
@@ -738,7 +750,7 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
-```{r figCor,out.width="70%",out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
+```{r figCor,out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
            ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
@@ -853,7 +865,7 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r facIdFig, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE}
+```{r facIdFig, out.height="100%", out.width="200%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE}
 cowplot::plot_grid(parallel, scree.plot,Hull, labels = c('(A)', '(B)', '(C)'), label_size = 8)
 
 
@@ -1153,17 +1165,323 @@ abline(v =.05,lwd = 2, lty = 2)
 
 ```
 
+```{r gtvis, include =F}
+## Recoding sem.data$item8
+gt.data <- sem.data
+gt.data$item8 <- as.character(gt.data$item8)
+gt.data$item8 <- fct_recode(gt.data$item8,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+## Recoding gt.data$item26
+gt.data$item26 <- as.character(gt.data$item26)
+gt.data$item26 <- fct_recode(gt.data$item26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+## Recoding gt.data$item37
+gt.data$item37 <- as.character(gt.data$item26)
+gt.data$item37 <- fct_recode(gt.data$item26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+names(gt.data)[names(gt.data) == "item1"] <- "item01"
+names(gt.data)[names(gt.data) == "item3"] <- "item03"
+names(gt.data)[names(gt.data) == "item4"] <- "item04"
+names(gt.data)[names(gt.data) == "item7"] <- "item07"
+names(gt.data)[names(gt.data) == "item8"] <- "item08"
+names(gt.data)[names(gt.data) == "item9"] <- "item09"
+
+
+#EFA data
+gt.efa.data <- gt.data[1:428, ]
+
+gt.efa.data.table <- gt.efa.data %>% 
+  dplyr::select(item16, item36, item17,
+                 item11, item10,item12,item07,item08,item09,
+                 item27,  item03, item40,  item30, item41,
+                 item33, item32,item35, item37,item38, 
+                 item46, item45, item25, item04, item01,item26)
+
+#Creating long data
+gt.efa.long <- as.data.frame(gather(gt.efa.data.table, Items, value))
+gt.efa.long$value <- as.numeric(as.character(gt.efa.long$value))
+
+#Summarizing and creating gt object
+gt.efa.tab <- gt.efa.long %>% 
+  group_by(Items) %>% 
+  # calculate summary stats & create data for the histogram and density plot
+  dplyr::summarise(
+    nr = n(),
+    mean = mean(value, na.rm = TRUE),
+    med = median(value, na.rm = TRUE),
+    sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  gt() 
+
+
+#Preparation for likert data
+efa.LEBA.likert <- as.data.frame(gt.efa.data.table) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+efa.LEBA.likert <-  mutate(efa.LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+efa.LEBA.Factor = as.data.frame(lapply(efa.LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+efa.items <- names(efa.LEBA.Factor) 
+#Calculate percentage
+efa.percentage <- kutils::likert(efa.LEBA.Factor, vlist = efa.items ) 
+
+efa.percentage <- efa.percentage$table %>% 
+  as.data.frame(.)
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.efa.percentage <- cbind(labels,efa.percentage) #tables with labels  
+full.efa.percentage<- t(full.efa.percentage ) #transpose
+as.data.frame(full.efa.percentage)
+full.efa.percentage1 <- full.efa.percentage[-1,-6] #removing 1st row and total column
+full.efa.percentage2 <- full.efa.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.efa.percentage2)
+
+
+colnames(full.efa.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+efa.Items <- rownames(full.efa.percentage2)
+as.data.frame(efa.Items)
+full.efa.percentage3 <- cbind(efa.Items,full.efa.percentage2)
+
+full.efa.percentage3 <- full.efa.percentage3[order(efa.Items),] 
+full.efa.percentage3 <- as.data.frame(full.efa.percentage3[,-1]) %>% 
+  gt()
+
+
+gt.efa.table <- gt.efa.tab$'_data'
+gt.liket.efa <- full.efa.percentage3$"_data"
+
+
+
+efaTable <-  cbind( gt.efa.table, gt.liket.efa)%>% 
+  gt()
+
+gt.cfa.data <- gt.data[429:690,]
+gt.cfa.data.table <- gt.cfa.data %>% 
+  dplyr::select(item16, item36, item17,
+                 item11, item10,item12,item07,item08,item09,
+                 item27,  item03, item40,  item30, item41,
+                 item32,item35,item38, item33, 
+                 item46, item45, item25, item04, item01 )
+
+gt.cfa.long <- gather(gt.cfa.data.table, Items, value)
+gt.cfa.long$value <- as.numeric(as.character(gt.cfa.long$value))
+gt.cfa.tab <- gt.cfa.long %>% 
+  group_by(Items) %>% 
+# calculate summary stats & create data for the histogram and density plot
+  summarise(
+    nr = n(),
+    mean = mean(value, na.rm = TRUE),
+    med = median(value, na.rm = TRUE),
+    sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  
+  gt()
+
+#Preparation for likert data
+cfa.LEBA.likert <- as.data.frame(gt.cfa.data.table) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+cfa.LEBA.likert <-  mutate(cfa.LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+cfa.LEBA.Factor = as.data.frame(lapply(cfa.LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+cfa.items <- names(cfa.LEBA.Factor) 
+#Calculate percentage
+cfa.percentage <- kutils::likert(cfa.LEBA.Factor, vlist = cfa.items ) 
+
+cfa.percentage <- cfa.percentage$table %>% 
+  as.data.frame(.)
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.cfa.percentage <- cbind(labels,cfa.percentage) #tables with labels  
+full.cfa.percentage <- t(full.cfa.percentage ) #transpose
+as.data.frame(full.cfa.percentage)
+full.cfa.percentage1 <- full.cfa.percentage[-1,-6] #removing 1st row and total column
+full.cfa.percentage2 <- full.cfa.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.cfa.percentage2)
+
+
+colnames(full.cfa.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+cfa.Items <- rownames(full.cfa.percentage2)
+as.data.frame(cfa.Items)
+full.cfa.percentage3 <- cbind(cfa.Items,full.cfa.percentage2)
+
+full.cfa.percentage3 <- full.cfa.percentage3[order(cfa.Items),] 
+full.cfa.percentage3 <- as.data.frame(full.cfa.percentage3[,-1]) %>% 
+  gt()
+
+
+gt.cfa.table <- gt.cfa.tab$'_data'
+gt.liket.cfa <- full.cfa.percentage3$"_data"
+
+
+
+cfaTable <-  cbind( gt.cfa.table, gt.liket.cfa) %>% 
+  gt() 
+
+efa.gt <- efaTable$"_data"
+cfa.gt <- cfaTable$"_data"
+
+
+gt.fullTable <-  rbind( efa.gt, cfa.gt) %>% 
+  gt() %>% 
+# histogram and density plots
+  gtExtras::gt_sparkline(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "grey",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_sparkline(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "grey",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# format decimals
+  fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("**LEBA**"),
+    subtitle = md("Summary results of LEBA (N =690)")
+  ) %>% 
+  tab_footnote(
+    footnote = md("**Histogram**"),
+    locations = cells_column_labels(columns = hist_data)
+  ) %>%
+  tab_footnote(
+    footnote = md("**Density**"),
+    locations = cells_column_labels(columns = dens_data)
+  ) %>% 
+#create groups of columns
+tab_spanner(
+  label = "Items",
+  columns = Items
+) %>%
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = nr:sd
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+# change column names to appear in the table
+cols_label(
+  Items = ("LEBA  Items"),
+  nr = ("n"),
+  mean = ("Mean"),
+  med = ("Median "),
+  sd = (("SD")),
+  hist_data = "Histogram",
+  dens_data = "Density"
+) %>%
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    mean,
+    Items,
+    palette = "ggthemes::fivethirtyeight"
+  ) %>% 
+    tab_row_group(
+      group = "CFA (n =262)",
+     rows = 26:48
+    
+  ) %>% 
+  tab_row_group(
+  group = "EFA (n = 428)",
+    rows = 1:25  
+  ) %>% gtsave("Manuscript.figures/gt.png")
+
+
+```
+
+
+```{r gtPic, echo=FALSE, out.height="100%", out.width="200%", results= 'asis'}
+knitr::include_graphics('Manuscript.figures/gt.png')
+
+```
+
 # Confirmatory Factor Analysis
 
 ```{r CFA data frame, include=FALSE}
 
 ### CFA Data
 CFA.data <- sem.data[429:690,]
-CFARitem8 = recode(CFA.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
-CFARitem37 = recode(CFA.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
-CFARitem26 = recode(CFA.data$item26, '1=5; 2=4; 3=3; 4=2; 5=1')
-CFA.data <- CFA.data %>% 
-  mutate(Ritem8 = CFARitem8, Ritem37 = CFARitem37, Ritem26 = CFARitem26)
+
+## Recoding CFA.data$item8 into CFA.data$Ritem8
+CFA.data$Ritem8 <- as.character(CFA.data$item8)
+CFA.data$Ritem8 <- fct_recode(CFA.data$Ritem8,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+CFA.data$Ritem8 <- as.numeric(as.character(CFA.data$Ritem8))
+
+## Recoding CFA.data$item37 into CFA.data$item37_rec
+CFA.data$Ritem37 <- as.character(CFA.data$item37)
+CFA.data$Ritem37 <- fct_recode(CFA.data$Ritem37,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+CFA.data$Ritem37 <- as.numeric(as.character(CFA.data$Ritem37))
+
+## Recoding CFA.data$item26 into CFA.data$Ritem26
+CFA.data$Ritem26 <- as.character(CFA.data$item26)
+CFA.data$Ritem26 <- fct_recode(CFA.data$Ritem26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
 
 #Hitogram
 #psych::multi.hist(CFA.data[,sapply(CFA.data, is.numeric)])
@@ -1412,13 +1730,37 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 ## Developing the short form of LEBA
 
 ```{r IRT data, include=FALSE}
+## Recoding sem.data$item8 into sem.data$Ritem8
+sem.data$Ritem8 <- as.character(sem.data$item8)
+sem.data$Ritem8 <- fct_recode(sem.data$Ritem8,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+sem.data$Ritem8 <- as.numeric(as.character(sem.data$Ritem8))
+# Recoding sem.data$item26 
+sem.data$Ritem26 <- as.character(sem.data$item26)
+sem.data$Ritem26 <- fct_recode(sem.data$Ritem26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+sem.data$Ritem26 <- as.numeric(as.character(sem.data$Ritem26))
+
+# Recoding sem.data$item37 i
+sem.data$Ritem37 <- as.character(sem.data$item37)
+sem.data$Ritem37 <- fct_recode(sem.data$Ritem37,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+sem.data$Ritem37 <- as.numeric(as.character(sem.data$Ritem37))
 
 
-IRTitem8 = recode(sem.data$item8, '1=5; 2=4; 3=3; 4=2; 5=1')
-IRTitem37 = recode(sem.data$item37, '1=5; 2=4; 3=3; 4=2; 5=1')
-IRTitem26 = recode(sem.data$item26, '1=5; 2=4; 3=3; 4=2; 5=1')
-sem.data <- sem.data %>% 
-  mutate(Ritem8 = IRTitem8, Ritem37 = IRTitem37, Ritem26 = IRTitem26)
+
 
 
 F1 <- sem.data %>% 
@@ -1544,30 +1886,30 @@ abline(v = -2, lwd = 2, lty = 2)
 # Plots ####
 ## F1 Plots ####
 F1_OCC <- plot(F1_fit, type = "trace", facet =T, main = "Blue Filter OCC")
-F1_info <- plot(F1_fit, type = "infoSE", main = "Blue Filter Test Information")
+F1_info <- plot(F1_fit, type = "infoSE", main = "F1")
 F1_iteminfo <- plot(F1_fit, type = "infotrace", 
                     facet_items = T, main = "Blue Filter")
 
 ## F2 Plots ####
 F2_OCC <- plot(F2_fit, type = "trace", facet =T, main = "Natural Light OCC")
-F2_info <- plot(F2_fit, type = "infoSE", main = "Natural Light Test Information")
+F2_info <- plot(F2_fit, type = "infoSE", main = "F2")
 F2_iteminfo <- plot(F2_fit, type = "infotrace", facet_items = T, main = "Natural Light")
 
 ## F3 Plots ####
 F3_OCC <-plot(F3_fit, type = "trace", facet =T, main = "Smart Device OCC")
-F3_info <- plot(F3_fit, type = "infoSE", main = "Smart Device Test Information")
+F3_info <- plot(F3_fit, type = "infoSE", main = "F3")
 F3_iteminfo <- plot(F3_fit, type = "infotrace", 
                     facet_items = T, main = "Smart Device")
 
 ## F4 Plots ####
 F4_OCC <-plot(F4_fit, type = "trace", facet =T, main = "Sleep Environment OCC")
-F4_info <- plot(F4_fit, type = "infoSE", main = "Sleep Environment Test Information")
+F4_info <- plot(F4_fit, type = "infoSE", main = "F4")
 F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "Sleep Environment")
 
 
 ## F5 Plots ####
 F5_OCC <-plot(F5_fit, type = "trace", facet =T, main = "Electric Light OCC")
-F5_info <- plot(F5_fit, type = "infoSE", main = "Electric Light Test Information")
+F5_info <- plot(F5_fit, type = "infoSE", main = "F5")
 F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = "Electric Light")
 
 ## Plot grid ####
@@ -1590,8 +1932,6 @@ To develop a shorter form of the LEBA we sought to Item response theory.IRT comp
 ```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
-
-
 
 ```{r shortIRT, include=FALSE}
 F1 <- sem.data %>% 
@@ -1630,16 +1970,16 @@ F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
 
 # Plots2 ####
 
-F1_info <- plot(F1_fit, type = "infoSE", main = "Blue Filter") 
+F1_info <- plot(F1_fit, type = "infoSE", main = "F1") 
 
-F2_info.redu <- plot(F2_fit.redu, type = "infoSE", main = "Natural Light Test Information")
+F2_info.redu <- plot(F2_fit.redu, type = "infoSE", main = "F2")
 
 
-F3_info.redu <- plot(F3_fit.redu, type = "infoSE", main = "Smart Device Test Information")
+F3_info.redu <- plot(F3_fit.redu, type = "infoSE", main = "F3")
 
-F4_info.redu <- plot(F4_fit.redu, type = "infoSE", main = "Sleep Environment Test Information")
+F4_info.redu <- plot(F4_fit.redu, type = "infoSE", main = "F4")
 
-F5_info <- plot(F5_fit, type = "infoSE", main = "Electric Light Test Information")
+F5_info <- plot(F5_fit, type = "infoSE", main = "F5")
 
 
 
@@ -1652,14 +1992,11 @@ Test_Info <- plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info,
 
 Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
-
-
 ```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
-cowplot::plot_grid(F1_info, F2_info,F3_info,F4_info,F5_info, 
+plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info, 
           labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
 
 ```
-
 
 ```{r fscore, include=FALSE}
 LEBA.Total <- sem.data %>% 
