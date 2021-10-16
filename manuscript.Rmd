@@ -206,7 +206,8 @@ devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 devtools::install_github("crsh/citr")
 remotes::install_github("jthomasmock/gtExtras")
 install.packages("gt")
-install.packages("plyr")
+remotes::install_github("jthomasmock/gtExtras")
+install.packages("questionr")
 ```
 
 ```{r setup, include=FALSE}
@@ -1590,10 +1591,7 @@ To develop a shorter form of the LEBA we sought to Item response theory.IRT comp
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
-knitr::include_graphics('Manuscript.figures/Item Informationjpg.jpg')
 
-```
 
 ```{r shortIRT, include=FALSE}
 F1 <- sem.data %>% 
@@ -1653,6 +1651,15 @@ Test_Info <- plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info,
 ```
 
 Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
+
+
+
+```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
+cowplot::plot_grid(F1_info, F2_info,F3_info,F4_info,F5_info, 
+          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+
+```
+
 
 ```{r fscore, include=FALSE}
 LEBA.Total <- sem.data %>% 
