@@ -163,11 +163,10 @@ mainfont: Arial
 ---
 
 ```{r dependencymanager, warning=FALSE, include=FALSE}
-knitr::opts_chunk$set(warning = F, error = F, message = F)
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
 set.seed(123)
 par(family = "Helvetica")
 ```
-
 
 ```{undefined eval=FALSE, include=FALSE}
 library(packrat)
@@ -179,8 +178,6 @@ packrat::snapshot(ignore.stale=TRUE)
 #To find and install required dependencies.
 packrat::restore()
 ```
-
-
 
 ```{r eval=FALSE, include=FALSE}
 #if "packrat" does not work you can run this chunk manually to get all required packs"
@@ -212,7 +209,7 @@ install.packages("gt")
 install.packages("plyr")
 ```
 
-```{r setup}
+```{r setup, include=FALSE}
 
 library(papaja) # devtools::install_github("crsh/papaja")
 library(lavaan)
@@ -256,7 +253,31 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-Our study had four objectives. First, to develop an instrument to assess an individual's light exposure behavior. Second, to conduct an exploratory factor analysis(EFA) to understand the latent structure. The third one is to gather structural validity evidence for the latent structure obtained in EFA. Lastly, we gathered item information using Item response theory (IRT)[@bakerBasicsItemResponse2017]
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Name                                            | Authors | Translations | Description                                                                            | Relevant Items |
++=================================================+=========+==============+========================================================================================+================+
+| Visual Light Sensitivity Questionnaire-8        |         |              | Eight-question survey to assess the presence and severity of photosensitivity symptoms |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Office Light Survey                             |         |              | To assess electrical lighting environment in Office                                    |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Harvard Light Exposure Assessment Questionnaire |         |              | Self-administered semiquantitative light questionnaire                                 |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Hospital Lighting Survey                        |         |              | 23 items questionnaire to assess light environment in a hospital                       |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Morningness-Eveningness Questionnaire           |         |              | 19 items questionnaire to understand your body clock                                   |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Munich Chronotype Questionnaire (MCTQ)          |         |              | 17 items questionnaire to understand individuals phase of entrainment                  |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| Assessment of Sleep Environment                 |         |              | 13 items questionnaire measuring your sleep environment quality                        |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+| The Pittsburgh Sleep Quality Index (PSQI)       |         |              | 9 items inventory to measure sleep quality and sleeping pattern                        |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+|                                                 |         |              |                                                                                        |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+|                                                 |         |              |                                                                                        |                |
++-------------------------------------------------+---------+--------------+----------------------------------------------------------------------------------------+----------------+
+
+: Existing related Scales
 
 # Methods
 
@@ -724,7 +745,7 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 #to show pvalue in the fig add p.mat=p.mat
 ```
 
-```{r Parallel}
+```{r Parallel, include=FALSE}
 
 # Parallel analysis
 Horn <- paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
@@ -783,7 +804,7 @@ parallel = ggplot(Adjusted.EV, aes(x=num, y=eigenvalue, shape=type, color=type))
 
 ```
 
-```{r ScreePlot}
+```{r ScreePlot, include=FALSE}
 Scree <- scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
       hline=NULL,add=F)
 
@@ -811,8 +832,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
   geom_hline(yintercept=1, linetype = 'dashed') + apatheme 
 ```
 
-
-```{r Hull}
+```{r Hull, include=FALSE}
 # HULL
 hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
         details = TRUE)
@@ -825,15 +845,10 @@ Hull <- hull+ ggtitle(NULL) +xlab("Factor Number")+ylab("CAF")+ theme(panel.grid
 
 ```
 
-```{r}
+```{r MAP, include=FALSE}
 #MAP
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
-
-
-
-
-
 
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
@@ -842,10 +857,6 @@ cowplot::plot_grid(parallel, scree.plot,Hull, labels = c('(A)', '(B)', '(C)'), l
 
 
 ```
-
-
-
-
 
 ```{r EFA, include=FALSE}
 fa.5F.1 <- fa(r=correlations$rho, nfactors = 5, fm= "pa",rotate ="varimax",
