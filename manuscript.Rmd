@@ -809,7 +809,7 @@ parallel = ggplot(Adjusted.EV, aes(x=num, y=eigenvalue, shape=type, color=type))
   geom_point(size=1)+
   geom_point(data = Random.EV, size=1)+
   geom_point(data = Unadjusted.EV, size=1)+
-  scale_y_continuous(name="Eigen Value", limits=c(0, 10), breaks=seq(0,10,1)) +
+  scale_y_continuous(name="Eigen Value", limits=c(0, 10), breaks=seq(0,10,2)) +
    #Label the x-axis 'Factor Number', and ensure that it ranges from 1-max # of factors, increasing by one with each 'tick' mark.
   scale_x_continuous(name='Factor Number', limits=c(0, 48),breaks=seq(0,48,4))+
     #Add vertical line indicating parallel analysis suggested max # of factors to retain
@@ -840,7 +840,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
   geom_line(data = PA.Scree)+ 
   geom_point(size=1)+
   geom_point(data = PA.Scree, size=1)+
-  scale_y_continuous(name="Eigen Value", limits=c(0, 10), breaks=seq(0,10,1)) +
+  scale_y_continuous(name="Eigen Value", limits=c(0, 10), breaks=seq(0,10,2)) +
   scale_x_continuous(name='Factor Number', limits=c(0, 48),breaks=seq(0,48,4))+
   geom_hline(yintercept=1, linetype = 'dashed') + apatheme 
 ```
@@ -865,9 +865,8 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r facIdFig, out.height="100%", out.width="200%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE}
-cowplot::plot_grid(parallel, scree.plot,Hull, labels = c('(A)', '(B)', '(C)'), label_size = 8)
-
+```{r facIdFig, out.height="100%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
+cowplot::plot_grid(parallel, scree.plot,Hull, labels = c('(A)', '(B)', '(C)'),ncol=1, label_size = 8)
 
 ```
 
