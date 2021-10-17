@@ -173,7 +173,7 @@ library(packrat)
 #This chunk is disabled. Only run this to install the dependencies automatically.
 packrat::init()
 #Only use when you have added some pack
-packrat::snapshot(ignore.stale=TRUE) 
+#packrat::snapshot(ignore.stale=TRUE) 
 
 #To find and install required dependencies.
 packrat::restore()
@@ -198,6 +198,7 @@ install.packages("semTable")
 install.packages("magick")
 install.packages("mirt")
 install.packages("cowplot")
+install.packages("VIM")
 devtools::install_github('rich-iannone/DiagrammeR')
 devtools::install_github("crsh/papaja", force = T)
 install.packages("DiagrammeRsvg")
@@ -237,6 +238,7 @@ library(gtsummary)
 library(gt)
 library(gtExtras)
 library(likert)
+library(VIM) #Missing data
 library(kutils)
 r_refs("references.bib")
 ```
@@ -258,12 +260,10 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-
-
 +-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
 | Name                                            | Authors | Description                                                                            | Relevant Items | Adaptations |
 +=================================================+=========+========================================================================================+:==============:+=============+
-| Visual Light Sensitivity Questionnaire-8        | a       | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
+| Visual Light Sensitivity Questionnaire-8        |         | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
 +-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
 | Office Light Survey                             | b       | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
 +-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
@@ -285,7 +285,6 @@ nocite: |
 +-------------------------------------------------+---------+----------------------------------------------------------------------------------------+----------------+-------------+
 
 : Existing related Scales
-
 
 # Methods
 
@@ -342,7 +341,6 @@ sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 ```
-
 
 ```{r prepareDescTable, include=FALSE}
 
@@ -521,10 +519,12 @@ apatheme=theme_bw()+
                                     size = 1))
 ```
 
-
 ```{r EFAdata, include=FALSE}
 ### EFA data
 EFA.data <- sem.data[1:428, ]
+#library(VIM)
+missing <- aggr(EFA.data, plot =T)
+
 ```
 
 ```{r EFAassumptions, include=FALSE}
@@ -541,167 +541,40 @@ bartlet <- cortest.bartlett(EFA.data, n =428)
 
 # Univariate normality
 
-n1 <- shapiro.test(EFA.data$item1)
-n2 <- shapiro.test(EFA.data$item2)
-n3 <- shapiro.test(EFA.data$item3)
-n4 <- shapiro.test(EFA.data$item4)
-n5 <- shapiro.test(EFA.data$item5)
-n6 <- shapiro.test(EFA.data$item6)
-n7 <- shapiro.test(EFA.data$item7)
-n8 <- shapiro.test(EFA.data$item8)
-n9 <- shapiro.test(EFA.data$item9)
-n10 <- shapiro.test(EFA.data$item10)
-n11 <- shapiro.test(EFA.data$item11)
-n12 <- shapiro.test(EFA.data$item12)
-n13 <- shapiro.test(EFA.data$item13)
-n14 <- shapiro.test(EFA.data$item14)
-n15 <- shapiro.test(EFA.data$item15)
-n16 <- shapiro.test(EFA.data$item16)
-n17 <- shapiro.test(EFA.data$item17)
-n18 <- shapiro.test(EFA.data$item18)
-n19 <- shapiro.test(EFA.data$item19)
-n20 <- shapiro.test(EFA.data$item20)
-n21 <- shapiro.test(EFA.data$item21)
-n22 <- shapiro.test(EFA.data$item22)
-n23 <- shapiro.test(EFA.data$item23)
-n24 <- shapiro.test(EFA.data$item24)
-n25 <- shapiro.test(EFA.data$item25)
-n26 <- shapiro.test(EFA.data$item26)
-n27 <- shapiro.test(EFA.data$item27)
-n28 <- shapiro.test(EFA.data$item28)
-n29 <- shapiro.test(EFA.data$item29)
-n30 <- shapiro.test(EFA.data$item30)
-n31 <- shapiro.test(EFA.data$item31)
-n32 <- shapiro.test(EFA.data$item32)
-n33 <- shapiro.test(EFA.data$item33)
-n34 <- shapiro.test(EFA.data$item34)
-n35 <- shapiro.test(EFA.data$item35)
-n36 <- shapiro.test(EFA.data$item36)
-n37 <- shapiro.test(EFA.data$item37)
-n38 <- shapiro.test(EFA.data$item38)
-n39 <- shapiro.test(EFA.data$item39)
-n40 <- shapiro.test(EFA.data$item40)
-n41 <- shapiro.test(EFA.data$item41)
-n42 <- shapiro.test(EFA.data$item42)
-n43 <- shapiro.test(EFA.data$item43)
-n44 <- shapiro.test(EFA.data$item44)
-n45 <- shapiro.test(EFA.data$item45)
-n46 <- shapiro.test(EFA.data$item46)
-n47 <- shapiro.test(EFA.data$item47)
-n48 <- shapiro.test(EFA.data$item48)
+#creating normality function
+shapiro_test_df <- function(df, bonf= TRUE, alpha= 0.05) {
+  l <- lapply(df, shapiro.test)
+  s <- do.call("c", lapply(l, "[[", 1))
+  p <- do.call("c", lapply(l, "[[", 2))
+  if (bonf == TRUE) {
+    sig <- ifelse(p > alpha / length(l), "H0", "*")
+  } else {
+    sig <- ifelse(p > alpha, "H0", "*")
+  }
+  return(list(statistic= s,
+              p.value= p,
+              significance= sig,
+              method= ifelse(bonf == TRUE, "Shapiro-Wilks test with Bonferroni Correction",
+                             "Shapiro-Wilks test without Bonferroni Correction")))
+}
 
-normality.tab = matrix(, nrow = 48, ncol = 2)
-as.table(normality.tab)
+
+Shapiro.efa <- shapiro_test_df(EFA.data)
+
+
+efa.normality.tab = matrix(nrow = 48, ncol = 2)
 rownameprefix <- "Item"
 rownamesufix <- seq(1:48)
 my.item.names <- paste(rownameprefix,rownamesufix, sep = "" )
-rownames(normality.tab) <- my.item.names
-colnames(normality.tab) <- c("statistic", "p")
+rownames(efa.normality.tab) <- my.item.names
+colnames(efa.normality.tab) <- c("statistic", "p")
 
+efa.normality.tab[,1] <- apa(Shapiro.efa$statistic,2,T)
+efa.normality.tab[,2] <- apa(Shapiro.efa$p.value,2,T)
 
-normality.tab[,1] <- c(apa((n1$statistic),2,T),
-                       apa((n1$statistic),2,T),
-                       apa((n3$statistic),2,T),
-                       apa((n4$statistic),2,T),
-                       apa((n5$statistic),2,T),
-                       apa((n6$statistic),2,T),
-                       apa((n7$statistic),2,T),
-                       apa((n8$statistic),2,T),
-                       apa((n9$statistic),2,T),
-                       apa((n10$statistic),2,T),
-                       apa((n11$statistic),2,T),
-                       apa((n12$statistic),2,T),
-                       apa((n13$statistic),2,T),
-                       apa((n14$statistic),2,T),
-                       apa((n14$statistic),2,T),
-                       apa((n16$statistic),2,T),
-                       apa((n17$statistic),2,T),
-                       apa((n18$statistic),2,T),
-                       apa((n19$statistic),2,T),
-                       apa((n20$statistic),2,T),
-                       apa((n21$statistic),2,T),
-                       apa((n22$statistic),2,T),
-                       apa((n23$statistic),2,T),
-                       apa((n24$statistic),2,T),
-                       apa((n25$statistic),2,T),
-                       apa((n26$statistic),2,T),
-                       apa((n27$statistic),2,T),
-                       apa((n28$statistic),2,T),
-                       apa((n29$statistic),2,T),
-                       apa((n30$statistic),2,T),
-                       apa((n31$statistic),2,T),
-                       apa((n32$statistic),2,T),
-                       apa((n33$statistic),2,T),
-                       apa((n34$statistic),2,T),
-                       apa((n35$statistic),2,T),
-                       apa((n36$statistic),2,T),
-                       apa((n37$statistic),2,T),
-                       apa((n38$statistic),2,T),
-                       apa((n39$statistic),2,T),
-                       apa((n40$statistic),2,T),
-                       apa((n41$statistic),2,T),
-                       apa((n42$statistic),2,T),
-                       apa((n43$statistic),2,T),
-                       apa((n44$statistic),2,T),
-                       apa((n45$statistic),2,T),
-                       apa((n46$statistic),2,T),
-                       apa((n47$statistic),2,T),
-                       apa((n48$statistic),2,T))
-
-normality.tab[,2] <- c(apa((n1$p.value),2,T),
-                       apa((n1$p.value),2,T),
-                       apa((n3$p.value),2,T),
-                       apa((n4$p.value),2,T),
-                       apa((n5$p.value),2,T),
-                       apa((n6$p.value),2,T),
-                       apa((n7$p.value),2,T),
-                       apa((n8$p.value),2,T),
-                       apa((n9$p.value),2,T),
-                       apa((n10$p.value),2,T),
-                       apa((n11$p.value),2,T),
-                       apa((n12$p.value),2,T),
-                       apa((n13$p.value),2,T),
-                       apa((n14$p.value),2,T),
-                       apa((n14$p.value),2,T),
-                       apa((n16$p.value),2,T),
-                       apa((n17$p.value),2,T),
-                       apa((n18$p.value),2,T),
-                       apa((n19$p.value),2,T),
-                       apa((n20$p.value),2,T),
-                       apa((n21$p.value),2,T),
-                       apa((n22$p.value),2,T),
-                       apa((n23$p.value),2,T),
-                       apa((n24$p.value),2,T),
-                       apa((n25$p.value),2,T),
-                       apa((n26$p.value),2,T),
-                       apa((n27$p.value),2,T),
-                       apa((n28$p.value),2,T),
-                       apa((n29$p.value),2,T),
-                       apa((n30$p.value),2,T),
-                       apa((n31$p.value),2,T),
-                       apa((n32$p.value),2,T),
-                       apa((n33$p.value),2,T),
-                       apa((n34$p.value),2,T),
-                       apa((n35$p.value),2,T),
-                       apa((n36$p.value),2,T),
-                       apa((n37$p.value),2,T),
-                       apa((n38$p.value),2,T),
-                       apa((n39$p.value),2,T),
-                       apa((n40$p.value),2,T),
-                       apa((n41$p.value),2,T),
-                       apa((n42$p.value),2,T),
-                       apa((n43$p.value),2,T),
-                       apa((n44$p.value),2,T),
-                       apa((n45$p.value),2,T),
-                       apa((n46$p.value),2,T),
-                       apa((n47$p.value),2,T),
-                       apa((n48$p.value),2,T))
-                       
-
-normalityprefix <- normality.tab[,1]
-normalitysufix <- "*"
-normality.names <- paste(normalityprefix,normalitysufix, sep = "" )
-
+efa.normalityprefix <- efa.normality.tab[,1]
+efa.normalitysufix <- Shapiro.efa$significance
+efa.normality.stat <- paste(efa.normalityprefix,efa.normalitysufix, sep = "" )
 
 # Multivariate Normality
 mardia <- mardia(EFA.data, na.rm = T, plot =F)
@@ -711,10 +584,9 @@ Descriptives <- psych::describe(EFA.data)
 alpha <- psych::alpha(EFA.data)
 Item.total <- alpha$item.stats
 
-Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), normality.names,  apa(Item.total$r.cor,2,F))
+Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), efa.normality.stat,  apa(Item.total$r.cor,2,F))
 
 colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics","Item-Total Correlation")
-
 rownameprefix <- "Item"
 rownamesufix <- seq(1:48)
 my.names <- paste(rownameprefix,rownamesufix, sep = "" )
@@ -761,8 +633,6 @@ ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "low
 #to show pvalue in the fig add p.mat=p.mat
 ```
 
-
-
 ```{r ParallelEFA, include=FALSE}
 
 # Parallel analysis
@@ -792,8 +662,6 @@ Unadjusted.EV$type = c('Unadjusted EV')
 Unadjusted.EV$num = c(row.names(Unadjusted.EV))
 Unadjusted.EV$num = as.numeric(Unadjusted.EV$num)
 colnames(Unadjusted.EV) = c('eigenvalue', 'type', 'num')
-
-
 
 
 
@@ -858,7 +726,7 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the MAP method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r facIdFig, out.height="120%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
+```{r facIdFig, out.height="200%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
 cowplot::plot_grid(parallel, scree.plot,Hull, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
@@ -1433,7 +1301,6 @@ cols_label(
 
 ```
 
-
 ```{r gtPic, echo=FALSE, out.height="100%", out.width="200%", results= 'asis'}
 knitr::include_graphics('Manuscript.figures/gt.png')
 
@@ -1962,31 +1829,24 @@ F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
 
 # Plots2 ####
 
-F1_info <- plot(F1_fit, type = "infoSE", main = "F1") 
+F1_item.info <- plot(F1_fit, type = "infotrace", main = "F1") 
 
-F2_info.redu <- plot(F2_fit.redu, type = "infoSE", main = "F2")
-
-
-F3_info.redu <- plot(F3_fit.redu, type = "infoSE", main = "F3")
-
-F4_info.redu <- plot(F4_fit.redu, type = "infoSE", main = "F4")
-
-F5_info <- plot(F5_fit, type = "infoSE", main = "F5")
+F2_item.info.redu <- plot(F2_fit.redu, type = "infotrace", main = "F2")
 
 
+F3_item.info.redu <- plot(F3_fit.redu, type = "infotrace", main = "F3")
 
-Test_Info <- plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info, 
-          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+F4_item.info.redu <- plot(F4_fit.redu, type = "infotrace", main = "F4")
 
-
+F5_item.info <- plot(F5_fit, type = "infotrace", main = "F5")
 
 ```
 
 Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
 ```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
-plot_grid(F1_info, F2_info.redu,F3_info.redu,F4_info.redu,F5_info, 
-          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+plot_grid(F1_item.info, F2_item.info.redu,F3_item.info.redu,F4_item.info.redu,F5_item.info, 
+          labels = "AUTO", label_size = 10)
 
 ```
 

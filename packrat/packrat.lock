@@ -18,6 +18,11 @@ Source: CRAN
 Version: 1.1.1
 Hash: 95ac95db152115f1cbaef1b7f765e65d
 
+Package: DEoptimR
+Source: CRAN
+Version: 1.0-9
+Hash: 155a268a387652c5c85edd06f5802992
+
 Package: Deriv
 Source: CRAN
 Version: 4.1.3
@@ -192,6 +197,13 @@ Source: CRAN
 Version: 3.4.2
 Hash: 03150798c45977fcb475e48a5a5d9a59
 Requires: Rcpp, curl, jsonlite
+
+Package: VIM
+Source: CRAN
+Version: 6.1.1
+Hash: aa1317af39a7754c722fe86cca4cf54b
+Requires: Rcpp, car, colorspace, data.table, e1071, laeken, magrittr,
+    ranger, robustbase, sp, vcd
 
 Package: XML
 Source: CRAN
@@ -849,6 +861,11 @@ Version: 2.8.0
 Hash: e4da2402502677d1467ffcbccc18bac6
 Requires: dplyr, lifecycle, rlang, stringr, tidyr, vctrs, haven
 
+Package: laeken
+Source: CRAN
+Version: 0.5.2
+Hash: 445e107103453a37ff5ef174d533484a
+
 Package: later
 Source: CRAN
 Version: 1.3.0
@@ -895,6 +912,12 @@ Source: CRAN
 Version: 1.1-27.1
 Hash: f520957c6e2826b599ebfaf7f5a3f21a
 Requires: Rcpp, RcppEigen, minqa, nloptr
+
+Package: lmtest
+Source: CRAN
+Version: 0.9-38
+Hash: 2904cff8701afd0744e64f7677b74db6
+Requires: zoo
 
 Package: lubridate
 Source: CRAN
@@ -1189,6 +1212,12 @@ Hash: ef9a0e21d8bb16e04b104b915285b27d
 Requires: classInt, highr, htmltools, labelled, miniUI, rstudioapi,
     shiny, styler
 
+Package: ranger
+Source: CRAN
+Version: 0.13.1
+Hash: 99394eda6461a6d1b75c129edf3ab3d5
+Requires: Rcpp, RcppEigen
+
 Package: rappdirs
 Source: CRAN
 Version: 0.3.3
@@ -1296,6 +1325,12 @@ Source: CRAN
 Version: 0.1.3
 Hash: 78b7585a3b92e3a15de33d690be27d7a
 Requires: assertthat, rmarkdown
+
+Package: robustbase
+Source: CRAN
+Version: 0.93-9
+Hash: 23893a7ff5661830bad77df6da4cc9fa
+Requires: DEoptimR
 
 Package: rockchalk
 Source: CRAN
@@ -1545,6 +1580,12 @@ Source: CRAN
 Version: 0.1-4
 Hash: b0fcab4d6aa43d97cf09e336b65b906f
 
+Package: vcd
+Source: CRAN
+Version: 1.4-8
+Hash: fc882fe12a20ca9dae302fb017dcb658
+Requires: colorspace, lmtest
+
 Package: vctrs
 Source: CRAN
 Version: 0.3.8
@@ -1639,3 +1680,8 @@ Package: zip
 Source: CRAN
 Version: 2.2.0
 Hash: 7a2bdad5f5de31294483fb4ac4e1e0c0
+
+Package: zoo
+Source: CRAN
+Version: 1.8-9
+Hash: a157221cf26e87baa6b008442de46011
