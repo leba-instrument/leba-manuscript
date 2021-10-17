@@ -203,6 +203,12 @@ Source: CRAN
 Version: 1.4-5
 Hash: 1ceb86ef5ebe776ed4753ab6165eb6d7
 
+Package: anytime
+Source: CRAN
+Version: 0.3.9
+Hash: 4e114372a5b298d79ead40c00a3ef219
+Requires: BH, Rcpp
+
 Package: arm
 Source: CRAN
 Version: 1.11-2
@@ -423,6 +429,12 @@ Package: data.table
 Source: CRAN
 Version: 1.14.2
 Hash: 6e09e74cc9e29021c9e95fe7ed38dc68
+
+Package: datapasta
+Source: CRAN
+Version: 3.1.0
+Hash: c7e5096cdbb4e3e3c44e6b2505d3df3d
+Requires: clipr, readr, rstudioapi
 
 Package: dbplyr
 Source: CRAN
@@ -678,15 +690,11 @@ Version: 3.9.2
 Hash: cf9d0d6ca0aaf6d9326459137701d93a
 
 Package: gtsummary
-Source: github
-Version: 1.4.2.9022
-Hash: 95be9e25855f20d490d0194426bbe99b
+Source: CRAN
+Version: 1.4.2
+Hash: de07a72f45421cb93129c18af024d799
 Requires: broom, broom.helpers, cli, dplyr, forcats, glue, gt, knitr,
     lifecycle, purrr, rlang, stringr, tibble, tidyr
-GithubRepo: gtsummary
-GithubUsername: ddsjoberg
-GithubRef: HEAD
-GithubSha1: b5a820c5cd694cca205cfc73c40bfe1028bd54d1
 
 Package: haven
 Source: CRAN
@@ -766,6 +774,22 @@ Package: ini
 Source: CRAN
 Version: 0.3.1
 Hash: 9d6de5178c1cedabfb24e7d2acc9a092
+
+Package: inserttable
+Source: github
+Version: 0.4.0
+Hash: 6bacb3552c2e28d3432d5c17b85875a7
+Requires: anytime, assertthat, datapasta, miniUI, rstudioapi, shiny,
+    tibble, rhandsontable
+GithubRepo: insert_table
+GithubUsername: lbusett
+GithubRef: HEAD
+GithubSha1: 034080d9138b6afbf09af32593d850614dae79b7
+RemoteHost: api.github.com
+RemoteRepo: insert_table
+RemoteUsername: lbusett
+RemoteRef: HEAD
+RemoteSha: 034080d9138b6afbf09af32593d850614dae79b7
 
 Package: inum
 Source: CRAN
@@ -1242,6 +1266,12 @@ Source: CRAN
 Version: 1.4.4
 Hash: b1f77e81a480942cceae0e918a135307
 Requires: Rcpp, plyr, stringr
+
+Package: rhandsontable
+Source: CRAN
+Version: 0.3.8
+Hash: 9a8ecd8506aba5f49d97f20578ce0cb9
+Requires: htmlwidgets, jsonlite, magrittr
 
 Package: rio
 Source: CRAN
