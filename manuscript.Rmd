@@ -497,7 +497,7 @@ knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 
 ### Data Collection
 
-Timeline of data collection, ethical approval mode of data collection how consent was recorded.
+Timeline of data collection, mode of data collection.
 
 ## Analytic Strategies
 
