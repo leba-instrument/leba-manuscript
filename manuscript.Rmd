@@ -260,29 +260,18 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 | Name                                            | Authors                     | Description                                                                            | Relevant Items | Adaptations |
-+=================================================+=============================+========================================================================================+:==============:+=============+
-| Visual Light Sensitivity Questionnaire-8        | [\@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Office Light Survey                             | [\@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Harvard Light Exposure Assessment Questionnaire | [\@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  | aa             | as          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Hospital Lighting Survey                        | [\@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       | dd             | fg          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Morningness-Eveningness Questionnaire           | [\@horne1976self]           | 19 items questionnaire to understand your body clock                                   | ff             | hj          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  | ff             | jk          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        | ff             | kl          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        | ff             | klfrgfgvfg  |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+|-------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------|:--------------:|-------------|
+| Visual Light Sensitivity Questionnaire-8        | [\@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms |      all       | jhghjgjhgfd |
+| Office Light Survey                             | [\@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           |       aa       | gh          |
+| Harvard Light Exposure Assessment Questionnaire | [\@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  |       aa       | as          |
+| Hospital Lighting Survey                        | [\@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       |       dd       | fg          |
+| Morningness-Eveningness Questionnaire           | [\@horne1976self]           | 19 items questionnaire to understand your body clock                                   |       ff       | hj          |
+| Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  |       ff       | jk          |
+| Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        |       ff       | kl          |
+| The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        |       ff       | klfrgfgvfg  |
 |                                                 |                             |                                                                                        |                |             |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 |                                                 |                             |                                                                                        |                |             |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 
 : Existing related Scales
 
@@ -504,6 +493,8 @@ Timeline of data collection, mode of data collection.
 We used R (version 4.1.0), including several R packages, for our analyses. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix, were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, we used a polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (pa), a factor extraction method with varimax rotation. PA is robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by the minimum residuals extraction method as well. We used a combination factor identification method including scree plot[@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method[@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. Additionally, to determine the simple structure, we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading \<0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018;
 
 # Results
+
+## Exploratory Factor Analysis
 
 ```{r ggplot2, include=F}
 apatheme=theme_bw()+
