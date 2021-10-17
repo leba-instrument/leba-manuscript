@@ -260,18 +260,29 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 | Name                                            | Authors                     | Description                                                                            | Relevant Items | Adaptations |
-|-------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------|:--------------:|-------------|
-| Visual Light Sensitivity Questionnaire-8        | [\@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms |      all       | jhghjgjhgfd |
-| Office Light Survey                             | [\@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           |       aa       | gh          |
-| Harvard Light Exposure Assessment Questionnaire | [\@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  |       aa       | as          |
-| Hospital Lighting Survey                        | [\@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       |       dd       | fg          |
-| Morningness-Eveningness Questionnaire           | [\@horne1976self]           | 19 items questionnaire to understand your body clock                                   |       ff       | hj          |
-| Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  |       ff       | jk          |
-| Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        |       ff       | kl          |
-| The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        |       ff       | klfrgfgvfg  |
++=================================================+=============================+========================================================================================+:==============:+=============+
+| Visual Light Sensitivity Questionnaire-8        | [\@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Office Light Survey                             | [\@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Harvard Light Exposure Assessment Questionnaire | [\@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  | aa             | as          |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Hospital Lighting Survey                        | [\@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       | dd             | fg          |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Morningness-Eveningness Questionnaire           | [\@horne1976self]           | 19 items questionnaire to understand your body clock                                   | ff             | hj          |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  | ff             | jk          |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        | ff             | kl          |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
+| The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        | ff             | klfrgfgvfg  |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 |                                                 |                             |                                                                                        |                |             |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 |                                                 |                             |                                                                                        |                |             |
++-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 
 : Existing related Scales
 
@@ -945,6 +956,7 @@ abline(v =.05,lwd = 2, lty = 2)
 
 ```{r factordetails, include=FALSE}
 #Preparing the EFA table
+library(data.table)
 fa_table <- function(x, cut) {
   #get sorted loadings
   loadings <- fa.sort(x)$loadings %>% round(2)
@@ -963,21 +975,23 @@ fa_table <- function(x, cut) {
     #get the item names from the vector
     rownames_to_column("item")
   #build table
-  loadings %>%
+  loadings <- loadings %>%
     unclass() %>%
     as.data.frame() %>%
     rownames_to_column("item") %>%
     left_join(add_info) %>%
-    mutate(across(where(is.numeric), round, 3))
-}
-efa.tab <- fa_table(fa.5F.3,.3) 
-
-variance <- fa.5F.3$Vaccounted %>% 
+    mutate(across(where(is.numeric), round, 3)) %>% 
+    as.data.frame()
+  variance <- x$Vaccounted %>% 
   as.data.frame()%>% 
   round(2)
-library(data.table)
-efa.table <- rbind(setDT(efa.tab), setDT(variance[2,]), fill=TRUE)
-efa.table[26,1] <- "% of variance"
+  loadings <- rbind(setDT(loadings), setDT(variance[2,]), fill=TRUE)
+  
+}
+
+efa.table <- fa_table(fa.5F.3,.3) 
+nr <- nrow(efa.table)
+efa.table[nr, 1] <- "% of Variance"
 
 #Communality
 Fac.5 <- fa.5F.3
