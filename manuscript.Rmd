@@ -263,21 +263,21 @@ nocite: |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 | Name                                            | Authors                     | Description                                                                            | Relevant Items | Adaptations |
 +=================================================+=============================+========================================================================================+:==============:+=============+
-| Visual Light Sensitivity Questionnaire-8        | [\@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
+| Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Office Light Survey                             | [\@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
+| Office Light Survey                             | [@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Harvard Light Exposure Assessment Questionnaire | [\@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  | aa             | as          |
+| Harvard Light Exposure Assessment Questionnaire | [@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  | aa             | as          |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Hospital Lighting Survey                        | [\@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       | dd             | fg          |
+| Hospital Lighting Survey                        | [@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       | dd             | fg          |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Morningness-Eveningness Questionnaire           | [\@horne1976self]           | 19 items questionnaire to understand your body clock                                   | ff             | hj          |
+| Morningness-Eveningness Questionnaire           | [@horne1976self]           | 19 items questionnaire to understand your body clock                                   | ff             | hj          |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  | ff             | jk          |
+| Munich Chronotype Questionnaire (MCTQ)          | [@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  | ff             | jk          |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        | ff             | kl          |
+| Assessment of Sleep Environment                 | [@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        | ff             | kl          |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        | ff             | klfrgfgvfg  |
+| The Pittsburgh Sleep Quality Index (PSQI)       | [@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        | ff             | klfrgfgvfg  |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
 |                                                 |                             |                                                                                        |                |             |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
@@ -1755,29 +1755,29 @@ abline(v = -2, lwd = 2, lty = 2)
 F1_OCC <- plot(F1_fit, type = "trace", facet =T, main = "Blue Filter OCC")
 F1_info <- plot(F1_fit, type = "infoSE", main = "F1")
 F1_iteminfo <- plot(F1_fit, type = "infotrace", 
-                    facet_items = T, main = "Blue Filter")
+                    facet_items = T, main = "F1")
 
 ## F2 Plots ####
 F2_OCC <- plot(F2_fit, type = "trace", facet =T, main = "Natural Light OCC")
 F2_info <- plot(F2_fit, type = "infoSE", main = "F2")
-F2_iteminfo <- plot(F2_fit, type = "infotrace", facet_items = T, main = "Natural Light")
+F2_iteminfo <- plot(F2_fit, type = "infotrace", facet_items = T, main = "F2")
 
 ## F3 Plots ####
 F3_OCC <-plot(F3_fit, type = "trace", facet =T, main = "Smart Device OCC")
 F3_info <- plot(F3_fit, type = "infoSE", main = "F3")
 F3_iteminfo <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, main = "Smart Device")
+                    facet_items = T, main = "F3")
 
 ## F4 Plots ####
 F4_OCC <-plot(F4_fit, type = "trace", facet =T, main = "Sleep Environment OCC")
 F4_info <- plot(F4_fit, type = "infoSE", main = "F4")
-F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "Sleep Environment")
+F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "F4")
 
 
 ## F5 Plots ####
 F5_OCC <-plot(F5_fit, type = "trace", facet =T, main = "Electric Light OCC")
 F5_info <- plot(F5_fit, type = "infoSE", main = "F5")
-F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = "Electric Light")
+F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = "F5")
 
 ## Plot grid ####
 library(cowplot)
@@ -1785,10 +1785,10 @@ OCC <- plot_grid(F1_OCC, F2_OCC,F3_OCC,F4_OCC,F5_OCC,
           labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
 
 Test_Info <- plot_grid(F1_info, F2_info,F3_info,F4_info,F5_info, 
-          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+          labels = "AUTO", label_size = 10)
 
 Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
-          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
+          labels = "AUTO", label_size = 10)
 
 
 
@@ -1799,6 +1799,14 @@ To develop a shorter form of the LEBA we sought to Item response theory.IRT comp
 ```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
+
+
+```{r itmeinfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
+plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
+          labels = "AUTO", label_size = 10,align = "v" )
+
+```
+
 
 ```{r shortIRT, include=FALSE}
 F1 <- sem.data %>% 
@@ -1837,24 +1845,24 @@ F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
 
 # Plots2 ####
 
-F1_item.info <- plot(F1_fit, type = "infotrace", main = "F1") 
+F1_test.info <- plot(F1_fit, type = "infoSE", main = "F1") 
 
-F2_item.info.redu <- plot(F2_fit.redu, type = "infotrace", main = "F2")
+F2_test.info.redu <- plot(F2_fit.redu, type = "infoSE", main = "F2")
 
 
-F3_item.info.redu <- plot(F3_fit.redu, type = "infotrace", main = "F3")
+F3_test.info.redu <- plot(F3_fit.redu, type = "infoSE", main = "F3")
 
-F4_item.info.redu <- plot(F4_fit.redu, type = "infotrace", main = "F4")
+F4_test.info.redu <- plot(F4_fit.redu, type = "infoSE", main = "F4")
 
-F5_item.info <- plot(F5_fit, type = "infotrace", main = "F5")
+F5_test.info <- plot(F5_fit, type = "infoSE", main = "F5")
 
 ```
 
 Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
-```{r itminfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
-plot_grid(F1_item.info, F2_item.info.redu,F3_item.info.redu,F4_item.info.redu,F5_item.info, 
-          labels = "AUTO", label_size = 10)
+```{r Testinfo, fig.cap="Test information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
+plot_grid(F1_test.info, F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F5_test.info, 
+          labels = "AUTO", label_size = 10, align = "v" )
 
 ```
 

@@ -432,6 +432,12 @@ Version: 1.3.1
 Hash: 4142c6c5c45e43473c2f5629d16c9591
 Requires: askpass, curl, jsonlite, openssl, sys
 
+Package: crosstalk
+Source: CRAN
+Version: 1.1.1
+Hash: 40844571ab8c7b3009cde6e49a1ace16
+Requires: R6, htmltools, jsonlite, lazyeval
+
 Package: curl
 Source: CRAN
 Version: 4.3.2
@@ -883,6 +889,11 @@ Source: CRAN
 Version: 0.6-9
 Hash: 8f95465a3e363fb66eb573578fa4192a
 Requires: mnormt, numDeriv, pbivnorm
+
+Package: lazyeval
+Source: CRAN
+Version: 0.2.2
+Hash: 563563691bea3cde6945a98996d7c166
 
 Package: libcoin
 Source: CRAN
