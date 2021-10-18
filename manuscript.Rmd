@@ -1714,6 +1714,36 @@ F5_se <- coef(F5_fit, printSE = TRUE)
 itemparameters <- rbind(F1_items,F2_items, F3_items, F4_items,F5_items)
 
 
+# Model Fit (degrees of freedom too low to check model fit)
+F1.model <- M2(F1_fit)
+F2.model <- M2(F2_fit)
+F3.model <- M2(F3_fit)
+F4.model <- M2(F4_fit)
+F5.model <- M2(F5_fit)
+
+
+#Item fit
+F1.item.fit<- itemfit(F1_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F2.item.fit<- itemfit(F2_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F3.item.fit<- itemfit(F3_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F4.item.fit<- itemfit(F4_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F5.item.fit<- itemfit(F5_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+#Identigying Missfit items based on RMSEA Value
+F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
+F2.item_misfits <- subset(F2.item.fit, RMSEA.S_X2 >= .06)
+F3.item_misfits <- subset(F3.item.fit, RMSEA.S_X2 >= .06)
+F4.item_misfits <- subset(F4.item.fit, RMSEA.S_X2 >= .06)
+F5.item_misfits <- subset(F5.item.fit, RMSEA.S_X2 >= .06)
+
+
 # Person Fit ####
 ## F1 Person fit ####
 F1.personfit <- personfit(F1_fit) 
@@ -1779,7 +1809,7 @@ F3_iteminfo <- plot(F3_fit, type = "infotrace",
 ## F4 Plots ####
 F4_OCC <-plot(F4_fit, type = "trace", facet =T, main = "Sleep Environment OCC")
 F4_info <- plot(F4_fit, type = "infoSE", main = "F4")
-F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "F4")
+F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "F4",cex = .8)
 
 
 ## F5 Plots ####
@@ -1802,6 +1832,36 @@ Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F
 
 ```
 
+```{r IRTreliability, include=F}
+#conditional reliability
+F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F2.reliability <- plot(F2_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F3.reliability <- plot(F3_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F4.reliability <- plot(F4_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F5.reliability <- plot(F5_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+
+##IRT reliability (marginal reliability of scales)
+F1.marginal.rel <- marginal_rxx(F1_fit)
+F2.marginal.rel <-marginal_rxx(F2_fit)
+F3.marginal.rel <-marginal_rxx(F3_fit)
+F4.marginal.rel <-marginal_rxx(F4_fit)
+F5.marginal.rel <-marginal_rxx(F5_fit)
+
+
+##Scale characteristic curve
+F1.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F2.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F3.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+```
+
+
 To develop a shorter form of the LEBA we sought to Item response theory.IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model to the combined EFA sample and CFA sample (n =690)(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \<.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \>1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
 
 ```{r IRTparameters, results='asis'}
@@ -1811,7 +1871,7 @@ apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", no
 
 ```{r itmeinfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
-          labels = "AUTO", label_size = 10,align = "v" )
+          labels = "AUTO", label_size = 10,align = "v")
 
 ```
 
@@ -2040,7 +2100,7 @@ as.data.frame(theta.correlation.matrix)
 colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
 ```
 
-```{r, results='asis'}
+```{r IRTscoreCor, results='asis'}
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
 
