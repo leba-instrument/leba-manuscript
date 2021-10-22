@@ -57,29 +57,29 @@ LEBA captures light exposure-related behaviours on a 5 point Likert type scale r
 
 | Long Form (23 Items)       |
 |----------------------------|
-| **F1: Blue-light filters/ Wearing Blue-light Filters**        |
+| **F1: Wearing blue light filters**        |
 | `r label(sem.data$item16)` |
 | `r label(sem.data$item17)` |
 | `r label(sem.data$item36)` |
-| **F2: Natural light exposure/ Time Outdoors(in Daylight)/ Time Spend Outside**      |
+| **F2: Spending time outdoors**      |
 | `r label(sem.data$item8)`  |
 | `r label(sem.data$item10)` |
 | `r label(sem.data$item9)`  |
 | `r label(sem.data$item11)` |
 | `r label(sem.data$item12)` |
 | `r label(sem.data$item7)`  |
-| **F3: Use of smartphones and wearables/ Smartwatch and Phone Use in Bed**       |
+| **F3: Using phone and smartwatch in bed**       |
 | `r label(sem.data$item27)` |
 | `r label(sem.data$item3)`  |
 | `r label(sem.data$item40)` |
 | `r label(sem.data$item30)` |
 | `r label(sem.data$item41)` |
-| **F4: Light in the sleep environment/Surround Sleep/(Pre)Bedtime Light Use**  |
+| **F4: Using light before bedtime**  |
 | `r label(sem.data$item32)` |
 | `r label(sem.data$item35)` |
 | `r label(sem.data$item38)` |
 | `r label(sem.data$item33)` |
-| **F5: Electric home light/Morning and daytime light Use**     |
+| **F5: Using light in the morning and during daytime**     |
 | `r label(sem.data$item46)` |
 | `r label(sem.data$item45)` |
 | `r label(sem.data$item25)` |
@@ -90,25 +90,25 @@ LEBA captures light exposure-related behaviours on a 5 point Likert type scale r
 
 | Short Form (17 Items)      |
 |----------------------------|
-| **F1: Blue-light filters**        |
+| **F1: Wearing blue light filters**        |
 | `r label(sem.data$item16)` |
 | `r label(sem.data$item17)` |
 | `r label(sem.data$item36)` |
-| **F2: Natural light exposure**      |
+| **F2: Spending time outdoors**      |
 | `r label(sem.data$item8)`  |
 | `r label(sem.data$item10)` |
 | `r label(sem.data$item11)` |
 | `r label(sem.data$item12)` |
 | `r label(sem.data$item7)`  |
-| **F3: Use of smartphones and wearables**  |  
+| **F3: Using phone and smartwatch in bed**  |  
 | `r label(sem.data$item27)` |
 | `r label(sem.data$item3)`  |
 | `r label(sem.data$item40)` |
-| **F4: Light in the sleep environment**  |
+| **F4: Using light before bedtime**  |
 | `r label(sem.data$item32)` |
 | `r label(sem.data$item35)` |
 | `r label(sem.data$item33)` |
-| **F5: Electric home light**     |
+| **F5: Using light in the morning and during daytime**     |
 | `r label(sem.data$item46)` |
 | `r label(sem.data$item45)` |
 | `r label(sem.data$item4)`  |

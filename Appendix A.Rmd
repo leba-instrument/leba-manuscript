@@ -1,0 +1,12 @@
+---
+title: "Appendix A"
+author: "Team LEBA"
+date: "10/22/2021"
+output: pdf_document
+---
+
+```{r setup, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
+set.seed(123)
+par(family = "Helvetica")
+```
