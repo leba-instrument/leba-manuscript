@@ -289,9 +289,7 @@ nocite: |
 | Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  |       ff       | jk          |
 | Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        |       ff       | kl          |
 | The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        |       ff       | klfrgfgvfg  |
->>>>>>> 901311d65c0b215d16ac494a54e54f8e91190bd7
-|                                                 |                             |                                                                                        |                |             |
-|                                                 |                             |                                                                                        |                |             |
+
 
 : Existing related Scales
 
