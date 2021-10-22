@@ -1715,11 +1715,11 @@ itemparameters <- rbind(F1_items,F2_items, F3_items, F4_items,F5_items)
 
 
 # Model Fit (degrees of freedom too low to check model fit)
-F1.model <- M2(F1_fit)
-F2.model <- M2(F2_fit)
-F3.model <- M2(F3_fit)
-F4.model <- M2(F4_fit)
-F5.model <- M2(F5_fit)
+#F1.model <- M2(F1_fit)
+#F2.model <- M2(F2_fit)
+#F3.model <- M2(F3_fit)
+#F4.model <- M2(F4_fit)
+#F5.model <- M2(F5_fit)
 
 
 #Item fit
@@ -1827,6 +1827,8 @@ Test_Info <- plot_grid(F1_info, F2_info,F3_info,F4_info,F5_info,
 
 Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = "AUTO", label_size = 10)
+
+
 
 
 
