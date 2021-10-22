@@ -10,6 +10,7 @@ author:
       - Formal Analysis
       - Visualization
       - Writing – original draft
+      - Writing – review & editing;
        
   - name          : "Rafael Robert Lazar"
     affiliation   : "2, 3, *"
@@ -159,7 +160,12 @@ classoption       : "man"
 output            : 
   papaja::apa6_pdf:
     latex_engine: xelatex
+    
 mainfont: Helvetica
+appendix:
+  - "instrument.Rmd"
+  - "Appendix-B.Rmd"
+
 ---
 
 ```{r setup, warning=FALSE, include=FALSE}
@@ -261,7 +267,7 @@ nocite: |
 -   None of these do light exposure behavior.
 
 | Name                                            | Authors                     | Description                                                                            | Relevant Items | Adaptations |
-<<<<<<< HEAD
+
 +=================================================+=============================+========================================================================================+:==============:+=============+
 | Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
 +-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
@@ -2105,6 +2111,10 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 ```
 
 # Discussion
+
+
+
+
 
 \newpage
 
