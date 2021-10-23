@@ -246,6 +246,7 @@ library(gtExtras)
 library(likert)
 library(VIM) #Missing data
 library(kutils)
+library(simsem)
 r_refs("references.bib")
 ```
 
@@ -1465,6 +1466,44 @@ CFa.matrix[2,] = c("Five factor model:23",
 apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
 ```
 
+```{r simulation, eval=FALSE, include=FALSE}
+library("simsem")
+pop.model <- "F1 =~ a1*item16 + .95*item36 + a2*item17
+                 F2 =~ .87*item11 + .85*item10 + .74*item12+ .60*item7+ .50*Ritem8+ .49*item9
+                 F3 =~  .78*item27+ .77*item3+ .68*item40 + .13*item30 + .20*item41
+                 F4 =~ a3*item32 + .63*item35 + .33*item38+ a4*item33 
+                 F5 =~ .80*item46+ .53*item45+ .36*item25+ .30*item4+ .22*item1 
+                       a1==a2
+                       a3==a4
+                item30 ~~ .82*item41
+F1~~1*F1
+F2~~1*F2
+F3~~1*F3
+F4~~1*F4
+F5~~1*F5
+"  
+
+sam.model <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
+                 F3 =~  item27+ item3+ item40 + item30 + item41
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
+                 F5 =~ item46+ item45+ item25+ item4+ item1 
+                       a1==a2
+                       a3==a4
+                item30 ~~  item41
+                       "  
+
+
+sim.300 <- sim(200, model = sam.model, n =200, generate = pop.model, lavaanfun = "lavaan", auto.var =T, auto.fix.first =F, seed = 123)
+summary(simulation)
+summaryParam(simulation, detail =T, alpha = .05)
+
+#power should be higher than .80, average CI width should be lower than .15
+#Estimate standard error bias
+
+SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
+```
+
 ```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE, results='asis'}
 #library(semPlot)
 
@@ -2109,6 +2148,22 @@ colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
 ```{r IRTscoreCor, results='asis'}
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
+
+
+```{r clean}
+cleanFolder <- function() {
+  answer <- NA
+  while(!(answer %in% c('y', 'n'))) {
+    answer <- readline(paste("Clean ", getwd(),"? (y/n)"))
+  }
+  if(answer == 'y') {
+    rules <- c('.log', '.vrb', '.nav', '.snm', '.toc', 
+               '-tikzDictionary', '.tex', '.synctex.gz')
+    file.remove(list.files(pattern = paste0('\\',rules ,'$', collapse = '|')))
+  }
+}
+```
+
 
 # Discussion
 

@@ -1463,6 +1463,12 @@ Version: 2.0.0
 Hash: 76cd028f38d0c5a1f198c4daab81ddfe
 Requires: digest, htmltools, jsonlite, shiny
 
+Package: simsem
+Source: CRAN
+Version: 0.5-16
+Hash: eeccf16cdc2ab71d1fc9b58572cbfbb6
+Requires: lavaan
+
 Package: sourcetools
 Source: CRAN
 Version: 0.1.7
