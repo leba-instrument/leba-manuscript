@@ -51,64 +51,64 @@ colnames(sem.data) <- colnam
 
 **Disclaimer**: This is a non-public version of LEBA (dated \today) and still a work in progress. Please do not distribute!
 
-LEBA captures light exposure-related behaviours on a 5 point Likert type scale ranging from 1 to 5 (Never/Does not apply/I don't know = 1; Rarely = 2; Sometimes = 3; Often = 4; Always = 5). The score of each factor is calculated by the summation of scores of items belonging to the corresponding factor.
+LEBA captures light exposure-related behaviours on a 5 point Likert type scale ranging from 1 to 5 (Never/Does not apply/I don't know = 1; Rarely = 2; Sometimes = 3; Often = 4; Always = 5). The score of each factor is calculated by the summation of scores of items belonging to the corresponding factor. The following instruction is given before displaying the items: "Please indicate how often you performed the following behaviours in the past 4 weeks."
 
 \newpage
 
-| Long Form (23 Items)       |
-|----------------------------|
-| **F1: Wearing blue light filters**        |
-| `r label(sem.data$item16)` |
-| `r label(sem.data$item17)` |
-| `r label(sem.data$item36)` |
-| **F2: Spending time outdoors**      |
-| `r label(sem.data$item8)`  |
-| `r label(sem.data$item10)` |
-| `r label(sem.data$item9)`  |
-| `r label(sem.data$item11)` |
-| `r label(sem.data$item12)` |
-| `r label(sem.data$item7)`  |
-| **F3: Using phone and smartwatch in bed**       |
-| `r label(sem.data$item27)` |
-| `r label(sem.data$item3)`  |
-| `r label(sem.data$item40)` |
-| `r label(sem.data$item30)` |
-| `r label(sem.data$item41)` |
-| **F4: Using light before bedtime**  |
-| `r label(sem.data$item32)` |
-| `r label(sem.data$item35)` |
-| `r label(sem.data$item38)` |
-| `r label(sem.data$item33)` |
-| **F5: Using light in the morning and during daytime**     |
-| `r label(sem.data$item46)` |
-| `r label(sem.data$item45)` |
-| `r label(sem.data$item25)` |
-| `r label(sem.data$item4)`  |
-| `r label(sem.data$item1)`  |
+| Long Form (23 Items)                                  |
+|-------------------------------------------------------|
+| **F1: Wearing blue light filters**                    |
+| `r label(sem.data$item16)`                            |
+| `r label(sem.data$item17)`                            |
+| `r label(sem.data$item36)`                            |
+| **F2: Spending time outdoors**                        |
+| `r label(sem.data$item8)`                             |
+| `r label(sem.data$item10)`                            |
+| `r label(sem.data$item9)`                             |
+| `r label(sem.data$item11)`                            |
+| `r label(sem.data$item12)`                            |
+| `r label(sem.data$item7)`                             |
+| **F3: Using phone and smartwatch in bed**             |
+| `r label(sem.data$item27)`                            |
+| `r label(sem.data$item3)`                             |
+| `r label(sem.data$item40)`                            |
+| `r label(sem.data$item30)`                            |
+| `r label(sem.data$item41)`                            |
+| **F4: Using light before bedtime**                    |
+| `r label(sem.data$item32)`                            |
+| `r label(sem.data$item35)`                            |
+| `r label(sem.data$item38)`                            |
+| `r label(sem.data$item33)`                            |
+| **F5: Using light in the morning and during daytime** |
+| `r label(sem.data$item46)`                            |
+| `r label(sem.data$item45)`                            |
+| `r label(sem.data$item25)`                            |
+| `r label(sem.data$item4)`                             |
+| `r label(sem.data$item1)`                             |
 
 \newpage
 
-| Short Form (17 Items)      |
-|----------------------------|
-| **F1: Wearing blue light filters**        |
-| `r label(sem.data$item16)` |
-| `r label(sem.data$item17)` |
-| `r label(sem.data$item36)` |
-| **F2: Spending time outdoors**      |
-| `r label(sem.data$item8)`  |
-| `r label(sem.data$item10)` |
-| `r label(sem.data$item11)` |
-| `r label(sem.data$item12)` |
-| `r label(sem.data$item7)`  |
-| **F3: Using phone and smartwatch in bed**  |  
-| `r label(sem.data$item27)` |
-| `r label(sem.data$item3)`  |
-| `r label(sem.data$item40)` |
-| **F4: Using light before bedtime**  |
-| `r label(sem.data$item32)` |
-| `r label(sem.data$item35)` |
-| `r label(sem.data$item33)` |
-| **F5: Using light in the morning and during daytime**     |
-| `r label(sem.data$item46)` |
-| `r label(sem.data$item45)` |
-| `r label(sem.data$item4)`  |
+| Short Form (17 Items)                                 |
+|-------------------------------------------------------|
+| **F1: Wearing blue light filters**                    |
+| `r label(sem.data$item16)`                            |
+| `r label(sem.data$item17)`                            |
+| `r label(sem.data$item36)`                            |
+| **F2: Spending time outdoors**                        |
+| `r label(sem.data$item8)`                             |
+| `r label(sem.data$item10)`                            |
+| `r label(sem.data$item11)`                            |
+| `r label(sem.data$item12)`                            |
+| `r label(sem.data$item7)`                             |
+| **F3: Using phone and smartwatch in bed**             |
+| `r label(sem.data$item27)`                            |
+| `r label(sem.data$item3)`                             |
+| `r label(sem.data$item40)`                            |
+| **F4: Using light before bedtime**                    |
+| `r label(sem.data$item32)`                            |
+| `r label(sem.data$item35)`                            |
+| `r label(sem.data$item33)`                            |
+| **F5: Using light in the morning and during daytime** |
+| `r label(sem.data$item46)`                            |
+| `r label(sem.data$item45)`                            |
+| `r label(sem.data$item4)`                             |
