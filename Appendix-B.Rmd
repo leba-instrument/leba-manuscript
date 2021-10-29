@@ -251,7 +251,7 @@ cowplot::plot_grid(parallel, scree.plot, labels = "AUTO",ncol=1, label_size = 8,
 
 ```
 
-Horn's parallel analysis with 500 iterations indicated a five-factor solution. However, Scree plot and the MAP method suggested 6-factor solution. five-factor solution (Figure\\ \\\@ref:AfacIdFig). As a result, we tested both five-factor and six-factor solutions.
+Horn's parallel analysis with 500 iterations indicated a five-factor solution. However, Scree plot and the MAP method suggested 6-factor solution. five-factor solution (Figure\@ref:AfacIdFig). As a result, we tested both five-factor and six-factor solutions.
 
 ```{r AEFA, include=FALSE}
 fa.5F.1 <- fa(r=correlations$rho, nfactors = 5, fm= "pa",rotate ="varimax",

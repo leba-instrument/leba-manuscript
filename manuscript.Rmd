@@ -160,12 +160,13 @@ classoption       : "man"
 output            : 
   papaja::apa6_pdf:
     latex_engine: xelatex
+    includes:
+      in_header: header.tex
     
 mainfont: Helvetica
 appendix:
   - "instrument.Rmd"
   - "Appendix-B.Rmd"
-
 ---
 
 ```{r setup, warning=FALSE, include=FALSE}
@@ -174,15 +175,16 @@ set.seed(123)
 par(family = "Helvetica")
 ```
 
-```{r depMan, eval=FALSE, include=FALSE}
+```{r depMan, include=FALSE}
 library(packrat)
-#This chunk is disabled. Only run this to install the dependencies automatically.
 packrat::init()
-#Only use when you have added some pack
-#packrat::snapshot(ignore.stale=TRUE) 
 
 #To find and install required dependencies.
 packrat::restore()
+#Only use when you have added some pack
+#packrat::snapshot(ignore.stale=TRUE) 
+
+
 ```
 
 ```{r install, eval=FALSE, include=FALSE}
@@ -267,38 +269,36 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-| Name                                            | Authors                     | Description                                                                            | Relevant Items | Adaptations |
 
-+=================================================+=============================+========================================================================================+:==============:+=============+
-| Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms | all            | jhghjgjhgfd |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Office Light Survey                             | [@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           | aa             | gh          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Harvard Light Exposure Assessment Questionnaire | [@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  | aa             | as          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Hospital Lighting Survey                        | [@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       | dd             | fg          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Morningness-Eveningness Questionnaire           | [@horne1976self]           | 19 items questionnaire to understand your body clock                                   | ff             | hj          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Munich Chronotype Questionnaire (MCTQ)          | [@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  | ff             | jk          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| Assessment of Sleep Environment                 | [@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        | ff             | kl          |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-| The Pittsburgh Sleep Quality Index (PSQI)       | [@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        | ff             | klfrgfgvfg  |
-+-------------------------------------------------+-----------------------------+----------------------------------------------------------------------------------------+----------------+-------------+
-=======
-|-------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------|:--------------:|-------------|
-| Visual Light Sensitivity Questionnaire-8        | [\@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms |      all       | jhghjgjhgfd |
-| Office Light Survey                             | [\@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office           |       aa       | gh          |
-| Harvard Light Exposure Assessment Questionnaire | [\@bajaj2011validation]     | Self-administered semiquantitative light qestionnaire                                  |       aa       | as          |
-| Hospital Lighting Survey                        | [\@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                       |       dd       | fg          |
-| Morningness-Eveningness Questionnaire           | [\@horne1976self]           | 19 items questionnaire to understand your body clock                                   |       ff       | hj          |
-| Munich Chronotype Questionnaire (MCTQ)          | [\@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                  |       ff       | jk          |
-| Assessment of Sleep Environment                 | [\@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                        |       ff       | kl          |
-| The Pittsburgh Sleep Quality Index (PSQI)       | [\@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                        |       ff       | klfrgfgvfg  |
+\blandscape
 
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Name                                            | Authors                    | Description                                                                               | Relevant Items | Adaptations |
++=================================================+============================+===========================================================================================+================+=============+
+| Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms    | All items      |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Office Light Survey                             | [@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office              |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Harvard Light Exposure Assessment Questionnaire | [@bajaj2011validation]     | Self-administered semi-quantitative light questionnaire                                   | All Items      |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Hospital Lighting Survey                        | [@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                          |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Morningness-Eveningness Questionnaire           | [@horne1976self]           | 19 items questionnaire to understand your body clock                                      |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Munich Chronotype Questionnaire (MCTQ)          | [@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                     |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Assessment of Sleep Environment                 | [@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                           |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| The Pittsburgh Sleep Quality Index (PSQI)       | [@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                           |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+| Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new] \|     | Eight-question survey to assess the presence and severity of photosensitivity symptoms \| | All items \|   |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
+|                                                 |                            |                                                                                           |                |             |
++-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
 
 : Existing related Scales
+
+\elandscape
 
 # Methods
 
@@ -1435,7 +1435,7 @@ modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE)
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Several indices exist to measure the the model fit. These can be categorized as absolute fit, comparative fit and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony  fit indices including the root mean square error of approximation (RMSEA)  considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices  evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and  TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit.  Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients coefficient alpha `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Several indices exist to measure the the model fit. These can be categorized as absolute fit, comparative fit and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients coefficient alpha `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
 
 ```{r cfaMat, results='asis'}
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
@@ -1906,20 +1906,17 @@ F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 ```
 
-
 To develop a shorter form of the LEBA we sought to Item response theory.IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model to the combined EFA sample and CFA sample (n =690)(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \<.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \>1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
 
 ```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-
 ```{r itmeinfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = "AUTO", label_size = 10,align = "v")
 
 ```
-
 
 ```{r shortIRT, include=FALSE}
 F1 <- sem.data %>% 
@@ -2149,7 +2146,6 @@ colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
 
-
 ```{r clean}
 cleanFolder <- function() {
   answer <- NA
@@ -2164,12 +2160,7 @@ cleanFolder <- function() {
 }
 ```
 
-
 # Discussion
-
-
-
-
 
 \newpage
 
