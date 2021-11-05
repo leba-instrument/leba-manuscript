@@ -1437,7 +1437,67 @@ modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE)
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Several indices exist to measure the the model fit. These can be categorized as absolute fit, comparative fit and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients coefficient alpha `r apa(rel.k[5,1],2,F)`, `r apa(rel.k[5,2],2,F)`, `r apa(rel.k[5,3],2,F)`, `r apa(rel.k[5,4],2,F)`, `r apa(rel.k[5,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
+
+```{r CFA21}
+LB.model.Cor.3 <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
+                 F3 =~  item27+ item3+ item40 
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
+                 F5 =~ item46+ item45+ item25+ item4+ item1 
+                       a1==a2
+                       a3==a4
+               
+                       "  
+
+#item30 & 41 are removed
+
+## Fit the model 
+fit.Cor.3 <- cfa(LB.model.Cor.3, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
+
+rel.k.1 <- semTools::reliability(fit.Cor.3, return.total = T)
+## Summary of Model 
+cfa.sum.3 <- summary(fit.Cor.3, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
+
+## Selected Fit measures 
+fit.3 <- fitmeasures (fit.Cor.3,c("gfi", "agfi", "nfi","rfi", 
+                                  "cfi.scaled","tli.scaled",
+                                  "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
+
+
+```
+
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Several indices exist to measure the the model fit. These can be categorized as absolute fit, comparative fit and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients coefficient alpha `r apa(rel.k[1,1],2,F)`, `r apa(rel.k[1,2],2,F)`, `r apa(rel.k[1,3],2,F)`, `r apa(rel.k[1,4],2,F)`, `r apa(rel.k[1,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
+
+```{r cfa4F, eval=FALSE, include=FALSE}
+LB.model.Cor.4 <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
+                 F3 =~  item27+ item3+ item40 
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
+                        a1==a2
+                       a3==a4
+               
+                       "  
+
+
+
+## Fit the model 
+fit.Cor.4 <- cfa(LB.model.Cor.4, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
+
+rel.k.4 <- semTools::reliability(fit.Cor.4, return.total = T)
+## Summary of Model 
+cfa.sum.4 <- summary(fit.Cor.4, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
+
+## Selected Fit measures 
+fit.4 <- fitmeasures (fit.Cor.4,c("gfi", "agfi", "nfi","rfi", 
+                                  "cfi.scaled","tli.scaled",
+                                  "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
+
+```
+
 
 ```{r cfaMat, results='asis'}
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
@@ -1647,7 +1707,9 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 
 ```
 
-## Developing the short form of LEBA
+## Analysing the quality of items by Item Information Theory
+
+We sought the IRT to gether information regarding the item quality. IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model (\@ref(tab:IRTparameters) to the combined EFA sample and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded. We also gathered evidence of item fit and person fit to our fitted model.
 
 ```{r IRT data, include=FALSE}
 ## Recoding sem.data$item8 into sem.data$Ritem8
@@ -1781,7 +1843,7 @@ F4.item.fit<- itemfit(F4_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
 F5.item.fit<- itemfit(F5_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
                                   impute=10)
 
-#Identigying Missfit items based on RMSEA Value
+#Identifying Missfit items based on RMSEA Value
 F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
 F2.item_misfits <- subset(F2.item.fit, RMSEA.S_X2 >= .06)
 F3.item_misfits <- subset(F3.item.fit, RMSEA.S_X2 >= .06)
@@ -1908,7 +1970,7 @@ F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 ```
 
-To develop a shorter form of the LEBA we sought to Item response theory.IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model to the combined EFA sample and CFA sample (n =690)(\@ref(tab:IRTparameters). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Currently, apart from some general suggestions, there exists no definitive rule to judge the item discrimination and item information parameter quality. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \<.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \>1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded.
+
 
 ```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
@@ -1919,6 +1981,8 @@ plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo,
           labels = "AUTO", label_size = 10,align = "v")
 
 ```
+
+
 
 ```{r shortIRT, include=FALSE}
 F1 <- sem.data %>% 
@@ -1955,6 +2019,95 @@ F4_fit.redu <- mirt(F4.redu, model = 1, itemtype = 'graded', SE = TRUE,
 F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
                Se.type = 'MHRM',technical = list(NCYCLES = 10000))
 
+
+
+#Item fit
+F1.item.fit<- itemfit(F1_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F2.item.fit<- itemfit(F2_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F3.item.fit<- itemfit(F3_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F4.item.fit<- itemfit(F4_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F5.item.fit<- itemfit(F5_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+#Identifying Missfit items based on RMSEA Value
+F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
+F2.item_misfits <- subset(F2.item.fit, RMSEA.S_X2 >= .06)
+F3.item_misfits <- subset(F3.item.fit, RMSEA.S_X2 >= .06)
+F4.item_misfits <- subset(F4.item.fit, RMSEA.S_X2 >= .06)
+F5.item_misfits <- subset(F5.item.fit, RMSEA.S_X2 >= .06)
+
+
+# Person Fit ####
+## F1 Person fit ####
+F1.personfit <- personfit(F1_fit) 
+F1.personfit_model_misfits <- subset(F1.personfit, Zh < -2)
+rownames(F1.personfit_model_misfits)
+nrow(F1.personfit_model_misfits)
+hist(F1.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F2 Person fit ####
+F2.personfit <- personfit(F2_fit.redu) 
+F2.personfit_model_misfits <- subset(F2.personfit, Zh < -2)
+rownames(F2.personfit_model_misfits)
+nrow(F2.personfit_model_misfits)
+hist(F2.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F3 Person fit ####
+F3.personfit <- personfit(F3_fit.redu) 
+F3.personfit_model_misfits <- subset(F3.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F3.personfit_model_misfits)
+hist(F3.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F4 Person fit ####
+F4.personfit <- personfit(F4_fit.redu) 
+F4.personfit_model_misfits <- subset(F4.personfit, Zh < -2)
+rownames(F4.personfit_model_misfits)
+nrow(F4.personfit_model_misfits)
+hist(F4.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+
+## F5 Person fit ####
+F5.personfit <- personfit(F5_fit) 
+F5.personfit_model_misfits <- subset(F5.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F5.personfit_model_misfits)
+hist(F5.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+
+F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F2.reliability <- plot(F2_fit.redu, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F3.reliability <- plot(F3_fit.redu, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F4.reliability <- plot(F4_fit.redu, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F5.reliability <- plot(F5_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+
+##IRT reliability (marginal reliability of scales)
+F1.marginal.rel <- marginal_rxx(F1_fit)
+F2.marginal.rel <-marginal_rxx(F2_fit.redu)
+F3.marginal.rel <-marginal_rxx(F3_fit.redu)
+F4.marginal.rel <-marginal_rxx(F4_fit.redu)
+F5.marginal.rel <-marginal_rxx(F5_fit)
+
+
+
+
+
 # Plots2 ####
 
 F1_test.info <- plot(F1_fit, type = "infoSE", main = "F1") 
@@ -1968,15 +2121,34 @@ F4_test.info.redu <- plot(F4_fit.redu, type = "infoSE", main = "F4")
 
 F5_test.info <- plot(F5_fit, type = "infoSE", main = "F5")
 
+
+
+
+##Scale characteristic curve
+F1.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F2.scale <- plot(F2_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+F3.scale <- plot(F3_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+F4.scale <- plot(F4_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+F5.scale <- plot(F5_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+
 ```
 
-Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs (). These information curves indicated except Blue filter factor, the other factor's curve is roughly centered on the center of the trait continuum (($\theta$)) and the The amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
+
 
 ```{r Testinfo, fig.cap="Test information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_test.info, F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F5_test.info, 
           labels = "AUTO", label_size = 10, align = "v" )
 
 ```
+
+Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs. These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum (($\theta$)). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
+
+Our result also indicated all the items fitted well to the respective models as assessed by assessed by RMSEA value obtained from Signed-X2 index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
+
+The overall we can concluded that  IRT analysis  indicated LEBA is  a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters  indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. All-in-all we can recommend the LEBA to be used to capture light exposure related behavior.
+
+
+
 
 ```{r fscore, include=FALSE}
 LEBA.Total <- sem.data %>% 
@@ -2148,7 +2320,7 @@ colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
 
-```{r clean}
+```{r clean, eval=FALSE, include=FALSE}
 cleanFolder <- function() {
   answer <- NA
   while(!(answer %in% c('y', 'n'))) {
@@ -2160,6 +2332,7 @@ cleanFolder <- function() {
     file.remove(list.files(pattern = paste0('\\',rules ,'$', collapse = '|')))
   }
 }
+cleanFolder()
 ```
 
 # Discussion
