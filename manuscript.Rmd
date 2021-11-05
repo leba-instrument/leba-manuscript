@@ -342,8 +342,10 @@ descriptives.data <- data
 
 ## Merge "0"s and "1"s into "1"s select,subset assign)
 descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
-EFA.descriptives <- descriptives.data[1:428,]
-CFA.descriptives <- descriptives.data[429:690, ]
+#EFA.descriptives <- descriptives.data[1:428,]
+EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
+#CFA.descriptives <- descriptives.data[429:690, ]
+CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
 
 #Separating the EFA and CFA(only items)
 sem.data <- data[, 9:56] #EFA & CFA data
