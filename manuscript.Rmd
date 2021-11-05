@@ -269,32 +269,31 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-
 \blandscape
 
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Name                                            | Authors                    | Description                                                                               | Relevant Items | Adaptations |
-+=================================================+============================+===========================================================================================+================+=============+
-| Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new]        | Eight-question survey to assess the presence and severity of photosensitivity symptoms    | All items      |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Office Light Survey                             | [@eklund1996development]   | Multi-item questionnaire to assess electrical lighting environment in office              |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Harvard Light Exposure Assessment Questionnaire | [@bajaj2011validation]     | Self-administered semi-quantitative light questionnaire                                   | All Items      |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Hospital Lighting Survey                        | [@dianat2013objective]     | 23 items questionnaire to assess light environment in a hospital                          |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Morningness-Eveningness Questionnaire           | [@horne1976self]           | 19 items questionnaire to understand your body clock                                      |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Munich Chronotype Questionnaire (MCTQ)          | [@roenneberg2003life]      | 17 items questionnaire to understand individuals phase of entrainment                     |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Assessment of Sleep Environment                 | [@grandner2014development] | 13 items questionnaire measuring your sleep environment quality                           |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| The Pittsburgh Sleep Quality Index (PSQI)       | [@buysse1989pittsburgh]    | 9 items inventory to measure sleep quality and sleeping pattern                           |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-| Visual Light Sensitivity Questionnaire-8        | [@verriotto2017new] \|     | Eight-question survey to assess the presence and severity of photosensitivity symptoms \| | All items \|   |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
-|                                                 |                            |                                                                                           |                |             |
-+-------------------------------------------------+----------------------------+-------------------------------------------------------------------------------------------+----------------+-------------+
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Name                                                              | Authors                  | Description                                                                                                                                                  | Relevant Items                       | Adaptations |
++===================================================================+==========================+==============================================================================================================================================================+======================================+=============+
+| Visual Light Sensitivity Questionnaire-8                          | [@verriotto2017new]      | Eight-question survey to assess the presence and severity of photosensitivity symptoms                                                                       | All items                            |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Office Light Survey                                               | [@eklund1996development] | Multi-item questionnaire to assess electrical lighting environment in office                                                                                 |                                      |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Harvard Light Exposure Assessment Questionnaire                   | [@bajaj2011validation]   | Self-administered semi-quantitative light questionnaire                                                                                                      | All Items                            |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Hospital Lighting Survey                                          | [@dianat2013objective]   | 23 items questionnaire to assess light environment in a hospital                                                                                             |                                      |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Morningness-Eveningness Questionnaire                             | [@horne1976self]         | 19 items questionnaire to understand your body clock                                                                                                         |                                      |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Munich Chronotype Questionnaire (MCTQ)                            | [@roenneberg2003life]    | 17 items questionnaire to understand individuals phase of entrainment                                                                                        |                                      |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Assessment of Sleep Environment                                   | [@Olivier.2016]          | 13 items questionnaire measuring your sleep environment quality                                                                                              |                                      |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| The Pittsburgh Sleep Quality Index (PSQI)                         | [@buysse1989pittsburgh]  | 9 items inventory to measure sleep quality and sleeping pattern                                                                                              |                                      |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Self-Rating of Biological Rhythm Disorder for Adolescents (SBRDA) | [@Xie.2021]              | 29 items questionnaire assessing four dimensions of biological rhythm disorder in adolescents (digital media use, sleep, eating habits, and activity)        | Items 3., 22., 23., 24., 25. and 29. |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
+| Photosensitivity Assessment Questionnaire (PAQ)                   | [@Wu.2017]               | 16 dichotomous (yes/no) items questionnaire to assess "photophobia" and "photophilia", giving two final scores of "photophobic" and "photophilic" behaviours | All items                            |             |
++-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
 
 : Existing related Scales
 
@@ -310,17 +309,18 @@ The cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, pr
 
 ## Survey characteristics
 
-Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel (sciCORE; <https://redcap.scicore.unibas.ch/>). Participants were recruited via the website of a Comic co-released with the survey [CITE COMIC HERE; <https://enlightenyourclock.org/participate-in-research/>], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution via f.lux software [CITE f.lux Michael Herf?].
+Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel (sciCORE; <https://redcap.scicore.unibas.ch/>). Participants were recruited via the website of a Comic co-released with the survey[@Weinzaepflen.2021; <https://enlightenyourclock.org/participate-in-research/>], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux software [@f.lux].
 
 Completing the online survey took approx. 15 to 20 minutes and was not compensated. The first page of the survey comprised a participant information sheet, where participants' informed consent to participate was obtained before any of the questions were displayed. Underaged participants (\<18 years) were urged to obtain assent from their parents/legal guardians, before filling in the survey. Information on the first page included the objectives of the study, inclusion criteria, estimated duration, the use, storage and sharing of the data, compensation (none), and information about the type of questions in the survey. Moreover, participants needed to confirm that they were participating the survey for the first time. To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). The data analysed in this study was collected between 17.05.2021 and 03.09.2021. Questions incorporating retrospective recall were all aligned to the period of "past four weeks", matching the presented LEBA instrument.
 
 In addition to the LEBA questionnaire, which is subject of the current study, the following variables and items were assessed but not included in the analysis:
 
--   Sleep disturbance and sleep-related impairment [CITE]
--   Sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration [CITE]
--   Meal timing & caffeine consumption [CITE]
--   Light sensitivity (photophobia vs. photophilia) [CITE]
--   Self-reported pubertal stage (only if younger than 18 years old) [CITE]
+-   Sleep disturbance and sleep-related impairment (adult and pediatric versions) [@Bevans.2019; @Buysse.2010; @Forrest.2018; @Harb.2015; @Yu.2011]
+-   Sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration (version for adults and adolescents) [@roenneberg2003life]
+-   Sleep environment [@Olivier.2016]
+-   Meal timing & caffeine consumption [custom items]
+-   Light sensitivity (photophobia vs. photophilia) [@Wu.2017]
+-   Self-reported pubertal stage (only if younger than 18 years old) [@Petersen.1988]
 
 Furthermore, the following 1-item demographic variables were assessed:
 
