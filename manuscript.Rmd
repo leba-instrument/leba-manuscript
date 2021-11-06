@@ -167,22 +167,25 @@ mainfont: Helvetica
 appendix:
   - "instrument.Rmd"
   - "Appendix-B.Rmd"
+  
 ---
+
 
 ```{r setup, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
+options(knitr.duplicate.label = "allow")
 set.seed(123)
 par(family = "Helvetica")
 ```
 
 ```{r depMan, include=FALSE}
 library(packrat)
-packrat::init()
+packrat::init(infer.dependencies = F)# install dependencies only for Rmd files in this project
 
 #To find and install required dependencies.
 packrat::restore()
 #Only use when you have added some pack
-#packrat::snapshot(ignore.stale=TRUE) 
+packrat::snapshot(ignore.stale=TRUE) 
 
 
 ```
@@ -194,6 +197,7 @@ install.packages("devtools")
 install.packages("semTools")
 install.packages("MOTE")
 install.packages("psych")
+install.packages("lavaan")
 install.packages("dlookr")
 install.packages("tidyverse")
 install.packages("qgraph")
@@ -214,9 +218,9 @@ devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 devtools::install_github("crsh/citr")
 remotes::install_github("jthomasmock/gtExtras")
 install.packages("gt")
-remotes::install_github("jthomasmock/gtExtras")
+
 install.packages("questionr")
-devtools::install_github("lbusett/insert_table")
+
 ```
 
 ```{r library, include=FALSE}
@@ -249,6 +253,8 @@ library(likert)
 library(VIM) #Missing data
 library(kutils)
 library(simsem)
+library(extrafont)
+extrafont::font_import()
 r_refs("references.bib")
 ```
 
@@ -1331,7 +1337,7 @@ knitr::include_graphics('Manuscript.figures/gt.png')
 
 # Confirmatory Factor Analysis
 
-```{r CFA data frame, include=FALSE}
+```{r CFAdataframe, include=FALSE}
 
 ### CFA Data
 CFA.data <- sem.data[429:690,]
@@ -1369,7 +1375,7 @@ CFA.data$Ritem26 <- fct_recode(CFA.data$Ritem26,
 #psych::multi.hist(CFA.data[,sapply(CFA.data, is.numeric)])
 ```
 
-```{r CFA 25items, include=FALSE }
+```{r CFA25items, include=FALSE }
 
 LB.model.Cor.1 <- "F1 =~ a1*item16 + item36 + a2*item17
                  F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
@@ -1438,65 +1444,9 @@ modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
 
-```{r CFA21}
-LB.model.Cor.3 <- "F1 =~ a1*item16 + item36 + a2*item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 
-                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1 
-                       a1==a2
-                       a3==a4
-               
-                       "  
-
-#item30 & 41 are removed
-
-## Fit the model 
-fit.Cor.3 <- cfa(LB.model.Cor.3, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
-
-rel.k.1 <- semTools::reliability(fit.Cor.3, return.total = T)
-## Summary of Model 
-cfa.sum.3 <- summary(fit.Cor.3, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
-
-
-
-## Selected Fit measures 
-fit.3 <- fitmeasures (fit.Cor.3,c("gfi", "agfi", "nfi","rfi", 
-                                  "cfi.scaled","tli.scaled",
-                                  "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
-
-
-```
 
 We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature [@desjardinsHandbookEducationalMeasurement2018a]. Several indices exist to measure the the model fit. These can be categorized as absolute fit, comparative fit and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table\@ref(tab:tabCfa) summarizes the fit indices of our fitted model. The fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. The internal consistency reliability coefficients coefficient alpha `r apa(rel.k[1,1],2,F)`, `r apa(rel.k[1,2],2,F)`, `r apa(rel.k[1,3],2,F)`, `r apa(rel.k[1,4],2,F)`, `r apa(rel.k[1,5],2,F)` respectively indicating satisfactory reliability for F1, F2 and F4 [@najeracatalanReliabilityPopulationClassification2019]
 
-```{r cfa4F, eval=FALSE, include=FALSE}
-LB.model.Cor.4 <- "F1 =~ a1*item16 + item36 + a2*item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 
-                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
-                        a1==a2
-                       a3==a4
-               
-                       "  
-
-
-
-## Fit the model 
-fit.Cor.4 <- cfa(LB.model.Cor.4, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
-
-rel.k.4 <- semTools::reliability(fit.Cor.4, return.total = T)
-## Summary of Model 
-cfa.sum.4 <- summary(fit.Cor.4, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
-
-
-
-## Selected Fit measures 
-fit.4 <- fitmeasures (fit.Cor.4,c("gfi", "agfi", "nfi","rfi", 
-                                  "cfi.scaled","tli.scaled",
-                                  "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
-
-```
 
 
 ```{r cfaMat, results='asis'}
@@ -1604,7 +1554,7 @@ invariance.data %>%
   count()
 ```
 
-```{r Invariance detail, include=FALSE}
+```{r Invariancedetail, include=FALSE}
 # Configural invariance ####
 
 
@@ -1711,7 +1661,7 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 
 We sought the IRT to gether information regarding the item quality. IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model (\@ref(tab:IRTparameters) to the combined EFA sample and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded. We also gathered evidence of item fit and person fit to our fitted model.
 
-```{r IRT data, include=FALSE}
+```{r IRTdata, include=FALSE}
 ## Recoding sem.data$item8 into sem.data$Ritem8
 sem.data$Ritem8 <- as.character(sem.data$item8)
 sem.data$Ritem8 <- fct_recode(sem.data$Ritem8,
@@ -2350,3 +2300,28 @@ cleanFolder()
 :::
 
 \endgroup
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Appendix-B.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Appendix-B.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+
