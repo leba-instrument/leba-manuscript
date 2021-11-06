@@ -162,12 +162,10 @@ output            :
     latex_engine: xelatex
     includes:
       in_header: header.tex
-    
-mainfont: Helvetica
 appendix:
   - "instrument.Rmd"
   - "Appendix-B.Rmd"
-  
+mainfont: Helvetica
 ---
 
 
@@ -2301,27 +2299,5 @@ cleanFolder()
 
 \endgroup
 
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
-```
 
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('Appendix-B.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('Appendix-B.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
-```
 

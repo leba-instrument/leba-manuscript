@@ -5,6 +5,8 @@ date: "10/22/2021"
 output: pdf_document
 ---
 
+## Supplimentary Analysis
+
 ```{r setupAppB, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
 set.seed(123)
@@ -41,6 +43,8 @@ library(likert)
 library(VIM) #Missing data
 library(kutils)
 library(Hmisc)
+library(extrafont)
+extrafont::font_import()
 
 ```
 
@@ -247,7 +251,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
 
-```{r facIdFigAppB, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE, out.height="100%", out.width="100%"}
+```{r facIdFigAppB, eval=FALSE, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE, include=FALSE, out.height="100%", out.width="100%"}
 cowplot::plot_grid(parallel, scree.plot, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
