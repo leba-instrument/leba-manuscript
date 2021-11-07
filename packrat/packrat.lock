@@ -1644,6 +1644,22 @@ Version: 1.0.2
 Hash: 47a629515a86eed59a585d718f6ef5ad
 Requires: cpp11
 
+Package: tabledown
+Source: github
+Version: 0.0.0.97
+Hash: 4c21889835920e1fe9cb790a99f4b3f4
+Requires: MOTE, data.table, dplyr, lavaan, lifecycle, magrittr, psych,
+    tibble, tidyselect
+GithubRepo: tabledown
+GithubUsername: masiraji
+GithubRef: HEAD
+GithubSha1: 8f37a09bc79081615327eff9666f95ad1da10492
+RemoteHost: api.github.com
+RemoteRepo: tabledown
+RemoteUsername: masiraji
+RemoteRef: HEAD
+RemoteSha: 8f37a09bc79081615327eff9666f95ad1da10492
+
 Package: testthat
 Source: CRAN
 Version: 3.1.0

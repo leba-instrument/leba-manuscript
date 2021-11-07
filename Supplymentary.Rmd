@@ -1,0 +1,136 @@
+---
+title: "Supplimentary Analysis"
+output: pdf_document
+---
+
+```{r options, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
+set.seed(123)
+par(family = "Helvetica")
+```
+
+
+
+```{r MinRes, include=F}
+library(psych)
+library(tabledown)
+library(kableExtra)#without this pdf rendering will not happen
+
+data <- readRDS("leba_2021-09-08.rds")
+
+# Separating EFA and CFA samples with descriptive column
+descriptives.data <- data
+
+## Merge "0"s and "1"s into "1"s select,subset assign)
+descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
+#EFA.descriptives <- descriptives.data[1:428,]
+EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
+#CFA.descriptives <- descriptives.data[429:690, ]
+CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
+
+#Separating the EFA and CFA(only items)
+sem.data <- data[, 9:56] #EFA & CFA data
+sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
+
+## renaming the column-header
+prefix <- "item"
+sufix <- c(1:48)
+colnam <- paste(prefix,sufix, sep = "" )
+colnames(sem.data) <- colnam
+
+### EFA data
+EFA.data <- sem.data[1:428, ]
+#Polychoric Correlation matrix
+
+correlations <- psych::polychoric(EFA.data, correct = 0)
+
+#Supplementary EFA with Minres Extraction
+
+fa.5F.min.1 <- fa(r=correlations$rho, nfactors = 5, fm= "minres",rotate ="varimax",
+                residuals = TRUE, SMC = TRUE, n.obs =428)
+EE <- print(fa.5F.min.1, cut = .3, digits = 3, sort = TRUE)
+
+
+reduced.model.5F.min.1 <- dplyr::select(EFA.data ,
+                                    -c( item20, item19, item5, item31, item44, item24, item43, item39, item22, item2, item18, item48, item42, item29, item6, item15, item23, item28, item14))
+
+correlations.red.5F.min.1 <- polychoric(reduced.model.5F.min.1,correct = 0)
+
+fa.5F.min.2 <- fa(r=correlations.red.5F.min.1$rho, nfactors = 5, fm= "minres",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+FF <- print(fa.5F.min.2, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.5F.min.2 <- dplyr::select(EFA.data, -c( item20, item19, item5, item31, item44, item24, item43, item39, item22, item2, item18, item48, item42, item29, item6, item15, item23, item28, item14, item34, item47, item21, item13))
+
+correlations.red.5F.min.2 <- polychoric(reduced.model.5F.min.2, correct = 0)
+
+
+fa.5F.min.3 <- fa(r=correlations.red.5F.min.2$rho, nfactors = 5, fm= "minres",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+GG <- print(fa.5F.min.3, cut = .3, digits = 3, sort = TRUE)
+
+minresTab <- tabledown::fac.tab(fa.5F.min.3, cut =.3,complexity = F)
+```
+
+```{r MinResTab}
+papaja::apa_table(minresTab, align = "c", caption = "Factor loadings and communality of the retained items(Minmum Residual)", note = "Only loading higher than .30 is reported", font_size = "small")
+
+
+```
+
+```{r sixFac, include=F}
+# EFA with 6 factor (rejected)
+
+
+#correlations <- polychoric(EFA.factor, correct = 0)
+
+fa.6F.1 <- fa(r=correlations$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+II <- print(fa.6F.1, cut = .3, digits = 3, sort = TRUE)
+
+
+reduced.model.6F.1 <- dplyr::select(EFA.data ,
+                                    -c(item34, item44, item48, item43, item39, item22, item2, item20, item21, item24,item30, item14, item28, item6, item15, item23))
+
+correlations.red.6F.1 <- polychoric(reduced.model.6F.1,correct = 0)
+
+fa.6F.2 <- fa(r=correlations.red.6F.1$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+JJ <- print(fa.6F.2, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.6F.2 <- dplyr::select(EFA.data, -c(item34, item44, item48, item43, item39, item22, item2, item20, item21, item24,item30, item14, item28, item6, item15, item23, item18, item42, item47, item41))
+
+correlations.red.6F.2 <- polychoric(reduced.model.6F.2,correct = 0)
+
+
+fa.6F.3 <- fa(r=correlations.red.6F.2$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428, max.iter = 500)
+
+KK <- print(fa.6F.3, cut = .3, digits = 3, sort = TRUE)
+
+# Residuals
+residual.6F =residuals(fa.6F.3 , diag = FALSE, na.rm =T)
+#Count of numbers of residuals>.05
+BigRRR= sum(residual.6F>abs(.05), na.rm =T)
+print(BigRRR)
+
+#Total number of off diagonal elements in the data matrix
+totRRR = length(reduced.model.6F.2)*(length(reduced.model.6F.2)-1)/2
+
+# Proportion of off-diagonal elements >.10
+sumRRR <- sum(BigRRR/totRRR*100)
+
+hist(residual.6F, main = NULL, xlab = "Six factor Solution: Residuals",ylim=c(0, 400))
+abline(h =65, lwd = 2, lty = 2)
+abline(v =.05,lwd = 2, lty = 2)
+sixFac <- tabledown::fac.tab(fa.6F.3, cut =.3,complexity = F)
+```
+
+```{r sixFacTab}
+papaja::apa_table(sixFac, align = "c", caption = "Factor loadings and communality of the retained items(six factor)", note = "Only loading higher than .30 is reported", font_size = "small")
+```
+
