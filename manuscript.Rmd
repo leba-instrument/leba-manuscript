@@ -183,7 +183,7 @@ packrat::init(infer.dependencies = F)# install dependencies only for Rmd files i
 #To find and install required dependencies.
 packrat::restore()
 #Only use when you have added some pack
-packrat::snapshot(ignore.stale=TRUE) 
+#packrat::snapshot(ignore.stale=TRUE) 
 
 
 ```
@@ -273,7 +273,7 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-\blandscape
+
 
 +-------------------------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+
 | Name                                                              | Authors                  | Description                                                                                                                                                  | Relevant Items                       | Adaptations |
@@ -301,7 +301,7 @@ nocite: |
 
 : Existing related Scales
 
-\elandscape
+
 
 # Methods
 
@@ -2280,7 +2280,7 @@ cleanFolder <- function() {
     file.remove(list.files(pattern = paste0('\\',rules ,'$', collapse = '|')))
   }
 }
-cleanFolder()
+cleanFolder(y)
 ```
 
 # Discussion
@@ -2300,4 +2300,24 @@ cleanFolder()
 \endgroup
 
 
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Appendix-B.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Appendix-B.Rmd')
+```
 

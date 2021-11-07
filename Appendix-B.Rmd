@@ -251,7 +251,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
 
-```{r facIdFigAppB, eval=FALSE, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE, include=FALSE, out.height="100%", out.width="100%"}
+```{r facIdFigAppB, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE,  out.height="100%", out.width="100%"}
 cowplot::plot_grid(parallel, scree.plot, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
