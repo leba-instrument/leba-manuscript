@@ -29,4 +29,3 @@ vignettes/*.pdf
 leba-manuscript.Rproj
 packrat/lib*/
 #packrat source
-packrat/src/
