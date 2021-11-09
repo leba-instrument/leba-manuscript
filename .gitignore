@@ -26,13 +26,7 @@ vignettes/*.pdf
 *.knit.md
 # R Environment Variables
 .Renviron
-manuscript.pdf
-manuscript.tex
-manuscript.ttt
 leba-manuscript.Rproj
 packrat/lib*/
-file3e8c5401045f.log
-manuscript.fff
-instrument.tex
-ITEM INFORMATION CURVE.ai
 #packrat source
+packrat/src/
