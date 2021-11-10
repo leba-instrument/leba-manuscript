@@ -27,5 +27,4 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 leba-manuscript.Rproj
-packrat/lib*/
-#packrat source
+manuscript_flies/
