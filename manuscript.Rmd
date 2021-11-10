@@ -179,7 +179,7 @@ par(family = "Helvetica")
 #renv::init()
 #renv::snapshot()
 #renv::status()
-#renv::restore()
+renv::restore()
 ```
 
 ```{r library, include=FALSE}
