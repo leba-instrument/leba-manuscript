@@ -175,11 +175,11 @@ set.seed(123)
 par(family = "Helvetica")
 ```
 
-```{r depMan, eval=FALSE, include=FALSE}
+```{r depMan, include=FALSE}
 #renv::init()
 #renv::snapshot()
 #renv::status()
-#renv::restore()
+renv::restore()
 ```
 
 ```{r library, include=FALSE}
