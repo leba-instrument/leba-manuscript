@@ -27,7 +27,7 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 leba-manuscript.Rproj
-manuscript_flies/
+manuscript_flies/*
 manuscript.fff
 manuscript.log
 manuscript.ttt
