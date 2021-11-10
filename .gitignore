@@ -28,3 +28,6 @@ vignettes/*.pdf
 .Renviron
 leba-manuscript.Rproj
 manuscript_flies/
+manuscript.fff
+manuscript.log
+manuscript.ttt
