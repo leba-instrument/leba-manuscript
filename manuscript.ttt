@@ -1,0 +1,331 @@
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.09}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.52}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.13}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.05}}@{}}
+\caption{Existing related Scales}\tabularnewline
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Authors
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relevant Items
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Adaptations
+\end{minipage} \\
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Authors
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relevant Items
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Adaptations
+\end{minipage} \\
+\midrule
+\endhead
+Visual Light Sensitivity Questionnaire-8 & (Verriotto et al., 2017) & Eight-question survey to assess the presence and severity of photosensitivity symptoms & All items & \\
+Office Light Survey & (Eklund \& Boyce, 1996) & Multi-item questionnaire to assess electrical lighting environment in office & & \\
+Harvard Light Exposure Assessment Questionnaire & (Bajaj, Rosner, Lockley, \& Schernhammer, 2011) & Self-administered semi-quantitative light questionnaire & All Items & \\
+Hospital Lighting Survey & (Dianat, Sedghi, Bagherzade, Jafarabadi, \& Stedmon, 2013) & 23 items questionnaire to assess light environment in a hospital & & \\
+Morningness-Eveningness Questionnaire & (Horne \& Östberg, 1976) & 19 items questionnaire to understand your body clock & & \\
+Munich Chronotype Questionnaire (MCTQ) & (Roenneberg, Wirz-Justice, \& Merrow, 2003) & 17 items questionnaire to understand individuals phase of entrainment & & \\
+Assessment of Sleep Environment & (Olivier et al., 2016) \textbar{} 13 & items questionnaire measuring your sleep environment quality \textbar{} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{verbatim}
+                              |
+\end{verbatim}
+\end{minipage} & \\
+The Pittsburgh Sleep Quality Index (PSQI) & (Daniel J. Buysse, Reynolds III, Monk, Berman, \& Kupfer, 1989) & 9 items inventory to measure sleep quality and sleeping pattern & & \\
+Self-Rating of Biological Rhythm Disorder for Adolescents (SBRDA) & (Xie, Wu, Tao, Wan, \& Tao, 2021) \textbar{} 29 & items questionnaire assessing four dimensions of biological rhythm disorder in adolescents (digital media use, sleep, eating habits, and activity) \textbar{} It & ems 3., 22., 23., 24., 25. and 29. \textbar{} & \\
+Photosensitivity Assessment Questionnaire (PAQ) & (Wu \& Hallett, 2017) \textbar{} 16 & dichotomous (yes/no) items questionnaire to assess ``photophobia'' and ``photophilia,'' giving two final scores of ``photophobic'' and ``photophilic'' behaviours \textbar{} Al & l items \textbar{} & \\
+\bottomrule
+\end{longtable}
+\efloatseparator
+ 
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.35}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.14}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.18}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.18}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.08}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.08}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Variable}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Overall}, N = 690
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{1. EFA Sample}, N = 428
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{2. CFA Sample}, N = 262
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{p-value}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{q-value}
+\end{minipage} \\
+\midrule
+\endhead
+\textbf{Age} & 32.95 (14.57) & 32.99 (15.11) & 32.89 (13.66) & 0.5 & 0.5 \\
+\textbf{Sex} & & & & 0.14 & 0.4 \\
+Female & 325 (47\%) & 189 (44\%) & 136 (52\%) & & \\
+Male & 351 (51\%) & 230 (54\%) & 121 (46\%) & & \\
+Other & 14 (2.0\%) & 9 (2.1\%) & 5 (1.9\%) & & \\
+\textbf{Gender-Variant Identity} & 49 (7.2\%) & 33 (7.8\%) & 16 (6.2\%) & 0.4 & 0.5 \\
+\textbf{Native English Speaker} & 320 (46\%) & 191 (45\%) & 129 (49\%) & 0.2 & 0.5 \\
+\textbf{Occupational Status} & & & & 0.040 & 0.2 \\
+Work & 396 (57\%) & 235 (55\%) & 161 (61\%) & & \\
+School & 174 (25\%) & 122 (29\%) & 52 (20\%) & & \\
+Neither & 120 (17\%) & 71 (17\%) & 49 (19\%) & & \\
+\textbf{Occupational setting} & & & & 0.3 & 0.5 \\
+Home office/Home schooling & 303 (44\%) & 194 (45\%) & 109 (42\%) & & \\
+Face-to-face work/Face-to-face schooling & 109 (16\%) & 68 (16\%) & 41 (16\%) & & \\
+Combination of home- and face-to-face- work/schooling & 147 (21\%) & 94 (22\%) & 53 (20\%) & & \\
+Neither (no work or school, or in vacation) & 131 (19\%) & 72 (17\%) & 59 (23\%) & & \\
+\bottomrule
+\end{longtable}
+\efloatseparator
+ 
+\begin{ThreePartTable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} *p<.001}
+\end{TableNotes}
+
+\begin{longtable}{ccccccc}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:tabDes}Descriptive Statistics}\\
+\toprule
+ & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Skew} & \multicolumn{1}{c}{Kurtosis} & \multicolumn{1}{c}{Shapiro-Wilk Statistics} & \multicolumn{1}{c}{Item-Total Correlation}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:tabDes} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Skew} & \multicolumn{1}{c}{Kurtosis} & \multicolumn{1}{c}{Shapiro-Wilk Statistics} & \multicolumn{1}{c}{Item-Total Correlation}\\
+\midrule
+\endhead
+Item1 & 2.27 & 1.39 & 0.74 & -0.81 & 0.81* & .25\\
+Item2 & 2.87 & 1.59 & 0.08 & -1.60 & 0.83* & .19\\
+Item3 & 3.36 & 1.38 & -0.48 & -1.03 & 0.87* & .16\\
+Item4 & 1.47 & 1.18 & 2.38 & 4.00 & 0.43* & .28\\
+Item5 & 4.01 & 1.40 & -1.22 & 0.07 & 0.70* & .13\\
+Item6 & 2.79 & 1.55 & 0.19 & -1.48 & 0.85* & .20\\
+Item7 & 2.26 & 1.25 & 0.70 & -0.60 & 0.85* & .19\\
+Item8 & 2.97 & 1.20 & -0.06 & -0.94 & 0.91* & -.10\\
+Item9 & 2.94 & 1.03 & -0.12 & -0.40 & 0.91* & .10\\
+Item10 & 2.74 & 1.04 & 0.09 & -0.74 & 0.91* & .28\\
+Item11 & 2.18 & 0.90 & 0.60 & 0.12 & 0.86* & .26\\
+Item12 & 2.36 & 1.22 & 0.59 & -0.62 & 0.87* & .25\\
+Item13 & 2.73 & 1.46 & 0.20 & -1.36 & 0.87* & .33\\
+Item14 & 2.14 & 1.31 & 0.77 & -0.78 & 0.80* & .26\\
+Item15 & 3.26 & 1.09 & -0.26 & -0.45 & 0.91* & .14\\
+Item16 & 1.56 & 1.23 & 2.00 & 2.45 & 0.50* & .32\\
+Item17 & 1.54 & 1.21 & 2.07 & 2.75 & 0.49* & .31\\
+Item18 & 1.12 & 0.49 & 5.02 & 27.80 & 0.25* & .16\\
+Item19 & 1.05 & 0.36 & 7.23 & 52.98 & 0.13* & .18\\
+Item20 & 1.04 & 0.33 & 8.99 & 85.28 & 0.10* & .16\\
+Item21 & 1.14 & 0.59 & 4.79 & 24.05 & 0.25* & .16\\
+Item22 & 3.57 & 1.07 & -0.65 & -0.17 & 0.88* & .21\\
+Item23 & 2.56 & 1.27 & 0.33 & -1.00 & 0.89* & .11\\
+Item24 & 4.14 & 0.99 & -1.23 & 1.14 & 0.79* & .19\\
+Item25 & 2.59 & 1.41 & 0.27 & -1.27 & 0.86* & .19\\
+Item26 & 2.25 & 1.27 & 0.69 & -0.64 & 0.84* & .18\\
+Item27 & 3.80 & 1.29 & -0.87 & -0.42 & 0.82* & .17\\
+Item28 & 3.76 & 1.14 & -0.68 & -0.45 & 0.86* & .00\\
+Item29 & 2.44 & 1.31 & 0.38 & -1.14 & 0.86* & .11\\
+Item30 & 1.48 & 1.11 & 2.18 & 3.35 & 0.48* & .24\\
+Item31 & 3.00 & 1.62 & -0.08 & -1.61 & 0.83* & .44\\
+Item32 & 3.55 & 1.65 & -0.60 & -1.34 & 0.76* & .43\\
+Item33 & 3.62 & 1.64 & -0.68 & -1.25 & 0.74* & .32\\
+Item34 & 3.42 & 1.83 & -0.45 & -1.69 & 0.69* & .33\\
+Item35 & 3.86 & 1.67 & -0.99 & -0.85 & 0.65* & .23\\
+Item36 & 1.54 & 1.25 & 2.13 & 2.86 & 0.46* & .36\\
+Item37 & 1.33 & 0.91 & 3.03 & 8.43 & 0.41* & .01\\
+Item38 & 4.30 & 1.08 & -1.79 & 2.53 & 0.67* & .22\\
+Item39 & 1.96 & 0.98 & 1.02 & 0.69 & 0.82* & .05\\
+Item40 & 2.16 & 1.19 & 0.71 & -0.54 & 0.84* & .14\\
+Item41 & 1.31 & 0.81 & 2.75 & 6.92 & 0.43* & .21\\
+Item42 & 3.93 & 1.48 & -1.06 & -0.44 & 0.71* & .18\\
+Item43 & 1.64 & 1.18 & 1.79 & 2.02 & 0.60* & .15\\
+Item44 & 3.51 & 1.30 & -0.70 & -0.59 & 0.85* & .39\\
+Item45 & 2.22 & 1.48 & 0.71 & -1.02 & 0.76* & .30\\
+Item46 & 1.76 & 1.23 & 1.35 & 0.44 & 0.66* & .38\\
+Item47 & 2.11 & 1.17 & 0.77 & -0.39 & 0.83* & .32\\
+Item48 & 2.60 & 1.25 & 0.29 & -0.86 & 0.89* & .35\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{ThreePartTable}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:EFATable}Factor loadings and communality of the retained items}
+
+\small{
+
+\begin{tabular}{cccccccc}
+\toprule
+item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
+\midrule
+item16 & 0.99 &  &  &  &  & 0.993 & 0.007\\
+item36 & 0.94 &  &  &  &  & 0.899 & 0.101\\
+item17 & 0.8 &  &  &  &  & 0.658 & 0.342\\
+item11 &  & 0.79 &  &  &  & 0.642 & 0.358\\
+item10 &  & 0.76 &  &  &  & 0.592 & 0.408\\
+item12 &  & 0.65 &  &  &  & 0.465 & 0.535\\
+item7 &  & 0.5 &  &  &  & 0.267 & 0.733\\
+item8 &  & -0.49 &  &  &  & 0.252 & 0.748\\
+item9 &  & 0.32 &  &  &  & 0.113 & 0.887\\
+item27 &  &  & 0.8 &  &  & 0.658 & 0.342\\
+item3 &  &  & 0.8 &  &  & 0.682 & 0.318\\
+item40 &  &  & 0.65 &  &  & 0.464 & 0.536\\
+item30 &  &  & 0.45 &  &  & 0.353 & 0.647\\
+item41 &  &  & 0.36 &  &  & 0.329 & 0.671\\
+item33 &  &  &  & 0.74 &  & 0.555 & 0.445\\
+item32 &  &  &  & 0.73 &  & 0.624 & 0.376\\
+item35 &  &  &  & 0.66 &  & 0.454 & 0.546\\
+item37 &  &  &  & -0.39 &  & 0.174 & 0.826\\
+item38 &  &  &  & 0.38 &  & 0.178 & 0.822\\
+item46 &  &  &  &  & 0.6 & 0.422 & 0.578\\
+item45 &  &  &  &  & 0.59 & 0.374 & 0.626\\
+item25 &  &  &  &  & 0.41 & 0.193 & 0.807\\
+item4 &  &  &  &  & 0.41 & 0.219 & 0.781\\
+item1 &  &  &  &  & 0.4 & 0.17 & 0.83\\
+item26 &  &  &  &  & 0.35 & 0.165 & 0.835\\
+\% of Variance & 0.1 & 0.1 & 0.09 & 0.08 & 0.06 &  & \\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} Only loading higher than .30 is reported}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
+\efloatseparator
+ 
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square }
+\end{TableNotes}
+
+\begin{longtable}{ccccccccc}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:tabCfa}Fit indices of CFA}\\
+\toprule
+Model & \multicolumn{1}{c}{Chi-Squre} & \multicolumn{1}{c}{df} & \multicolumn{1}{c}{CFI} & \multicolumn{1}{c}{TLI} & \multicolumn{1}{c}{RMSEA} & \multicolumn{1}{c}{RMSEA 90\% Lower CI} & \multicolumn{1}{c}{RMSEA 90\% Upper CI} & \multicolumn{1}{c}{SRMR}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:tabCfa} continued}}\\
+\toprule
+Model & \multicolumn{1}{c}{Chi-Squre} & \multicolumn{1}{c}{df} & \multicolumn{1}{c}{CFI} & \multicolumn{1}{c}{TLI} & \multicolumn{1}{c}{RMSEA} & \multicolumn{1}{c}{RMSEA 90\% Lower CI} & \multicolumn{1}{c}{RMSEA 90\% Upper CI} & \multicolumn{1}{c}{SRMR}\\
+\midrule
+\endhead
+Five factor model:25 & 448.51 & 222.00 & .94 & 0.93 & 0.06 & 0.05 & 0.07 & 0.12\\
+Five factor model:23 & 346.59 & 221.00 & .97 & 0.96 & 0.05 & 0.04 & 0.06 & 0.09\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+\efloatseparator
+ 
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.}  a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison}
+\end{TableNotes}
+
+\scriptsize{
+
+\begin{longtable}{cccccccccccc}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:InvarianceTab}Invariance Analysis}\\
+\toprule
+ & \multicolumn{1}{c}{Chi-Square} & \multicolumn{1}{c}{df} & \multicolumn{1}{c}{CFI} & \multicolumn{1}{c}{TLI} & \multicolumn{1}{c}{RMSEA} & \multicolumn{1}{c}{RMSEA 90\% Lower CI} & \multicolumn{1}{c}{RMSEA 90\% Upper} & \multicolumn{1}{c}{SRMR} & \multicolumn{1}{c}{Chi-Sqr comparison} & \multicolumn{1}{c}{df*} & \multicolumn{1}{c}{p}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:InvarianceTab} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{Chi-Square} & \multicolumn{1}{c}{df} & \multicolumn{1}{c}{CFI} & \multicolumn{1}{c}{TLI} & \multicolumn{1}{c}{RMSEA} & \multicolumn{1}{c}{RMSEA 90\% Lower CI} & \multicolumn{1}{c}{RMSEA 90\% Upper} & \multicolumn{1}{c}{SRMR} & \multicolumn{1}{c}{Chi-Sqr comparison} & \multicolumn{1}{c}{df*} & \multicolumn{1}{c}{p}\\
+\midrule
+\endhead
+Configural & 632.20 & 442.00 & 0.95 & 0.94 & 0.06 & 0.05 & 0.07 & 0.13 & - & - & -\\
+Metric & 644.58 & 458.00 & 0.95 & 0.95 & 0.06 & 0.05 & 0.07 & 0.13 & 18.019a & 16 & 0.323\\
+Scalar & 714.19 & 522.00 & 0.95 & 0.95 & 0.05 & 0.04 & 0.06 & 0.13 & 67.961b & 64 & 0.344\\
+Residual & 714.19 & 522.00 & 0.95 & 0.95 & 0.05 & 0.04 & 0.06 & 0.13 & 0c & 0 & NA\\
+Structural & 691.49 & 542.00 & 0.96 & 0.96 & 0.05 & 0.04 & 0.06 & 0.13 & 12.617d & 20 & 0.893\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+}
+
+\end{lltable}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:IRTparameters}IRT Item parameters for the LEBA Scale}
+
+\begin{tabular}{llllll}
+\toprule
+ & \multicolumn{1}{c}{a} & \multicolumn{1}{c}{b1} & \multicolumn{1}{c}{b2} & \multicolumn{1}{c}{b3} & \multicolumn{1}{c}{b4}\\
+\midrule
+item16 & 28.13 & 0.78 & 0.90 & 1.06 & 1.40\\
+item36 & 4.49 & 0.94 & 1.08 & 1.23 & 1.40\\
+item17 & 2.81 & 0.97 & 1.11 & 1.38 & 1.62\\
+item11 & 3.27 & -0.79 & 0.65 & 1.54 & 2.31\\
+item10 & 3.07 & -1.27 & -0.09 & 0.82 & 2.00\\
+item12 & 1.72 & -0.67 & 0.44 & 1.28 & 2.11\\
+item7 & 1.09 & -0.50 & 0.73 & 1.63 & 2.97\\
+Ritem8 & 1.19 & -2.26 & -0.48 & 0.64 & 1.91\\
+item9 & 0.91 & -2.63 & -0.96 & 1.11 & 3.49\\
+item27 & 2.21 & -1.88 & -1.19 & -0.73 & 0.30\\
+item3 & 3.03 & -1.24 & -0.77 & -0.20 & 0.66\\
+item40 & 1.55 & -0.51 & 0.46 & 1.32 & 2.22\\
+item30 & 0.49 & 3.27 & 3.74 & 4.64 & 6.52\\
+item41 & 0.51 & 3.87 & 4.78 & 6.39 & 8.91\\
+item32 & 1.62 & -1.03 & -0.78 & -0.42 & 0.16\\
+item35 & 1.37 & -1.09 & -0.98 & -0.75 & -0.40\\
+item38 & 0.40 & -7.48 & -5.56 & -4.23 & -0.90\\
+item33 & 12.31 & -0.66 & -0.48 & -0.24 & 0.13\\
+item46 & 2.22 & 0.68 & 0.89 & 1.38 & 2.17\\
+item45 & 1.51 & 0.30 & 0.55 & 1.17 & 1.91\\
+item25 & 0.52 & -1.37 & -0.04 & 1.89 & 4.22\\
+item4 & 0.84 & 2.44 & 2.80 & 3.18 & 3.67\\
+item1 & 0.39 & -0.91 & 1.52 & 3.25 & 5.53\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} a = item discrimination parameter; b(1-4) = response category difficulty parameter}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
