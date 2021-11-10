@@ -176,7 +176,7 @@ par(family = "Helvetica")
 ```{r depMan, eval=FALSE, include=FALSE}
 renv::init()
 renv::snapshot()
-Nrenv::status()
+renv::status()
 renv::restore()
 ```
 
