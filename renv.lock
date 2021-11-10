@@ -46,15 +46,10 @@
     },
     "DiagrammeR": {
       "Package": "DiagrammeR",
-      "Version": "1.0.6.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "DiagrammeR",
-      "RemoteUsername": "rich-iannone",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "d2464923c7b409bbbd1e8f67b2694a2d295c1358",
-      "Hash": "e61619afcbb622e57e3701ee33b34b4e"
+      "Version": "1.0.6.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3cb13b97961593b4a1ed0c8e37df9d9b"
     },
     "DiagrammeRsvg": {
       "Package": "DiagrammeRsvg",
@@ -369,10 +364,10 @@
     },
     "broom.helpers": {
       "Package": "broom.helpers",
-      "Version": "1.3.0",
+      "Version": "1.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "5c1de296bcf7de71924b40359371bede"
+      "Hash": "5d65e18f26617bcdb171df2dd715d547"
     },
     "bslib": {
       "Package": "bslib",
@@ -796,15 +791,15 @@
     },
     "gtExtras": {
       "Package": "gtExtras",
-      "Version": "0.2.18",
+      "Version": "0.2.2.11",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "gtExtras",
       "RemoteUsername": "jthomasmock",
       "RemoteRef": "HEAD",
-      "RemoteSha": "59f23056314a77752fa54098e16580f8f128d640",
-      "Hash": "b23f93556b4301db8ac8fbb712cffef2"
+      "RemoteSha": "efc758663dc786e3f617679aa6735b355e65ffef",
+      "Hash": "ed64831eb3f15ecb38750700e6e180ed"
     },
     "gtable": {
       "Package": "gtable",
@@ -822,10 +817,10 @@
     },
     "gtsummary": {
       "Package": "gtsummary",
-      "Version": "1.4.2",
+      "Version": "1.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "8a704adbbc891a6eccb57f3dbc9c5f4b"
+      "Hash": "1fea7d7325f09e38b2b264537f588c52"
     },
     "haven": {
       "Package": "haven",
@@ -1353,10 +1348,10 @@
     },
     "prismatic": {
       "Package": "prismatic",
-      "Version": "1.0.0",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ff0fd99eeae6a4ec43be2be881588681"
+      "Hash": "a08df48bec022eac1ffa77543318bd33"
     },
     "processx": {
       "Package": "processx",
@@ -1638,15 +1633,10 @@
     },
     "semPlot": {
       "Package": "semPlot",
-      "Version": "1.1.4",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "semPlot",
-      "RemoteUsername": "SachaEpskamp",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "a2ee9df8ff3020989c4809e39aec6b6c73c49a16",
-      "Hash": "7074de4cd059f9bc6fd8fb8a04a9d407"
+      "Version": "1.1.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "00fe8bd5a1da755b74a1d53172fa4d5d"
     },
     "semTable": {
       "Package": "semTable",
@@ -1795,10 +1785,10 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.34",
+      "Version": "0.35",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "043daa786f4d254f0031534150e28d42"
+      "Hash": "1d7220fe46159fb9f5c99a44354a2bff"
     },
     "tmvnsim": {
       "Package": "tmvnsim",

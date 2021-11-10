@@ -173,10 +173,10 @@ set.seed(123)
 par(family = "Helvetica")
 ```
 
-```{r depMan, include=F}
+```{r depMan, eval=FALSE, include=FALSE}
 renv::init()
-#renv::snapshot()
-#renv::status()
+renv::snapshot()
+Nrenv::status()
 renv::restore()
 ```
 
@@ -211,8 +211,7 @@ library(VIM) #Missing data
 library(kutils)
 library(simsem)
 library(tabledown)
-#library(extrafont)
-#extrafont::font_import()
+
 r_refs("references.bib")
 ```
 
