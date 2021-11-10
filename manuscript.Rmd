@@ -162,7 +162,10 @@ output            :
     latex_engine: xelatex
     includes:
       in_header: header.tex
-
+appendix:
+  - "Supplymentary.Rmd"
+  - "instrument.Rmd"
+  - "Appendix-B.Rmd"
 mainfont: Helvetica
 ---
 
@@ -174,10 +177,10 @@ par(family = "Helvetica")
 ```
 
 ```{r depMan, eval=FALSE, include=FALSE}
-renv::init()
-renv::snapshot()
-renv::status()
-renv::restore()
+#renv::init()
+#renv::snapshot()
+#renv::status()
+#renv::restore()
 ```
 
 ```{r library, include=FALSE}

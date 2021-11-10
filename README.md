@@ -1,10 +1,14 @@
 # LEBA-manuscript
 
-Repository for the manuscript describing the LEBA instrument This project uses `renv` pack to manage dependencies.
+Repository for the manuscript describing the LEBA instrument.
+
+This project uses `renv` pack to manage dependencies.
 
 # Installation of `renv` package
 
-    install.packaes("renv")
+```{install.packages("renv")}
+
+```
 
 Run `renv::restore()` to install all the required packages.
 
@@ -21,4 +25,4 @@ Run `renv::restore()` to install all the required packages.
 
 `brew install freetype`
 
--   gfortran library may be required for some dependices. You can install gfortran for mac from [here](https://github.com/fxcoudert/gfortran-for-macOS).
+-   **gfortran** library may be required to compile some of the packages . You can install gfortran for mac from [here](https://github.com/fxcoudert/gfortran-for-macOS).
