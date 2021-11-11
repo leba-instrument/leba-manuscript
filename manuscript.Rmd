@@ -361,16 +361,14 @@ modify_header(label ~ "**Variable**") %>% modify_caption("Dempgraphics") -> desc
 
   
 as_tibble(desc_table) -> desc_tibble 
-as_kable(desc_table, format = 'pipe') -> desc_kable #save it as a knitr::kable
+as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
 
 
 ```
 
 ```{r DescTabPrint, results='asis'}
 
-desc_kable %>% kable_styling(desc_kable, repeat_header_text = "Participants' Demographic Characteristics")
-
-#desc_gt %>% gt::tab_header("Participants' Demographic Characteristics")
+desc_kable %>% kable_styling(latex_options = c("scale_down")) 
           
 
 ```
