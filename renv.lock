@@ -333,15 +333,10 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.24.3",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "bookdown",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "7f0a7d77a8e83a9a5dbb3df424900a3cb2c7c50d",
-      "Hash": "4282cb405c804a9da4b92d04b52d1755"
+      "Version": "0.24",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3837766a1e1b527af25fa3e2d12a2800"
     },
     "boot": {
       "Package": "boot",
@@ -352,15 +347,10 @@
     },
     "broom": {
       "Package": "broom",
-      "Version": "0.7.9.9001",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "broom",
-      "RemoteUsername": "tidymodels",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "ceb558644f14c49edfeb7e1e73ffa96f653e4323",
-      "Hash": "4a87450a3ffa6a32d682f0918745eaae"
+      "Version": "0.7.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ddf8bc55ea050f984835dd2d23cd6828"
     },
     "broom.helpers": {
       "Package": "broom.helpers",
@@ -1530,15 +1520,10 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "0.99.0.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "rlang",
-      "RemoteUsername": "r-lib",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "6ed751bd70b02b02c67b2ee38cdf2ad00a12ea4b",
-      "Hash": "4888073984b5d833d25cb476f21b5f90"
+      "Version": "0.4.12",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0879f5388fe6e4d56d7ef0b7ccb031e5"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -1731,15 +1716,10 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "1.0.3.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "systemfonts",
-      "RemoteUsername": "r-lib",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "881a6745d1fd56961dff7f808577bd5dba4c6328",
-      "Hash": "0df853618332a3cf0d0d91bbc8d60a97"
+      "Version": "1.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5be9fcf8ef6763e8cb13ab009e273a1d"
     },
     "tabledown": {
       "Package": "tabledown",
