@@ -49,16 +49,6 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -228,57 +218,23 @@ Two or three sentences to provide a \textbf{broader perspective}, readily compre
   None of these do light exposure behavior.
 \end{itemize}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.09}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.52}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.13}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.05}}@{}}
-\caption{Existing related Scales}\tabularnewline
+\begin{tabular}{lllll}
 \toprule
-\begin{minipage}[b]{\linewidth}\raggedright
-Name
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Authors
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Description
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Relevant Items
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Adaptations
-\end{minipage} \\
+Name & Author & Description & Relevant Items & Adaptations\\
 \midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{\linewidth}\raggedright
-Name
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Authors
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Description
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Relevant Items
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Adaptations
-\end{minipage} \\
-\midrule
-\endhead
-Visual Light Sensitivity Questionnaire-8 & (Verriotto et al., 2017) & Eight-question survey to assess the presence and severity of photosensitivity symptoms & All items & \\
-Office Light Survey & (Eklund \& Boyce, 1996) & Multi-item questionnaire to assess electrical lighting environment in office & & \\
-Harvard Light Exposure Assessment Questionnaire & (Bajaj, Rosner, Lockley, \& Schernhammer, 2011) & Self-administered semi-quantitative light questionnaire & All Items & \\
-Hospital Lighting Survey & (Dianat, Sedghi, Bagherzade, Jafarabadi, \& Stedmon, 2013) & 23 items questionnaire to assess light environment in a hospital & & \\
-Morningness-Eveningness Questionnaire & (Horne \& Östberg, 1976) & 19 items questionnaire to understand your body clock & & \\
-Munich Chronotype Questionnaire (MCTQ) & (Roenneberg, Wirz-Justice, \& Merrow, 2003) & 17 items questionnaire to understand individuals phase of entrainment & & \\
-Assessment of Sleep Environment & (Olivier et al., 2016) \textbar{} 13 & items questionnaire measuring your sleep environment quality \textbar{} & \begin{minipage}[t]{\linewidth}\raggedright
-\begin{verbatim}
-                              |
-\end{verbatim}
-\end{minipage} & \\
-The Pittsburgh Sleep Quality Index (PSQI) & (Daniel J. Buysse, Reynolds III, Monk, Berman, \& Kupfer, 1989) & 9 items inventory to measure sleep quality and sleeping pattern & & \\
-Self-Rating of Biological Rhythm Disorder for Adolescents (SBRDA) & (Xie, Wu, Tao, Wan, \& Tao, 2021) \textbar{} 29 & items questionnaire assessing four dimensions of biological rhythm disorder in adolescents (digital media use, sleep, eating habits, and activity) \textbar{} It & ems 3., 22., 23., 24., 25. and 29. \textbar{} & \\
-Photosensitivity Assessment Questionnaire (PAQ) & (Wu \& Hallett, 2017) \textbar{} 16 & dichotomous (yes/no) items questionnaire to assess ``photophobia'' and ``photophilia,'' giving two final scores of ``photophobic'' and ``photophilic'' behaviours \textbar{} Al & l items \textbar{} & \\
+Visual Light Sensitivity Questionnaire-8 & {}[@verriotto2017new] & Eight-question survey to assess the presence and severity of photosensitivity symptoms & NA & NA\\
+Office Light Survey & {}[@eklund1996development] & Multi-item questionnaire to assess electrical lighting environment in office & NA & NA\\
+Harvard Light Exposure Assessment Questionnaire & {}[@bajaj2011validation] & Self-administered semi-quantitative light questionnaire & NA & NA\\
+Hospital Lighting Survey & {}[@dianat2013objective] & 23 items questionnaire to assess light environment in a hospital & NA & NA\\
+Morningness-Eveningness Questionnaire & {}[@horne1976self] & 19 items questionnaire to understand your body clock & NA & NA\\
+\addlinespace
+Munich Chronotype Questionnaire (MCTQ) & {}[@roenneberg2003life] & 17 items questionnaire to understand individuals phase of entrainment & NA & NA\\
+Assessment of Sleep Environment & {}[@Olivier.2016] | 13 & items questionnaire measuring your sleep environment quality & NA & NA\\
+The Pittsburgh Sleep Quality Index (PSQI) & {}[@buysse1989pittsburgh] & 9 items inventory to measure sleep quality and sleeping pattern & NA & NA\\
+Self-Rating of Biological Rhythm Disorder for Adolescents (SBRDA) & {}[@Xie.2021] | 29 & items questionnaire assessing four dimensions of biological rhythm disorder in adolescents (digital media use, sleep, eating habits, and activity) & Item 3,22-25 and 29 & NA\\
+Photosensitivity Assessment Questionnaire (PAQ) & {}[@Wu.2017] | 16 & dichotomous (yes/no) items questionnaire to assess "photophobia" and "photophilia", giving two final scores of "photophobic" and "photophilic" behaviours & All itms & NA\\
 \bottomrule
-\end{longtable}
+\end{tabular}
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
@@ -303,11 +259,11 @@ In addition to the LEBA questionnaire, which is subject of the current study, th
 \begin{itemize}
 \tightlist
 \item
-  Sleep disturbance and sleep-related impairment (adult and pediatric versions) (Bevans et al., 2019; Daniel J. Buysse et al., 2010; Forrest et al., 2018; Harb, Hidalgo, \& Martau, 2015; L. Yu et al., 2011)
+  Sleep disturbance and sleep-related impairment (adult and pediatric versions) (Bevans et al., 2019; Buysse et al., 2010; Forrest et al., 2018; Harb, Hidalgo, \& Martau, 2015; L. Yu et al., 2011)
 \item
-  Sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration (version for adults and adolescents) (Roenneberg et al., 2003)
+  Sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration (version for adults and adolescents) (Roenneberg, Wirz-Justice, \& Merrow, 2003)
 \item
-  Sleep environment {[}Olivier et al. (2016)\\
+  Sleep environment (Olivier et al., 2016)
 \item
   Meal timing \& caffeine consumption {[}custom items{]}
 \item
@@ -453,7 +409,7 @@ We used R (version 4.1.0), including several R packages, for our analyses.Initia
 \hypertarget{exploratory-factor-analysis}{%
 \subsection{Exploratory Factor Analysis}\label{exploratory-factor-analysis}}
 
-Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy(Kaiser, 1974) . The overall KMO vale for 48 items was 0.63 which was above the cutoff value (.50) indicating a mediocre sample (Hutcheson, 1999). Table\ref{tab:tabDes} summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; (Shapiro \& Wilk, 1965)) and multivariate normality assumptions (Marida's test;(Mardia, 1970)). Multivariate skew was = 583.80 (p \textless0.001) and multivariate kurtosis was = 2,749.15 (p \textless0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen (C. Desjardins \& Bulut, 2018). Bartlett's test of sphericity (Bartlett, 1954), \(\chi^2\) (1128) = 5042.86, p \textless{} .001{]} indicated the correlations between items are adequate for the EFA. However only 4.96\% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between .44 to .91. And the corrected item-total correlations ranged between .10 to .44.
+Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy(Kaiser, 1974) . The overall KMO vale for 48 items was 0.63 which was above the cutoff value (.50) indicating a mediocre sample (Hutcheson, 1999). Table\ref{tab:tabDes} summarizes the univariate descriptive statistics for the 48 items. some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; (Shapiro \& Wilk, 1965)) and multivariate normality assumptions (Marida's test;(Mardia, 1970)). Multivariate skew was = 583.80 (p \textless0.001) and multivariate kurtosis was = 2,749.15 (p \textless0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen (C. Desjardins \& Bulut, 2018). Bartlett's test of sphericity (Bartlett, 1954), \(chi^2\) (1128) = 5042.86, p \textless{} .001{]} indicated the correlations between items are adequate for the EFA. However only 4.96\% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between .44 to .91. And the corrected item-total correlations ranged between .10 to .44.
 
 \begin{center}
 \begin{ThreePartTable}
@@ -560,7 +516,7 @@ Scree plot ( Figure \ref{fig:facIdFig}) suggested a six-factor solution. Horn's 
 
 With initial 48 items we conducted three rounds of EFA gradually discarded problematic items. (cross-loading items and poor factor loading (\textless.30) items). Finally, a five-factor EFA solution with 25 items was accepted with low RMSR = 0.08 (Brown, 2015), all factor-loading higher than .30 and no cross-loading greater than .30. We confirmed this five-factor latent structure using varimax rotation with a minimum residual extraction method (Table\ref{tab:MinResTab}). Table\ref{tab:EFATable} displays the factor-loading (structural coefficients) and communality of the items. The absolute value of the factor-loading ranged from -.49 to .99 indicating strong coefficients. The commonalities ranged between .11 to .99. However, the histogram of the absolute values of non-redundant residual-correlations Fig\ref{fig:EFAResiduals} showed 26\% correlations greater than the absolute value of .05, indicating a possible under-factoring. (C. D. Desjardins, 2018). Subsequently, we fitted a six-factor solution. However, a factor emerged with only one salient variable loading in the six-factor solution, thus disqualifying the six-factor solution (Table\ref{tab:sixFacTab}).
 
-In the five-factor solution, the first factor contained three items and explained 10.25\% of the total variance with a satisfactory internal reliability coefficient (\(\alpha\) = .86). All the items in this factor stemmed from the individual's preference to use blue light filters in different light environments. The second factor contained six items and explained 9.93\% of the total variance with a satisfactory internal reliability coefficient (\(\alpha\) = .71). Items under this factor commonly investigate an individual's hours spent outdoor. The third factor contained five items and explained 8.83\% of the total variance. Items under this factor dealt with the specific behaviors pertaining to sleep. The internal consistency reliability coefficient was, \(\alpha\) = .68. The fourth factor contained five items and explained 8.44\% of the total variance with an internal consistency coefficient, \(\alpha\) = .62. These five items stemmed from the behavior related to an individual's cellphone usage during the sleep-wakeup time. Lastly, the fifth factor contained six items and explained 6.14\% of the total variance. This factor tried to measure an individual's behavior lead by the awareness of light's influence on health. However, this factor showed unsatisfactory internal consistency reliability (\(\alpha\) = .53). It is essential to attain a balance between psychometric properties and interpretability of the common themes when exploring the latent structure. As all of the emerged factors are highly interpretable and relevant towards our aim to capture light exposure related behavior, regardless of the apparent low reliability of the two factors, we retain the five-factor solution with 23 items for our confirmatory factor analysis (CFA). Two items showed negative factor-loading (items 44 and 21). Upon inspection, it was understood that these items are negatively correlated to the common theme, and thus in the CFA analysis, we reversed the response code for these two items.
+In the five-factor solution, the first factor contained three items and explained 10.25\% of the total variance with a satisfactory internal reliability coefficient (\(alpha\) = .86). All the items in this factor stemmed from the individual's preference to use blue light filters in different light environments. The second factor contained six items and explained 9.93\% of the total variance with a satisfactory internal reliability coefficient (\(alpha\) = .71). Items under this factor commonly investigate an individual's hours spent outdoor. The third factor contained five items and explained 8.83\% of the total variance. Items under this factor dealt with the specific behaviors pertaining to sleep. The internal consistency reliability coefficient was, \(alpha\) = .68. The fourth factor contained five items and explained 8.44\% of the total variance with an internal consistency coefficient, \(alpha\) = .62. These five items stemmed from the behavior related to an individual's cellphone usage during the sleep-wakeup time. Lastly, the fifth factor contained six items and explained 6.14\% of the total variance. This factor tried to measure an individual's behavior lead by the awareness of light's influence on health. However, this factor showed unsatisfactory internal consistency reliability (\(alpha\) = .53). It is essential to attain a balance between psychometric properties and interpretability of the common themes when exploring the latent structure. As all of the emerged factors are highly interpretable and relevant towards our aim to capture light exposure related behavior, regardless of the apparent low reliability of the two factors, we retain the five-factor solution with 23 items for our confirmatory factor analysis (CFA). Two items showed negative factor-loading (items 44 and 21). Upon inspection, it was understood that these items are negatively correlated to the common theme, and thus in the CFA analysis, we reversed the response code for these two items.
 
 \begin{table}[tbp]
 
@@ -632,9 +588,7 @@ item26 &  &  &  &  & 0.35 & 0.165 & 0.835\\
 \hypertarget{confirmatory-factor-analysis}{%
 \subsection{Confirmatory Factor Analysis}\label{confirmatory-factor-analysis}}
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature(C. Desjardins \& Bulut, 2018). Several indices are suggested to measure model fit. These indices can be categorized as absolute, comparative and parsimony fit indices (Brown, 2015). Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines (Hu \& Bentle, 1999; Schumacker \& Lomax, 2004) includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table \ref{tab:tabCfa} summarizes the fit indices of our fitted model. Our fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit (Brown, 2015). Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data (C.-Y. Yu, 2002). Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =.94; TLI = .93); RMSEA = .06,\[.05-.07, 90% CI
-\]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = .12). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 \& 26) for very low r-square value, our model attained best fit (CFI =.97; TLI = .96); RMSEA = .05\[.04-.06, 90% CI
-\]) and SRMR value (SRMR = .09) was also close to the suggestions of Hu and Bentle (1999). Since reliability coefficient Cronbach's alpha tends to mis-measure reliability for multidimensional construct (Sijtsma, 2009) we report Mcdonald's omega(total) as the internal consistency reliability coefficient. Mcdonald's omega(total) is reported to be a satisfactory lower bound reliability coefficient that works for both unidimensional and multidimensional construct (Zinbarg, Revelle, Yovel, \& Li, 2005). Mcdonald's omega(total) for the five factors were .90, .80, .61, .72, .45 respectively. Mcdonald's omega(total) coefficient for the total scale was .73.
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature(C. Desjardins \& Bulut, 2018). Several indices are suggested to measure model fit. These indices can be categorized as absolute, comparative and parsimony fit indices (Brown, 2015). Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines (Hu \& Bentle, 1999; Schumacker \& Lomax, 2004) includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table \ref{tab:tabCfa} summarizes the fit indices of our fitted model. Our fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit (Brown, 2015). Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data (C.-Y. Yu, 2002). Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =.94; TLI = .93); RMSEA = .06,{[}.05-.07, 90\% CI{]}) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = .12). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 \& 26) for very low r-square value, our model attained best fit (CFI =.97; TLI = .96); RMSEA = .05{[}.04-.06, 90\% CI{]}) and SRMR value (SRMR = .09) was also close to the suggestions of Hu and Bentle (1999). Since reliability coefficient Cronbach's alpha tends to mis-measure reliability for multidimensional construct (Sijtsma, 2009) we report Mcdonald's omega(total) as the internal consistency reliability coefficient. Mcdonald's omega(total) is reported to be a satisfactory lower bound reliability coefficient that works for both unidimensional and multidimensional construct (Zinbarg, Revelle, Yovel, \& Li, 2005). Mcdonald's omega(total) for the five factors were .90, .80, .61, .72, .45 respectively. Mcdonald's omega(total) coefficient for the total scale was .73.
 
 \begin{lltable}
 
@@ -702,7 +656,7 @@ Structural & 691.49 & 542.00 & 0.96 & 0.96 & 0.05 & 0.04 & 0.06 & 0.13 & 12.617d
 \hypertarget{analysing-the-quality-of-items-by-item-information-theory}{%
 \subsection{Analysing the quality of items by Item Information Theory}\label{analysing-the-quality-of-items-by-item-information-theory}}
 
-We sought the IRT to gether information regarding the item quality. IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty(Baker, 2017). Here, an item's quality is judged based on item information in relation to participants' latent trait level (\(\theta\)). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model (\ref{tab:IRTparameters} to the combined EFA sample and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \textless.2) to develop the short form of LEBA. Baker (2017) categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \textgreater1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, \& 41) had relatively flat information curves thus discarded. We also gathered evidence of item fit and person fit to our fitted model.
+We sought the IRT to gether information regarding the item quality. IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty(Baker, 2017). Here, an item's quality is judged based on item information in relation to participants' latent trait level (\(theta\)). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model (\ref{tab:IRTparameters} to the combined EFA sample and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information \textless.2) to develop the short form of LEBA. Baker (2017) categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high \textgreater1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, \& 41) had relatively flat information curves thus discarded. We also gathered evidence of item fit and person fit to our fitted model.
 
 \begin{table}[tbp]
 
@@ -759,7 +713,7 @@ item1 & 0.39 & -0.91 & 1.52 & 3.25 & 5.53\\
 \includegraphics[width=1\linewidth,height=1.2\textheight]{manuscript_files/figure-latex/Testinfo-1} \caption{Test information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light}\label{fig:Testinfo}
 \end{figure}
 
-Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs. These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum ((\(\theta\))). Also the amount of information changed rather steadily with the change of (\(\theta\)). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum (Baker, 2017) which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
+Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs. These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum ((\(theta\))). Also the amount of information changed rather steadily with the change of (\(theta\)). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum (Baker, 2017) which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
 Our result also indicated all the items fitted well to the respective models as assessed by assessed by RMSEA value obtained from Signed-X2 index implementation. All of the items had RMSEA value \textless.06 indicating adequate fit. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level (C. Desjardins \& Bulut, 2018). We estimated the person fit statistics using standardized fit index Zh statistics (Drasgow, Levine, \& Williams, 1985). Zh \textless{} -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
 
@@ -785,14 +739,14 @@ Anwar Siraji, M. (2021). \emph{Tabledown: A companion pack for the book "basic \
 \leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
 Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Prepare} reproducible {APA} journal articles with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
 
-\leavevmode\vadjust pre{\hypertarget{ref-bajaj2011validation}{}}%
-Bajaj, A., Rosner, B., Lockley, S. W., \& Schernhammer, E. S. (2011). Validation of a light questionnaire with real-life photopic illuminance measurements: The harvard light exposure assessment questionnaire. \emph{Cancer Epidemiology and Prevention Biomarkers}, \emph{20}(7), 1341--1349.
-
 \leavevmode\vadjust pre{\hypertarget{ref-bakerBasicsItemResponse2017}{}}%
 Baker, F. B. (2017). \emph{The {Basics} of {Item Response Theory Using R}} (1st ed. 2017.). {Springer}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-bandalosFactorAnalysisExploratory2018}{}}%
 Bandalos, D. L., \& Finney, S. J. (2018). Factor analysis: {Exploratory} and confirmatory. In \emph{The reviewer's guide to quantitative methods in the social sciences} (pp. 98--122). {Routledge}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-questionr}{}}%
+Barnier, J., Briatte, F., \& Larmarange, J. (2020). \emph{Questionr: Functions to make surveys processing easier}. Retrieved from \url{https://CRAN.R-project.org/package=questionr}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-tinylabels}{}}%
 Barth, M. (2021). \emph{{tinylabels}: Lightweight variable labels}. Retrieved from \url{https://github.com/mariusbarth/tinylabels}
@@ -815,11 +769,8 @@ Bryer, J., \& Speerschneider, K. (2016). \emph{Likert: Analysis and visualizatio
 \leavevmode\vadjust pre{\hypertarget{ref-R-MOTE}{}}%
 Buchanan, E. M., Gillenwaters, A., Scofield, J. E., \& Valentine, K. D. (2019). \emph{{MOTE: Measure of the Effect}: Package to assist in effect size calculations and their confidence intervals}. Retrieved from \url{http://github.com/doomlab/MOTE}
 
-\leavevmode\vadjust pre{\hypertarget{ref-buysse1989pittsburgh}{}}%
-Buysse, Daniel J., Reynolds III, C. F., Monk, T. H., Berman, S. R., \& Kupfer, D. J. (1989). The pittsburgh sleep quality index: A new instrument for psychiatric practice and research. \emph{Psychiatry Research}, \emph{28}(2), 193--213.
-
 \leavevmode\vadjust pre{\hypertarget{ref-Buysse.2010}{}}%
-Buysse, Daniel J., Yu, L., Moul, D. E., Germain, A., Stover, A., Dodds, N. E., \ldots{} Pilkonis, P. A. (2010). Development and validation of patient-reported outcome measures for sleep disturbance and sleep-related impairments. \emph{Sleep}, \emph{33}(6), 781--792. \url{https://doi.org/10.1093/sleep/33.6.781}
+Buysse, D. J., Yu, L., Moul, D. E., Germain, A., Stover, A., Dodds, N. E., \ldots{} Pilkonis, P. A. (2010). Development and validation of patient-reported outcome measures for sleep disturbance and sleep-related impairments. \emph{Sleep}, \emph{33}(6), 781--792. \url{https://doi.org/10.1093/sleep/33.6.781}
 
 \leavevmode\vadjust pre{\hypertarget{ref-cattellScreeTestNumber1966}{}}%
 Cattell, R. B. (1966). The {Scree Test For The Number Of Factors}. \emph{Multivariate Behavioral Research}, \emph{1}(2), 245--276. \url{https://doi.org/10.1207/s15327906mbr0102_10}
@@ -845,17 +796,11 @@ Desjardins, C. D. (2018). \emph{Handbook of educational measurement and psychome
 \leavevmode\vadjust pre{\hypertarget{ref-desjardinsHandbookEducationalMeasurement2018}{}}%
 Desjardins, C., \& Bulut, O. (2018). \emph{Handbook of {Educational Measurement} and {Psychometrics Using R}}. \url{https://doi.org/10.1201/b20498}
 
-\leavevmode\vadjust pre{\hypertarget{ref-dianat2013objective}{}}%
-Dianat, I., Sedghi, A., Bagherzade, J., Jafarabadi, M. A., \& Stedmon, A. W. (2013). Objective and subjective assessments of lighting in a hospital setting: Implications for health, safety and performance. \emph{Ergonomics}, \emph{56}(10), 1535--1545.
-
 \leavevmode\vadjust pre{\hypertarget{ref-R-paran}{}}%
 Dinno, A. (2018). \emph{Paran: Horn's test of principal components/factors}. Retrieved from \url{https://CRAN.R-project.org/package=paran}
 
 \leavevmode\vadjust pre{\hypertarget{ref-drasgow1985appropriateness}{}}%
 Drasgow, F., Levine, M. V., \& Williams, E. A. (1985). Appropriateness measurement with polychotomous item response models and standardized indices. \emph{British Journal of Mathematical and Statistical Psychology}, \emph{38}(1), 67--86.
-
-\leavevmode\vadjust pre{\hypertarget{ref-eklund1996development}{}}%
-Eklund, N., \& Boyce, P. (1996). The development of a reliable, valid, and simple office lighting survey. \emph{Journal of the Illuminating Engineering Society}, \emph{25}(2), 25--40.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-semPlot}{}}%
 Epskamp, S. (2019). \emph{semPlot: Path diagrams and visual analysis of various SEM packages' output}. Retrieved from \url{https://CRAN.R-project.org/package=semPlot}
@@ -892,9 +837,6 @@ Henry, L., \& Wickham, H. (2020). \emph{Purrr: Functional programming tools}. Re
 
 \leavevmode\vadjust pre{\hypertarget{ref-hornRationaleTestNumber1965}{}}%
 Horn, J. L. (1965). A rationale and test for the number of factors in factor analysis. \emph{Psychometrika}, \emph{30}(2), 179--185. \url{https://doi.org/10.1007/BF02289447}
-
-\leavevmode\vadjust pre{\hypertarget{ref-horne1976self}{}}%
-Horne, J. A., \& Östberg, O. (1976). A self-assessment questionnaire to determine morningness-eveningness in human circadian rhythms. \emph{International Journal of Chronobiology}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-huCutoffCriteriaFit1999}{}}%
 Hu, L., \& Bentle, P. M. (1999). Cutoff criteria for fit indexes in covariance structure analysis: {Conventional} criteria versus new alternatives. \emph{Structural Equation Modeling: A Multidisciplinary Journal}, \emph{6}(1), 1--55. \url{https://doi.org/10.1080/10705519909540118}
@@ -1022,9 +964,6 @@ Velicer, W. (1976). Determining the {Number} of {Components} from the {Matrix} o
 \leavevmode\vadjust pre{\hypertarget{ref-R-MASS}{}}%
 Venables, W. N., \& Ripley, B. D. (2002). \emph{Modern applied statistics with s} (Fourth). New York: Springer. Retrieved from \url{https://www.stats.ox.ac.uk/pub/MASS4/}
 
-\leavevmode\vadjust pre{\hypertarget{ref-verriotto2017new}{}}%
-Verriotto, J. D., Gonzalez, A., Aguilar, M. C., Parel, J.-M. A., Feuer, W. J., Smith, A. R., \& Lam, B. L. (2017). New methods for quantification of visual photosensitivity threshold and symptoms. \emph{Translational Vision Science \& Technology}, \emph{6}(4), 18--18.
-
 \leavevmode\vadjust pre{\hypertarget{ref-watkinsStepbyStepGuideExploratory2020}{}}%
 Watkins, M. (2020). \emph{A {Step}-by-{Step Guide} to {Exploratory Factor Analysis} with {R} and {RStudio}}. \url{https://doi.org/10.4324/9781003120001}
 
@@ -1070,9 +1009,6 @@ Worthington, R. L., \& Whittaker, T. A. (2006). Scale {Development Research}: {A
 \leavevmode\vadjust pre{\hypertarget{ref-Wu.2017}{}}%
 Wu, Y., \& Hallett, M. (2017). Photophobia in neurologic disorders. \emph{Translational Neurodegeneration}, \emph{6}(1), 26. \url{https://doi.org/10.1186/s40035-017-0095-3}
 
-\leavevmode\vadjust pre{\hypertarget{ref-Xie.2021}{}}%
-Xie, Y., Wu, X., Tao, S., Wan, Y., \& Tao, F. (2021). Development and validation of the self-rating of biological rhythm disorder for chinese adolescents. \emph{Chronobiology International}, 1--7. \url{https://doi.org/10.1080/07420528.2021.1989450}
-
 \leavevmode\vadjust pre{\hypertarget{ref-RN1272}{}}%
 Yu, C.-Y. (2002). \emph{Evaluating cutoff criteria of model fit indices for latent variable models with binary and continuous outcomes} (Thesis). {ProQuest Dissertations Publishing}.
 
@@ -1112,7 +1048,7 @@ Zinbarg, R. E., Revelle, W., Yovel, I., \& Li, W. (2005). Cronbach's \(\alpha\),
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:MinResTab}Factor loadings and communality of the retained items(Minmum Residual)}
+\caption{\label{tab:MinResTab-33}Factor loadings and communality of the retained items(Minmum Residual)}
 
 \small{
 
@@ -1166,7 +1102,7 @@ item26 &  &  &  &  & 0.35 & 0.165 & 0.835\\
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:sixFacTab}Factor loadings and communality of the retained items(six factor)}
+\caption{\label{tab:sixFacTab-35}Factor loadings and communality of the retained items(six factor)}
 
 \small{
 
@@ -1227,7 +1163,7 @@ Option}\label{factor-analysis-with-unmerged-response-option}}
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:tabDesAppB}Descriptive Statistics for Unmerged response options}
+\caption{\label{tab:tabDesAppB-39}Descriptive Statistics for Unmerged response options}
 
 \begin{tabular}{ccccccc}
 \toprule
@@ -1296,20 +1232,20 @@ Item48 & 2.57 & 1.30 & 0.14 & -0.74 & 0.93* & .31\\
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{manuscript_files/figure-latex/figCorAppB-1} 
+{\centering \includegraphics[width=1\linewidth]{manuscript_files/figure-latex/figCorAppB-41-1} 
 
 }
 
-\caption{Correlation plot of the items}\label{fig:figCorAppB}
+\caption{Correlation plot of the items}\label{fig:figCorAppB-41}
 \end{figure}
 
 \begin{figure}
 
-{\centering \includegraphics{manuscript_files/figure-latex/facIdFigAppB-1} 
+{\centering \includegraphics{manuscript_files/figure-latex/facIdFigAppB-45-1} 
 
 }
 
-\caption{Factor Identification (A) Parallel analysis (B) Scree Plot}\label{fig:facIdFigAppB}
+\caption{Factor Identification (A) Parallel analysis (B) Scree Plot}\label{fig:facIdFigAppB-45}
 \end{figure}
 
 Horn's parallel analysis with 500 iterations indicated a five-factor
@@ -1322,7 +1258,7 @@ and six-factor solutions.
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:EFATableAppB}Factor loadings and communality of the retained items [Unmerged Responses]}
+\caption{\label{tab:EFATableAppB-48}Factor loadings and communality of the retained items [Unmerged Responses]}
 
 \small{
 
@@ -1330,31 +1266,31 @@ and six-factor solutions.
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness} & \multicolumn{1}{c}{Complexity}\\
 \midrule
-item19 & 0.99 &  &  &  &  & 1.01 & -0.01 & 1.06\\
-item20 & 0.91 &  &  &  &  & 0.87 & 0.13 & 1.11\\
-item18 & 0.82 &  &  &  &  & 0.71 & 0.29 & 1.12\\
-item21 & 0.8 &  &  &  &  & 0.68 & 0.32 & 1.16\\
-item4 & 0.47 &  &  &  &  & 0.25 & 0.75 & 1.30\\
-item11 &  & 0.83 &  &  &  & 0.69 & 0.31 & 1.01\\
-item10 &  & 0.81 &  &  &  & 0.67 & 0.33 & 1.03\\
-item12 &  & 0.56 &  &  &  & 0.37 & 0.63 & 1.37\\
-item8 &  & -0.44 &  &  &  & 0.21 & 0.79 & 1.11\\
-item7 &  & 0.42 &  &  &  & 0.23 & 0.77 & 1.61\\
-item9 &  & 0.33 &  &  &  & 0.12 & 0.88 & 1.10\\
-item16 &  &  & 0.95 &  &  & 0.95 & 0.05 & 1.10\\
-item17 &  &  & 0.74 &  &  & 0.60 & 0.41 & 1.17\\
-item36 & 0.3 &  & 0.73 &  &  & 0.65 & 0.35 & 1.43\\
-item3 &  &  &  & 0.85 &  & 0.75 & 0.25 & 1.05\\
-item27 &  &  &  & 0.78 &  & 0.62 & 0.38 & 1.03\\
-item40 &  &  &  & 0.71 &  & 0.51 & 0.49 & 1.05\\
-item35 &  &  &  &  & 0.58 & 0.35 & 0.65 & 1.09\\
-item48 &  &  &  &  & 0.57 & 0.35 & 0.65 & 1.14\\
-item33 &  &  &  &  & 0.55 & 0.32 & 0.68 & 1.08\\
-item47 &  &  &  &  & 0.52 & 0.29 & 0.71 & 1.19\\
-item44 &  &  &  &  & 0.45 & 0.22 & 0.78 & 1.15\\
-item31 &  &  &  &  & 0.41 & 0.21 & 0.79 & 1.48\\
-item38 &  &  &  &  & 0.33 & 0.13 & 0.87 & 1.32\\
-\% of Variance & 0.15 & 0.09 & 0.09 & 0.08 & 0.08 & NA & NA & NA\\
+item19 & 0.99 &  &  &  &  & 1.007 & -0.007 & 1.058\\
+item20 & 0.91 &  &  &  &  & 0.874 & 0.126 & 1.114\\
+item18 & 0.82 &  &  &  &  & 0.711 & 0.289 & 1.123\\
+item21 & 0.8 &  &  &  &  & 0.683 & 0.317 & 1.163\\
+item4 & 0.47 &  &  &  &  & 0.25 & 0.75 & 1.298\\
+item11 &  & 0.83 &  &  &  & 0.687 & 0.313 & 1.007\\
+item10 &  & 0.81 &  &  &  & 0.67 & 0.33 & 1.031\\
+item12 &  & 0.56 &  &  &  & 0.371 & 0.629 & 1.374\\
+item8 &  & -0.44 &  &  &  & 0.206 & 0.794 & 1.106\\
+item7 &  & 0.42 &  &  &  & 0.226 & 0.774 & 1.614\\
+item9 &  & 0.33 &  &  &  & 0.115 & 0.885 & 1.1\\
+item16 &  &  & 0.95 &  &  & 0.946 & 0.054 & 1.097\\
+item17 &  &  & 0.74 &  &  & 0.595 & 0.405 & 1.168\\
+item36 & 0.3 &  & 0.73 &  &  & 0.653 & 0.347 & 1.431\\
+item3 &  &  &  & 0.85 &  & 0.746 & 0.254 & 1.048\\
+item27 &  &  &  & 0.78 &  & 0.624 & 0.376 & 1.028\\
+item40 &  &  &  & 0.71 &  & 0.512 & 0.488 & 1.05\\
+item35 &  &  &  &  & 0.58 & 0.351 & 0.649 & 1.091\\
+item48 &  &  &  &  & 0.57 & 0.354 & 0.646 & 1.144\\
+item33 &  &  &  &  & 0.55 & 0.32 & 0.68 & 1.085\\
+item47 &  &  &  &  & 0.52 & 0.294 & 0.706 & 1.186\\
+item44 &  &  &  &  & 0.45 & 0.216 & 0.784 & 1.145\\
+item31 &  &  &  &  & 0.41 & 0.206 & 0.794 & 1.477\\
+item38 &  &  &  &  & 0.33 & 0.129 & 0.871 & 1.317\\
+\% of Variance & 0.15 & 0.09 & 0.09 & 0.08 & 0.08 &  &  & \\
 \bottomrule
 \addlinespace
 \end{tabular}
@@ -1417,11 +1353,11 @@ hour before attempting to fall asleep. \\
 
 \begin{figure}
 
-{\centering \includegraphics{manuscript_files/figure-latex/EFAResidualsAppB-1} 
+{\centering \includegraphics{manuscript_files/figure-latex/EFAResidualsAppB-49-1} 
 
 }
 
-\caption{ Histogram of residulas:  five-factor solution}\label{fig:EFAResidualsAppB}
+\caption{ Histogram of residulas:  five-factor solution}\label{fig:EFAResidualsAppB-49}
 \end{figure}
 \end{appendix}
 
