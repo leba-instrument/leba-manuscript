@@ -60,10 +60,10 @@ install.packages("cowplot")
 install.packages("rsvg")
 
 
-#Addons
+#Addins
 devtools::install_github("crsh/citr")
 install.packages("questionr")
-
+install.packages("wordcountaddin")
 #Others
 install.packages("magick")
 

@@ -2,6 +2,8 @@
 
 Repository for the manuscript describing the LEBA instrument.
 
-This project uses `renv` pack to manage dependencies.
+Workflow:
 
+-   2nd chunk in the manuscript.Rmd is deactivated. Run this manually for the very first time you are knitting.
 
+-   Once all the packs are installed try knitting
