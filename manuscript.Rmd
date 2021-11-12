@@ -175,12 +175,17 @@ set.seed(123)
 par(family = "Helvetica")
 ```
 
-```{r depMan, include=FALSE}
-#renv::init()
-#renv::snapshot()
-#renv::status()
-renv::restore()
+```{r pacman, include=FALSE}
+#You need to run this chunck 1X in your system 
+#install.packages("pacman")
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem)
+pacman::p_install_gh("jthomasmock/gtExtras")
+pacman::p_install_gh("crsh/papaja","crsh/citr", "masiraji/tabledown")
+pacman::p_install_gh("masiraji/tabledown")
+
 ```
+
+
 
 ```{r library, include=FALSE}
 
@@ -325,7 +330,7 @@ listdescVars <- colnames(descriptives.data[c(1:3,5:7)])
 
 
 #seperating naming and  reducing data for descriptive Table 
-desctable.data <- select(descriptives.data, c(listdescVars,
+desctable.data <- dplyr::select(descriptives.data, c(listdescVars,
                           IncludedInCFA))
 
 #renaming TRUE and FALSE from the IncludedInCFA to EFA and CFA for Descriptive Table
@@ -1025,7 +1030,7 @@ gt.cfa.long$value <- as.numeric(as.character(gt.cfa.long$value))
 gt.cfa.tab <- gt.cfa.long %>% 
   group_by(Items) %>% 
 # calculate summary stats & create data for the histogram and density plot
-  summarise(
+  dplyr::summarise(
     nr = n(),
     mean = mean(value, na.rm = TRUE),
     med = median(value, na.rm = TRUE),
@@ -2118,3 +2123,23 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 ```{=tex}
 \endgroup
 ```
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Supplymentary.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Supplymentary.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
+```
+

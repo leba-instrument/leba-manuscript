@@ -421,42 +421,9 @@ CC <- print(fa.5F.4, cut = .3, digits = 3, sort = TRUE)
 
 ```{r factordetailsAppB, include=FALSE}
 #Preparing the EFA table
-library(data.table)
-fa_table <- function(x, cut) {
-  #get sorted loadings
-  loadings <- fa.sort(x)$loadings %>% round(2)
-  #supress loadings
-  loadings[abs(loadings) < abs(cut)] <- ""
-  #get additional info
-  add_info <- cbind(x$communality, 
-                    x$uniquenesses,
-                    x$complexity) %>%
-    # make it a data frame
-    as.data.frame() %>%
-    # column names
-    rename("Communality" = V1,
-           "Uniqueness" = V2,
-           "Complexity" = V3) %>%
-    #get the item names from the vector
-    rownames_to_column("item")
-  #build table
-  loadings <- loadings %>%
-    unclass() %>%
-    as.data.frame() %>%
-    rownames_to_column("item") %>%
-    left_join(add_info) %>%
-    mutate(across(where(is.numeric), round, 3)) %>% 
-    as.data.frame()
-  variance <- x$Vaccounted %>% 
-  as.data.frame()%>% 
-  round(2)
-  loadings <- rbind(setDT(loadings), setDT(variance[2,]), fill=TRUE)
-  
-}
 
-efa.table <- fa_table(fa.5F.4,.3) 
-nr <- nrow(efa.table)
-efa.table[nr, 1] <- "% of Variance"
+
+efa.table <- tabledown::fac.tab(fa.5F.4,.3) 
 
 #Communality
 Fac.5 <- fa.5F.4
