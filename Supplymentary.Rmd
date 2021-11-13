@@ -1,12 +1,150 @@
 ---
-title: "Supplimentary Analysis"
-output: pdf_document
+title             : "Supplementary"
+shorttitle        : "SA"
+
+author: 
+  - name          : "Mushfiqul Anwar Siraji"
+    affiliation   : "1, *"
+    email         : "mushfiqul.anwarsiraji@monash.edu"
+    role:         
+      - Formal Analysis
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing;
+       
+  - name          : "Rafael Robert Lazar"
+    affiliation   : "2, 3, *"
+    role:
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing;
+      
+  - name          : "Juliëtte	van Duijnhoven"
+    affiliation   : "4"
+    email         : "j.v.duijnhoven1@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Luc Schlangen"
+    affiliation   : "5"
+    email         : "l.j.m.schlangen@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Shamsul Haque"
+    affiliation   : "1"
+    email         : "shamsul@monash.edu"
+    role:         
+      - Conceptualization
+      - Supervision
+      - Writing – review & editing
+      
+  - name          : "Vineetha Kalavally"
+    affiliation   : "6"
+    email         : "vineetha@monash.edu"
+    role:         
+      - Supervision
+      - Writing – review & editing
+      
+  - name          : "Céline Vetter"
+    affiliation   : "7, 8"
+    email         : "celine.vetter@colorado.edu"
+    role:         
+      - Conceptualization
+      - Writing – review & editing
+      
+  - name          : "Gena Glickman"
+    affiliation   : "9"
+    email         : "gena.glickman@usuhs.edu"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+      
+  - name          : "Karin Smolders"
+    affiliation   : "10"
+    email         : "k.c.h.j.smolders@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+
+  - name          : "Manuel Spitschan"
+    corresponding : yes
+    affiliation   : "11, 2, 3"
+    email         : "manuel.spitschan@psy.ox.ac.uk"
+    role:         
+      - Conceptualization
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Methodology
+      - Writing – original draft
+      - Writing – review & editing
+
+affiliation:
+  - id            : "1"
+    institution   : "Monash University, Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
+  - id            : "2"
+    institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+  - id            : "3"
+    institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
+  - id            : "4"
+    institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
+  - id            : "5"
+    institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Intelligent Lighting Institute, Eindhoven, Netherlands"
+  - id            : "6"
+    institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Malaysia, Selangor, Malaysia"
+  - id            : "7"
+    institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
+  - id            : "8"
+    institution   : "Ximes GmbH, Frankfurt, Germany"
+  - id            : "9"
+    institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"   
+  - id            : "10"
+    institution   : "Eindhoven University of Technology, Human-Technology Interaction Group, Eindhoven, Netherlands"
+  - id            : "11"
+    institution   : "University of Oxford, Department of Experimental Psychology, Oxford, UK"
+  - id            : "*"
+    institution   : "Joint first author"   
+
+
+
+
+bibliography      : ["references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+documentclass     : "apa6"
+classoption       : "man"
+output            : 
+  papaja::apa6_pdf:
+    latex_engine: xelatex
+    includes:
+      in_header: header.tex
+
+mainfont: Arial
 ---
 
 ```{r options, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
 set.seed(123)
-par(family = "Helvetica")
+par(family = "Arial")
 ```
 
 ```{r lib, include=FALSE}
@@ -108,7 +246,7 @@ minresTab <- tabledown::fac.tab(fa.5F.min.3, cut =.3,complexity = F)
 ```
 
 ```{r MinResTab}
-papaja::apa_table(minresTab, align = "c", caption = "Factor loadings and communality of the retained items(Minmum Residual)", note = "Only loading higher than .30 is reported", font_size = "small")
+papaja::apa_table(minresTab,  caption = "Factor loadings and communality of the retained items(Minmum Residual)", note = "Only loading higher than .30 is reported", longtable=T)
 
 
 ```
@@ -163,8 +301,8 @@ abline(v =.05,lwd = 2, lty = 2)
 sixFac <- tabledown::fac.tab(fa.6F.3, cut =.3,complexity = F)
 ```
 
-```{r sixFacTab}
-papaja::apa_table(sixFac, align = "c", caption = "Factor loadings and communality of the retained items(six factor)", note = "Only loading higher than .30 is reported", font_size = "small")
+```{r sixFacTab, results='asis'}
+papaja::apa_table(sixFac,  caption = "Factor loadings and communality of the retained items(six factor)", note = "Only loading higher than .30 is reported",longtable =T)
 ```
 
 # Factor Analysis with Unmerged Response Option
@@ -262,7 +400,7 @@ rownames(Des.combined) = (my.names)
 ```
 
 ```{r tabDesAppB, results='asis'}
-apa_table(Des.combined, caption = "Descriptive Statistics for Unmerged response options", align = "c", note = "*p<.001", placement = "h")
+apa_table(Des.combined, caption = "Descriptive Statistics for Unmerged response options",  note = "*p<.001", longtable =T)
 ```
 
 ```{r CorrMatrixAppB, include=FALSE}
@@ -282,7 +420,7 @@ totR = length(EFA.data)*(length(EFA.data)-1)/2
 cor.per <- print (BigR/totR)*100
 ```
 
-```{r figCorAppB, fig.align='center', fig.cap="Correlation plot of the items",  out.width="100%"}
+```{r figCorAppB,  fig.cap="Correlation plot of the items",  out.width="100%"}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
            ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
@@ -372,7 +510,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
 
-```{r facIdFigAppB, fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE}
+```{r facIdFigAppB,  fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE}
 cowplot::plot_grid(parallel, scree.plot, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
@@ -451,7 +589,7 @@ sumR <- sum(BigRR/totRR*100)
 
 ```{r EFATableAppB, results='asis'}
 
-apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items [Unmerged Responses]", note = "Only loading higher than .30 is reported", font_size = "small", longtable =T)
+apa_table(efa.table, caption = "Factor loadings and communality of the retained items [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T)
 ```
 
 | **Five Factor Solution[Unmerged Responses] (24 Items)** |
@@ -486,7 +624,7 @@ apa_table(efa.table,align = "c", caption = "Factor loadings and communality of t
 | `r label(sem.data$item17)`                              |
 | `r label(sem.data$item36)`                              |
 
-```{r EFAResidualsAppB,  fig.align='center', fig.cap=' Histogram of residulas:  five-factor solution', warning=FALSE,  results='asis'}
+```{r EFAResidualsAppB,   fig.cap=' Histogram of residulas:  five-factor solution', warning=FALSE,  results='asis'}
 hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =35, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)

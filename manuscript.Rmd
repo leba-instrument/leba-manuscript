@@ -466,14 +466,16 @@ export_svg(Flowchart1) %>%
 
 ```
 
-```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='100%', out.width='100%'}
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='150%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
 
 ### Data Collection
+
 Timeline of data collection, mode of data collection.
 
 ## Analytic Strategies
+
 For our analysis we used R (version 4.1.0), with several R packages. Initially, our tool had six point Likert type response scale (0:Does not apply/I don't know; 1:Never, 2:Rarely; 3:Sometimes; 4:Often; 5: Always). Our purpose was to capture light exposure related behavior and these two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we decided to collapse them into one making it a 5 point Likert type response scale. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix, were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, we used  polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (PA) as  factor extraction method with varimax rotation. PA is robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by another factor extraction method: "the minimum residuals extraction" as well. We used a combination of factor identification method including scree plot [@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method [@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. Additionally, to determine the simple structure, we followed the following guidelines recommended by psychometricians (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018]. 
 We also conducted psychometric analysis on non-merged response options data (supplementary analysis) and rejected the latent structure obtained as the factors were less interpretable.
 
@@ -598,7 +600,6 @@ cor.per <- print (BigR/totR)*100
 ```
 
 Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy [@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].  Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001] indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The inter item correlation ranged between `r apa(min.cor,2,F)` to `r apa(max.cor,2,F)`. And the corrected item-total correlations ranged between `r apa(low.r.corec,2,F)` to `r apa(high.r.corec,2,F)`.
-
 ```{r tabDes,results='asis'}
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
@@ -701,6 +702,7 @@ Hull <- hull+ ggtitle(NULL) +xlab("Factor Number")+ylab("CAF")+
 #MAP
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
+
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the minimum average partial (MAP) method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
 ```{r facIdFig, out.height="250%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
@@ -885,7 +887,7 @@ Internal consistency reliability coefficient Cronbach's alpha assumes all the fa
 apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items", note = "Only loading higher than .30 is reported", font_size = "small")
 ```
 
-```{r EFAResiduals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residuals:  five-factor solution',  out.width="50%",  warning=FALSE, results='asis'}
+```{r EFAResiduals, out.height= "100%",  fig.align='center', fig.cap= ' Histogram of residuals:  five-factor solution',  out.width="100%",  warning=FALSE, results='asis'}
 hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =51, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
@@ -1002,7 +1004,6 @@ gt.efa.table <- gt.efa.tab$'_data'
 gt.liket.efa <- full.efa.percentage3$"_data"
 
 
-
 efaTable <-  cbind( gt.efa.table, gt.liket.efa)%>% 
   gt()
 
@@ -1073,7 +1074,6 @@ full.cfa.percentage3 <- as.data.frame(full.cfa.percentage3[,-1]) %>%
 
 gt.cfa.table <- gt.cfa.tab$'_data'
 gt.liket.cfa <- full.cfa.percentage3$"_data"
-
 
 
 cfaTable <-  cbind( gt.cfa.table, gt.liket.cfa) %>% 
@@ -1763,7 +1763,7 @@ F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r itmeinfo, fig.cap="Item information curves (a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+```{r itmeinfo, fig.cap="Item information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = "AUTO", label_size = 10,align = "v")
 
@@ -1956,7 +1956,7 @@ F5.scale <- plot(F5_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 
 ```
 
-```{r Testinfo, fig.cap="Test information curves (a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+```{r Testinfo, fig.cap="Test information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_test.info , F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F5_test.info,
           labels = "AUTO", label_size = 10, align = "v" )
 
@@ -1964,12 +1964,12 @@ plot_grid(F1_test.info , F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F
 
 Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of short-LEBA as an unidmensional construct we obtain 5 TICs (figure \@ref(Fig:Testinfo)). These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum (($\theta$)). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
-Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Figure \@ref(fig:persornfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
+Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
 ```{r itemfittab, results='asis',warning=F, message=F}
 apa_table(itemfit, caption ="Item fit statistics for the fitted models")
 ```
 
-```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person, 
           labels = "AUTO", label_size = 10,align = "v")
 
@@ -1977,12 +1977,11 @@ plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person,
 
 Next, we generated scale characteristics curve (Figure \@ref(fig:scalechar)) which plotted estimated theta score against the expected true score. The purpose of this scale characteristics curve is to find the corresponding expected true score for the given estimated theta score. 
 
-```{r scalechar, fig.cap="Scale characteristic curve of the five fitted IRT models ((a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+```{r scalechar, fig.cap="Scale characteristic curve of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 
 plot_grid(F1.scale, F1.scale,F1.scale,F1.scale,F1.scale, 
           labels = "AUTO", label_size = 10,align = "v")
 ```
-
 
 The overall we can concluded that IRT analysis indicated LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. All-in-all we can recommend the LEBA to be used to capture light exposure related behavior.
 
