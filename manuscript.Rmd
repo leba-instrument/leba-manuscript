@@ -371,7 +371,7 @@ Table 1 summarizes the survey participants' demographic characteristics. Only pa
 
 For a full list of geographic locations, see Suppl. Table X in the appendix.
 
-Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting., while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or indication)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's Chi-squared test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* ≥ `r min(desc_tibble$"**q-value**", na.rm=T)` , indicating equivalence).
+Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting., while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or indication)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* ≥ `r min(desc_tibble$"**q-value**", na.rm=T)` , indicating equivalence).
 
 1.  Describe EFA and CFA sample separately.
 2.  Sampling technique: Convince sampling (non-probability sample)
@@ -1277,7 +1277,7 @@ modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE)
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
-We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature[@desjardinsHandbookEducationalMeasurement2018]. Several indices are suggested to measure model fit. These indices can be categorized as absolute, comparative and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including chi-square test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of chi-square test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table \@ref(tab:tabCfa) summarizes the fit indices of our fitted model. Our fitted model failed to attain an absolute fit estimated by the chi-square test. However, the chi-square test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`,[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. 
+We conducted a categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator as our response data was in ordinary nature[@desjardinsHandbookEducationalMeasurement2018]. Several indices are suggested to measure model fit. These indices can be categorized as absolute, comparative and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including $\chi^2$ test statistics and the standardized root mean square (SRMR).parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assess the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the idicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of $\chi^2$ test statistics (A non-significant test statistics is required to reflect model fit) (i) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (ii) RMSEA (close to .06 or below), (iii) SRMR (close to .08 or below) to estimate the model fit. Table \@ref(tab:tabCfa) summarizes the fit indices of our fitted model. Our fitted model failed to attain an absolute fit estimated by the $\chi^2$ test. However, the $\chi^2$ test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. Subsequently, we judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index-RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`,[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 and 19-17 . However SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. 
 
 Internal consistency ordinal $\alpha$ for the five factors of LEBA were `r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)` respectively. We also estimated the internal consistency reliability of the total scale using Mcdonald's omega(total) coefficient which is a better reliability estimate for multidimensional constructs[@dunn2014alpha; @sijtsma2009use]. McDonald's omega(total) coefficient for the total scale was `r apa(rel.k[5,6],2,F)`.
 
@@ -1378,6 +1378,10 @@ semPaths (fit.Cor.2 ,
            
 ```
 
+# Measurement Invariance
+Measurement invariance (MI) evaluates whether a construct has the psychometric equivalence and same meaning across groups or measurement occasions [@putnick2016measurement;@klinePrinciplesPracticeStructural2015]. We used a structural equation modeling framework to assess the measurement invariance of our developed tool across two groups: **native English speakers** and **non-native English speakers**. Our measurement invariance testing involved establishing configural, metric, scalar, and residual invariance [@widaman1997exploring]. MI models are nested type models of which configural model is the first and least restrictive model. The configural model assumes that the number of factors and item number under each factor will be equal across two groups. The metric invariance model, along with the assumption of the configural model, assumes that factor-loadings of the items across the two groups will be equal, indicating each item contributes to the measured construct equivalently for both groups. Along with these assumptions, scalar invariance assumes that item intercepts to be equivalent across groups. The scalar invariance model indicates the equivalence of response scale across the groups, i.e., persons with the same level of the underlying construct will score the same across the groups. The residual invariance model holds all the mentioned assumptions as true and adds the assumption of equality in error variances and covariances across the groups. This model is the highest level of MI and assures the equivalence of precision of items across the groups in measuring the underlying constructs. The invariance model fit was assessed using the fit indices including $\chi^2$ test, CFI and TLI (close to .95 or above), RMSEA (close to .06 or below) [@huCutoffCriteriaFit1999]. We excluded SRMR from our consideration as it does not behave optimally for categorical variables [@RN1272]. Table \@ref(tab:InvarianceTab) summarized the fit indices. The comparison among different measurement invariance models was made using the $\chi^2$ difference test ($\Delta \chi^2$)  to assess whether our obtained latent structure of "LEBA" attains the highest level of the MI. If the $\Delta \chi^2$ test for model fit is not statistically significant (p<0.05) [@dimitrov2010testing], the particular invariance model was accepted. We started our analysis by comparing the model fit of the least restrictive model:configural model to metric MI model and continued successive comparisons. Table \@ref(tab:InvarianceTab) indicates that our fitted model had acceptable fit indices for all of the fitted MI models. The model fit does not significantly decrease across the nested models up to the scalar MI model. The chi-square value difference between the scalar and residual model is zero, indicating model fit remained the same for both: scalar and residual MI model, indicating the acceptability of the residual MI model.
+
+
 ```{r InvarianceAnalysis_data, include=FALSE}
 invariance.data <- cbind(CFA.data, data$slypos_demographics_language.factor[429:690])
 colnames(invariance.data)[52] <- "English_Speaking"
@@ -1403,7 +1407,7 @@ fitmeasures (configural,c("gfi", "agfi", "nfi","rfi",
                        "cfi.scaled","tli.scaled",
                        "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
 
-
+#Metric
 weak <- cfa(model = LB.model.Cor.2,
                   data = invariance.data,
                   group = "English_Speaking",
@@ -1423,7 +1427,7 @@ summary(First.comp)
 
 
 
-
+#Scaler
 strong <- cfa(model = LB.model.Cor.2,
                   data = invariance.data,
                   group = "English_Speaking",
@@ -1435,7 +1439,7 @@ summary(strong, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
 Second.comp <- compareFit  (weak, strong)
 summary(Second.comp)
 
-
+#residual
 strict <- cfa(model = LB.model.Cor.2,
                   data = invariance.data,
                   group = "English_Speaking",
@@ -1448,7 +1452,7 @@ fitmeasures (strict,c("gfi", "agfi", "nfi","rfi", "cfi.robust","tli.robust","rms
 
 Third.comp <- compareFit(strict,strong)
 summary(Third.comp)
-
+#structural
 structural <-cfa(model = LB.model.Cor.2,
                   data = invariance.data,
                   group = "English_Speaking",
@@ -1461,30 +1465,29 @@ fitmeasures (structural,c("gfi", "agfi", "nfi","rfi", "cfi","tli","rmsea", "srmr
 
 fourth.comp <- compareFit  (structural,strict)
 summary(fourth.comp)
-comfit.par <- compareFit(configural, weak, strong, strict, structural)
+comfit.par <- compareFit(configural, weak, strong, strict)
 summary (comfit.par)
 
 models <-  list("Configural" = configural, 
                 "Metric" = weak, 
                 "Scalar" = strong, 
-                "Residual" = strict, 
-                "Structural"=structural)
+                "Residual" = strict)
 
 
 
 Invariance.table <- compareLavaan(models,
-              nesting = "Configural > Metric > Scalar > Residual  > Structural", 
-              fitmeas = c("chisq.scaled", "df",  "cfi.scaled","tli.scaled","rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr" ),
+              nesting = "Configural > Metric > Scalar > Residual", 
+              fitmeas = c("chisq.scaled", "df",  "cfi.scaled","tli.scaled","rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled" ),
               scaled = T,
               chidif = T, digits = 2)
 
-colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper", "SRMR", "Chi-Sqr comparison", "df*", "p")
+colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper", "Chi-Square Difference", "df difference*", "p")
 
 
 ```
 
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "scriptsize" )
+apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
 
 
 
