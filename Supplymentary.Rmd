@@ -451,7 +451,7 @@ sumR <- sum(BigRR/totRR*100)
 
 ```{r EFATableAppB, results='asis'}
 
-apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items [Unmerged Responses]", note = "Only loading higher than .30 is reported", font_size = "small", placement = "h")
+apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items [Unmerged Responses]", note = "Only loading higher than .30 is reported", font_size = "small", longtable =T)
 ```
 
 | **Five Factor Solution[Unmerged Responses] (24 Items)** |

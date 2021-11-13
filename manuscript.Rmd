@@ -430,6 +430,8 @@ Flowchart1 <- grViz("digraph nicegraph{
                       Acceptable Fit ( CFI = .97; TLI .96; RMSEA = .04, SRMR = .09)']
                      5[label = 'Reliability Analysis on CFA (23 Items; N=262) 
                       Alpha F1=.93; F2=.80; F3 =.62; F4=.72; F5=.45']
+                    8[label = 'LEBA Short Form (17 Items; N=690) 
+                      Based on Item Response Theory']
                     }
                 subgraph cluster_2 {
                       graph[fontname = Helvetica,shape = rectangle]
@@ -449,6 +451,7 @@ Flowchart1 <- grViz("digraph nicegraph{
                      2 ->3
                      3 ->4
                      4 ->5
+                    5->8
                      C ->6
                      6 ->7
                      
@@ -463,7 +466,7 @@ export_svg(Flowchart1) %>%
 
 ```
 
-```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of LEBA', out.height='100%', out.width='100%'}
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='100%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
 
@@ -600,7 +603,7 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
-```{r figCor, out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
+```{r figCor, out.height="150%",out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
            ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
@@ -700,7 +703,7 @@ psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the minimum average partial (MAP) method [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r facIdFig, out.height="200%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
+```{r facIdFig, out.height="250%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
 cowplot::plot_grid(parallel, scree.plot,Hull, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
@@ -820,7 +823,7 @@ export_svg(EFAplot) %>%
 
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="50%", out.width="100%", results='asis'}
+```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="100%", out.width="200%", results='asis'}
 knitr::include_graphics('Manuscript.figures/EFAplot.png')
 
 ```
@@ -882,7 +885,7 @@ Internal consistency reliability coefficient Cronbach's alpha assumes all the fa
 apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items", note = "Only loading higher than .30 is reported", font_size = "small")
 ```
 
-```{r EFAResiduals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residulas:  five-factor solution',  out.width="50%",  warning=FALSE, results='asis'}
+```{r EFAResiduals, out.height= "50%",  fig.align='center', fig.cap= ' Histogram of residuals:  five-factor solution',  out.width="50%",  warning=FALSE, results='asis'}
 hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =51, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
@@ -1103,7 +1106,7 @@ gt.fullTable <-  rbind( efa.gt, cfa.gt) %>%
 # header
   tab_header(
     title = md("**LEBA**"),
-    subtitle = md("Summary results of LEBA (N =690)")
+    subtitle = md("Summary Descriptives of CFA and EFA Sample (N =690)")
   ) %>% 
   tab_footnote(
     footnote = md("**Histogram**"),
@@ -1165,7 +1168,7 @@ cols_label(
 
 ```
 
-```{r gtPic, echo=FALSE, out.height="100%", out.width="200%", results= 'asis'}
+```{r gtPic, echo=FALSE, out.height="100%", out.width="200%", fig.cap= ' Summary Descriptives of CFA and EFA Sample'}
 knitr::include_graphics('Manuscript.figures/gt.png')
 
 ```
@@ -1348,7 +1351,7 @@ summaryParam(simulation, detail =T, alpha = .05)
 SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
 ```
 
-```{r figcfa, fig.cap = "(A) Five Factor Model of LEBA", , out.width="100%",  warning=FALSE, results='asis'}
+```{r figcfa, fig.cap = "Five Factor CFA Model of LEBA", out.height="150%", out.width="100%",  warning=FALSE}
 #library(semPlot)
 
 semPaths (fit.Cor.2 , 
@@ -1760,7 +1763,7 @@ F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r itmeinfo, fig.cap="Item information curves (a) Blue filter (b) Natural light (c)Smart device (d)Sleep environment (e)Electic light", warning=FALSE, out.width="100%", out.height="120%"}
+```{r itmeinfo, fig.cap="Item information curves (a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = "AUTO", label_size = 10,align = "v")
 
@@ -1953,7 +1956,7 @@ F5.scale <- plot(F5_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 
 ```
 
-```{r Testinfo, fig.cap="Test information curves (a) Blue filter (b) Natural light (c) Smart device (d) Sleep environment (E) Electic light", warning=FALSE, out.width="100%", out.height="120%"}
+```{r Testinfo, fig.cap="Test information curves (a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_test.info , F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F5_test.info,
           labels = "AUTO", label_size = 10, align = "v" )
 
@@ -1963,10 +1966,10 @@ Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of
 
 Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Figure \@ref(fig:persornfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
 ```{r itemfittab, results='asis',warning=F, message=F}
-apa_table(itemfit)
+apa_table(itemfit, caption ="Item fit statistics for the fitted models")
 ```
 
-```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Blue filter (b) Natural light (c)Smart device (d)Sleep environment (e)Electic light", warning=FALSE, out.width="100%", out.height="120%"}
+```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person, 
           labels = "AUTO", label_size = 10,align = "v")
 
@@ -1974,7 +1977,7 @@ plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person,
 
 Next, we generated scale characteristics curve (Figure \@ref(fig:scalechar)) which plotted estimated theta score against the expected true score. The purpose of this scale characteristics curve is to find the corresponding expected true score for the given estimated theta score. 
 
-```{r scalechar, fig.cap="Scale characteristic curve of the five fitted IRT models (a) Blue filter (b) Natural light (c)Smart device (d)Sleep environment (e)Electic light", warning=FALSE, out.width="100%", out.height="120%"}
+```{r scalechar, fig.cap="Scale characteristic curve of the five fitted IRT models ((a) Wearing blue light filters (b) Spending time outdoors (c)Using phone and smartwatchin bed (d)Using light before bedtime (e)Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
 
 plot_grid(F1.scale, F1.scale,F1.scale,F1.scale,F1.scale, 
           labels = "AUTO", label_size = 10,align = "v")
@@ -2169,15 +2172,5 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 
 ```{=tex}
 \endgroup
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('Supplymentary.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
 ```
 

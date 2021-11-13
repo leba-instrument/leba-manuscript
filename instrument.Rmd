@@ -97,16 +97,16 @@ LEBA captures light exposure-related behaviours on a 5 point Likert type scale r
 
 The long form of LEBA consists 23 items with five factors.
 
-| Factor names                                          | Items                    | Reliability Coefficients: McDonald's Omega | Reliability Coefficients: Cronbach's alpha |
+| Factor names                                          | Items                    | Reliability Coefficients: McDonald's Omega | Reliability Coefficients: Ordinal alpha |
 |-------------------------------------------------------|--------------------------|--------------------------------------------|--------------------------------------------|
-| **F1: Wearing blue light filters**                    | 1-3                      | .93                                        | .90                                        |
+| F1: Wearing blue light filters                    | 1-3                      | .93                                        | .90                                        |
 | F2: Spending time outdoors                            | 4-9 (Item 4 is reversed) | .80                                        | .78                                        |
-| **F3: Using phone and smartwatch in bed**             | 10-14                    | .61                                        | .62                                        |
-| **F4: Using light before bedtime**                    | 15-18                    | .72                                        | .62                                        |
-| **F5: Using light in the morning and during daytime** | 19-23                    | .45                                        | .41                                        |
+| F3: Using phone and smartwatch in bed             | 10-14                    | .61                                        | .62                                        |
+| F4: Using light before bedtime                   | 15-18                    | .72                                        | .62                                        |
+| F5: Using light in the morning and during daytime | 19-23                    | .45                                        | .41                                        |
 |                                                       |                          | .73(Total scale)                           |                                            |
 
-LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05\[.04-.06, 90% CI\]; SRMR = .09).
+LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05[.04-.06, 90% CI]; SRMR = .09).
 
 ## How to cite:
 
