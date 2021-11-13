@@ -482,7 +482,7 @@ apatheme=theme_bw()+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        text=element_text(family = "Helvetica",),
+        #text=element_text(family = "Helvetica",),
         legend.title=element_blank(),
         axis.line.x = element_line(color='black'),
         axis.line.y = element_line(color='black'),
@@ -1493,9 +1493,9 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 
 ```
 
-## Analysing the quality of items by Item Information Theory
+## Developing Short form of LEBA
 
-We sought the IRT to gether information regarding the item quality. IRT complements the conventional classical test theory-based analysis by gathering information on item discrimination and item difficulty[@bakerBasicsItemResponse2017]. Here, an item's quality is judged based on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model (\@ref(tab:IRTparameters) to the combined EFA sample and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait, and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), low ( 5 items) indicating a good range of discrimination along the latent trait. Examination of the item information curve indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded. We also gathered evidence of item fit and person fit to our fitted model.
+We sought the item response theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty,item discrimination, and item information[@bakerBasicsItemResponse2017]. IRT judges the item's quality on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our scale. Item discrimination parameters of our scale fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve \@ref(fig:itmeinfo) indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded creating a short form of LEBA with 5 factors and 17 items.
 
 ```{r IRTdata, include=FALSE}
 ## Recoding sem.data$item8 into sem.data$Ritem8
@@ -1760,7 +1760,7 @@ F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r itmeinfo, fig.cap="Item information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
+```{r itmeinfo, fig.cap="Item information curves (a) Blue filter (b) Natural light (c)Smart device (d)Sleep environment (e)Electic light", warning=FALSE, out.width="100%", out.height="120%"}
 plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
           labels = "AUTO", label_size = 10,align = "v")
 
@@ -1777,7 +1777,7 @@ F3.redu <- sem.data %>%
 F4.redu <- sem.data %>% 
  dplyr::select(item32, item35,  item33)
 
-F5 <- sem.data %>% 
+F5.redu <- sem.data %>% 
   dplyr::select(item46, item45, item25 )
 
 
@@ -1798,7 +1798,7 @@ F3_fit.redu <- mirt(F3.redu, model = 1, itemtype = 'graded', SE = TRUE,
 F4_fit.redu <- mirt(F4.redu, model = 1, itemtype = 'graded', SE = TRUE,
                Se.type = 'MHRM',technical = list(NCYCLES = 10000))
 
-F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
+F5_fit.redu <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
                Se.type = 'MHRM',technical = list(NCYCLES = 10000))
 
 
@@ -1814,8 +1814,28 @@ F3.item.fit<- itemfit(F3_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
 F4.item.fit<- itemfit(F4_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
                                   impute=10)
 
-F5.item.fit<- itemfit(F5_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+F5.item.fit<- itemfit(F5_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
                                   impute=10)
+
+
+#Itemfit short
+#Item fit
+F1.item.fit<- itemfit(F1_fit, fit_stats = c("S_X2"),
+                                  impute=10)
+
+F2.item.fit<- itemfit(F2_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+F3.item.fit<- itemfit(F3_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+F4.item.fit<- itemfit(F4_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+
+F5.item.fit<- itemfit(F5_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+
+itemfit <- rbind(F1.item.fit,F2.item.fit,F3.item.fit,F4.item.fit,F5.item.fit)
+
+colnames(itemfit) <- c("Signed Chi-square", "df", "RMSEA", "p")
 
 #Identifying Missfit items based on RMSEA Value
 F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
@@ -1833,6 +1853,8 @@ rownames(F1.personfit_model_misfits)
 nrow(F1.personfit_model_misfits)
 hist(F1.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
 abline(v = -2, lwd = 2, lty = 2)
+F1.person <- ggplot(F1.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5)+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics")+apatheme
 
 ## F2 Person fit ####
 F2.personfit <- personfit(F2_fit.redu) 
@@ -1842,6 +1864,11 @@ nrow(F2.personfit_model_misfits)
 hist(F2.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
 abline(v = -2, lwd = 2, lty = 2)
 
+F2.person <- ggplot(F2.personfit, aes(x=Zh)) + geom_histogram(binwidth=.4)+
+  scale_x_continuous(limits = c(-5, 1))+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics")+apatheme
+
+
 ## F3 Person fit ####
 F3.personfit <- personfit(F3_fit.redu) 
 F3.personfit_model_misfits <- subset(F3.personfit, Zh < -2)
@@ -1849,6 +1876,10 @@ rownames(F3.personfit_model_misfits)
 nrow(F3.personfit_model_misfits)
 hist(F3.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
 abline(v = -2, lwd = 2, lty = 2)
+
+
+F3.person <- ggplot(F3.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5)+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics")+apatheme
 
 ## F4 Person fit ####
 F4.personfit <- personfit(F4_fit.redu) 
@@ -1858,6 +1889,8 @@ nrow(F4.personfit_model_misfits)
 hist(F4.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
 abline(v = -2, lwd = 2, lty = 2)
 
+F4.person <- ggplot(F4.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5)+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics")+apatheme
 
 ## F5 Person fit ####
 F5.personfit <- personfit(F5_fit) 
@@ -1866,6 +1899,11 @@ rownames(F3.personfit_model_misfits)
 nrow(F5.personfit_model_misfits)
 hist(F5.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
 abline(v = -2, lwd = 2, lty = 2)
+
+
+
+F5.person <- ggplot(F5.personfit, aes(x=Zh)) + geom_histogram(binwidth=.4)+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics")+apatheme
 
 
 F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
@@ -1915,15 +1953,24 @@ F5.scale <- plot(F5_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 
 ```
 
-```{r Testinfo, fig.cap="Test information curves (A) blue filter (B) natural light (C)smart device (D)sleep environment (E)electic light", warning=FALSE, out.width="100%", out.height="120%"}
-plot_grid(F1_test.info, F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F5_test.info, 
+```{r Testinfo, fig.cap="Test information curves (a) Blue filter (b) Natural light (c) Smart device (d) Sleep environment (E) Electic light", warning=FALSE, out.width="100%", out.height="120%"}
+plot_grid(F4.personfit, F2.personfit,F3.personfit,F4.personfit,F4.personfit,
           labels = "AUTO", label_size = 10, align = "v" )
 
 ```
 
-Test information curve (TIC) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of LEBA as an unidmensional construct we obtain 5 TICs. These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum (($\theta$)). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
+Test information curve (TIC) (\@ref(fig:Testinfo)) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of short-LEBA as an unidmensional construct we obtain 5 TICs (\@ref(fig:Testinfo)). These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum (($\theta$)). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA scale (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
-Our result also indicated all the items fitted well to the respective models as assessed by assessed by RMSEA value obtained from Signed-X2 index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
+Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Figure \@ref(fig:persornfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
+```{r itemfittab, results='asis',warning=F, message=F}
+apa_table(itemfit)
+```
+
+```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Blue filter (b) Natural light (c)Smart device (d)Sleep environment (e)Electic light", warning=FALSE, out.width="100%", out.height="120%"}
+plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
+          labels = "AUTO", label_size = 10,align = "v")
+
+```
 
 The overall we can concluded that IRT analysis indicated LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. All-in-all we can recommend the LEBA to be used to capture light exposure related behavior.
 
@@ -2113,29 +2160,5 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 
 ```{=tex}
 \endgroup
-```
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('Supplymentary.Rmd')
-```
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
-```
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('Supplymentary.Rmd')
-```
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
-```
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('Supplymentary.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('instrument.Rmd')
 ```
 
