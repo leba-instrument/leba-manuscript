@@ -169,7 +169,7 @@ mainfont: Arial
 ---
 
 ```{r setup, warning=FALSE, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600)
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=1200)
 options(knitr.duplicate.label = "allow")
 set.seed(123)
 par(family = "Arial")
@@ -192,7 +192,7 @@ library(lavaan)
 library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
 library(semTools)
 library(MOTE)
-library(car)#revercoding 
+library(car)#reversecoding 
 library(psych)
 library(dlookr)
 library(plyr)
@@ -1509,7 +1509,7 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 ```
 
 ## Semantic Analysis 
-To find out if our developed tool is overlapping with existing instruments, we subjected the items of LEBA to the "Semantic Scale Network"(SSN) analysis[@rosenbusch2020semantic]. The SSN detects semantically related scales and provides cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pair of scales with a cosine similarity index value of 1 indicates they are perfectly semantically similar scales indicating redundancy. LEBA  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990].The cosine similarities lie between .47 to .51. Two factors of our LEBA tool: "Using phone and smart-watch in bed" and "Using light before bedtime" dealt with light exposure related behavior pertaining to sleep quality. As such the similarity index obtained is expected.
+To find out if our developed tool is overlapping with existing instruments, we subjected the items of LEBA to the "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pair of scales with a cosine similarity index value of 1 indicates they are perfectly semantically similar scales indicating redundancy. LEBA  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990].The cosine similarities lie between .47 to .51. Two factors of our LEBA tool: "Using phone and smart-watch in bed" and "Using light before bedtime" dealt with light exposure related behavior pertaining to sleep quality. As such the similarity index obtained is expected.
 
 ## Developing Short form of LEBA
 We sought the item response theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty,item discrimination, and item information[@bakerBasicsItemResponse2017]. IRT judges the item's quality on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve \@ref(fig:itmeinfo) indicated 6 items (1, 25, 9, 38, 30, & 41) had relatively flat information curves thus discarded creating a short form of LEBA with 5 factors and 17 items.
@@ -1990,7 +1990,8 @@ knitr::include_graphics('Manuscript.figures/testinfo.png')
 
 Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of short-LEBA as an unidmensional construct we obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum ($\theta$). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA tool (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
-Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value $\le$.06 indicating adequate fit. Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
+Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value $\le$.06 indicating adequate fit. Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models. 
+
 ```{r itemfittab, results='asis',warning=F, message=F}
 apa_table(itemfit, caption ="Item fit statistics for the fitted models")
 ```
@@ -2001,9 +2002,13 @@ plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person,
 
 ```
 
-Next, we generated scale characteristics curve (Figure \@ref(fig:scalechar)) which plotted estimated theta score against the expected true score. The purpose of this scale characteristics curve is to find the corresponding expected true score for the given estimated theta score. 
 
-```{r scalechar, fig.cap="Scale characteristic curve of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+
+```{r scalechar, eval=FALSE, fig.cap="Scale characteristic curve of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, include=FALSE, out.height="120%", out.width="100%"}
+
+
+#Finally we generated scale characteristics curve (Figure \@ref(fig:scalechar)) which plotted estimated theta score against the expected true score. The purpose of this scale characteristics curve is to find the corresponding expected true score for the given estimated theta score of the participants. 
+
 
 plot_grid(F1.scale, F1.scale,F1.scale,F1.scale,F1.scale, 
           labels = "AUTO", label_size = 10,align = "v")
