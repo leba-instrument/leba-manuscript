@@ -754,7 +754,7 @@ var5 <- CC$Vaccounted[2,5]*100
 ```{r EFAplotcode, include=FALSE}
 
 EFAplot <- grViz("
-digraph boxes_and_circles {
+digraph nicegraph {
 
 graph [layout = dot,rankdir = LR, fontsize = 40]
 
@@ -833,7 +833,7 @@ export_svg(EFAplot) %>%
 
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="100%", out.width="200%", results='asis'}
+```{r EFAplot, fig.align='center', fig.cap='Five Factor Solution', warning=FALSE, out.height="60%", out.width="100%", results='asis'}
 knitr::include_graphics('Manuscript.figures/EFAplot.png')
 
 ```
@@ -1172,12 +1172,12 @@ cols_label(
   tab_row_group(
   group = "EFA (n = 428)",
     rows = 1:25  
-  ) %>% gtsave("Manuscript.figures/gt.png")
+  ) %>% gtsave("Manuscript.figures/gt.png",vwidth = 3000)
 
 
 ```
 
-```{r gtPic, echo=FALSE, out.height="100%", out.width="200%", fig.cap= ' Summary Descriptives of CFA and EFA Sample'}
+```{r gtPic, echo=FALSE, out.height="100%", out.width="120%", fig.cap= ' Summary Descriptives of CFA and EFA Sample'}
 knitr::include_graphics('Manuscript.figures/gt.png')
 
 ```
@@ -1738,7 +1738,14 @@ Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F
 
 
 
+```
 
+```{r saveiteminfo, include=F}
+jpeg("Manuscript.figures/iteminfo.png", width = 800, height = 750)
+plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
+          labels = "AUTO", label_size = 10,align = "v",ncol = 2)
+
+dev.off()
 ```
 
 ```{r IRTreliability, include=F}
@@ -1774,9 +1781,8 @@ F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
-```{r itmeinfo, fig.cap="Item information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
-plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
-          labels = "AUTO", label_size = 10,align = "v")
+```{r itmeinfo, fig.cap="Item information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="60%"}
+knitr::include_graphics('Manuscript.figures/iteminfo.png')
 
 ```
 
@@ -1849,7 +1855,7 @@ F5.item.fit<- itemfit(F5_fit.redu, fit_stats = c("S_X2"),
 
 itemfit <- rbind(F1.item.fit,F2.item.fit,F3.item.fit,F4.item.fit,F5.item.fit)
 
-colnames(itemfit) <- c("Signed Chi-square", "df", "RMSEA", "p")
+colnames(itemfit) <- c("Item","Signed Chi-square", "df", "RMSEA", "p")
 
 #Identifying Missfit items based on RMSEA Value
 F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
@@ -1967,10 +1973,16 @@ F5.scale <- plot(F5_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 
 ```
 
-```{r Testinfo, fig.cap="Test information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+```{r savetestinfo, include=F, warning=F, message=F}
+jpeg("Manuscript.figures/testinfo.png", width = 800, height = 750)
 plot_grid(F1_test.info , F2_test.info.redu,F3_test.info.redu,F4_test.info.redu,F5_test.info,
           labels = "AUTO", label_size = 10, align = "v" )
+dev.off()
+```
 
+```{r Testinfo, fig.cap="Test information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="60%"}
+
+knitr::include_graphics('Manuscript.figures/testinfo.png')
 ```
 
 Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of short-LEBA as an unidmensional construct we obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum ($\theta$). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA tool (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
