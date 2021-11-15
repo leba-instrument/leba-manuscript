@@ -884,7 +884,7 @@ print(BigRR)
 #Total number of off diagonal elements in the data matrix
 totRR = length(reduced.model.5F.2)*(length(reduced.model.5F.2)-1)/2
 
-# Proportion of off-diagonal elements >.10
+# Proportion of off-diagonal elements >.05
 sumR <- sum(BigRR/totRR*100)
 
 
@@ -900,7 +900,7 @@ apa_table(efa.table,align = "c", caption = "Factor loadings and communality of t
 ```
 
 ```{r EFAResiduals, out.height= "100%",  fig.align='center', fig.cap= ' Histogram of residuals:  five-factor solution',  out.width="100%",  warning=FALSE, results='asis'}
-hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
+hist(residual.5F,  main = NULL, xlab = "Residuals", ylim=c(0, 400))
 abline(h =51, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
 
@@ -1388,8 +1388,7 @@ semPaths (fit.Cor.2 ,
           fade = FALSE,
           edge.label.cex = .65,
           exoCov = FALSE)
-
-           
+       
 ```
 
 ## Measurement Invariance
@@ -1503,8 +1502,6 @@ colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSE
 
 ```{r InvarianceTab, results='asis'}
 apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
-
-
 
 ```
 
