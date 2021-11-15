@@ -182,6 +182,8 @@ library(Hmisc)
 r_refs("references.bib")
 ```
 
+# SA: Confirming the five factor solution obtained using minimum residual extraction method
+
 ```{r MinRes, include=F}
 library(psych)
 library(tabledown)
@@ -247,9 +249,10 @@ minresTab <- tabledown::fac.tab(fa.5F.min.3, cut =.3,complexity = F)
 
 ```{r MinResTab}
 papaja::apa_table(minresTab,  caption = "Factor loadings and communality of the retained items(Minmum Residual)", note = "Only loading higher than .30 is reported", longtable=T)
-
-
 ```
+
+
+# SA: Factor analysis with six factors
 
 ```{r sixFac, include=F}
 # EFA with 6 factor (rejected)
@@ -305,7 +308,8 @@ sixFac <- tabledown::fac.tab(fa.6F.3, cut =.3,complexity = F)
 papaja::apa_table(sixFac,  caption = "Factor loadings and communality of the retained items(six factor)", note = "Only loading higher than .30 is reported",longtable =T)
 ```
 
-# Factor Analysis with Unmerged Response Option
+# SA: Factor Analysis with Unmerged Response Option
+
 ```{r DataAppB, include=FALSE}
 data <- readRDS("leba_2021-09-08.rds")
 
@@ -340,10 +344,10 @@ apatheme=ggplot2::theme_bw()+
 ```{r EFAassumptionsAppB, include=FALSE}
 
 #KMO test
-KMO <- KMO(EFA.data) 
+KMO.1 <- KMO(EFA.data) 
 
 # Test of correlation matrix
-bartlet <- cortest.bartlett(EFA.data, n =428)
+bartlet.1 <- cortest.bartlett(EFA.data, n =428)
 
 
 # Univariate normality
@@ -383,7 +387,7 @@ efa.normalitysufix <- Shapiro.efa$significance
 efa.normality.stat <- paste(efa.normalityprefix,efa.normalitysufix, sep = "" )
 
 # Multivariate Normality
-mardia <- mardia(EFA.data, na.rm = T, plot =F)
+mardia.1 <- mardia(EFA.data, na.rm = T, plot =F)
 
 # Descriptive Stats
 Descriptives <- psych::describe(EFA.data)
@@ -399,34 +403,24 @@ my.names <- paste(rownameprefix,rownamesufix, sep = "" )
 rownames(Des.combined) = (my.names)
 ```
 
-```{r tabDesAppB, results='asis'}
-apa_table(Des.combined, caption = "Descriptive Statistics for Unmerged response options",  note = "*p<.001", longtable =T)
-```
 
-```{r CorrMatrixAppB, include=FALSE}
+```{r CorrMatrixAppB, include=FALSE, warning=F,message=F}
 #Polychoric Correlation matrix
 
 correlations <- polychoric(EFA.data, correct = 0)
 upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 
-min.cor <- abs(min(upper)) #minimum cor.coefficient of the matrix
-max.cor <- abs(max(upper)) # max. correlation coefficient of the matrix
+min.cor.1 <- apa(min(abs(upper)),2,F) #minimum cor.coefficient of the matrix
+max.cor.1 <- apa(max(abs(upper)),2,F) # max. correlation coefficient of the matrix
 
 determinets <- det(correlations$rho) 
 # Calculating the percentage of correlations higher than .30
 
 BigR = sum(correlations$rho >= abs(.30) & correlations$rho < abs(1.0), na.rm =T)/2 
 totR = length(EFA.data)*(length(EFA.data)-1)/2
-cor.per <- print (BigR/totR)*100
+cor.per.1 <- print (BigR/totR)*100
 ```
 
-```{r figCorAppB,  fig.cap="Correlation plot of the items [Unmerged response options]",  out.width="100%"}
-
-ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
-           ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
-#p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
-#to show pvalue in the fig add p.mat=p.mat
-```
 
 ```{r ParallelEFAAppB, include=FALSE}
 
@@ -510,12 +504,26 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
 
-```{r facIdFigAppB,  fig.cap='Factor Identification  (A) Parallel analysis (B) Scree Plot' [Unmerged response options], warning=FALSE}
+
+Table \@ref(tab:tabDesAppB) summarizes the univariate descriptive statistics for the 48 items with un-merged options. Some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics) and multivariate normality assumptions [Marida's test]. Multivariate skew was = `r printnum(mardia.1$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia.1$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen. Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy. The overall KMO vale for 48 items was `r printnum(KMO.1$MSA)` which was above the cutoff value (.50) indicating a mediocre sample. Bartlett's test of sphericity, $\chi^2$ (`r bartlet.1$df`) = `r apa(bartlet.1$chisq, 2, T)`, p < .001 indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per.1, 2,T)`% of the inter-item correlation coefficients were greater than .30. The absolute value of inter-item correlation ranged between `r min.cor.1` to `r max.cor.1`.Figure \@ref(fig:figCorAppB) depicts the correlation matrix. For un-merged response option Horn's parallel analysis with 500 iterations indicated a five-factor solution. However, Scree plot and the MAP method suggested 6-factor solution. five-factor solution . As a result, we tested both five-factor and six-factor solutions. The six factor solution yielded a factor with only two salient loading (Table \@ref(tab:EFAsix). Thus we reject the six factor solution. The five factor solution retained 24 items (Table \@ref(tab:EFATableAppB)). However the factors are less interpretable in terms of common theme. Thus we reject the five factor solution.
+
+
+```{r tabDesAppB, results='asis'}
+apa_table(Des.combined, caption = "Descriptive Statistics for Unmerged response options",  note = "*p<.001", longtable =T)
+```
+
+```{r figCorAppB, fig.cap="Correlation plot of the items [Unmerged response options]", include=FALSE, out.width="100%"}
+
+ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
+           ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
+#p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
+#to show pvalue in the fig add p.mat=p.mat
+```
+
+```{r facIdFigAppB,  fig.cap='Factor Identification  (A) Parallel analysis (B) Scree Plot [Unmerged response options]', warning=FALSE}
 cowplot::plot_grid(parallel, scree.plot, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
-
-Horn's parallel analysis with 500 iterations indicated a five-factor solution. However, Scree plot and the MAP method suggested 6-factor solution. five-factor solution . As a result, we tested both five-factor and six-factor solutions.
 
 ```{r EFAAppB, include=FALSE}
 fa.5F.1 <- fa(r=correlations$rho, nfactors = 5, fm= "pa",rotate ="varimax",
@@ -559,37 +567,56 @@ CC <- print(fa.5F.4, cut = .3, digits = 3, sort = TRUE)
 
 ```{r factordetailsAppB, include=FALSE}
 #Preparing the EFA table
-
 efa.table <- tabledown::fac.tab(fa.5F.4,.3, complexity = F) 
-
-#Communality
-Fac.5 <- fa.5F.4
-min.com <- min(Fac.5$communality)
-max.com <- max(Fac.5$communality)
-
-# loading
-min.loadings <- min(Fac.5$loadings)
-max.loadings <- max(Fac.5$loadings)
-
-# Residuals
-residual.5F =residuals(fa.5F.4, diag = FALSE, na.rm =T)
-#Count of numbers of residuals>.05
-BigRR= sum(residual.5F>abs(.05), na.rm =T)
-print(BigRR)
-
-#Total number of off diagonal elements in the data matrix
-totRR = length(reduced.model.5F.3)*(length(reduced.model.5F.3)-1)/2
-
-# Proportion of off-diagonal elements >.10
-sumR <- sum(BigRR/totRR*100)
-
 ```
 
 ```{r EFATableAppB, results='asis'}
-apa_table(efa.table, caption = "Factor loadings and communality of the retained items [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T)
+apa_table(efa.table, caption = "Factor loadings and communality of the retained items in five factor solution [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T)
 ```
 
-| **Five Factor Solution[Unmerged Responses] (24 Items)** |
+
+```{r EFAAppsix, include=FALSE, warning=F,message=FALSE}
+fa.6F.1 <- fa(r=correlations$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+DD <- print(fa.6F.1, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.6F.1 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item44,item24, item37, item22, item5,
+                                        item28,item39,item23, item45, item6, item29, item2, item41, item30))
+
+correlations.red.6F.2 <- polychoric(reduced.model.6F.1,correct = 0)
+
+fa.6F.2 <- fa(r=correlations.red.6F.2$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+EE <- print(fa.6F.2, cut = .3, digits = 3, sort = TRUE)
+reduced.model.6F.2 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item44,item24, item37, item22, item5,
+                                        item28,item39,item23, item45, item6, item29, item2, item41, item30, item46, item36,item1, item25))
+correlations.red.6F.3 <- polychoric(reduced.model.6F.2,correct = 0)
+fa.6F.3 <- fa(r=correlations.red.6F.3$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+FF <- print(fa.6F.3, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.6F.3 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item44,item24, item37, item22, item5,
+                                        item28,item39,item23, item45, item6, item29, item2, item41, item30, item46, item36,item1, item25, item18))
+correlations.red.6F.4 <- polychoric(reduced.model.6F.3,correct = 0)
+fa.6F.4 <- fa(r=correlations.red.6F.4$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+FF <- print(fa.6F.4, cut = .3, digits = 3, sort = TRUE)
+
+efa.table.2 <- tabledown::fac.tab(fa.6F.4,.3, complexity = F) 
+```
+
+
+```{r EFAsix, results='asis'}
+apa_table(efa.table.2, caption = "Factor loadings and communality of the retained items in six factor solution [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T)
+```
+
+# Items Retained in the Five Factor Solution [Unmerged Responses]
+
+| **Five Factor Solution [Unmerged Responses] (24 Items)** |
 |---------------------------------------------------------|
 | **F1**                                                  |
 | `r label(sem.data$item19)`                              |
@@ -625,6 +652,5 @@ apa_table(efa.table, caption = "Factor loadings and communality of the retained 
 hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =35, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
-
 ```
 

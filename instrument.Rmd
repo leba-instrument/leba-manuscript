@@ -23,7 +23,7 @@ affiliation:
   - id            : "**"
     institution   : "Corresponding author: manuel.spitschan@psy.ox.ac.uk"
 
-floatsintext      : yes
+floatsintext      : no
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -106,7 +106,7 @@ The long form of LEBA consists 23 items with five factors.
 | F5: Using light in the morning and during daytime | 19-23                    | .52                                     |
 | McDonald's Omega coefficient for the total scale  |                          | .73(Total scale)                        |
 
-LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05\[.04-.06, 90% CI\]; SRMR = .09).
+LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05[.04-.06, 90% CI]; SRMR = .09).
 
 ## How to cite:
 
