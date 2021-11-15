@@ -1175,12 +1175,12 @@ cols_label(
   tab_row_group(
   group = "EFA (n = 428)",
     rows = 1:25  
-  ) %>% gtsave("Manuscript.figures/gt.png",vwidth = 3000)
+  ) %>% gtsave("Manuscript.figures/gt.png",vwidth = 7000)
 
 
 ```
 
-```{r gtPic, echo=FALSE, out.height="100%", out.width="120%", fig.cap= ' Summary Descriptives of CFA and EFA Sample'}
+```{r gtPic, echo=FALSE, out.height="100%", out.width="200%", fig.cap= ' Summary Descriptives of CFA and EFA Sample'}
 knitr::include_graphics('Manuscript.figures/gt.png')
 
 ```

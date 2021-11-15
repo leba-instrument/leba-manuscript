@@ -420,7 +420,7 @@ totR = length(EFA.data)*(length(EFA.data)-1)/2
 cor.per <- print (BigR/totR)*100
 ```
 
-```{r figCorAppB,  fig.cap="Correlation plot of the items",  out.width="100%"}
+```{r figCorAppB,  fig.cap="Correlation plot of the items [Unmerged response options]",  out.width="100%"}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
            ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
@@ -510,7 +510,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
 ```
 
-```{r facIdFigAppB,  fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot', warning=FALSE}
+```{r facIdFigAppB,  fig.cap='Factor Identification  (A) Parallel analysis (B) Scree Plot' [Unmerged response options], warning=FALSE}
 cowplot::plot_grid(parallel, scree.plot, labels = "AUTO",ncol=1, label_size = 8,align = "v")
 
 ```
@@ -560,8 +560,7 @@ CC <- print(fa.5F.4, cut = .3, digits = 3, sort = TRUE)
 ```{r factordetailsAppB, include=FALSE}
 #Preparing the EFA table
 
-
-efa.table <- tabledown::fac.tab(fa.5F.4,.3) 
+efa.table <- tabledown::fac.tab(fa.5F.4,.3, complexity = F) 
 
 #Communality
 Fac.5 <- fa.5F.4
@@ -584,11 +583,9 @@ totRR = length(reduced.model.5F.3)*(length(reduced.model.5F.3)-1)/2
 # Proportion of off-diagonal elements >.10
 sumR <- sum(BigRR/totRR*100)
 
-
 ```
 
 ```{r EFATableAppB, results='asis'}
-
 apa_table(efa.table, caption = "Factor loadings and communality of the retained items [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T)
 ```
 
