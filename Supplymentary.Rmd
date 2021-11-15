@@ -624,7 +624,7 @@ apa_table(efa.table, caption = "Factor loadings and communality of the retained 
 | `r label(sem.data$item17)`                              |
 | `r label(sem.data$item36)`                              |
 
-```{r EFAResidualsAppB,   fig.cap=' Histogram of residulas:  five-factor solution', warning=FALSE,  results='asis'}
+```{r EFAResidualsAppB, eval=FALSE, fig.cap=' Histogram of residulas:  five-factor solution', warning=FALSE, include=FALSE, results='asis'}
 hist(residual.5F,  main = NULL, xlab = "Five-factor solution", ylim=c(0, 400))
 abline(h =35, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
