@@ -401,16 +401,16 @@ Age among all participants ranged from `r min(desctable.data$slypos_demographics
 ```{r Manuflowchart, include=FALSE }
 Flowchart1 <- grViz("digraph nicegraph{
          
-                    graph [fontname = Helvetica,layout = dot,fontsize = 20, ]
+                    graph [fontname = Helvetica,layout = dot,fontsize = 40, ]
                      
-                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 6.5, height = 1, 
-                    fixedsize = true,fontsize = 20]  
+                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 15, height = 1, 
+                    fixedsize = true,fontsize = 40]  
                      
                     A[label = '48 items were generataed by a robust expert panel'] 
                     B[label = 'Exploratory Factor Analysis on 48 Items (N = 428)']
                     
-                    node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 7.5, height = 2, 
-                    fixedsize = true, fontsize = 20]
+                    node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 15, height = 6, 
+                    fixedsize = true, fontsize = 40]
                     C[label = 
                     <
                     Factor Identification<br align = 'left'/>
@@ -424,12 +424,12 @@ Flowchart1 <- grViz("digraph nicegraph{
                      subgraph cluster_1 {
                       graph[fontname = Helvetica, shape = rectangle]
                       style = rounded
-                     node[fontname = Helvetica, margin = 0.2,width = 9, height = 1, 
-                    fixedsize = true, fontsize = 18 ]
+                     node[fontname = Helvetica, margin = 0.2,width = 18, height = 2, 
+                    fixedsize = true, fontsize = 38 ]
                     
                      1[label = '5 Factor Solution Retained 25 Items']
                      2[label = 'Reliability Analysis on EFA Sample (N=428)
-                    Alpha F1 =.86; F2 = .71; F3 = .68; F4 =.62; F5 =.52']
+                    Ordinal alpha F1 =.94; F2 = .76; F3 = .75; F4 =.72; F5 =.62']
                     
                      3[label = 'Confirmatory Factor Analysis 
                      on the Five Factor Model (25 Items; N=262)
@@ -439,15 +439,18 @@ Flowchart1 <- grViz("digraph nicegraph{
                      on the Five Factor Model (23 Items; N=262)
                       Acceptable Fit ( CFI = .97; TLI .96; RMSEA = .04, SRMR = .09)']
                      5[label = 'Reliability Analysis on CFA (23 Items; N=262) 
-                      Alpha F1=.93; F2=.80; F3 =.62; F4=.72; F5=.45']
-                    8[label = 'LEBA Short Form (17 Items; N=690) 
+                      Ordinal alpha F1=.93; F2=.83; F3 =.70; F4=.69; F5=.52']
+                    8[label = 'Measurement Invariance Analysis
+                    Residual measurement invariance achieved']
+                    9[label = 'Semantic Analysis']
+                    10[label = 'LEBA Short Form (17 Items; N=690) 
                       Based on Item Response Theory']
                     }
                 subgraph cluster_2 {
                       graph[fontname = Helvetica,shape = rectangle]
                       style = rounded
-                     node[fontname = Helvetica, margin = 0.2,width = 8, height = 1, 
-                fixedsize = true, fontsize = 18 ]
+                     node[fontname = Helvetica, margin = 0.2,width = 18, height = 2, 
+                fixedsize = true, fontsize = 38 ]
                     6[label = '6-Factor solution: one factor emerged with only two salient loadings']
                     7[label = 'Rejected']
                     }     
@@ -462,21 +465,21 @@ Flowchart1 <- grViz("digraph nicegraph{
                      3 ->4
                      4 ->5
                     5->8
+                    8 ->9
+                    9 ->10
                      C ->6
                      6 ->7
                      
                      
 }")
-
-
 export_svg(Flowchart1) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("Manuscript.figures/Flowchart1.png")
+  png::writePNG("Manuscript.figures/Flowchart1.png", dpi = 1200)
 
 ```
 
-```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='150%', out.width='100%'}
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='160%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/Flowchart1.png')
 ```
 
@@ -794,7 +797,7 @@ x [label = 'item4']
 y [label = 'item1']
 z [label = 'item26']
 
-{rank = same; F1 F2 F3 F4 F5}
+
 # edge definitions with the node IDs
 edge [fontname = Helvetica, fontsize = 35]
 F5 -> u [label = '0.60']
@@ -829,7 +832,7 @@ F1-> d [label = '0.80']
 export_svg(EFAplot) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("Manuscript.figures/EFAplot.png")
+  png::writePNG("Manuscript.figures/EFAplot.png", dpi = 1200)
 
 ```
 
@@ -1987,7 +1990,7 @@ knitr::include_graphics('Manuscript.figures/testinfo.png')
 
 Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of short-LEBA as an unidmensional construct we obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except blue filter factor, the other factor's TICs are roughly centered on the center of the trait continuum ($\theta$). Also the amount of information changed rather steadily with the change of ($\theta$). Thus we conferred the LEBA tool (except blue filter) estimated the light exposure related behavior with precision near the center of trait continuum [@bakerBasicsItemResponse2017] which is sufficient to discriminate between latent trait measured by the each factor. The blue filter factor had a peak to the right side of the center of latent trait indicating its ability to providing information only for people who already have some preference towards using blue-filters.
 
-Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value <.06 indicating adequate fit. Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
+Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value $\le$.06 indicating adequate fit. Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models.
 ```{r itemfittab, results='asis',warning=F, message=F}
 apa_table(itemfit, caption ="Item fit statistics for the fitted models")
 ```
