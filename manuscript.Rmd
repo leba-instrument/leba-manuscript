@@ -176,8 +176,8 @@ par(family = "Arial")
 ```
 
 ```{r pacman, eval=FALSE, include=FALSE}
-#You need to run this chunck 1X in your system 
-#install.packages("pacman")
+#You need to run this chunk 1X in your system 
+#install.packages("pacman")#Run this if you don't have pacman installed.
 pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl)
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja","crsh/citr", "masiraji/tabledown")
@@ -2200,6 +2200,16 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 
 ```{=tex}
 \endgroup
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Supplymentary.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
 ```
 
 

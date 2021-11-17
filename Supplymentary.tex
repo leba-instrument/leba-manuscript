@@ -1,166 +1,14 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-  english,
-  man]{apa6}
-\title{Supplementary}
-\author{Mushfiqul Anwar Siraji\textsuperscript{1, *}, Rafael Robert Lazar\textsuperscript{2, 3, *}, Juliëtte van Duijnhoven\textsuperscript{4}, Luc Schlangen\textsuperscript{5}, Shamsul Haque\textsuperscript{1}, Vineetha Kalavally\textsuperscript{6}, Céline Vetter\textsuperscript{7, 8}, Gena Glickman\textsuperscript{9}, Karin Smolders\textsuperscript{10}, \& Manuel Spitschan\textsuperscript{11, 2, 3}}
-\date{}
-
-\usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-  \setmainfont[]{Arial}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
+\clearpage
 \makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
+\efloat@restorefloats
 \makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Supplementary},
-  pdfauthor={Mushfiqul Anwar Siraji1, *, Rafael Robert Lazar2, 3, *, Juliëtte van Duijnhoven4, Luc Schlangen5, Shamsul Haque1, Vineetha Kalavally6, Céline Vetter7, 8, Gena Glickman9, Karin Smolders10, \& Manuel Spitschan11, 2, 3},
-  pdflang={en-EN},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
-\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-\usepackage{pdflscape}
-\newcommand{\blandscape}{\begin{landscape}}
-\newcommand{\elandscape}{\end{landscape}}
-% Manuscript styling
-\usepackage{upgreek}
-\captionsetup{font=singlespacing,justification=justified}
-
-% Table formatting
-\usepackage{longtable}
-\usepackage{lscape}
-% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
-\usepackage{multirow}		% Table styling
-\usepackage{tabularx}		% Control Column width
-\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
-\usepackage{threeparttablex}            % Lets threeparttable work with longtable
-
-% Create new environments so endfloat can handle them
-% \newenvironment{ltable}
-%   {\begin{landscape}\centering\begin{threeparttable}}
-%   {\end{threeparttable}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
-
-% Enables adjusting longtable caption width to table width
-% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
-\makeatletter
-\newcommand\LastLTentrywidth{1em}
-\newlength\longtablewidth
-\setlength{\longtablewidth}{1in}
-\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
-
-% \setlength{\parindent}{0.5in}
-% \setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-% \usepackage{etoolbox}
-\makeatletter
-\patchcmd{\HyOrg@maketitle}
-  {\section{\normalfont\normalsize\abstractname}}
-  {\section*{\normalfont\normalsize\abstractname}}
-  {}{\typeout{Failed to patch abstract.}}
-\patchcmd{\HyOrg@maketitle}
-  {\section{\protect\normalfont{\@title}}}
-  {\section*{\protect\normalfont{\@title}}}
-  {}{\typeout{Failed to patch title.}}
-\makeatother
-\shorttitle{SA}
-\DeclareDelayedFloatFlavor{ThreePartTable}{table}
-\DeclareDelayedFloatFlavor{lltable}{table}
-\DeclareDelayedFloatFlavor*{longtable}{table}
-\makeatletter
-\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
-\makeatother
-\usepackage{lineno}
-
-\linenumbers
-\usepackage{csquotes}
-\ifXeTeX
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 
 
-\affiliation{\vspace{0.5cm}\textsuperscript{1} Monash University, Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia\\\textsuperscript{2} Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland\\\textsuperscript{3} University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland\\\textsuperscript{4} Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands\\\textsuperscript{5} Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Intelligent Lighting Institute, Eindhoven, Netherlands\\\textsuperscript{6} Monash University, Department of Electrical and Computer Systems Engineering, Malaysia, Selangor, Malaysia\\\textsuperscript{7} University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA\\\textsuperscript{8} Ximes GmbH, Frankfurt, Germany\\\textsuperscript{9} Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA\\\textsuperscript{10} Eindhoven University of Technology, Human-Technology Interaction Group, Eindhoven, Netherlands\\\textsuperscript{11} University of Oxford, Department of Experimental Psychology, Oxford, UK\\\textsuperscript{*} Joint first author}
-
-\begin{document}
-\maketitle
-
+\begin{appendix}
 \hypertarget{sa-confirming-the-five-factor-solution-obtained-using-minimum-residual-extraction-method}{%
-\section{SA: Confirming the five factor solution obtained using minimum residual extraction method}\label{sa-confirming-the-five-factor-solution-obtained-using-minimum-residual-extraction-method}}
+\section{SA: Confirming the five factor solution obtained using minimum
+residual extraction
+method}\label{sa-confirming-the-five-factor-solution-obtained-using-minimum-residual-extraction-method}}
 
 \begin{center}
 \begin{ThreePartTable}
@@ -170,12 +18,12 @@
 \end{TableNotes}
 
 \begin{longtable}{llllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:MinResTab}Factor loadings and communality of the retained items(Minmum Residual)}\\
+\caption{\label{tab:MinResTab-8}Factor loadings and communality of the retained items(Minmum Residual)}\\
 \toprule
 item & \multicolumn{1}{c}{MR1} & \multicolumn{1}{c}{MR2} & \multicolumn{1}{c}{MR3} & \multicolumn{1}{c}{MR4} & \multicolumn{1}{c}{MR5} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:MinResTab} continued}}\\
+\caption*{\normalfont{Table \ref{tab:MinResTab-8} continued}}\\
 \toprule
 item & \multicolumn{1}{c}{MR1} & \multicolumn{1}{c}{MR2} & \multicolumn{1}{c}{MR3} & \multicolumn{1}{c}{MR4} & \multicolumn{1}{c}{MR5} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
@@ -215,7 +63,8 @@ item26 &  &  &  &  & 0.35 & 0.165 & 0.835\\
 \end{center}
 
 \hypertarget{sa-factor-analysis-with-six-factors}{%
-\section{SA: Factor analysis with six factors}\label{sa-factor-analysis-with-six-factors}}
+\section{SA: Factor analysis with six
+factors}\label{sa-factor-analysis-with-six-factors}}
 
 \begin{center}
 \begin{ThreePartTable}
@@ -225,12 +74,12 @@ item26 &  &  &  &  & 0.35 & 0.165 & 0.835\\
 \end{TableNotes}
 
 \begin{longtable}{lllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:sixFacTab}Factor loadings and communality of the retained items(six factor)}\\
+\caption{\label{tab:sixFacTab-10}Factor loadings and communality of the retained items(six factor)}\\
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{PA6} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:sixFacTab} continued}}\\
+\caption*{\normalfont{Table \ref{tab:sixFacTab-10} continued}}\\
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{PA6} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
@@ -273,9 +122,34 @@ item29 &  &  &  &  &  &  & 0.108 & 0.892\\
 \end{center}
 
 \hypertarget{sa-factor-analysis-with-unmerged-response-option}{%
-\section{SA: Factor Analysis with Unmerged Response Option}\label{sa-factor-analysis-with-unmerged-response-option}}
+\section{SA: Factor Analysis with Unmerged Response
+Option}\label{sa-factor-analysis-with-unmerged-response-option}}
 
-Table \ref{tab:tabDesAppB} summarizes the univariate descriptive statistics for the 48 items with un-merged options. Some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics) and multivariate normality assumptions {[}Marida's test{]}. Multivariate skew was = 494.70 (p \textless0.001) and multivariate kurtosis was = 2,705.00 (p \textless0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen. Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy. The overall KMO vale for 48 items was 0.65 which was above the cutoff value (.50) indicating a mediocre sample. Bartlett's test of sphericity, \(\chi^2\) (1128) = 5515.20, p \textless{} .001 indicated the correlations between items are adequate for the EFA. However only 4.34\% of the inter-item correlation coefficients were greater than .30. The absolute value of inter-item correlation ranged between .00 to .96.Figure \ref{fig:figCorAppB} depicts the correlation matrix. For un-merged response option Horn's parallel analysis with 500 iterations indicated a five-factor solution. However, Scree plot and the MAP method suggested 6-factor solution. five-factor solution . As a result, we tested both five-factor and six-factor solutions. The six factor solution yielded a factor with only two salient loading (Table \ref{tab:EFAsix}. Thus we reject the six factor solution. The five factor solution retained 24 items (Table \ref{tab:EFATableAppB}). However the factors are less interpretable in terms of common theme. Thus we reject the five factor solution.
+Table @ref(tab:tabDesAppB) summarizes the univariate descriptive
+statistics for the 48 items with un-merged options. Some of the items
+were skewed with high Kurtosis values. Our data violated both univariate
+normality (Shapiro-Wilk statistics) and multivariate normality
+assumptions {[}Marida's test{]}. Multivariate skew was = 494.70 (p
+\textless0.001) and multivariate kurtosis was = 2,705.00 (p
+\textless0.001). Due to these violations and ordinal nature of the
+response data polychoric correlations over Pearson's correlations was
+chosen. Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO)
+measures of sampling adequacy. The overall KMO vale for 48 items was
+0.65 which was above the cutoff value (.50) indicating a mediocre
+sample. Bartlett's test of sphericity, \(\chi^2\) (1128) = 5515.20, p
+\textless{} .001 indicated the correlations between items are adequate
+for the EFA. However only 4.34\% of the inter-item correlation
+coefficients were greater than .30. The absolute value of inter-item
+correlation ranged between .00 to .96.Figure @ref(fig:figCorAppB)
+depicts the correlation matrix. For un-merged response option Horn's
+parallel analysis with 500 iterations indicated a five-factor solution.
+However, Scree plot and the MAP method suggested 6-factor solution.
+five-factor solution . As a result, we tested both five-factor and
+six-factor solutions. The six factor solution yielded a factor with only
+two salient loading (Table @ref(tab:EFAsix). Thus we reject the six
+factor solution. The five factor solution retained 24 items (Table
+@ref(tab:EFATableAppB)). However the factors are less interpretable in
+terms of common theme. Thus we reject the five factor solution.
 
 \begin{center}
 \begin{ThreePartTable}
@@ -285,12 +159,12 @@ Table \ref{tab:tabDesAppB} summarizes the univariate descriptive statistics for 
 \end{TableNotes}
 
 \begin{longtable}{lllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:tabDesAppB}Descriptive Statistics for Unmerged response options}\\
+\caption{\label{tab:tabDesAppB-18}Descriptive Statistics for Unmerged response options}\\
 \toprule
  & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Skew} & \multicolumn{1}{c}{Kurtosis} & \multicolumn{1}{c}{Shapiro-Wilk Statistics} & \multicolumn{1}{c}{Item-Total Correlation}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:tabDesAppB} continued}}\\
+\caption*{\normalfont{Table \ref{tab:tabDesAppB-18} continued}}\\
 \toprule
  & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Skew} & \multicolumn{1}{c}{Kurtosis} & \multicolumn{1}{c}{Shapiro-Wilk Statistics} & \multicolumn{1}{c}{Item-Total Correlation}\\
 \midrule
@@ -353,8 +227,9 @@ Item48 & 2.57 & 1.30 & 0.14 & -0.74 & 0.93* & .31\\
 
 \begin{figure}
 \centering
-\includegraphics{Supplymentary_files/figure-latex/facIdFigAppB-1.pdf}
-\caption{\label{fig:facIdFigAppB}Factor Identification (A) Parallel analysis (B) Scree Plot {[}Unmerged response options{]}}
+\includegraphics{manuscript_files/figure-latex/facIdFigAppB-20-1.pdf}
+\caption{(\#fig:facIdFigAppB-20)Factor Identification (A) Parallel
+analysis (B) Scree Plot {[}Unmerged response options{]}}
 \end{figure}
 
 \begin{center}
@@ -365,12 +240,12 @@ Item48 & 2.57 & 1.30 & 0.14 & -0.74 & 0.93* & .31\\
 \end{TableNotes}
 
 \begin{longtable}{llllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:EFATableAppB}Factor loadings and communality of the retained items in five factor solution [Unmerged Responses]}\\
+\caption{\label{tab:EFATableAppB-23}Factor loadings and communality of the retained items in five factor solution [Unmerged Responses]}\\
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:EFATableAppB} continued}}\\
+\caption*{\normalfont{Table \ref{tab:EFATableAppB-23} continued}}\\
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
@@ -416,12 +291,12 @@ item38 &  &  &  &  & 0.33 & 0.129 & 0.871\\
 \end{TableNotes}
 
 \begin{longtable}{lllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:EFAsix}Factor loadings and communality of the retained items in six factor solution [Unmerged Responses]}\\
+\caption{\label{tab:EFAsix-25}Factor loadings and communality of the retained items in six factor solution [Unmerged Responses]}\\
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{PA6} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:EFAsix} continued}}\\
+\caption*{\normalfont{Table \ref{tab:EFAsix-25} continued}}\\
 \toprule
 item & \multicolumn{1}{c}{PA1} & \multicolumn{1}{c}{PA2} & \multicolumn{1}{c}{PA3} & \multicolumn{1}{c}{PA4} & \multicolumn{1}{c}{PA6} & \multicolumn{1}{c}{PA5} & \multicolumn{1}{c}{Communality} & \multicolumn{1}{c}{Uniqueness}\\
 \midrule
@@ -463,7 +338,8 @@ item26 &  &  &  &  &  &  & 0.064 & 0.936\\
 \end{center}
 
 \hypertarget{items-retained-in-the-five-factor-solution-unmerged-responses}{%
-\section{Items Retained in the Five Factor Solution {[}Unmerged Responses{]}}\label{items-retained-in-the-five-factor-solution-unmerged-responses}}
+\section{Items Retained in the Five Factor Solution {[}Unmerged
+Responses{]}}\label{items-retained-in-the-five-factor-solution-unmerged-responses}}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.00}}@{}}
@@ -491,32 +367,36 @@ I look at my mobile phone screen immediately after waking up. \\
 I use my mobile phone within 1 hour before attempting to fall asleep. \\
 I check my phone when I wake up at night. \\
 \textbf{F4} \\
-I use a blue-filter app on my computer screen within 1 hour before attempting to fall asleep. \\
+I use a blue-filter app on my computer screen within 1 hour before
+attempting to fall asleep. \\
 I seek out knowledge on how to improve my light exposure. \\
-I dim my computer screen within 1 hour before attempting to fall asleep. \\
+I dim my computer screen within 1 hour before attempting to fall
+asleep. \\
 I discuss the effects of light on my body with other people. \\
 I modify my light environment to match my current needs. \\
 I dim my room light within 1 hour before attempting to fall asleep. \\
 I use as little light as possible when I get up during the night. \\
 \textbf{F5} \\
-I wear blue-filtering, orange-tinted, and/or red-tinted glasses indoors during the day. \\
-I wear blue-filtering, orange-tinted, and/or red-tinted glasses outdoors during the day. \\
-I wear blue-filtering, orange-tinted, and/or red-tinted glasses within 1 hour before attempting to fall asleep. \\
+I wear blue-filtering, orange-tinted, and/or red-tinted glasses indoors
+during the day. \\
+I wear blue-filtering, orange-tinted, and/or red-tinted glasses outdoors
+during the day. \\
+I wear blue-filtering, orange-tinted, and/or red-tinted glasses within 1
+hour before attempting to fall asleep. \\
 \bottomrule
 \end{longtable}
 
 \hypertarget{geographic-locations-of-survey-participants}{%
-\section{Geographic Locations of Survey Participants}\label{geographic-locations-of-survey-participants}}
+\section{Geographic Locations of Survey
+Participants}\label{geographic-locations-of-survey-participants}}
 
-\begingroup\fontsize{8}{10}\selectfont
-
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{10cm}>{\raggedright\arraybackslash}p{4cm}}
-\caption{\label{tab:TzTable}Geographical Location}\\
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{10cm}>{\raggedright\arraybackslash}p{2cm}}
+\caption{(\#tab:TzTable-27)Geographical Location}\\
 \toprule
  & **N = 690**\\
 \midrule
 \endfirsthead
-\caption[]{\label{tab:TzTable}Geographical Location \textit{(continued)}}\\
+\caption[]{(\#tab:TzTable-27)Geographical Location \textit{(continued)}}\\
 \toprule
  & **N = 690**\\
 \midrule
@@ -1037,7 +917,4 @@ Zambia - Africa/Lusaka (UTC +02:00) & 0 (0\%)\\
 \addlinespace
 Zimbabwe - Africa/Harare (UTC +02:00) & 0 (0\%)\\*
 \end{longtable}
-\endgroup{}
-
-
-\end{document}
+\end{appendix}
