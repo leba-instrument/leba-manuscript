@@ -654,3 +654,28 @@ abline(h =35, lwd = 2, lty = 2)
 abline(v =.05,lwd = 2, lty = 2)
 ```
 
+# Geographic Locations of Survey Participants
+```{r TzTable, include=FALSE, warning=F,message=FALSE}
+descriptives.data%>%
+  tbl_summary(
+    label = slypos_demographics_tz.factor ~ "Time zone - Country",
+    statistic = list(all_categorical() ~ "{n} ({p}%)"),
+    missing = "no",
+    sort = all_categorical() ~ "frequency",
+    include = "slypos_demographics_tz.factor"
+  )  %>% bold_labels() %>% 
+  modify_header(label ~ "") %>%
+  modify_caption("Geographical Location") -> tz_table
+
+  as_tibble(tz_table, format = 'pipe') -> tz_tibble
+
+as_kable_extra(tz_table, format = "latex",booktabs = T) -> tz_kable
+
+```
+
+```{r tzTabPrint, results='asis'}
+
+tz_kable %>% kable_styling(latex_options = c("scale_down")) 
+          
+
+```
