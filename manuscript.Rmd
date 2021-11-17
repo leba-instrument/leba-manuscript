@@ -239,11 +239,11 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-```{r}
+```{r relscale, include=F, warning=F, message=F}
 relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
 ```
 
-```{r results='asis'}
+```{r scalePrint, results='asis'}
 relevant.scale.data %>%
    kable( booktabs = T, caption ="Releated Scales", format ="latex", longtable =T) %>% 
   kable_styling(latex_options = c("repeat_header")) %>% 
@@ -2200,5 +2200,15 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 
 ```{=tex}
 \endgroup
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('Supplymentary.Rmd')
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('instrument.Rmd')
 ```
 
