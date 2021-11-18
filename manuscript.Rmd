@@ -184,7 +184,8 @@ pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
 pacman::p_install_gh("crsh/citr")
 
-#if you dont have LaTeX installed run the following line
+#if you dont have LaTeX installed run the following lines
+#install.packages("tinytex")
 #tinytex::install_tinytex()
 ```
 
