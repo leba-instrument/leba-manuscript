@@ -180,9 +180,12 @@ par(family = "Arial")
 #install.packages("pacman")#Run this if you don't have pacman installed.
 pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl)
 pacman::p_install_gh("jthomasmock/gtExtras")
-pacman::p_install_gh("crsh/papaja","crsh/citr", "masiraji/tabledown")
+pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
+pacman::p_install_gh("crsh/citr")
 
+#if you dont have LaTeX installed run the following line
+#tinytex::install_tinytex()
 ```
 
 ```{r library, include=FALSE}
