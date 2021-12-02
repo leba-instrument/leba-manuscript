@@ -2017,7 +2017,7 @@ plot_grid(F1.scale, F1.scale,F1.scale,F1.scale,F1.scale,
           labels = "AUTO", label_size = 10,align = "v")
 ```
 
-The overall we can concluded that IRT analysis indicated short form of LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. All-in-all we can recommend the short form of LEBA to be used to capture light exposure related behavior.
+Overall we concluded that IRT analysis indicated short form of LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. All-in-all we can recommend the short form of LEBA to be used to capture light exposure related behavior.
 
 ```{r fscore, include=FALSE}
 LEBA.Total <- sem.data %>% 
