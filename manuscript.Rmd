@@ -625,7 +625,7 @@ apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = 
 ```{r figCor, out.height="150%",out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
 
 ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
-           ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90 )
+           ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90,colors = c("red", "white", "blue") )
 #p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
 #to show pvalue in the fig add p.mat=p.mat
 ```
