@@ -178,7 +178,7 @@ par(family = "Arial")
 ```{r pacman, eval=FALSE, include=FALSE}
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr)
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
@@ -318,6 +318,22 @@ sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 ```
+
+
+```{r country, include=FALSE}
+library(stringr)
+country <- data
+
+TZ <- as.data.frame(str_split_fixed(country$slypos_demographics_tz.factor, "-", 2))
+
+num.countries <- unique(TZ$V1)
+num.Timezone <- unique(TZ$V2)
+
+UTC <- as.data.frame(str_split_fixed(TZ$V2, "UTC", 2))
+numUTC <- unique(UTC$V2)
+```
+
+
 
 ```{r prepareDescTable, include=FALSE}
 
@@ -1932,6 +1948,41 @@ F5.person <- ggplot(F5.personfit, aes(x=Zh)) + geom_histogram(binwidth=.4)+geom_
   labs( y="Number of Participants", x = "Zh Statistics")+apatheme
 
 
+
+
+
+
+# Model Parameters ####
+## F1 Model Parameters####
+F1_params <- coef(F1_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F1_items.redu <- data.frame(F1_params$items)
+F1l_se <- coef(F1_fit, printSE = TRUE)
+
+## F2 Model Parameters####
+F2_params <- coef(F2_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F2_items.redu <- data.frame(F2_params$items)
+F2_se <- coef(F2_fit.redu, printSE = TRUE)
+
+## F3 Model Parameters####
+F3_params <- coef(F3_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F3_items.redu <- data.frame(F3_params$items)
+F3_se <- coef(F3_fit.redu, printSE = TRUE)
+
+## F4 Model Parameters####
+F4_params <- coef(F4_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F4_items.redu <- data.frame(F4_params$items)
+F4_se <- coef(F4_fit.redu, printSE = TRUE)
+
+## F5 Model Parameters####
+F5_params <- coef(F5_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F5_items.redu<- data.frame(F5_params$items)
+F5_se.redu <- coef(F5_fit.redu, printSE = TRUE)
+
+
+
+
+
+
 F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
       main="" )
 F2.reliability <- plot(F2_fit.redu, type = 'rxx', theta_lim = c(-6, 6), 
@@ -1978,6 +2029,10 @@ F4.scale <- plot(F4_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F5_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 
 ```
+
+
+
+
 
 ```{r savetestinfo, include=F, warning=F, message=F}
 jpeg("Manuscript.figures/testinfo.png", width = 800, height = 750)
@@ -2065,6 +2120,7 @@ F4.estimation <- as.vector(fscores(F4_fit.redu, method = "EAP",
 F5.estimation <- as.vector(fscores(F5_fit, method = "EAP",
                                            full.scores = TRUE, 
                                            full.scores.SE = F))
+
 
 
 
@@ -2184,6 +2240,18 @@ theta.correlation.matrix[1,5] <- paste(apa(F5.cor$r,2,F), F5.stars,sep="")
 as.data.frame(theta.correlation.matrix)
 colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
 ```
+
+```{r}
+library(WrightMap)
+wrightMap(F1.estimation,F1_items.redu[,2])
+wrightMap(F2.estimation,F2_items.redu[,2])
+wrightMap(F3.estimation,F3_items.redu[,2])
+wrightMap(F4.estimation,F3_items.redu[,2])
+wrightMap(F5.estimation,F5_items.redu[,2])
+```
+
+
+
 
 ```{r IRTscoreCor, eval=FALSE, include=FALSE, results='asis'}
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
