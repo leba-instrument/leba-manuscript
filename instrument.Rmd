@@ -106,7 +106,7 @@ The long form of LEBA consists 23 items with five factors.
 | F5: Using light in the morning and during daytime | 19-23                    | .52                                     |
 | McDonald's Omega coefficient for the total scale  |                          | .73(Total scale)                        |
 
-LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05[.04-.06, 90% CI]; SRMR = .09).
+LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05\[.04-.06, 90% CI\]; SRMR = .09).
 
 ## How to cite:
 
@@ -116,27 +116,28 @@ LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RM
 
 \blandscape
 
-# LEBA Short Form (17 Items)
+# LEBA Short Form (18 Items)
 
-|     | Short Form (17 Items)      | Never/Does not apply/I don't know | Rarely | Sometimes | Often | Always |
+|     | Short Form (18 Items)      | Never/Does not apply/I don't know | Rarely | Sometimes | Often | Always |
 |-----|----------------------------|-----------------------------------|--------|-----------|-------|--------|
 | 01  | `r label(sem.data$item16)` |                                   |        |           |       |        |
 | 02  | `r label(sem.data$item17)` |                                   |        |           |       |        |
 | 03  | `r label(sem.data$item36)` |                                   |        |           |       |        |
 | 04  | `r label(sem.data$item8)`  |                                   |        |           |       |        |
-| 05  | `r label(sem.data$item10)` |                                   |        |           |       |        |
-| 06  | `r label(sem.data$item11)` |                                   |        |           |       |        |
-| 07  | `r label(sem.data$item12)` |                                   |        |           |       |        |
-| 08  | `r label(sem.data$item7)`  |                                   |        |           |       |        |
-| 09  | `r label(sem.data$item27)` |                                   |        |           |       |        |
-| 10  | `r label(sem.data$item3)`  |                                   |        |           |       |        |
-| 11  | `r label(sem.data$item40)` |                                   |        |           |       |        |
-| 12  | `r label(sem.data$item32)` |                                   |        |           |       |        |
-| 13  | `r label(sem.data$item35)` |                                   |        |           |       |        |
-| 14  | `r label(sem.data$item33)` |                                   |        |           |       |        |
-| 15  | `r label(sem.data$item46)` |                                   |        |           |       |        |
-| 16  | `r label(sem.data$item45)` |                                   |        |           |       |        |
-| 17  | `r label(sem.data$item4)`  |                                   |        |           |       |        |
+| 05  | `r label(sem.data$item9)`  |                                   |        |           |       |        |
+| 06  | `r label(sem.data$item10)` |                                   |        |           |       |        |
+| 07  | `r label(sem.data$item11)` |                                   |        |           |       |        |
+| 08  | `r label(sem.data$item12)` |                                   |        |           |       |        |
+| 09  | `r label(sem.data$item7)`  |                                   |        |           |       |        |
+| 10  | `r label(sem.data$item27)` |                                   |        |           |       |        |
+| 11  | `r label(sem.data$item3)`  |                                   |        |           |       |        |
+| 12  | `r label(sem.data$item40)` |                                   |        |           |       |        |
+| 13  | `r label(sem.data$item32)` |                                   |        |           |       |        |
+| 14  | `r label(sem.data$item35)` |                                   |        |           |       |        |
+| 15  | `r label(sem.data$item33)` |                                   |        |           |       |        |
+| 16  | `r label(sem.data$item46)` |                                   |        |           |       |        |
+| 17  | `r label(sem.data$item45)` |                                   |        |           |       |        |
+| 18  | `r label(sem.data$item4)`  |                                   |        |           |       |        |
 
 \elandscape
 
