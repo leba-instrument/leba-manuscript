@@ -153,12 +153,14 @@ documentclass     : "apa6"
 classoption       : "man"
 output            : 
   papaja::apa6_pdf:
+    keep_tex: false
     latex_engine: xelatex
     includes:
       in_header: header.tex
 appendix:
   - "appendix-1.Rmd"
   - "appendix-2.Rmd"
+  - "appendix-3.Rmd"
 mainfont: Arial
 ---
 
@@ -737,7 +739,7 @@ full.map <- cbind(map.map,map.statistics)
 write.csv(full.map, "Table_raw/map_stat")
 ```
 
-Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the minimum average partial (MAP) method (Table \@ref(tab:Map-stat1)) [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
+Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the minimum average partial (MAP) method (Table \@ref(tab:factormp)) [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
 ```{r facIdFig, out.height="350%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
 cowplot::plot_grid(parallel, scree.plot,Hull, labels = "AUTO",ncol=1, label_size = 8,align = "v")
@@ -2564,7 +2566,7 @@ A CFA on a separate sample ((n = `r nrow(CFA.descriptives)` gave a five-factor s
 
 The "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic] on the retained 23 items showed "LEBA" was  related to  "Sleep Disturbance Scale For Children" (SDSC) [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990]. Upon inspecting the item contents we found items under: "Using phone and smart-watch in bed" and "Using light before bedtime" have semantic overlap with the items of SDSC ans CIDI. Items in those two scales were looking into behaviors related to sleep. As such the similarity index obtained is expected. Flesch-Kincaid Grade Level [@flesch1948new] analysis on the the 23 items of our scale indicated required educational grade level was 3.33 and with a age above 8.33.
 
-Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded response model model to the combined EFA and CFA sample ( n =`r nrow(data)`). We discarded 5 items with relatively flat item information curve [I($\theta$) <.20]. IRT analysis indicated short form of LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. Test information curve also indicated a good coverage of underlying trait continuum with precision.
+Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded response model model to the combined EFA and CFA sample (n =`r nrow(data)`). We discarded 5 items with relatively flat item information curve [I($\theta$) <.20]. IRT analysis indicated short form of LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. Test information curve also indicated a good coverage of underlying trait continuum with precision.
 
 ## Conclusion
 "The Light exposure behavior assessment"(LEBA) gave a five solution with 25 items in an exploratory factor analysis. A confirmatory factor analysis with this 25-item scale again offered a five-factor solution, but this time two more item was discarded. The 25-item "Bangla version of Rotter’s I-E scale"LEBA" was found reliable and valid. A short-form of LEBA was developed using IRT analysis. IRT analysis gave a 18 item scale with  a good range of coverage across the underlying trait continuum. All-in-all, we can recommend both forms to be used to capture individual’s light exposure related behavior
@@ -2588,14 +2590,4 @@ Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded 
 \endgroup
 ```
 
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-1.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-2.Rmd')
-```
 
