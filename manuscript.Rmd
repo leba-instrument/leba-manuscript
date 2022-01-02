@@ -250,17 +250,14 @@ relevant.scale.data %>%
 
 
 # Methods
-
 ## Ethical approval
 
 The cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, project ID Req-2021-00488) reviewed this project and issued an official clarification of responsibility (full document see Suppl. Fig X in appendix) stating: "The research project does not fall under the scope of the Human Research Act, because your project is using only anonymised data. An authorisation from the ethics committee is therefore not required and the EKNZ is not responsible for its review."
 
 ## Data Availability
 
-- What data will be available 
-- Where this data will be available 
-- under which licence
-- who to contact 
+All code and data underlying this article is available on a public GitHub repository (https://github.com/leba-instrument/leba-manuscript).
+
 
 ## Survey characteristics
 
@@ -313,7 +310,6 @@ colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
 ```
 
-
 ```{r country, include=FALSE}
 library(stringr)
 country <- data
@@ -326,8 +322,6 @@ num.Timezone <- unique(TZ$V2)
 UTC <- as.data.frame(str_split_fixed(TZ$V2, "UTC", 2))
 numUTC <- unique(UTC$V2)
 ```
-
-
 
 ```{r prepareDescTable, include=FALSE}
 
@@ -408,7 +402,7 @@ Table 1 summarizes the survey participants' demographic characteristics. Only pa
 
 For a complete list of geographic locations, see Suppl. Table X in the appendix.
 
-Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* ≥ `r min(desc_tibble$"**q-value**", na.rm=T)`.
+Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
 
 
 ## Item Generation
@@ -496,7 +490,6 @@ export_svg(Flowchart1) %>%
   png::writePNG("Manuscript.figures/Flowchart1.png", dpi = 1200)
 
 ```
-
 
 ## Analytic Strategies
 
@@ -598,6 +591,7 @@ rownames(Des.combined) = (my.names)
 ```
 
 ## Item Analysis
+
 ```{r ItemAnalysis, include=FALSE}
 # Item analysis
 Item_analysis <- psych::alpha(EFA.data,check.keys=TRUE)
@@ -609,7 +603,6 @@ high.r.corec <- (max(Item_analysis$item.stats$r.cor))     # maximum item total c
 Table \@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. Some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions [Marida's test;[@mardiaMeasuresMultivariateSkewness1970]]. Multivariate skew was = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
 
 ## Exploratory Factor Analysis
-
 ```{r CorrMatrix, include=FALSE}
 #Polychoric Correlation matrix
 
@@ -857,7 +850,6 @@ export_svg(EFAplot) %>%
 
 ```
 
-
 ```{r Cronbach alpha for 5 fators, message=TRUE, warning=FALSE, include=FALSE}
 
 Five.F1 <- dplyr::select(EFA.data, item16, item36, item17)
@@ -878,6 +870,11 @@ F2.alpha <- Five.F2.alpha$total$raw_alpha
 F3.alpha <- Five.F3.alpha$total$raw_alpha
 F4.alpha <- Five.F4.alpha$total$raw_alpha
 F5.alpha <- Five.F5.alpha$total$raw_alpha
+
+
+alpha.tab <- rbind(F1.alpha,F2.alpha,F3.alpha,F4.alpha,F5.alpha )
+
+
 ```
 
 ```{r tabledown, include=F}
@@ -1313,6 +1310,7 @@ fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi",
 modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE) 
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
+
 We conducted categorical confirmatory factor analysis with robust weighted least square (WLSMV) estimator since our response data was of ordinary nature [@desjardinsHandbookEducationalMeasurement2018]. Several indices are suggested to measure model fit which can be categorized as absolute, comparative and parsimony fit indices [@brownConfirmatoryFactorAnalysis2015]. Absolute fit assess the model fit at an absolute level using indices including $\chi^2$ test statistics and the standardized root mean square (SRMR). Parsimony fit indices including the root mean square error of approximation (RMSEA) considers the number of free parameters in the model to assesses the parsimony of the model. Comparative fit indices evaluate the fit of the specified model solution in relation to a more restricted baseline model restricting all covariances among the indicators as zero. Comparative fit index (CFI) and the Tucker Lewis index (TLI) are such two comparative fit indices. Commonly used Model fit guidelines [@huCutoffCriteriaFit1999; @schumacker2004beginner] includes (i) Reporting of $\chi^2$ test statistics (A non-significant test statistics is required to reflect model fit) (ii) CFI and TLI (CFI/TLI close to .95 or above/ranging between 90-95 and above) (iii) RMSEA (close to .06 or below), (iv) SRMR (close to .08 or below) to estimate the model fit. Table \@ref(tab:tabCfa) summarizes the fit indices of our fitted model. Our fitted model failed to attain an absolute fit estimated by the $\chi^2$ test. However, the $\chi^2$ test is sensitive to sample size and not recommended to be used as the sole index of absolute model fit [@brownConfirmatoryFactorAnalysis2015]. Another absolute fit index we obtained in our analysis was SRMR which does not work well with categorical data [@RN1272]. We judged the model fit based on the comparative fit indices: CFI, TLI and parsimony fit index:RMSEA. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`,[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 [`r Hmisc::label(sem.data$item32)`;`r Hmisc::label(sem.data$item33)`] and 16-17 [`r Hmisc::label(sem.data$item16)`;`r Hmisc::label(sem.data$item17)`]. Items pair 32-33 stemed from the preference of dimming electric device's brightness before bed time and items pair 16 and 19 stemed from the preference of using blue filtering or colored glasses during the daytime. Nevertheless, SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) [`r Hmisc::label(sem.data$item30)`;`r Hmisc::label(sem.data$item41)`] to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR value (SRMR = `r apa(fit.2[10],2,F)`) was also close to the suggestions of @huCutoffCriteriaFit1999. Internal consistency ordinal $\alpha$ for the five factors of LEBA were `r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)` respectively. We also estimated the internal consistency reliability of the total scale using Mcdonald's $\omega$ (total) coefficient which is a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. McDonald's $\omega$(total) coefficient for the total scale was `r apa(rel.k[5,6],2,F)`. Figure \@ref(fig:figcfa) depicts the obtained CFA structure.
 
 
@@ -1446,8 +1444,6 @@ as_kable_extra(mides, format = "latex",booktabs = T) -> mides_kable #save it as 
 
 ```
 
-
-
 ```{r Invariancedetail, include=FALSE}
 # Configural invariance ####
 
@@ -1551,8 +1547,55 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 ## Semantic Analysis 
 To find out if our developed tool is overlapping with existing instruments, we subjected the items of LEBA to the "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pair of scales with a cosine similarity index value of 1 indicates they are perfectly semantically similar scales indicating redundancy. LEBA  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990].The cosine similarities lie between .47 to .51. Two factors of our LEBA tool: "Using phone and smart-watch in bed" and "Using light before bedtime" dealt with light exposure related behavior pertaining to sleep quality. As such the similarity index obtained is expected.
 
+```{r textanalysis}
+
+devtools::install_github("unDocUMeantIt/koRpus")
+library(koRpus)# stable release
+koRpus::install.koRpus.lang(lang=c("en"))
+library(koRpus)
+library(koRpus.lang.en)
+
+ques <- tokenize("Table_raw/items.txt", 
+                 format = "file",
+                 fileEncoding = NULL,
+                 split = "[[:space:]]",
+                 ign.comp = "-",
+                 heuristics = "abbr",
+                 heur.fix = list(pre = c("\u2019", "'"), suf = c("\u2019", "'")),
+                 abbrev = NULL,
+                 tag = TRUE,
+                 lang = "en",
+                 sentc.end = c(".", "!", "?", ";", ":"),
+                 detect = c(parag = FALSE, hline = FALSE),
+                 clean.raw = NULL,
+                 perl = FALSE,
+                 stopwords = NULL,
+                 stemmer = NULL,
+                 doc_id = NA,
+                 add.desc = "kRp.env")
+
+readability <- readability(ques,
+                           hyphen = NULL,
+                           index = c(
+                             "Flesch.Kincaid"),
+                           parameters = list(),
+                           word.lists = list(Bormuth = NULL, Dale.Chall = NULL, Harris.Jacobson = NULL, Spache =
+                                               NULL),
+                           fileEncoding = "UTF-8",
+                           sentc.tag = "sentc",
+                           nonword.class = "nonpunct",
+                           nonword.tag = c(),
+                           quiet = FALSE,
+                           keep.input = NULL,
+                           as.feature = FALSE
+)
+
+
+```
+
 ## Developing Short form of LEBA
-We sought the item response theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty,item discrimination, and item information[@bakerBasicsItemResponse2017]. IRT judges the item's quality on item information in relation to participants' latent trait level ($\theta$). We gathered evidence on item quality by fitting each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:F2IF)-\@ref(fig:F5IF)) indicated 5 items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20) thus discarded creating a short form of LEBA with 5 factors and 18 items.
+We sought the item response theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty, item discrimination, and item information [@bakerBasicsItemResponse2017]. Item is  judged based on item information in relation to participants' latent trait level ($\theta$). We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:F2IF)-\@ref(fig:F5IF)) indicated 5 items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20) thus discarded creating a short form of LEBA with 5 factors and 18 items.
+
 
 ```{r IRTdata, include=FALSE}
 ## Recoding sem.data$item8 into sem.data$Ritem8
@@ -1825,8 +1868,6 @@ F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 ```
 
-
-
 ```{r iteminfo, include=F, warning=F}
 F1_item1<- plot(F1_fit, type = "infotrace", 
                     facet_items = T, which.items = 1, main = "")
@@ -1956,8 +1997,6 @@ f5itemplot <- plot_grid(F5_item1, F5_item2,F5_item3,F5_item4,F5_item5,
           label_size = 10,align = "v")
 ```
 
-
-
 ```{r f1itminf, include=F, warning=F}
 
 jpeg("Manuscript.figures/F1testinfo.png", width = 800, height = 750)
@@ -1972,7 +2011,6 @@ plot_grid(
 )
 dev.off()
 ```
-
 
 ```{r f2iteminf, include=F, warning=F}
 jpeg("Manuscript.figures/F2testinfo.png", width = 800, height = 750)
@@ -1996,7 +2034,6 @@ plot_grid(
 dev.off()
 ```
 
-
 ```{r f4iteminf, include=F, warning=F}
 jpeg("Manuscript.figures/F4testinfo.png", width = 800, height = 750)
 plot_grid(
@@ -2018,8 +2055,6 @@ plot_grid(
 )
 dev.off()
 ```
-
-
 
 ```{r IRTparameters, results='asis'}
 apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
@@ -2251,10 +2286,6 @@ F4.scale <- plot(F4_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F5_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
 
 ```
-
-
-
-
 
 ```{r savetestinfo, include=FALSE, warning=F, message=F}
 jpeg("Manuscript.figures/testinfo.png", width = 800, height = 750)
@@ -2488,7 +2519,6 @@ itemlevelcolors <- matrix(rep(brewer.pal(4, "Set1"), 18), byrow = TRUE, ncol = 4
 
 ```
 
-
 ```{r saveWrightmao, include=FALSE, warning=F, message=F}
 jpeg("Manuscript.figures/wm.png", width = 800, height = 750)
 WrightMap::wrightMap(estimation, threshold, 
@@ -2509,15 +2539,27 @@ dev.off()
 knitr::include_graphics('Manuscript.figures/wm.png')
 ```
 
-
-
-
-
 ```{r IRTscoreCor, eval=FALSE, include=FALSE, results='asis'}
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
 
 # Discussion
+
+We developed a self-reported tool to capture different light exposure related behavior and evaluated its psychometric properties using classical test theory and item response theory based analysis. 
+
+48 items were generated by an expert panel and  administered to a large sample (n = `r nrows(EFA.descriptives)` to explore the latent structure. Exploratory factor analysis revalied a five factor solution with 25 items. ("Wearing blue light filters", "Spending time outdoors", "Using phone and smart-watch in bed", "Using light before bedtime",  and "Using light in the morning and during daytime"). These five factors dealt with different light exposure related behavior. The internal consistency reliability coefficient ordinal alpha ranged between `r apa(range(alpha.tab),2,F)`. As all the retained factors were meaningful and contributed essentially towards our aim we retained all five factors.
+
+
+A CFA on a separate sample ((n = `r nrows(CFA.descriptives)` gave a five-factor solution (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR = `r apa(fit.2[10],2,F)`) after discarding two item. The internal consistency McDonald's $\omega_t$ of the five factors were  satisfactory (`r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`) Internal consistency reliability of the total scale (23 item) was also satisfactory, Mcdonald's $\omega_t$= `r apa(rel.k[5,6],2,F)`.  
+
+Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded response model model to the combined efa and cfa sample ( n =`r nrows(data)`). We discarded 5 items with relatively flat item information curve [I($\theta$) <.20]. No item was identified as a misfit item.  In terms of item difficulty, our scale contained very high  high , moderate , and low discriminating items and covered a substantial range of underlying  attributes.  Test information curve also indicated a good coverage of underlying trait continuum with precision. 
+## Conclusion
+"The Light exposure behavior assessment"(LEBA) gave a five solution with 25 items in an exploratory factor analysis. A confirmatory factor analysis with this 25-item scale again offered a five-factor solution, but this time two more item was discarded. The 25-item "Bangla version of Rotter’s I-E scale"LEBA" was found reliable and valid. A short-form of LEBA was developed using IRT analysis. IRT analysis gave a 18 item scale with  a good range of covergange across the underlying trait continuum. All-in-all, we can recommend both forms to be used to capture individual’s light exposure related behavior
+
+
+
+
+
 
 \newpage
 
