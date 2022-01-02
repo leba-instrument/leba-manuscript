@@ -471,7 +471,7 @@ abline(v =.05,lwd = 2, lty = 2)
 ```
 
 # Geographic Locations of Survey Participants
-```{r Timezone-tab, include=FALSE, warning=F,message=FALSE}
+```{r Timetab, include=FALSE, warning=F,message=FALSE}
 descriptives.data%>%
   tbl_summary(
     label = slypos_demographics_tz.factor ~ "Time zone - Country",

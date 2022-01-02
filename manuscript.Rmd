@@ -153,7 +153,7 @@ documentclass     : "apa6"
 classoption       : "man"
 output            : 
   papaja::apa6_pdf:
-    keep_tex: false
+    keep_tex: true
     latex_engine: xelatex
     includes:
       in_header: header.tex
@@ -249,7 +249,7 @@ nocite: |
 relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
 ```
 
-```{r scale-print, results='asis'}
+```{r simscalep}
 relevant.scale.data %>%
    kable( booktabs = T, caption ="Releated Scales", format ="latex", longtable =T) %>% 
   kable_styling(latex_options = c("repeat_header")) %>% 
@@ -388,11 +388,11 @@ descriptives.data%>%
 
 ```
 
-```{r Demoprint, results='asis'}
+```{r Demoprint}
 desc_kable %>% kable_styling(latex_options = c("scale_down")) 
 ```
 
-Table 2 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA) , a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country + timezone combinations included:
+Table \@ref(tab:Demoprint) summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA) , a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country + timezone combinations included:
 
 - `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` 
 - `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
@@ -412,7 +412,7 @@ Age among all participants ranged from `r min(desctable.data$slypos_demographics
 
 ## Item Generation
 
-To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioral component of light exposure were found (cf. Table 1). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose an expert researcher panel from the fields of chronobiology, light research, neuroscience and psychology (including seven of the authors, see authors roles) generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behavior* as opposed to subjective measurements of the light environment (cf.[@eklund1996development] & [@dianat2013objective]) and semi-quantitive assesments of light sources' illuminance (cf. [@bajaj2011validation]) in order to maintain content validity. In a collective effort the generated items were then peer-reviewed,  amended, unified, and complemented with a suitable response scale (5 point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
+To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioral component of light exposure were found (\@ref(tab:simscale)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose an expert researcher panel from the fields of chronobiology, light research, neuroscience and psychology (including seven of the authors, see authors roles) generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behavior* as opposed to subjective measurements of the light environment (cf.[@eklund1996development] & [@dianat2013objective]) and semi-quantitive assesments of light sources' illuminance (cf. [@bajaj2011validation]) in order to maintain content validity. In a collective effort the generated items were then peer-reviewed,  amended, unified, and complemented with a suitable response scale (5 point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
 
 ```{r Manuflowchart, include=FALSE }
 Flowchart1 <- grViz("digraph nicegraph{
@@ -460,7 +460,7 @@ Flowchart1 <- grViz("digraph nicegraph{
                     8[label = 'Measurement Invariance Analysis
                     Residual measurement invariance achieved']
                     9[label = 'Semantic Analysis']
-                    10[label = 'LEBA Short Form (17 Items; N=690) 
+                    10[label = 'LEBA Short Form (18 Items; N=690) 
                       Based on Item Response Theory']
                     }
                 subgraph cluster_2 {
@@ -2589,5 +2589,3 @@ Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded 
 ```{=tex}
 \endgroup
 ```
-
-
