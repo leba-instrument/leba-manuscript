@@ -5,11 +5,14 @@ map <- map[,-1]
 papaja::apa_table(map,align = "c", caption = "MAP Statistics",  font_size = "small")
 ```
 
+```{r EFAResiduals, out.height= "100%",  fig.align='center', fig.cap= ' Histogram of residuals:  five-factor solution',  out.width="100%",  warning=FALSE, results='asis'}
+knitr::include_graphics('Manuscript.figures/EFAResidual.png')
+
+```
 
 ```{r F1IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/F1testinfo.png')
 ```
-
 
 ```{r F2IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/F2testinfo.png')
@@ -27,3 +30,6 @@ knitr::include_graphics('Manuscript.figures/F4testinfo.png')
 knitr::include_graphics('Manuscript.figures/F5testinfo.png')
 ```
 
+```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+knitr::include_graphics("Manuscript.figures/personfit.png")
+```
