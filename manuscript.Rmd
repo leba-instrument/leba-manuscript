@@ -493,7 +493,7 @@ export_svg(Flowchart1) %>%
 
 ## Analytic Strategies
 
-Figure \@ref(fig:FlowchartFig) summarizes the steps of our psychometric analysis. In our analysis we used R (version 4.1.0), with several R packages. Initially, our tool had six point Likert type response format (0:Does not apply/I don't know; 1:Never, 2:Rarely; 3:Sometimes; 4:Often; 5:Always). Our purpose was to capture light exposure related behavior and these two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we decided to collapse them into one, making it a 5 point Likert type response format. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix, were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, we used  polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (PA) as  factor extraction method with varimax rotation. PA is robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by another factor extraction method: "the minimum residuals extraction" as well. We used a combination of factor identification method including scree plot [@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method [@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. Additionally, to determine the simple structure, we followed the guidelines recommended by psychometricians: (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018]. We confirmed the latent structure obtained in the EFA by conducting a categorical "Confirmatory Factor Analysis" (CFA) using "robust weighted least square estimator" (WLSMV). We estiablished the measurement invariance of our tool across the native and non-native English speakers using structural equation model framework. To assess the possible semantic overlap of our tool with the existing tools, we sought to "Semantic Scale Network" [@rosenbusch2020semantic].Also the readability index was analyzed using "Flesch-Kincaid Grade Level" [@flesch1948new].  Lastly, we sought "Item Response Theory" (IRT) based analysis on developing a short form of LEBA.
+Figure \@ref(fig:FlowchartFig) summarizes the steps of our psychometric analysis. In our analysis we used R (version 4.1.0), with several R packages. Initially, our tool had six point Likert type response format (0:Does not apply/I don't know; 1:Never, 2:Rarely; 3:Sometimes; 4:Often; 5:Always). Our purpose was to capture light exposure related behavior and these two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we decided to collapse them into one, making it a 5 point Likert type response format. Necessary assumptions of EFA, including sample adequacy, normality assumptions, quality of correlation matrix, were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, we used  polychoric correlation matrix [@desjardinsHandbookEducationalMeasurement2018] for the EFA. We employed principal axis (PA) as  factor extraction method with varimax rotation. PA is robust to the normality assumption violations [@watkinsStepbyStepGuideExploratory2020]. The obtained latent structure was confirmed by another factor extraction method: "the minimum residuals extraction" as well. We used a combination of factor identification method including scree plot [@cattellScreeTestNumber1966], Horn's parallel analysis [@hornRationaleTestNumber1965], minimum average partials method [@velicerDeterminingNumberComponents1976], and hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. Additionally, to determine the simple structure, we followed the guidelines recommended by psychometricians: (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading greater than .3 across factors [@bandalosFactorAnalysisExploratory2018]. We confirmed the latent structure obtained in the EFA by conducting a categorical "Confirmatory Factor Analysis" (CFA) using "robust weighted least square estimator" (WLSMV). We estiablished the measurement invariance of our tool across the native and non-native English speakers using structural equation model framework. To assess the possible semantic overlap of our tool with the existing tools, we sought to "Semantic Scale Network" [@rosenbusch2020semantic].To assess the possible semantic overlap of our tool with the existing tools, we sought to "Semantic Scale Network" [@rosenbusch2020semantic].  Lastly, we sought "Item Response Theory" (IRT) based analysis on developing a short form of LEBA.
 We also conducted psychometric analysis on non-merged response options data (Supp. Table \@ref(tab:efaunmerged)) and rejected the latent structure obtained as the factors were less interpretable.
 
 ```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='160%', out.width='100%'}
@@ -1550,8 +1550,9 @@ apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note 
 
 ```
 
-## Semantic Analysis and Readability
+## Semantic Analysis 
 To find out if our developed tool (23 items) is overlapping with existing instruments, we subjected the items of LEBA to the "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pair of scales with a cosine similarity index value of 1 indicates they are perfectly semantically similar scales indicating redundancy. LEBA  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990].The cosine similarities lie between .47 to .51. Flesch-Kincaid Grade Level [@flesch1948new] analysis on the the 23 items of our scale indicated required educational grade level was 3.33 and with a age abobe 8.33.
+
 
 ```{r textanalysis}
 
@@ -2556,7 +2557,7 @@ We developed a self-reported tool to capture different light exposure related be
 48 items were generated by an expert panel and  administered to a large sample (n = `r nrow(EFA.descriptives)` to explore the latent structure. Exploratory factor analysis revealed a five factor solution with 25 items. ("Wearing blue light filters", "Spending time outdoors", "Using phone and smart-watch in bed", "Using light before bedtime",  and "Using light in the morning and during daytime").The internal consistency reliability coefficient ordinal alpha ranged between `r apa(range(alpha.tab),2,F)`. As all the retained factors were meaningful and contributed essentially towards our aim we retained all five factors.
 
 
-A CFA on a separate sample ((n = `r nrow(CFA.descriptives)` gave a five-factor solution (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`; RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI] and SRMR = `r apa(fit.2[10],2,F)`) after discarding two item. The internal consistency McDonald's $\omega_t$ of the five factors were  satisfactory (`r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`). Internal consistency reliability of the total scale (23 item) was also satisfactory, McDonald's $\omega_t$= `r apa(rel.k[5,6],2,F)`.  In the same sample, our measurement invariance analysis  revealed that the latent structure attained the residual measurement invariance across subgroups: male and female (CFI: `r apa (residual.fitm[5,1],2,F)`, TLI: `r apa (residual.fitm[6,1],2,F)`, SRMR: `r apa (residual.fitm[6,1],2,F)`).
+A CFA on a separate sample ((n = `r nrow(CFA.descriptives)` gave a five-factor solution (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR = `r apa(fit.2[10],2,F)`) after discarding two item. The internal consistency McDonald's $\omega_t$ of the five factors were  satisfactory (`r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`) Internal consistency reliability of the total scale (23 item) was also satisfactory, McDonald's $\omega_t$= `r apa(rel.k[5,6],2,F)`.  In the same sample, our measurement invariance analysis  revealed that the latent structure attained the residual measurement invariance across subgroups: male and female (CFI: `r apa (residual.fitm[5,1],2,F)`, TLI: `r apa (residual.fitm[6,1],2,F)`, SRMR: `r apa (residual.fitm[6,1],2,F)`).
 
 The "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic] on the retained 23 items showed "LEBA" was  related to  "Sleep Disturbance Scale For Children" (SDSC) [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990]. Upon inspecting the item contents we found items under: "Using phone and smart-watch in bed" and "Using light before bedtime" have semantic overlap with the items of SDSC ans CIDI. Items in those two scales were looking into behaviors related to sleep. As such the similarity index obtained is expected. Flesch-Kincaid Grade Level [@flesch1948new] analysis on the the 23 items of our scale indicated required educational grade level was 3.33 and with a age above 8.33.
 
@@ -2564,6 +2565,7 @@ Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded 
 
 ## Conclusion
 "The Light exposure behavior assessment"(LEBA) gave a five solution with 25 items in an exploratory factor analysis. A confirmatory factor analysis with this 25-item scale again offered a five-factor solution, but this time two more item was discarded. The 25-item "Bangla version of Rotter’s I-E scale"LEBA" was found reliable and valid. A short-form of LEBA was developed using IRT analysis. IRT analysis gave a 18 item scale with  a good range of coverage across the underlying trait continuum. All-in-all, we can recommend both forms to be used to capture individual’s light exposure related behavior
+
 
 
 
@@ -2583,24 +2585,4 @@ Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded 
 \endgroup
 ```
 
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-1.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-2.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-1.Rmd')
-```
-
-
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-2.Rmd')
-```
 
