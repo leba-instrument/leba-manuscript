@@ -175,7 +175,7 @@ par(family = "Arial")
 ```{r pacman, eval=FALSE, include=FALSE}
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable)
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
@@ -246,14 +246,20 @@ nocite: |
 -   None of these do light exposure behavior.
 
 ```{r relscale, include=F, warning=F, message=F}
+
 relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
+
 ```
 
-```{r simscalep}
+
+```{r reltab2}
 relevant.scale.data %>%
    kable( booktabs = T, caption ="Releated Scales", format ="latex", longtable =T) %>% 
-  kable_styling(latex_options = c("repeat_header")) %>% 
-  column_spec(1:6, width = "2cm")
+  kable_styling(latex_options = c("repeat_header", "scale_down")) %>% 
+  column_spec(1:6, width = "2cm")  
+
+
+
 ```
 
 
@@ -316,6 +322,15 @@ prefix <- "item"
 sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
+names(sem.data)[names(sem.data) == "item1"] <- "item01"
+names(sem.data)[names(sem.data) == "item2"] <- "item02"
+names(sem.data)[names(sem.data) == "item3"] <- "item03"
+names(sem.data)[names(sem.data) == "item4"] <- "item04"
+names(sem.data)[names(sem.data) == "item5"] <- "item05"
+names(sem.data)[names(sem.data) == "item6"] <- "item06"
+names(sem.data)[names(sem.data) == "item7"] <- "item07"
+names(sem.data)[names(sem.data) == "item8"] <- "item08"
+names(sem.data)[names(sem.data) == "item9"] <- "item09"
 ```
 
 ```{r country, include=FALSE}
@@ -413,7 +428,7 @@ Age among all participants ranged from `r min(desctable.data$slypos_demographics
 
 ## Item Generation
 
-To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioral component of light exposure were found (Table \@ref(tab:simscalep)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose an expert researcher panel from the fields of chronobiology, light research, neuroscience and psychology (including seven of the authors, see authors roles) generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behavior* as opposed to subjective measurements of the light environment (cf.[@eklund1996development] & [@dianat2013objective]) and semi-quantitive assesments of light sources' illuminance (cf. [@bajaj2011validation]) in order to maintain content validity. In a collective effort the generated items were then peer-reviewed,  amended, unified, and complemented with a suitable response scale (5 point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
+To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioral component of light exposure were found (Table \@ref(tab:eltab)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose an expert researcher panel from the fields of chronobiology, light research, neuroscience and psychology (including seven of the authors, see authors roles) generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behavior* as opposed to subjective measurements of the light environment (cf.[@eklund1996development] & [@dianat2013objective]) and semi-quantitive assesments of light sources' illuminance (cf. [@bajaj2011validation]) in order to maintain content validity. In a collective effort the generated items were then peer-reviewed,  amended, unified, and complemented with a suitable response scale (5 point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
 
 ```{r Manuflowchart, include=FALSE }
 Flowchart1 <- grViz("digraph nicegraph{
@@ -601,9 +616,18 @@ Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(
 
 colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics","Item-Total Correlation")
 rownameprefix <- "Item"
-rownamesufix <- seq(1:48)
+rownamesufix <- seq(01:48)
 my.names <- paste(rownameprefix,rownamesufix, sep = "" )
 rownames(Des.combined) = (my.names)
+rownames(Des.combined)[rownames(Des.combined) == "Item1"] <- "Item01"
+rownames(Des.combined)[rownames(Des.combined) == "Item2"] <- "Item02"
+rownames(Des.combined)[rownames(Des.combined) == "Item3"] <- "Item03"
+rownames(Des.combined)[rownames(Des.combined) == "Item4"] <- "Item04"
+rownames(Des.combined)[rownames(Des.combined) == "Item5"] <- "Item05"
+rownames(Des.combined)[rownames(Des.combined) == "Item6"] <- "Item06"
+rownames(Des.combined)[rownames(Des.combined) == "Item7"] <- "Item07"
+rownames(Des.combined)[rownames(Des.combined) == "Item8"] <- "Item08"
+rownames(Des.combined)[rownames(Des.combined) == "Item9"] <- "Item09"
 ```
 
 ## Item Analysis
@@ -775,7 +799,7 @@ AA <- print(fa.5F.1, cut = .3, digits = 3, sort = TRUE)
 
 
 reduced.model.5F.1 <- dplyr::select(EFA.data ,
-                                    -c( item20, item19, item5, item31, item44, item24, item43, item39, item22, item2, item18, item48, item42, item29, item6, item15, item23, item28, item14))
+                                    -c( item20, item19, item05, item31, item44, item24, item43, item39, item22, item02, item18, item48, item42, item29, item06, item15, item23, item28, item14))
 
 correlations.red.5F.1 <- polychoric(reduced.model.5F.1,correct = 0)
 
@@ -784,7 +808,7 @@ fa.5F.2 <- fa(r=correlations.red.5F.1$rho, nfactors = 5, fm= "pa",rotate ="varim
 
 BB <- print(fa.5F.2, cut = .3, digits = 3, sort = TRUE)
 
-reduced.model.5F.2 <- dplyr::select(EFA.data, -c( item20, item19, item5, item31, item44, item24, item43, item39, item22, item2, item18, item48, item42, item29, item6, item15, item23, item28, item14, item34, item47, item21, item13))
+reduced.model.5F.2 <- dplyr::select(EFA.data, -c( item20, item19, item05, item31, item44, item24, item43, item39, item22, item02, item18, item48, item42, item29, item06, item15, item23, item28, item14, item34, item47, item21, item13))
 
 correlations.red.5F.2 <- polychoric(reduced.model.5F.2,correct = 0)
 
@@ -886,10 +910,10 @@ export_svg(EFAplot) %>%
 ```{r Cronbach alpha for 5 fators, message=TRUE, warning=FALSE, include=FALSE}
 
 Five.F1 <- dplyr::select(EFA.data, item16, item36, item17)
-Five.F2 <- dplyr::select(EFA.data, item11, item10, item12, item7, item8, item9) 
-Five.F3 <-  dplyr::select(EFA.data, item27, item3,item40, item30, item41)
+Five.F2 <- dplyr::select(EFA.data, item11, item10, item12, item07, item08, item09) 
+Five.F3 <-  dplyr::select(EFA.data, item27, item03,item40, item30, item41)
 Five.F4 <-  dplyr::select(EFA.data, item33,item32,item35, item37, item38)
-Five.F5 <- dplyr::select(EFA.data, item46, item45, item25, item4, item1, item26)
+Five.F5 <- dplyr::select(EFA.data, item46, item45, item25, item04, item01, item26)
 
 #ordinal alpha
 Five.F1.alpha <- psych::alpha(polychoric(Five.F1)$rho,check.keys=TRUE)
@@ -996,8 +1020,8 @@ EFAplot.1
 ```{r gtvis, include =F}
 ## Recoding sem.data$item8
 gt.data <- sem.data
-gt.data$item8 <- as.character(gt.data$item8)
-gt.data$item8 <- fct_recode(gt.data$item8,
+gt.data$item08 <- as.character(gt.data$item08)
+gt.data$item08 <- fct_recode(gt.data$item08,
   "5" = "1",
   "4" = "2",
   "2" = "4",
@@ -1021,12 +1045,7 @@ gt.data$item37 <- fct_recode(gt.data$item26,
   "1" = "5"
 )
 
-names(gt.data)[names(gt.data) == "item1"] <- "item01"
-names(gt.data)[names(gt.data) == "item3"] <- "item03"
-names(gt.data)[names(gt.data) == "item4"] <- "item04"
-names(gt.data)[names(gt.data) == "item7"] <- "item07"
-names(gt.data)[names(gt.data) == "item8"] <- "item08"
-names(gt.data)[names(gt.data) == "item9"] <- "item09"
+
 
 
 #EFA data
@@ -1440,14 +1459,14 @@ knitr::include_graphics('Manuscript.figures/cfagt.png')
 CFA.data <- sem.data[429:690,]
 
 ## Recoding CFA.data$item8 into CFA.data$Ritem8
-CFA.data$Ritem8 <- as.character(CFA.data$item8)
-CFA.data$Ritem8 <- fct_recode(CFA.data$Ritem8,
+CFA.data$Ritem08 <- as.character(CFA.data$item08)
+CFA.data$Ritem08 <- fct_recode(CFA.data$Ritem08,
   "5" = "1",
   "4" = "2",
   "2" = "4",
   "1" = "5"
 )
-CFA.data$Ritem8 <- as.numeric(as.character(CFA.data$Ritem8))
+CFA.data$Ritem08 <- as.numeric(as.character(CFA.data$Ritem08))
 
 ## Recoding CFA.data$item37 into CFA.data$item37_rec
 CFA.data$Ritem37 <- as.character(CFA.data$item37)
@@ -1475,10 +1494,10 @@ CFA.data$Ritem26 <- fct_recode(CFA.data$Ritem26,
 ```{r CFA25items, include=FALSE }
 
 LB.model.Cor.1 <- "F1 =~ a1*item16 + item36 + a2*item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 + item30 + item41
+                 F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
+                 F3 =~  item27+ item03+ item40 + item30 + item41
                  F4 =~ a3*item32 + item35 + item38+ a4*item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1 
+                 F5 =~ item46+ item45+ item25+ item04+ item01 
                        a1==a2
                        a3==a4" 
 
@@ -1506,10 +1525,10 @@ modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 
 ```{r CFA23withMI, include=FALSE}
 LB.model.Cor.2 <- "F1 =~ a1*item16 + item36 + a2*item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 + item30 + item41
+                 F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
+                 F3 =~  item27+ item03+ item40 + item30 + item41
                  F4 =~ a3*item32 + item35 + item38+ a4*item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1 
+                 F5 =~ item46+ item45+ item25+ item04+ item01 
                        a1==a2
                        a3==a4
                 item30 ~~  item41
@@ -1574,10 +1593,10 @@ apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T
 ```{r simulation, eval=FALSE, include=FALSE}
 library("simsem")
 pop.model <- "F1 =~ a1*item16 + .95*item36 + a2*item17
-                 F2 =~ .87*item11 + .85*item10 + .74*item12+ .60*item7+ .50*Ritem8+ .49*item9
-                 F3 =~  .78*item27+ .77*item3+ .68*item40 + .13*item30 + .20*item41
+                 F2 =~ .87*item11 + .85*item10 + .74*item12+ .60*item07+ .50*Ritem08+ .49*item09
+                 F3 =~  .78*item27+ .77*item03+ .68*item40 + .13*item30 + .20*item41
                  F4 =~ a3*item32 + .63*item35 + .33*item38+ a4*item33 
-                 F5 =~ .80*item46+ .53*item45+ .36*item25+ .30*item4+ .22*item1 
+                 F5 =~ .80*item46+ .53*item45+ .36*item25+ .30*item04+ .22*item01 
                        a1==a2
                        a3==a4
                 item30 ~~ .82*item41
@@ -1614,9 +1633,10 @@ SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryPara
 
 semPaths (fit.Cor.2 , 
           what= "std",
+          #"hide", #(hides coefficeits)
           #whatLabels = "std",
           intercepts = F,
-          #style ="lisrel",
+          style ="lisrel",
           #residScale = 6,
           theme = "colorblind",
           nCharNodes = 0,
@@ -1625,16 +1645,27 @@ semPaths (fit.Cor.2 ,
           layout ="tree",
           cardinal = T,
           curvePivot =T,
-          sizeMan =8,
-          sizeMan2 = 1.5,
-          sizeLat = 8,
-          #edge.color = "black",
+          sizeMan =6,#items length
+          sizeMan2 = 2,#items
+          sizeLat = 12,#factors
           thresholds = FALSE,
-          equalizeManifests =T,
+          equalizeManifests =F,
           fade = FALSE,
-          edge.label.cex = .65,
-          exoCov = FALSE)
-       
+          edge.label.cex = .8,
+          exoCov = FALSE,
+          centerLevels = T,
+          edge.color="black",
+          label.scale=T,
+          label.cex=1, #Font of factor and item name
+          residuals=FALSE,
+           exoVar=FALSE,
+          fixedStyle=6, #Style of arrow (guide item)
+          freeStyle=1#Style of arrow (other item), #XKCD = TRUE
+           
+          )
+
+
+
 ```
 
 ## Measurement Invariance
@@ -1654,6 +1685,16 @@ The invariance model fit of our tool was assessed using the fit indices includin
 
 
 ```{r Invariancedetail, include=FALSE}
+
+LB.model.Cor.2 <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
+                 F3 =~  item27+ item03+ item40 + item30 + item41
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
+                 F5 =~ item46+ item45+ item25+ item04+ item01 
+                       a1==a2
+                       a3==a4
+                item30 ~~  item41
+                       "  
 # Configural invariance ####
 configural <- cfa(model = LB.model.Cor.2,
                   data = invariance.data,
@@ -1798,14 +1839,14 @@ We sought the item response theory (IRT) to develop the short form of LEBA. IRT 
 
 ```{r IRTdata, include=FALSE}
 ## Recoding sem.data$item8 into sem.data$Ritem8
-sem.data$Ritem8 <- as.character(sem.data$item8)
-sem.data$Ritem8 <- fct_recode(sem.data$Ritem8,
+sem.data$Ritem08 <- as.character(sem.data$item08)
+sem.data$Ritem08 <- fct_recode(sem.data$Ritem08,
   "5" = "1",
   "4" = "2",
   "2" = "4",
   "1" = "5"
 )
-sem.data$Ritem8 <- as.numeric(as.character(sem.data$Ritem8))
+sem.data$Ritem08 <- as.numeric(as.character(sem.data$Ritem08))
 # Recoding sem.data$item26 
 sem.data$Ritem26 <- as.character(sem.data$item26)
 sem.data$Ritem26 <- fct_recode(sem.data$Ritem26,
@@ -1835,17 +1876,17 @@ F1 <- sem.data %>%
 
 
 F2 <- sem.data %>% 
-  dplyr::select(item11,  item10 , item12, item7, Ritem8, item9)
+  dplyr::select(item11,  item10 , item12, item07, Ritem08, item09)
 
 F3 <- sem.data %>% 
- dplyr::select(item27, item3,  item40,  item30,  item41)
+ dplyr::select(item27, item03,  item40,  item30,  item41)
 
 
 F4 <- sem.data %>% 
  dplyr::select(item32, item35,  item38,  item33)
 
 F5 <- sem.data %>% 
-  dplyr::select(item46, item45, item25, item4, item1 )
+  dplyr::select(item46, item45, item25, item04, item01 )
 
 
 
@@ -2008,27 +2049,10 @@ F5_OCC <-plot(F5_fit, type = "trace", facet =T, main = "F5: Using light in the m
 F5_info <- plot(F5_fit, type = "infoSE", main = "F5: Using light in the morning and during daytime")
 F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = "F5: Using light in the morning and during daytime")
 
-## Plot grid ####
-library(cowplot)
-OCC <- plot_grid(F1_OCC, F2_OCC,F3_OCC,F4_OCC,F5_OCC, 
-          labels = c('A', 'B','C', 'D', 'E' ), label_size = 10)
 
-Test_Info <- plot_grid(F1_info, F2_info,F3_info,F4_info,F5_info, 
-          labels = "AUTO", label_size = 10)
-
-Item_Information <- plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
-          labels = "AUTO", label_size = 10)
 ```
 
-```{r saveiteminfo, eval=FALSE, include=FALSE}
-jpeg("Manuscript.figures/iteminfo.png", width = 800, height = 750)
-plot_grid(F1_iteminfo, F2_iteminfo,F3_iteminfo,F4_iteminfo,F5_iteminfo, 
-          labels = "AUTO", label_size = 10,align = "v",ncol = 2)
-
-dev.off()
-```
-
-```{r IRTreliability, include=FALSE}
+```{r IRTreliability, eval=FALSE, include=FALSE}
 #conditional reliability
 F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
       main="" )
@@ -2057,7 +2081,9 @@ F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 ```
 
-```{r iteminfo, include=F, warning=F}
+```{r iteminfo, eval=FALSE, warning=FALSE, include=FALSE}
+#Not used in the manuscript
+
 F1_item1<- plot(F1_fit, type = "infotrace", 
                     facet_items = T, which.items = 1, main = "")
 
@@ -2452,9 +2478,9 @@ apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", no
 F1 <- sem.data %>% 
   dplyr::select(item16, item36,  item17)
 F2.redu <- sem.data %>% 
-  dplyr::select(item11,  item10 , item12, item7, Ritem8, item9)
+  dplyr::select(item11,  item10 , item12, item07, Ritem08, item09)
 F3.redu <- sem.data %>% 
- dplyr::select(item27, item3,  item40)
+ dplyr::select(item27, item03,  item40)
 
 F4.redu <- sem.data %>% 
  dplyr::select(item32, item35,  item33)
@@ -2765,7 +2791,7 @@ ggsave("Manuscript.figures/personfit.png",personfit , width = 10, height = 12, d
 
 
 ```{r scalechar, eval=FALSE, fig.cap="Scale characteristic curve of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, include=FALSE, out.height="120%", out.width="100%"}
-
+#not used in the manuscript
 
 #Finally we generated scale characteristics curve (Figure \@ref(fig:scalechar)) which plotted estimated theta score against the expected true score. The purpose of this scale characteristics curve is to find the corresponding expected true score for the given estimated theta score of the participants. 
 
@@ -2785,12 +2811,12 @@ LEBA.Total <- sem.data %>%
 
 LEBA.Total <- LEBA.Total %>% 
   rowwise() %>% 
-  mutate(F2.Total = sum(item11,  item10 , item12, item7, Ritem8, item9))
+  mutate(F2.Total = sum(item11,  item10 , item12, item07, Ritem08, item09))
 
 
 LEBA.Total <- LEBA.Total %>% 
   rowwise() %>% 
-  mutate(F3.Total = sum(item27, item3,  item40))
+  mutate(F3.Total = sum(item27, item03,  item40))
 
 LEBA.Total <- LEBA.Total %>% 
   rowwise() %>% 
