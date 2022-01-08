@@ -50,26 +50,26 @@ mides_kable %>%
   kable_styling(latex_options = c("scale_down")) 
 ```
 
-```{r F1IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/F1.itemplots.png')
+```{r F1IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1. Item 16 carried highest information among the three items', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F1.itemplots.png', dpi = 1200)
 ```
 
-```{r F2IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/F2.itemplots.png')
+```{r F2IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F2. All items cariied information across the latent trait continuum. Item 09 carried the lowest information however its information peak was highr than .20.', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F2.itemplots.png',dpi = 1200)
 ```
 
-```{r F3IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/F3.itemplots.png')
+```{r F3IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F3. Item 30 and 41 had relatively flat information curve with a peak lower than .20', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F3.itemplots.png',dpi = 1200)
 ```
 
-```{r F4IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/F4.itemplots.png')
+```{r F4IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F4. Item 38 had relatively flat information curve with a peak lower than .20', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F4.itemplots.png',dpi = 1200)
 ```
 
-```{r F5IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1', out.height='160%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/F5.itemplots.png')
+```{r F5IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F5. Three items: 25, 04, 01 carriedlow information. However Item 04 had a bump at the righ side of the center with a curve peak higher than .20.  Item 01 and 25 had relatively flat information curve with a peak lower than .20'', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F5.itemplots.png',dpi = 1200)
 ```
 
 ```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
-knitr::include_graphics("Manuscript.figures/personfit.png")
+knitr::include_graphics("Manuscript.figures/personfit.png",dpi = 1200)
 ```
