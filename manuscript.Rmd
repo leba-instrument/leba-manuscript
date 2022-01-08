@@ -166,7 +166,7 @@ mainfont: Arial
 
 ```{r setup, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=1200, fig.width = 6,
- fig.asp = 0.8,out.width = "80%")
+ fig.asp = 0.8,out.width = "80%", dev=c('png','postscript'))
 #options(knitr.duplicate.label = "allow")
 set.seed(123)
 par(family = "Arial")
@@ -175,7 +175,7 @@ par(family = "Arial")
 ```{r pacman, eval=FALSE, include=FALSE}
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,tikzDevice)
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
@@ -497,7 +497,7 @@ library(jpeg)
 export_svg(Flowchart1) %>%
   charToRaw() %>%
   rsvg() %>%
-  writeJPEG("Manuscript.figures/Flowchart1.jpeg",bg = "white", quality = 1)
+  png::writePNG("Manuscript.figures/Flowchart1.jpeg", dpi = 1200)
 
 
 
@@ -509,7 +509,7 @@ Figure \@ref(fig:FlowchartFig) summarizes the steps of our psychometric analysis
 We also conducted psychometric analysis on non-merged response options data (Supp. Table \@ref(tab:efaunmerged)) and rejected the latent structure obtained as the factors were less interpretable.
 
 ```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='100%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/Flowchart1.jpeg')
+knitr::include_graphics('Manuscript.figures/Flowchart1.jpeg', dpi = 800 )
 ```
 
 # Results
@@ -653,12 +653,26 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
-```{r figCor, out.height="150%",out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
-
-ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
-           ggtheme = ggplot2::theme_minimal, tl.cex = 6,tl.srt = 90,colors = c("red", "white", "blue") )
+```{r}
+corplot <- ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
+           ggtheme = ggplot2::theme_minimal(),,tl.srt = 90,colors = c("red", "white", "blue") )+
+  theme( panel.grid.major = element_blank(),
+         axis.text.x = element_text(size = 8),
+         axis.text.y = element_text(size = 8),
+         panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
 #p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
 #to show pvalue in the fig add p.mat=p.mat
+ggsave("Manuscript.figures/corplot.png",corplot, width = 6, height = 6, dpi = 1200, bg ="white")
+
+```
+
+
+```{r figCor, out.height="150%",out.width="100%",fig.cap= "Correlation plot of the items",results='asis', fig.align='center'}
+
+knitr::include_graphics('Manuscript.figures/corplot.png', dpi =1200)
+
 ```
 
 ```{r ParallelEFA, include=FALSE}
@@ -746,8 +760,8 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 EFA.MRFA::hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
         details = TRUE)
 hull <- ggplot2::last_plot()
-Hull <- hull+ ggtitle(NULL)+xlab("Factor Number (Hull Method)")+ylab("CAF")+ 
-  apatheme +scale_color_manual(labels = c("Out side the convex Hull", "On the convex Hull"), values = c("red", "cyan2"))+theme(legend.position = "None") 
+Hull <- hull+ ggtitle(NULL)+xlab("Factor Number (Hull Method)")+ylab("CAF")+ aes(color = "black")+
+  apatheme +scale_color_manual(labels = c("Out side the convex Hull", "On the convex Hull"), values = c("black", "black"))+theme(legend.position = "None") 
 
 
 ```
@@ -769,14 +783,14 @@ fator <- cowplot::plot_grid(parallel, scree.plot,Hull,
                    ncol=1, 
                   align = "v", 
                   label_size = 12,
-                  label_fontfamily = "serif",
+                  label_fontfamily = "Arial",
                   label_fontface = "plain")
-ggsave("Manuscript.figures/factors.png",fator, width = 6, height = 12, dpi = 600)
+ggsave("Manuscript.figures/factors.png",fator, width = 6, height = 12, dpi = 1200)
 ```
 
 ```{r facIdFig, out.height="100%", out.width="100%",fig.align='center', fig.cap='Factor Identification (A) Parallel analysis (B) Scree Plot (C) Hull Method',  warning=FALSE, results= 'asis'}
 
-knitr::include_graphics('Manuscript.figures/factors.png')
+knitr::include_graphics('Manuscript.figures/factors.png', dpi =800)
 
 ```
 
@@ -822,14 +836,14 @@ graph [layout = dot,rankdir = LR, fontsize = 40]
 
 # node definitions with substituted label text
 node [fontname = Helvetica, shape = circle,  margin = 0.5, width = 3.5, height = .5,
-fixedsize = true, fontsize = 35]
+fixedsize = true, fontsize = 40]
 F5 [label = 'F5']
 F4 [label = 'F4']
 F3 [label = 'F3']
 F2 [label = 'F2']
 F1 [label = 'F1']
 
-node [fontname = Helvetica, shape = box]
+node [fontname = Helvetica, shape = box, fontsize = 50, height = 1]
 b [label = 'item16']
 c [label = 'item36']
 d [label = 'item17']
@@ -858,7 +872,7 @@ z [label = 'item26']
 
 
 # edge definitions with the node IDs
-edge [fontname = Helvetica, fontsize = 35]
+edge [fontname = Helvetica, fontsize = 40]
 F5 -> u [label = '0.60']
 F5 -> v [label = '0.59']
 F5 -> w [label = '0.41']
@@ -891,7 +905,7 @@ F1-> d [label = '0.80']
 export_svg(EFAplot) %>%
   charToRaw() %>%
   rsvg() %>%
-  writeJPEG("Manuscript.figures/EFAplot.jpeg",bg = "white", quality = 1)
+  png::writePNG("Manuscript.figures/EFAplot.png",dpi =1200)
 
 ```
 
@@ -966,7 +980,8 @@ apa_table(efa.table,align = "c", caption = "Factor loadings and communality of t
 res.dat <- as.data.frame(unclass(residual.5F))
 residual.data <- as.data.frame(gather(res.dat, Items, Residuals))
 
-residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill=I("grey")) + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+
+residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill=I("grey")) + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+theme(axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))
   labs( y="Frequency")
 
 ```
@@ -976,7 +991,7 @@ library(jpeg)
 library(png)
 library(cowplot)
 
-img1 <- readJPEG("Manuscript.figures/EFAplot.jpeg")
+img1 <- png::readPNG("Manuscript.figures/EFAplot.png")
 
 
 
@@ -992,17 +1007,19 @@ EFAplot.1 <- plot_grid(
   align="h",
   ncol = 2,
   label_size = 12,
-  label_fontfamily = "serif",
+  label_fontfamily = "Arial",
   label_fontface = "plain",
-  label_y = .98,
+  label_y = .99,
   label_x = .04
 )
 
+ggsave("Manuscript.figures/EFAfull.png",EFAplot.1, width = 10, height =10, dpi = 1200)
+
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='(A) Five Factor Solution obtained in Exploratory Factor Analysis (B) Histogram of nonredundent residula correlations', warning=FALSE, out.height="80%", out.width="100%", results='asis'}
-EFAplot.1
+```{r EFAplot, fig.align='center', fig.cap='(A) Five Factor Solution obtained in Exploratory Factor Analysis (B) Histogram of nonredundent residula correlations', warning=FALSE,  results='asis'}
 
+knitr::include_graphics('Manuscript.figures/EFAfull.png', dpi =1200)
 ```
 
 ```{r gtvis, include =F}
@@ -1431,12 +1448,12 @@ cols_label(
 ```
 
 ```{r efagtPic, echo=FALSE, out.height="100%", out.width= '100%', fig.cap= ' Summary Descriptives EFA Sample'}
-knitr::include_graphics('Manuscript.figures/efagt.png')
+knitr::include_graphics('Manuscript.figures/efagt.png',dpi =1200)
 
 ```
 
 ```{r cfagtPic, echo=FALSE, out.height="100%", out.width= '100%', fig.cap= ' Summary Descriptives of CFA Sample'}
-knitr::include_graphics('Manuscript.figures/cfagt.png')
+knitr::include_graphics('Manuscript.figures/cfagt.png',dpi =1200)
 
 ```
 ## Confirmatory Factor Analysis
@@ -1616,7 +1633,7 @@ summaryParam(simulation, detail =T, alpha = .05)
 SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
 ```
 
-```{r figcfa, fig.cap = "Five Factor CFA Model of LEBA", out.height="150%", out.width="100%",  warning=FALSE}
+```{r figcfa, fig.cap = "Five Factor CFA Model of LEBA", out.height="150%", out.width="100%", dpi=1200,  warning=FALSE}
 #library(semPlot)
 
 semPaths (fit.Cor.2 , 
@@ -1642,7 +1659,7 @@ semPaths (fit.Cor.2 ,
           edge.label.cex = .8,
           exoCov = FALSE,
           centerLevels = T,
-          edge.color="black",
+          #edge.color="black",
           label.scale=T,
           label.cex=1, #Font of factor and item name
           residuals=FALSE,
@@ -2421,7 +2438,7 @@ F2.itemplots <- cowplot::plot_grid(F2.iteminfo.1,F2.iteminfo.2, F2.iteminfo.3,
                      label_size = 12,
                      label_fontfamily = "serif",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/F2.itemplots.png",F2.itemplots, width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Manuscript.figures/F2.itemplots.png",F2.itemplots, width = 10, height = 12, dpi = 1200, bg = "white")
 
 
 F3.itemplots <- cowplot::plot_grid(F3.iteminfo.1,F3.iteminfo.2, F3.iteminfo.3,
@@ -2432,7 +2449,7 @@ F3.itemplots <- cowplot::plot_grid(F3.iteminfo.1,F3.iteminfo.2, F3.iteminfo.3,
                      label_size = 12,
                      label_fontfamily = "serif",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/F3.itemplots.png",F3.itemplots, width = 10, height = 12, dpi = 600,bg = "white")
+ggsave("Manuscript.figures/F3.itemplots.png",F3.itemplots, width = 10, height = 12, dpi = 1200,bg = "white")
 
 
 F4.itemplots <- cowplot::plot_grid(F4.iteminfo.1,F4.iteminfo.2, F4.iteminfo.3,
@@ -2443,7 +2460,7 @@ F4.itemplots <- cowplot::plot_grid(F4.iteminfo.1,F4.iteminfo.2, F4.iteminfo.3,
                      label_size = 12,
                      label_fontfamily = "serif",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/F4.itemplots.png",F4.itemplots, width = 10, height = 12, dpi = 600,bg = "white")
+ggsave("Manuscript.figures/F4.itemplots.png",F4.itemplots, width = 10, height = 12, dpi = 1200,bg = "white")
 
 
 F5.itemplots <- cowplot::plot_grid(F5.iteminfo.1,F5.iteminfo.2, F5.iteminfo.3,
@@ -2454,7 +2471,7 @@ F5.itemplots <- cowplot::plot_grid(F5.iteminfo.1,F5.iteminfo.2, F5.iteminfo.3,
                      label_size = 12,
                      label_fontfamily = "serif",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/F5.itemplots.png",F5.itemplots, width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Manuscript.figures/F5.itemplots.png",F5.itemplots, width = 10, height = 12, dpi = 1200, bg = "white")
 ```
 
 
@@ -2747,14 +2764,14 @@ TIC <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                      label_size = 12,
                      label_fontfamily = "serif",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/TIC.png",TIC, width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Manuscript.figures/TIC.png",TIC, width = 10, height = 12, dpi = 1200, bg = "white")
 
 ```
 
 
 ```{r Testinfo, fig.cap="Test information curves (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE}
 
-knitr::include_graphics('Manuscript.figures/TIC.png')
+knitr::include_graphics('Manuscript.figures/TIC.png', dpi =1200)
 ```
 
 Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of information an the full-scale carry along the latent trait continuum. As we treated each factor of short-LEBA as an unidmensional construct we obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except the first and fifth factors, the other three factor's TICs are roughly centered on the center of the trait continuum ($\theta$).The first and fifth factor had a peak to the right side of the center of latent trait.Thus we conferred the LEBA tool estimated the light exposure related behavior with precision near the center of trait continuum for 2nd, 3rd and 4th factors and near the right side of the center of trait continuum for 1st and 5th factors [@bakerBasicsItemResponse2017].
@@ -2772,7 +2789,7 @@ personfit <- plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person,
                      label_fontface = "plain")
 
 
-ggsave("Manuscript.figures/personfit.png",personfit , width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Manuscript.figures/personfit.png",personfit , width = 10, height = 12, dpi = 1200, bg = "white")
 
 ```
 
