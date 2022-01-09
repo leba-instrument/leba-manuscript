@@ -648,7 +648,7 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
 ```
 
-```{r}
+```{r corplot, include =F}
 corplot <- ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
            ggtheme = ggplot2::theme_minimal(),,tl.srt = 90,colors = c("red", "white", "blue") )+
   theme( panel.grid.major = element_blank(),
@@ -663,8 +663,9 @@ ggsave("Manuscript.figures/corplot.png",corplot, width = 6, height = 6, dpi = 60
 
 ```
 
+(ref:figCor) Inter item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than .30
 
-```{r figCor, out.height="150%",out.width="100%",fig.cap= "Inter item ploychroric correlationc coefficients for the 48 items. The red gradient indicates negative correlations, white indicates zero correlation and the blue gradient indicate positive correlations. 4.9% inter-item correlation coefficients were higher than .30 ",results='asis', fig.align='center'}
+```{r figCor, out.height="150%",out.width="100%", fig.align= 'center', fig.cap='(ref:figCor)', results='asis', fig.align='center'}
 
 knitr::include_graphics('Manuscript.figures/corplot.png', dpi =600)
 
@@ -779,10 +780,12 @@ fator <- cowplot::plot_grid(parallel, scree.plot,Hull,
                   align = "v", 
                   label_fontfamily = "Arial",
                   label_fontface = "plain")
-ggsave("Manuscript.figures/factors.png",fator, width = 6, height = 12, dpi = 600)
+ggsave("Manuscript.figures/factors.png",fator, width = 5, height = 7, dpi = 600)
 ```
 
-```{r facIdFig, out.height="100%", out.width="100%",fig.align='center', fig.cap='Factor Identification Methods (A) In parallel analysis we drew 500 sets of random data with the same number of participants as our orihinal data (n=428) and adjusted the mean eigenvalues for sample bias. In x-axis we plotted the number of possible factors and in y axis we plotted the mean ajusted eigenvalues. The First inflection point of the plot indicated the optimal number of factor was six. re  (B) In the scree scree plot possible numner of factors are plotted againest obtained eigen values. Scree plot suggested six factors. (C) In Hull method we plotted the number of posible factors in the x axis and in the y axis we ploed the CAF index(CAF: Common Part Accounted for-an indicator of model fit). Hull method indicated 5 factors are requied to  balance model fit and the number of parameters ',  warning=FALSE, results= 'asis'}
+(ref:facIdFig) Factor Identification Methods (A) Parallel analysis  indicated the optimal number of factors were six. (B) Scree plot suggested six factors. (C) Hull method indicated 5 factors were required to balance the model fit and number of parameters.
+
+```{r facIdFig, fig.align= 'center', fig.cap='(ref:facIdFig)',  warning=FALSE, results= 'asis'}
 
 knitr::include_graphics('Manuscript.figures/factors.png', dpi =800)
 
@@ -3076,5 +3079,6 @@ Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded 
 ```{=tex}
 \endgroup
 ```
+
 
 
