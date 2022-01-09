@@ -782,7 +782,6 @@ fator <- cowplot::plot_grid(parallel, scree.plot,Hull,
                    labels = "AUTO",
                    ncol=1, 
                   align = "v", 
-                  label_size = 15,
                   label_fontfamily = "Arial",
                   label_fontface = "plain")
 ggsave("Manuscript.figures/factors.png",fator, width = 6, height = 12, dpi = 1200)
@@ -1022,7 +1021,8 @@ ggsave("Manuscript.figures/EFAfull.png",EFAplot.1, width = 4, height =8, dpi = 1
 
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='(A) Five Factor Solution obtained in Exploratory Factor Analysis. The factor loadings ranged between .49-.99 (B) Histogram of nonredundent residula correlations indicated 26% correlations are higher than absolute value of .05 indicating a possible under factoring', warning=FALSE,  results='asis'}
+
+```{r EFAplot, fig.align='center', fig.cap='(A) Five Factor Solution obtained in Exploratory Factor Analysis (B) Histogram of nonredundent residula correlations', warning=FALSE,  results='asis'}
 
 knitr::include_graphics('Manuscript.figures/EFAfull.png', dpi =1200)
 ```
@@ -1647,7 +1647,9 @@ summaryParam(simulation, detail =T, alpha = .05)
 SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
 ```
 
+
 ```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pain 41 & 30 to covary their error variance our model attained the best fit.", out.height="150%", out.width="100%", dpi=1200,  warning=FALSE}
+
 #library(semPlot)
 
 semPaths (fit.Cor.2 , 
@@ -2486,6 +2488,7 @@ F5.itemplots <- cowplot::plot_grid(F5.iteminfo.1,F5.iteminfo.2, F5.iteminfo.3,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 ggsave("Manuscript.figures/F5.itemplots.png",F5.itemplots, width = 10, height = 12, dpi = 1200, bg = "white")
+
 ```
 
 
@@ -2624,10 +2627,6 @@ F5.iic2 <- ggplot(F5.item.info.data.2,aes(Theta,value,col=variable))+geom_line()
 
 ICC2 <- cowplot::plot_grid(vic.iic2 , agg.iic2,  labels = "AUTO",ncol=2, label_size = 15,align = "v")
 ggsave("Figures/ICC2.jpeg",ICC2 , width = 12, height = 8, dpi = 1200, bg = "white")
-
-
-
-
 ```
 
 
