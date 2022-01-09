@@ -1648,7 +1648,7 @@ SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryPara
 ```
 
 
-```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pain 41 & 30 to covary their error variance our model attained the best fit.", out.height="150%", out.width="100%", dpi=1200,  warning=FALSE}
+```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pain 41 and 30 to covary their error variance our model attained the best fit.", out.height="150%", out.width="100%", dpi=1200,  warning=FALSE}
 
 #library(semPlot)
 
@@ -2102,136 +2102,6 @@ F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
 ```
 
-```{r iteminfo, eval=FALSE, warning=FALSE, include=FALSE}
-#Not used in the manuscript
-
-F1_item1<- plot(F1_fit, type = "infotrace", 
-                    facet_items = T, which.items = 1, main = "")
-
-F1_item2 <- plot(F1_fit, type = "infotrace", 
-     facet_items = T, which.items = 2,main = "")
-
-F1_item3 <- plot(F1_fit, type = "infotrace", 
-     facet_items = T, which.items = 3,main = "")
-
-
-F2_item1 <- plot(F2_fit, type = "infotrace", facet_items = T, which.items = 1,main = "")
-F2_item2 <- plot(F2_fit, type = "infotrace", facet_items = T, which.items = 2,main = "")
-F2_item3 <- plot(F2_fit, type = "infotrace", facet_items = T, which.items = 3,main = "")
-F2_item4 <- plot(F2_fit, type = "infotrace", facet_items = T, which.items = 4,main = "")
-F2_item5 <- plot(F2_fit, type = "infotrace", facet_items = T, which.items = 5,main = "")
-F2_item6 <- plot(F2_fit, type = "infotrace", facet_items = T, which.items = 6,main = "")
-
-F3_item1 <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, which.items = 1,main = "")
-F3_item2 <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, which.items = 2,main = "")
-
-F3_item3 <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, which.items = 3,main = "")
-F3_item4 <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, which.items = 4,main = "")
-F3_item5 <- plot(F3_fit, type = "infotrace", 
-                    facet_items = T, which.items = 5,main = "")
-
-
-
-F4_item1 <- plot(F4_fit, type = "infotrace", facet_items = T,which.items = 1,main = "")
-F4_item2 <- plot(F4_fit, type = "infotrace", facet_items = T,which.items = 2,main = "")
-F4_item3 <- plot(F4_fit, type = "infotrace", facet_items = T,which.items = 3,main = "")
-F4_item4 <- plot(F4_fit, type = "infotrace", facet_items = T,which.items = 4,main = "")
-
-
-F5_item1 <- plot(F5_fit, type = "infotrace", facet_items = T,which.items = 1,main = "")
-F5_item2 <-plot(F5_fit, type = "infotrace", facet_items = T,which.items = 2,main = "")
-F5_item3 <-plot(F5_fit, type = "infotrace", facet_items = T,which.items = 3,main = "")
-F5_item4 <-plot(F5_fit, type = "infotrace", facet_items = T,which.items = 4,main = "")
-F5_item5 <-plot(F5_fit, type = "infotrace", facet_items = T,which.items = 5,main = "")
-
-
-F1title <- ggdraw() + 
-  draw_label(
-    "F1: Wearing blue light filters",
-    fontface = 'bold',
-    x = 0,
-    hjust = 0
-  ) +
-  theme(
-    # add margin on the left of the drawing canvas,
-    # so title is aligned with left edge of first plot
-    plot.margin = margin(0, 0, 0, 7)
-  )
-
-
-F2title <- ggdraw() + 
-  draw_label(
-    "F2: Spending time outdoors",
-    fontface = 'bold',
-    x = 0,
-    hjust = 0
-  ) +
-  theme(
-    # add margin on the left of the drawing canvas,
-    # so title is aligned with left edge of first plot
-    plot.margin = margin(0, 0, 0, 7)
-  )
-
-
-F3title <- ggdraw() + 
-  draw_label(
-    "F3: Using phone and smart-watch in bed",
-    fontface = 'bold',
-    x = 0,
-    hjust = 0
-  ) +
-  theme(
-    # add margin on the left of the drawing canvas,
-    # so title is aligned with left edge of first plot
-    plot.margin = margin(0, 0, 0, 7)
-  )
-
-
-F4title <- ggdraw() + 
-  draw_label(
-    "F4: Using light before bedtime",
-    fontface = 'bold',
-    x = 0,
-    hjust = 0
-  ) +
-  theme(
-    # add margin on the left of the drawing canvas,
-    # so title is aligned with left edge of first plot
-    plot.margin = margin(0, 0, 0, 7)
-  )
-
-
-F5title <- ggdraw() + 
-  draw_label(
-    "F5: Using light...daytime",
-    fontface = 'bold',
-    x = 0,
-    hjust = 0
-  ) +
-  theme(
-    # add margin on the left of the drawing canvas,
-    # so title is aligned with left edge of first plot
-    plot.margin = margin(0, 0, 0, 7)
-  )
-
-
-
-f1itemplot <- plot_grid(F1_item1, F1_item2,F1_item3,
-          labels = "AUTO", label_size = 10,align = "v")
-f2itemplot <- plot_grid(F2_item1, F2_item2,F2_item3,F2_item4,F2_item5,F2_item6,
-           label_size = 10,align = "v")
-f3itemplot <- plot_grid(F3_item1, F3_item2,F3_item3,F3_item4,F3_item5,
-           label_size = 10,align = "v")
-f4itemplot <- plot_grid(F4_item1, F4_item2,F4_item3,F4_item4,
-          labels = "AUTO", label_size = 10,align = "v")
-
-f5itemplot <- plot_grid(F5_item1, F5_item2,F5_item3,F5_item4,F5_item5,
-          label_size = 10,align = "v")
-```
 
 ```{r iteminfoggplot3, include=F}
 Theta <- matrix(seq(-6,6, by = .1))
@@ -2493,7 +2363,7 @@ ggsave("Manuscript.figures/F5.itemplots.png",F5.itemplots, width = 10, height = 
 
 
 ```{r inteminfoggplo2com, eval=FALSE, include=FALSE}
-#Victimization
+
 pacman::p_load(reshape,ggsci)
 Theta <- matrix(seq(-6,6, by = .1))
 

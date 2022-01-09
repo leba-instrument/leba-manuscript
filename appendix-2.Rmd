@@ -66,7 +66,7 @@ knitr::include_graphics('Manuscript.figures/F3.itemplots.png',dpi = 1200)
 knitr::include_graphics('Manuscript.figures/F4.itemplots.png',dpi = 1200)
 ```
 
-```{r F5IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F5. Three items: 25, 04, 01 carriedlow information. However Item 04 had a bump at the righ side of the center with a curve peak higher than .20.  Item 01 and 25 had relatively flat information curve with a peak lower than .20'', out.height='160%', out.width='100%'}
+```{r F5IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F5. Three items: 25, 04, 01 carriedlow information. However Item 04 had a bump at the righ side of the center with a curve peak higher than .20.  Item 01 and 25 had relatively flat information curve with a peak lower than .20', out.height='160%', out.width='100%'}
 knitr::include_graphics('Manuscript.figures/F5.itemplots.png',dpi = 1200)
 ```
 
