@@ -176,7 +176,7 @@ par(family = "Arial")
 ```{r pacman, eval=FALSE, include=FALSE}
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,tikzDevice)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,reshape, ggsci)
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
@@ -224,6 +224,8 @@ library(tabledown)
 library(readxl)
 library(koRpus)# stable release
 library(koRpus.lang.en)
+library(reshape)
+library(ggsci)
 r_refs("references.bib")
 ```
 
@@ -635,7 +637,7 @@ apa_table(landscape =T,caption ="Descriptive Statistics", escape =F, font_size =
 
 ```{r corplot, include =F}
 corplot <- ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", 
-           ggtheme = ggplot2::theme_minimal(),,tl.srt = 90,colors = c("red", "white", "blue") )+
+           ggtheme = ggplot2::theme_minimal(),tl.srt = 90,colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
          axis.text.x = element_text(size = 8),
          axis.text.y = element_text(size = 8),
@@ -690,11 +692,11 @@ colnames(Unadjusted.EV) = c('eigenvalue', 'type', 'num')
 
 parallel = ggplot(Adjusted.EV, aes(x=num, y=eigenvalue, shape=type, color=type)) +
   #Add lines connecting data points
-  geom_line(colour ='black')+
+  geom_line(colour ='#DC000099')+
     #geom_line(data = Random.EV) +
   #geom_line(data = Unadjusted.EV)+
     #Add the data points.
-  geom_point(size=2,colour ='black')+
+  geom_point(size=1.5,colour ='#3C5488FF')+
   #geom_point(data = Random.EV, size=3)+
   #geom_point(data = Unadjusted.EV, size=3)+
   scale_y_continuous(name="Eigen Value", limits=c(0, 7), breaks=seq(0,7,1)) +
@@ -725,9 +727,9 @@ colnames(PA.Scree) = c('eigenvalue', 'type', 'num')
 
 
 scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
-   geom_line(colour ='black')+
+   geom_line(colour ='#DC000099')+
   #geom_line(data = PA.Scree)+ 
-  geom_point(size=2,colour ='black')+
+  geom_point(size=1.5,colour ='#3C5488FF')+
   #geom_point(data = PA.Scree, size=3)+
   scale_y_continuous(name="Eigen Value", limits=c(0, 7), breaks=seq(0,7,1)) +
   scale_x_continuous(name='Factor Number (Scree Plot)', limits=c(0, 20),breaks=seq(0,20,4))+
@@ -741,8 +743,10 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 EFA.MRFA::hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
         details = TRUE)
 hull <- ggplot2::last_plot()
-Hull <- hull+ ggtitle(NULL)+xlab("Factor Number (Hull Method)")+ylab("CAF")+ aes(color = "black")+
-  apatheme +scale_color_manual(labels = c("Out side the convex Hull", "On the convex Hull"), values = c("black", "black"))+theme(legend.position = "None") 
+Hull <- hull+ ggtitle(NULL)+xlab("Factor Number (Hull Method)")+ylab("CAF")+ aes(color = '#DC000099')+geom_point(color ='#3C5488FF',size =1)+
+  apatheme +theme(legend.position = "None") +scale_fill_identity()
+
+
 
 
 ```
@@ -962,8 +966,8 @@ apa_table(efa.table,align = "c", caption = "Factor loadings and communality of t
 res.dat <- as.data.frame(unclass(residual.5F))
 residual.data <- as.data.frame(gather(res.dat, Items, Residuals))
 
-residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill=I("grey")) + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+theme(axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 12))
+residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill="#00A08799") + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+theme(axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12))+
   labs( y="Frequency")
 
 ```
@@ -1205,14 +1209,14 @@ gt() %>%
     hist_data,
     type = "histogram",
     line_color = "black", 
-    fill_color = "grey",
+    fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
   gtExtras::gt_sparkline(
     dens_data,
     type = "density",
     line_color = "black", 
-    fill_color = "grey",
+    fill_color = "#E64B3599",
     bw = 0.75,
     same_limit = TRUE
   )%>%
@@ -1306,14 +1310,14 @@ gt() %>%
     hist_data,
     type = "histogram",
     line_color = "black", 
-    fill_color = "grey",
+    fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
   gtExtras::gt_sparkline(
     dens_data,
     type = "density",
     line_color = "black", 
-    fill_color = "grey",
+    fill_color = "#E64B3599",
     bw = 0.75,
     same_limit = TRUE
   )%>%
@@ -1402,7 +1406,7 @@ gt.fullTable <-  rbind( efa.gt, cfa.gt) %>%
     hist_data,
     type = "histogram",
     line_color = "black", 
-    fill_color = "grey",
+    fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
   gtExtras::gt_sparkline(
@@ -1675,17 +1679,20 @@ summaryParam(simulation, detail =T, alpha = .05)
 SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
 ```
 
-
-```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pair 41 and 30 to covary their error variance our model attained the best fit.", out.height="150%", out.width="100%", dpi=600,  warning=FALSE}
-
-#library(semPlot)
-
+```{r cfaplot, include =F}
+png(filename="Manuscript.figures/CFAplot.png", 
+    type="cairo",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=12, 
+    res=1200)
 semPaths (fit.Cor.2 , 
           what= "std",
           #"hide", #(hides coefficeits)
           #whatLabels = "std",
           intercepts = F,
-          style ="lisrel",
+          style ="OpenMx",
           #residScale = 6,
           theme = "colorblind",
           nCharNodes = 0,
@@ -1694,24 +1701,33 @@ semPaths (fit.Cor.2 ,
           layout ="tree",
           cardinal = T,
           curvePivot =T,
-          sizeMan =6,#items length
+          sizeMan =8,#items length
           sizeMan2 = 2,#items
           sizeLat = 12,#factors
           thresholds = FALSE,
           equalizeManifests =F,
           fade = FALSE,
           edge.label.cex = .8,
-          exoCov = T,
+          #exoCov = T,
           centerLevels = T,
           #edge.color="black",
           label.scale=T,
-          label.cex=1, #Font of factor and item name
+          label.cex=1.2, #Font of factor and item name
           residuals=FALSE,
-           exoVar=FALSE,
-          fixedStyle=6, #Style of arrow (guide item)
-          freeStyle=1#Style of arrow (other item), #XKCD = TRUE
+           #exoVar=FALSE,
+          #fixedStyle=6, #Style of arrow (guide item)
+          #freeStyle=1#Style of arrow (other item), #XKCD = TRUE
            
           )
+
+
+dev.off()
+```
+
+
+```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pair 41 and 30 to covary their error variance our model attained the best fit.",  out.height='100%', warning=FALSE}
+
+knitr::include_graphics("Manuscript.figures/CFAplot.png", dpi =600)
 
 
 
@@ -2215,6 +2231,13 @@ F5.item.info.data <- as.data.frame(cbind(Theta, F5.item.info.1,
                                          F5.item.info.4,
                                          F5.item.info.5))
 
+
+
+
+
+
+
+
 ## GGplot2 item-info
 ###F1
 F1.iteminfo.1 <- ggplot(F1.item.info.data , aes(x=Theta, y=F1.item.info.1)) +
@@ -2490,12 +2513,10 @@ F5.item.info.data.2 <- data.frame(Theta=seq(-6,6, by = .1), F5.item.info.data.lo
 
 
 
-
+library(ggsci)
 F1.iic2 <- ggplot(F1.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F1 Item Information Plot")+theme(legend.position = "none")+
-  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+
-  scale_color_npg()+geom_hline(yintercept = .20, colour ="red")+scale_y_continuous(breaks=c(5,50,100,200), limits = c(0, 200))
-
+  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+geom_hline(yintercept = .20, colour ="red")+scale_y_continuous(breaks=c(5,50,100,200), limits = c(0, 200))+geom_area()+ scale_color_npg()+aes(fill = as.factor(variable))
 
 F2.iic2 <- ggplot(F2.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F2 Item Information Plot")+theme(legend.position = "none")+
@@ -2721,9 +2742,6 @@ F4.marginal.rel <-marginal_rxx(F4_fit.redu)
 F5.marginal.rel <-marginal_rxx(F5_fit)
 
 
-
-
-
 # Plots2 ####
 
 F1_test.info <- plot(F1_fit, type = "infoSE", main = "F1: Wearing blue light filters") 
@@ -2790,32 +2808,50 @@ F4.test.data <- as.data.frame(cbind(Theta, F4.T1))
 
 F5.test.data <- as.data.frame(cbind(Theta, F5.T1))
 
+Test.data <- as.data.frame(cbind(F1.T1,F2.T1, F3.T1, F4.T1, F5.T1))
+
+Test.data.long <- melt(Test.data)
+Test.data.2 <- data.frame(Theta=seq(-6,6, by =.1),Test.data.long)
+
+
+TIC <- ggplot(Test.data.2,aes(Theta,value))+geom_line(size = 1)+apatheme+
+  ggtitle("Test Information Plot")+theme(legend.position = "none")+
+  labs(y = "Test Information")+ geom_path()+facet_wrap(~variable,scales = "free") +theme(strip.text.x = element_text(size = 15))+geom_area()+ scale_color_npg()+aes(fill = as.factor(variable))
 
 
 F1.tic <- ggplot(F1.test.data, aes(x=Theta, y=F1.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F1 Test Inforfamtion")+scale_color_brewer(palette="Dark2")
+  labs(y="Test Information", title = "F1: Wearing blue light filters")+geom_area()+theme(legend.position = "none")+
+  aes(fill =  "#E64B3599")+
+     scale_fill_identity()
 
 F2.tic <- ggplot(F2.test.data, aes(x=Theta, y=F2.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F2 Test Inforfamtion")+ylim(0,8)
+  labs(y="Test Information", title = "F2: Spending time outdoors")+ylim(0,8)+
+  geom_area()+aes(fill =  "#4DBBD599")+theme(legend.position = "none")+
+     scale_fill_identity()
 
 F3.tic <- ggplot(F3.test.data, aes(x=Theta, y=F3.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F3 Test Inforfamtion")+ylim(0,8)
+  labs(y="Test Information", title = "F3: Using phone and smart-watch in bed")+ylim(0,8)+
+  geom_area()+aes(fill =  "#00A08799")+theme(legend.position = "none")+
+     scale_fill_identity()
 
 F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F4 Test Inforfamtion")
+  labs(y="Test Information", title = "F4: Using light before bedtime")+
+  geom_area()+aes(fill =  "#3C548899")+theme(legend.position = "none")+
+     scale_fill_identity()
 
 F5.tic <- ggplot(F5.test.data, aes(x=Theta, y=F5.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F5 Test Inforfamtion") +ylim(0,8)
+  labs(y="Test Information", title = "F5:Using light in the morning and during daytime") +ylim(0,8)+geom_area()+aes(fill =  "#B09C8599")+theme(legend.position = "none")+
+scale_fill_identity()
 
 
 #panel TIC
 
-TIC <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
+TIC.plot <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                                    F4.tic,F5.tic,
                    labels = "AUTO",
                      align="v",
@@ -2823,7 +2859,7 @@ TIC <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                      label_size = 15,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/TIC.png",TIC, width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Manuscript.figures/TIC.png",TIC.plot, width = 10, height = 12, dpi = 600, bg = "white")
 
 ```
 
