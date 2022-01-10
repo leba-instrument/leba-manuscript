@@ -158,6 +158,8 @@ output            :
   papaja::apa6_pdf:
     keep_tex: true
     latex_engine: xelatex
+    includes:
+      in_header: header.tex
 appendix:
   - "appendix-1.Rmd"
 mainfont: Arial
@@ -422,8 +424,8 @@ descriptives.data%>%
 ```
 
 ```{r demographics, warning=F, message=F}
-desc_kable %>% 
-  kable_styling(latex_options = c("scale_down")) 
+desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
+
 ```
 
 Table 2 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA) , a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for Exploratory Factor Analysis (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and Confirmatory Factor Analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country + timezone combinations included:
@@ -3064,6 +3066,7 @@ Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded 
 ```{=tex}
 \endgroup
 ```
+
 
 
 

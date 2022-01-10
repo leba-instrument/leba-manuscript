@@ -98,8 +98,8 @@ mides_kable <-  as_kable_extra(mi.desc_table, format = "latex",booktabs = T)
 ```
 
 ```{r midesp, warning=F, message=F, results='asis'}
-mides_kable %>% 
-  kable_styling(latex_options = c("scale_down")) 
+mides_kable %>% kable_styling(latex_options = c("scale_down")) %>% 
+  landscape()
 ```
 
 ```{r MinRes, include=F}
