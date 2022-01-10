@@ -1,119 +1,438 @@
-```{r configure, include=FALSE}
-library(Hmisc)
+
+**Disclaimer**: This is a non-public version of LEBA (dated \today) and still a work in progress. Please do not distribute!
+
+LEBA captures light exposure-related behaviours on a 5 point Likert type scale ranging from 1 to 5 (Never = 1; Rarely = 2; Sometimes = 3; Often = 4; Always = 5). The score of each factor is calculated by the summation of scores of items belonging to the corresponding factor. 
+
+**Instruction:**
+
+"Please indicate how often you performed the following behaviours in the **past 4 weeks.**"
+
+```{r longdata, include =F}
+long <- readxl::read_excel("Table_raw/LEBA Long.xlsx")
+long <- long %>% mutate_all(~ replace_na(.x, " "))
+```
+
+```{r LEBAlong, warning =F}
+long %>% 
+apa_table(landscape =T,caption ="LEBA Long Form (23 Items) ",  font_size = "footnotesize", align = c("p{15cm}", rep("p{1cm}", ncol(long)))) 
+```
+
+```{r longreldata, include =F}
+long.rel <- readxl::read_excel("Table_raw/LEBA_longs_structure.xlsx")
+long.rel <- long.rel %>% mutate_all(~ replace_na(.x, " "))
+```
+
+```{r longrel, warning =F}
+long.rel %>% 
+apa_table(landscape =F,caption ="LEBA Long Form (23 Items):Latent Structure and Reliability ",  font_size = "footnotesize")
+```
+
+```{r shortdata, include =F}
+short <- readxl::read_excel("Table_raw/LEBA_Short.xlsx")
+short <-short%>% mutate_all(~ replace_na(.x, " "))
+```
+
+```{r LEBAshort, warning =F}
+short %>% 
+apa_table(landscape =T,caption ="LEBA Short Form (18 Items) ",  font_size = "footnotesize", align = c("p{15cm}", rep("p{1cm}", ncol(short)))) 
+```
+
+```{r shortreldata, include =F}
+short.rel <- readxl::read_excel("Table_raw/LEBA_short_structure.xlsx")
+short.rel <- long.rel %>% mutate_all(~ replace_na(.x, " "))
+```
+
+```{r lshortrel, warning =F}
+short.rel %>% 
+apa_table(landscape =F,caption ="LEBA Short Form (18 Items):Latent Structure ",  font_size = "footnotesize")
+```
+
+```{r factormp, warning=F}
+map <- readr::read_csv("Table_raw/map_stat.csv")
+map1 <- (map$`MAP Statistic`)
+map1 <- MOTE::apa(map1,5,F)
+map1 <- as.character(map1)
+map1 <- as.data.frame(map1)
+colnames(map1) <- "MAP Statistics"
+map2 <- map[,-c(1,2)]
+map3 <- cbind(map1, map2)
+
+
+```
+
+```{r map}
+papaja::apa_table(map3, caption = "Minimum Average Partial (MAP) method of factor numder determination. MAP Statistics is the lowest in the 5th row indicating five factors are required.")
+```
+
+```{r MI, include=F, warning=F}
 data <- readRDS("leba_2021-09-08.rds")
-sem.data <- data[, 9:56] 
+
+# Separating EFA and CFA samples with descriptive column
+descriptives.data <- data
+
+## Merge "0"s and "1"s into "1"s select,subset assign)
+descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
+#EFA.descriptives <- descriptives.data[1:428,]
+EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
+#CFA.descriptives <- descriptives.data[429:690, ]
+CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
+
+mi.desc_table <- CFA.descriptives[,c(1,2,5,6,7)] %>%
+  tbl_summary(
+    by = slypos_demographics_language.factor,
+    statistic = list(all_continuous() ~ "{mean} ({sd})",
+                     all_categorical() ~ "{n} ({p}%)"),
+    digits = all_continuous() ~ 2,
+    label = list(slypos_demographics_age ~ "Age",
+                 slypos_demographics_sex.factor ~ "Sex",
+                 slypos_demographics_work_or_school.factor ~ "Occupational Status",
+                 slypos_demographics_school.factor ~ "Occupational setting"
+                 ),
+    missing = "no"
+    ) %>% add_overall() %>% bold_labels() %>% add_p() %>% add_q() %>%
+modify_header(label ~ "**Variable**") %>% separate_p_footnotes() %>%
+  modify_caption("Demographic Characteristics: Native English Speakers") 
+
+
+mides_kable <-  as_kable_extra(mi.desc_table, format = "latex",booktabs = T) 
+```
+
+```{r midesp, warning=F, message=F, results='asis'}
+mides_kable %>% 
+  kable_styling(latex_options = c("scale_down")) 
+```
+
+```{r MinRes, include=F}
+library(psych)
+library(tabledown)
+library(kableExtra)#without this pdf rendering will not happen
+
+data <- readRDS("leba_2021-09-08.rds")
+
+# Separating EFA and CFA samples with descriptive column
+descriptives.data <- data
+
+## Merge "0"s and "1"s into "1"s select,subset assign)
+descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
+#EFA.descriptives <- descriptives.data[1:428,]
+EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
+#CFA.descriptives <- descriptives.data[429:690, ]
+CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
+
+#Separating the EFA and CFA(only items)
+sem.data <- data[, 9:56] #EFA & CFA data
+sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
+
+## renaming the column-header
 prefix <- "item"
 sufix <- c(1:48)
 colnam <- paste(prefix,sufix, sep = "" )
 colnames(sem.data) <- colnam
+
+names(sem.data)[names(sem.data) == "item1"] <- "item01"
+names(sem.data)[names(sem.data) == "item2"] <- "item02"
+names(sem.data)[names(sem.data) == "item3"] <- "item03"
+names(sem.data)[names(sem.data) == "item4"] <- "item04"
+names(sem.data)[names(sem.data) == "item5"] <- "item05"
+names(sem.data)[names(sem.data) == "item6"] <- "item06"
+names(sem.data)[names(sem.data) == "item7"] <- "item07"
+names(sem.data)[names(sem.data) == "item8"] <- "item08"
+names(sem.data)[names(sem.data) == "item9"] <- "item09"
+
+### EFA data
+EFA.data <- sem.data[1:428, ]
+#Polychoric Correlation matrix
+
+correlations <- psych::polychoric(EFA.data, correct = 0)
+
+#Supplementary EFA with Minres Extraction
+
+fa.5F.min.1 <- fa(r=correlations$rho, nfactors = 5, fm= "minres",rotate ="varimax",
+                residuals = TRUE, SMC = TRUE, n.obs =428)
+EE <- print(fa.5F.min.1, cut = .3, digits = 3, sort = TRUE)
+
+
+reduced.model.5F.min.1 <- dplyr::select(EFA.data ,
+                                    -c( item20, item19, item05, item31, item44, item24, item43, item39, item22, item02, item18, item48, item42, item29, item06, item15, item23, item28, item14))
+
+correlations.red.5F.min.1 <- polychoric(reduced.model.5F.min.1,correct = 0)
+
+fa.5F.min.2 <- fa(r=correlations.red.5F.min.1$rho, nfactors = 5, fm= "minres",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+FF <- print(fa.5F.min.2, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.5F.min.2 <- dplyr::select(EFA.data, -c( item20, item19, item05, item31, item44, item24, item43, item39, item22, item02, item18, item48, item42, item29, item06, item15, item23, item28, item14, item34, item47, item21, item13))
+
+correlations.red.5F.min.2 <- polychoric(reduced.model.5F.min.2, correct = 0)
+
+
+fa.5F.min.3 <- fa(r=correlations.red.5F.min.2$rho, nfactors = 5, fm= "minres",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+GG <- print(fa.5F.min.3, cut = .3, digits = 3, sort = TRUE)
+
+minresTab <- tabledown::fac.tab(fa.5F.min.3, cut =.3,complexity = F)
 ```
 
-**Disclaimer**: This is a non-public version of LEBA (dated \today) and still a work in progress. Please do not distribute!
+```{r MinResTab}
+papaja::apa_table(minresTab,  caption = "Factor loadings and communality of the retained items (Minmum Residual)", note = "Only loading higher than .30 is reported", longtable=T, font_size = "footnotesize")
+```
 
-LEBA captures light exposure-related behaviours on a 5 point Likert type scale ranging from 1 to 5 (Never/Does not apply/I don't know = 1; Rarely = 2; Sometimes = 3; Often = 4; Always = 5). The score of each factor is calculated by the summation of scores of items belonging to the corresponding factor. The following instruction is given before displaying the items: "Please indicate how often you performed the following behaviours in the past 4 weeks."
+```{r sixFac, include=F}
+# EFA with 6 factor (rejected)
 
-\newpage
 
-\blandscape
+#correlations <- polychoric(EFA.factor, correct = 0)
 
-# LEBA Long Form (23 Items)
+fa.6F.1 <- fa(r=correlations$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
 
-|     | Items                      | Never | Rarely | Sometimes | Often | Always |
-|-----|----------------------------|-------|--------|-----------|-------|--------|
-| 1   | `r label(sem.data$item16)` |       |        |           |       |        |
-| 2   | `r label(sem.data$item17)` |       |        |           |       |        |
-| 3   | `r label(sem.data$item36)` |       |        |           |       |        |
-| 4   | `r label(sem.data$item8)`  |       |        |           |       |        |
-| 5   | `r label(sem.data$item10)` |       |        |           |       |        |
-| 6   | `r label(sem.data$item9)`  |       |        |           |       |        |
-| 7   | `r label(sem.data$item11)` |       |        |           |       |        |
-| 8   | `r label(sem.data$item12)` |       |        |           |       |        |
-| 9   | `r label(sem.data$item7)`  |       |        |           |       |        |
-| 10  | `r label(sem.data$item27)` |       |        |           |       |        |
-| 11  | `r label(sem.data$item3)`  |       |        |           |       |        |
-| 12  | `r label(sem.data$item40)` |       |        |           |       |        |
-| 13  | `r label(sem.data$item30)` |       |        |           |       |        |
-| 14  | `r label(sem.data$item41)` |       |        |           |       |        |
-| 15  | `r label(sem.data$item32)` |       |        |           |       |        |
-| 16  | `r label(sem.data$item35)` |       |        |           |       |        |
-| 17  | `r label(sem.data$item38)` |       |        |           |       |        |
-| 18  | `r label(sem.data$item33)` |       |        |           |       |        |
-| 19  | `r label(sem.data$item46)` |       |        |           |       |        |
-| 20  | `r label(sem.data$item45)` |       |        |           |       |        |
-| 21  | `r label(sem.data$item25)` |       |        |           |       |        |
-| 22  | `r label(sem.data$item4)`  |       |        |           |       |        |
-| 23  | `r label(sem.data$item1)`  |       |        |           |       |        |
+II <- print(fa.6F.1, cut = .3, digits = 3, sort = TRUE)
 
-\elandscape
 
-\newpage
+reduced.model.6F.1 <- dplyr::select(EFA.data ,
+                                    -c(item34, item44, item48, item43, item39, item22, item02, item20, item21, item24,item30, item14, item28, item06, item15, item23))
 
-\blandscape
+correlations.red.6F.1 <- polychoric(reduced.model.6F.1,correct = 0)
 
-## Latent Structure, Reliability and Structural Validity
+fa.6F.2 <- fa(r=correlations.red.6F.1$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
 
-The long form of LEBA consists 23 items with five factors.
+JJ <- print(fa.6F.2, cut = .3, digits = 3, sort = TRUE)
 
-| Factor names                                      | Items                    | Reliability Coefficients: ordinal alpha |
-|---------------------------------------------------|--------------------------|-----------------------------------------|
-| F1: Wearing blue light filters                    | 1-3                      | .96                                     |
-| F2: Spending time outdoors                        | 4-9 (Item 4 is reversed) | .83                                     |
-| F3: Using phone and smartwatch in bed             | 10-14                    | .70                                     |
-| F4: Using light before bedtime                    | 15-18                    | .69                                     |
-| F5: Using light in the morning and during daytime | 19-23                    | .52                                     |
-| McDonald's Omega coefficient for the total scale  |                          | .73 (Total scale)                       |
+reduced.model.6F.2 <- dplyr::select(EFA.data, -c(item34, item44, item48, item43, item39, item22, item02, item20, item21, item24,item30, item14, item28, item06, item15, item23, item18, item42, item47, item41))
 
-LEBA -long form showed satisfactory structural validity (CFI =.97; TLI = .96; RMSEA = .05\[.04-.06, 90% CI\]; SRMR = .09).
+correlations.red.6F.2 <- polychoric(reduced.model.6F.2,correct = 0)
 
-## How to cite:
 
-\elandscape
+fa.6F.3 <- fa(r=correlations.red.6F.2$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428, max.iter = 500)
 
-\newpage
+KK <- print(fa.6F.3, cut = .3, digits = 3, sort = TRUE)
 
-\blandscape
 
-# LEBA Short Form (18 Items)
 
-|     | Short Form (18 Items)      | Never | Rarely | Sometimes | Often | Always |
-|-----|----------------------------|-------|--------|-----------|-------|--------|
-| 01  | `r label(sem.data$item16)` |       |        |           |       |        |
-| 02  | `r label(sem.data$item17)` |       |        |           |       |        |
-| 03  | `r label(sem.data$item36)` |       |        |           |       |        |
-| 04  | `r label(sem.data$item8)`  |       |        |           |       |        |
-| 05  | `r label(sem.data$item9)`  |       |        |           |       |        |
-| 06  | `r label(sem.data$item10)` |       |        |           |       |        |
-| 07  | `r label(sem.data$item11)` |       |        |           |       |        |
-| 08  | `r label(sem.data$item12)` |       |        |           |       |        |
-| 09  | `r label(sem.data$item7)`  |       |        |           |       |        |
-| 10  | `r label(sem.data$item27)` |       |        |           |       |        |
-| 11  | `r label(sem.data$item3)`  |       |        |           |       |        |
-| 12  | `r label(sem.data$item40)` |       |        |           |       |        |
-| 13  | `r label(sem.data$item32)` |       |        |           |       |        |
-| 14  | `r label(sem.data$item35)` |       |        |           |       |        |
-| 15  | `r label(sem.data$item33)` |       |        |           |       |        |
-| 16  | `r label(sem.data$item46)` |       |        |           |       |        |
-| 17  | `r label(sem.data$item45)` |       |        |           |       |        |
-| 18  | `r label(sem.data$item4)`  |       |        |           |       |        |
+reduced.model.6F.3 <- dplyr::select(EFA.data, -c(item34, item44, item48, item43, item39, item22, item02, item20, item21, item24,item30, item14, item28, item06, item15, item23, item18, item42, item47, item41, item05, item13, item29))
 
-\elandscape
+correlations.red.6F.3 <- polychoric(reduced.model.6F.3,correct = 0)
 
-\newpage
 
-\blandscape
+fa.6F.4 <- fa(r=correlations.red.6F.3$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428, max.iter = 500)
 
-## Latent Structure, Reliability and Structural Validity
+ll <- print(fa.6F.4, cut = .3, digits = 3, sort = TRUE)
 
-The short form of LEBA consists 23 items with five factors.
 
-| Factor names                                          | Items                    |
-|-------------------------------------------------------|--------------------------|
-| **F1: Wearing blue light filters**                    | 1-3                      |
-| **F2: Spending time outdoors**                        | 4-8 (Item 4 is reversed) |
-| **F3: Using phone and smart-watch in bed**            | 9-11                     |
-| **F4: Using light before bedtime**                    | 12-14                    |
-| **F5: Using light in the morning and during daytime** | 15-17                    |
+reduced.model.6F.4 <- dplyr::select(EFA.data, -c(item34, item44, item48, item43, item39, item22, item02, item20, item21, item24,item30, item14, item28, item06, item15, item23, item18, item42, item47, item41, item05, item13, item29, item19))
 
-## How to cite:
+correlations.red.6F.4 <- polychoric(reduced.model.6F.4,correct = 0)
 
-\elandscape
+
+fa.6F.5 <- fa(r=correlations.red.6F.4$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428, max.iter = 500)
+
+mm <- print(fa.6F.5, cut = .3, digits = 3, sort = TRUE)
+
+
+
+# Residuals
+residual.6F =residuals(fa.6F.5 , diag = FALSE, na.rm =T)
+#Count of numbers of residuals>.05
+BigRRR= sum(residual.6F>abs(.05), na.rm =T)
+print(BigRRR)
+
+#Total number of off diagonal elements in the data matrix
+totRRR = length(reduced.model.6F.2)*(length(reduced.model.6F.2)-1)/2
+
+# Proportion of off-diagonal elements >.10
+sumRRR <- sum(BigRRR/totRRR*100)
+
+#hist(residual.6F, main = NULL, xlab = "Six factor Solution: Residuals",ylim=c(0, 400))
+#abline(h =65, lwd = 2, lty = 2)
+#abline(v =.05,lwd = 2, lty = 2)
+sixFac <- tabledown::fac.tab(fa.6F.5, cut =.3,complexity = F)
+```
+
+```{r sixFacTab}
+papaja::apa_table(sixFac,  caption = "Factor loadings and communality of the retained items(six factor)", note = "Only loading higher than .30 is reported; Sixth factor has only two salient loadings",longtable =T, font_size = "footnotesize")
+```
+
+```{r DataAppB, include=FALSE}
+data <- readRDS("leba_2021-09-08.rds")
+
+
+#Separating the EFA and CFA(only items)
+sem.data <- data[, 9:56] #EFA & CFA data
+## renaming the column-header
+prefix <- "item"
+sufix <- c(1:48)
+colnam <- paste(prefix,sufix, sep = "" )
+colnames(sem.data) <- colnam
+names(sem.data)[names(sem.data) == "item1"] <- "item01"
+names(sem.data)[names(sem.data) == "item2"] <- "item02"
+names(sem.data)[names(sem.data) == "item3"] <- "item03"
+names(sem.data)[names(sem.data) == "item4"] <- "item04"
+names(sem.data)[names(sem.data) == "item5"] <- "item05"
+names(sem.data)[names(sem.data) == "item6"] <- "item06"
+names(sem.data)[names(sem.data) == "item7"] <- "item07"
+names(sem.data)[names(sem.data) == "item8"] <- "item08"
+names(sem.data)[names(sem.data) == "item9"] <- "item09"
+EFA.data <- sem.data[1:428, ]
+
+correlations <- psych::polychoric(EFA.data, correct = 0)
+
+```
+
+```{r ggplot2AppB, include=F}
+apatheme=theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        #text=element_text(family = "Helvetica"),
+        axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15),
+        axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        plot.title = element_text(size = 15),
+        legend.text = element_text(size = 15),
+        legend.title=element_blank(),
+        axis.line.x = element_line(color='black'),
+        axis.line.y = element_line(color='black'),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+```
+
+```{r EFAAppB, include=FALSE}
+fa.5F.1 <- fa(r=correlations$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+AA <- print(fa.5F.1, cut = .3, digits = 3, sort = TRUE)
+
+
+reduced.model.5F.1 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item24, item37, item22, item05,
+                                        item28, item30, item39,item23, item45, item06, item29, item02, item41))
+
+correlations.red.5F.1 <- polychoric(reduced.model.5F.1,correct = 0)
+
+fa.5F.2 <- fa(r=correlations.red.5F.1$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+BB <- print(fa.5F.2, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.5F.2 <- dplyr::select(EFA.data, -c( item32, item34, item24, item37, item22, item05,
+                                        item28, item30, item39,item23, item45, item06, item29, item02, item41, item46, item13, item15, item25, item01, item26, item14))
+
+correlations.red.5F.2 <- polychoric(reduced.model.5F.2,correct = 0)
+
+
+fa.5F.3 <- fa(r=correlations.red.5F.2$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428,max.iter = 500 )
+
+CC <- print(fa.5F.3, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.5F.3 <- dplyr::select(EFA.data, -c( item32, item34, item24, item37, item22, item05,
+                                        item28, item30, item39,item23, item45, item06, item29, item02, item41, item46, item13, item15, item25, item01, item26, item14, item43, item42))
+
+correlations.red.5F.3 <- polychoric(reduced.model.5F.3,correct = 0)
+
+
+fa.5F.4 <- fa(r=correlations.red.5F.3$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428,max.iter = 500 )
+
+CC <- print(fa.5F.4, cut = .3, digits = 3, sort = TRUE)
+```
+
+```{r factordetailsAppB, include=FALSE}
+#Preparing the EFA table
+efa.table <- tabledown::fac.tab(fa.5F.4,.3, complexity = F) 
+```
+
+```{r efaunmerged}
+apa_table(efa.table, caption = "Factor loadings and communality of the retained items in five factor solution [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T, font_size = "footnotesize")
+```
+
+```{r EFAAppsix, include=FALSE, warning=F,message=FALSE}
+
+library(Hmisc)
+fa.6F.1 <- fa(r=correlations$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+DD <- print(fa.6F.1, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.6F.1 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item44,item24, item37, item22, item05,
+                                        item28,item39,item23, item45, item06, item29, item02, item41, item30))
+
+correlations.red.6F.2 <- polychoric(reduced.model.6F.1,correct = 0)
+
+fa.6F.2 <- fa(r=correlations.red.6F.2$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+EE <- print(fa.6F.2, cut = .3, digits = 3, sort = TRUE)
+reduced.model.6F.2 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item44,item24, item37, item22, item05,
+                                        item28,item39,item23, item45, item06, item29, item02, item41, item30, item46, item36,item01, item25))
+correlations.red.6F.3 <- polychoric(reduced.model.6F.2,correct = 0)
+fa.6F.3 <- fa(r=correlations.red.6F.3$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+FF <- print(fa.6F.3, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.6F.3 <- dplyr::select(EFA.data ,
+                                    -c(item32, item34, item44,item24, item37, item22, item05,
+                                        item28,item39,item23, item45, item06, item29, item02, item41, item30, item46, item36,item01, item25, item18))
+correlations.red.6F.4 <- polychoric(reduced.model.6F.3,correct = 0)
+fa.6F.4 <- fa(r=correlations.red.6F.4$rho, nfactors = 6, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+FF <- print(fa.6F.4, cut = .3, digits = 3, sort = TRUE)
+
+efa.table.2 <- tabledown::fac.tab(fa.6F.4,.3, complexity = F) 
+```
+
+```{r EFAsix}
+apa_table(efa.table.2, caption = "Factor loadings and communality of the retained items in six factor solution [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T, font_size = "footnotesize")
+```
+
+```{r tzdata, include=F}
+tz <- read_csv("Table_raw/timezone.csv")
+tz <- tz[,-1]
+colnames(tz) <- c("Timezone", "Number of Participants")
+participants <- sum(tz[, 'Number of Participants'])
+```
+
+```{r tztable}
+apa_table(tz, longtable =T,font_size = "footnotesize", caption = "Geographical Location of the participants (n =690)")
+```
+
+```{r unmerged-data, include =F}
+unmerged <- read_excel("Table_raw/LEBA_unmerged_fa.xlsx")
+```
+
+```{r unmertab}
+apa_table(unmerged , longtable =T, font_size = "footnotesize")
+```
+
+```{r F1IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F1. Item 16 carried highest information among the three items', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F1.itemplots.png', dpi = 600)
+```
+
+```{r F2IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F2. All items cariied information across the latent trait continuum. Item 09 carried the lowest information however its information peak was highr than .20.', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F2.itemplots.png',dpi = 600)
+```
+
+```{r F3IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F3. Item 30 and 41 had relatively flat information curve with a peak lower than .20', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F3.itemplots.png',dpi = 600)
+```
+
+```{r F4IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F4. Item 38 had relatively flat information curve with a peak lower than .20', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F4.itemplots.png',dpi = 600)
+```
+
+```{r F5IF, echo=FALSE, fig.align='center', fig.cap='Item information curve of LEBA F5. Three items: 25, 04, 01 carriedlow information. However Item 04 had a bump at the righ side of the center with a curve peak higher than .20.  Item 01 and 25 had relatively flat information curve with a peak lower than .20', out.height='160%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/F5.itemplots.png',dpi = 600)
+```
+
+```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
+knitr::include_graphics("Manuscript.figures/personfit.png",dpi = 600)
+```
+

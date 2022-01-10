@@ -131,8 +131,11 @@ authornote: |
 
 abstract: |
   Light exposure is an important driver of health and well-being. Many aspects of light exposure are modulated by our behaviour. How these light-related behaviours can be shaped to optimise personal light exposure is currently unknown. Here, we present a novel, self-reported and psychometrically validated instrument to capture light exposure-related behaviour, the Light Exposure Behavior Assessment (LEBA). 
-  An expert panel prepared the initial 48 item pool. Responses to these items were then collected in an online survey producing responses from an international sample (690 completed responses, 74 countries, 28 time zones). Exploratory factor analysis on an initial subset of our sample (n=428) rendered a five-factor solution with 25 items (Wearing blue light filters, spending time outdoors, using phone and smart-watch in bed, using light before bedtime, using light in the morning and during daytime). Confirmatory factor analysis on another subset of participants (n=262) yielded the best fit for the five-factor solution after discarding another two items (CFI=0.97, TLI=0.96, RMSEA=0.05, SRMR=0.09). The internal consistency reliability coefficient for the total instrument was McDonald’s omega =0.73. Measurement model invariance analysis between native and non-native English speakers showed our model attained the highest level of invariance (residual invariance; CFI=0.95, TLI =0.95, RMSEA=0.05). Lastly, a short form of LEBA (n=18) was developed using Item Response Theory on the complete sample (n=690). 
-  The psychometric properties of the LEBA instrument indicate the usability to measure the light exposure-related behaviours across a variety of settings and may offer a scalable solution to characterize light exposure-related behaviours in remote samples.
+  
+  An expert panel prepared the initial 48 item pool. Responses to these items were then collected in an online survey producing responses from an international sample (690 completed responses, 74 countries, 28 time zones). Exploratory factor analysis (EFA) on an initial subset of our sample (n=428) rendered a five-factor solution with 25 items (Wearing blue light filters, spending time outdoors, using phone and smart-watch in bed, using light before bedtime, using light in the morning and during daytime). In a confirmatory factor analysis (CFA) performed on an independent subset of participants (n=262), we removed two further items to attain the best fit for the five-factor solution (CFI=0.97, TLI=0.96, RMSEA=0.05, SRMR=0.09). The internal consistency reliability coefficient for the total instrument was McDonald’s omega_total=0.73. Measurement model invariance analysis between native and non-native English speakers showed our model attained the highest level of invariance (residual invariance; CFI=0.95, TLI =0.95, RMSEA=0.05). Lastly, a short form of LEBA (n=18) was developed using Item Response Theory on the complete sample (n=690). 
+  
+  The psychometric properties of the LEBA instrument indicate the usability to measure the light exposure-related behaviours across a variety of settings and may offer a scalable solution to characterise light exposure-related behaviours in remote samples. The LEBA instrument will be available under the open-access CC-BY-NC-ND license.
+
 
   
 keywords          : "light exposure, light-related behaviours, non-visual effects of light, psychometrics"
@@ -155,12 +158,8 @@ output            :
   papaja::apa6_pdf:
     keep_tex: true
     latex_engine: xelatex
-    includes:
-      in_header: header.tex
 appendix:
   - "appendix-1.Rmd"
-  - "appendix-2.Rmd"
-  - "appendix-3.Rmd"
 mainfont: Arial
 ---
 
@@ -333,6 +332,16 @@ library(stringr)
 country <- data
 
 TZ <- as.data.frame(str_split_fixed(country$slypos_demographics_tz.factor, "-", 2))
+TZ[97, 2] <- " East Africa/Dodoma (UTC +03:00)"
+TZ[146, 2] <- " European /Skopje (UTC +01:00)"
+TZ[176, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[574, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[690, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[273, 2] <- " Iran /Tehran (UTC +0:30)"
+TZ[418, 2] <- " Iran /Tehran (UTC +0:30)"
+TZ[673, 2] <- " Iran /Tehran (UTC +0:30)"
+
+
 
 num.countries <- unique(TZ$V1)
 num.Timezone <- unique(TZ$V2)
@@ -340,6 +349,20 @@ num.Timezone <- unique(TZ$V2)
 UTC <- as.data.frame(str_split_fixed(TZ$V2, "UTC", 2))
 numUTC <- unique(UTC$V2)
 ```
+
+
+```{r timezone, include=F}
+
+timezone <- TZ %>% 
+  group_by(V2) %>% 
+  count() %>% 
+  as.data.frame()
+
+write.csv(timezone, "Table_raw/timezone.csv")
+
+
+```
+
 
 ```{r prepareDescTable, include=FALSE}
 
@@ -403,7 +426,7 @@ desc_kable %>%
   kable_styling(latex_options = c("scale_down")) 
 ```
 
-Table 2 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA) , a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country + timezone combinations included:
+Table 2 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA) , a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for Exploratory Factor Analysis (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and Confirmatory Factor Analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country + timezone combinations included:
 
 - `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` 
 - `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
@@ -770,7 +793,7 @@ colnames(map.map) <- "MAP Statistic"
 map.statistics <- map$vss.stats[,c(1,2,5,6,7,10,11)]
 full.map <- cbind(map.map,map.statistics)
 
-write.csv(full.map, "Table_raw/map_stat")
+write.csv(full.map, "Table_raw/map_stat.csv")
 ```
 Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the minimum average partial (MAP) method (Table \@ref(tab:factormp)) [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 ```{r factors, include=F}
@@ -1604,7 +1627,7 @@ CFa.matrix[2,] = c("Five factor model:23",
 ```
 
 ```{r tabCfa, results='asis'}
-apa_table(CFa.matrix, caption = "Fit indices of CFA", align = "c", landscape = T, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
+apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: five factor model with 25 items and five factor model with 23 items. The second model attained the best fit.", align = "c", landscape = T, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
 ```
 
 ```{r simulation, eval=FALSE, include=FALSE}
@@ -1807,7 +1830,7 @@ colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSE
 ```
 
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Invariance Analysis", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
+apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sampe (n=262) across native and non-native English speakers.", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
 
 ```
 
@@ -1853,7 +1876,7 @@ readability <- readability(ques,
 ```
 
 ## Developing Short form of LEBA
-We sought the item response theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty, item discrimination, and item information [@bakerBasicsItemResponse2017]. Item is  judged based on item information in relation to participants' latent trait level ($\theta$). We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:F2IF)-\@ref(fig:F5IF)) indicated 5 items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20) thus discarded creating a short form of LEBA with 5 factors and 18 items.
+We sought the Item Response Theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty, item discrimination, and item information [@bakerBasicsItemResponse2017]. Item is  judged based on item information in relation to participants' latent trait level ($\theta$). We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:F2IF)-\@ref(fig:F5IF)) indicated 5 items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20) thus discarded creating a short form of LEBA with 5 factors and 18 items.
 
 
 ```{r IRTdata, include=FALSE}
@@ -2501,7 +2524,7 @@ ggsave("Figures/ICC2.jpeg",ICC2 , width = 12, height = 8, dpi = 600, bg = "white
 
 
 ```{r IRTparameters, results='asis'}
-apa_table(itemparameters, caption = "IRT Item parameters for the LEBA Scale", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
+apa_table(itemparameters, caption = "Items discrimination and tesponse category thresholds of  LEBA with 23 items (n =690)", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
 ```{r shortIRT, include=FALSE}
@@ -2664,9 +2687,13 @@ F5_items.redu<- data.frame(F5_params$items)
 F5_se.redu <- coef(F5_fit.redu, printSE = TRUE)
 
 
+items.quality.2 <- rbind(F1_items.redu,F2_items.redu,F3_items.redu,F4_items.redu,F5_items.redu )
+
+itemfit2 <- itemfit[,-1] 
 
 
-
+IRT.details <- as.data.frame(cbind(items.quality.2 ,itemfit2))
+IRT.details <- tibble::rownames_to_column(IRT.details, "Items")
 
 F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
       main="" )
@@ -2804,7 +2831,7 @@ Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of
 Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value $\le$.06 indicating adequate fit. Sup.Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models. 
 
 ```{r itemfittab, results='asis',warning=F, message=F}
-apa_table(itemfit, caption ="Item fit statistics for the fitted models")
+apa_table(IRT.details , caption ="Item discrimination, response category difficulty thrsholds and fit statistics of the short LEBA with 18 items (n=690)",note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
 ```{r perfit, include=F}
@@ -3050,9 +3077,9 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 
 # Discussion
 
-We developed a self-reported tool to capture different light exposure related behavior and evaluated its psychometric properties using classical test theory and item response theory based analysis. 
+We developed a self-reported tool to capture different light exposure related behavior and evaluated its psychometric properties using classical test theory and Item Response Theory based analysis. 
 
-48 items were generated by an expert panel and  administered to a large sample (n = `r nrow(EFA.descriptives)` to explore the latent structure. Exploratory factor analysis revealed a five factor solution with 25 items. ("Wearing blue light filters", "Spending time outdoors", "Using phone and smart-watch in bed", "Using light before bedtime",  and "Using light in the morning and during daytime"). The internal consistency reliability coefficient ordinal alpha ranged between `r apa(range(alpha.tab),2,F)`. As all the retained factors were meaningful and contributed essentially towards our aim we retained all five factors.
+48 items were generated by an expert panel and  administered to a large sample (n = `r nrow(EFA.descriptives)` to explore the latent structure. Exploratory Factor Analysis revealed a five factor solution with 25 items. ("Wearing blue light filters", "Spending time outdoors", "Using phone and smart-watch in bed", "Using light before bedtime",  and "Using light in the morning and during daytime"). The internal consistency reliability coefficient ordinal alpha ranged between `r apa(range(alpha.tab),2,F)`. As all the retained factors were meaningful and contributed essentially towards our aim we retained all five factors.
 
 
 A CFA on a separate sample ((n = `r nrow(CFA.descriptives)` gave a five-factor solution (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR = `r apa(fit.2[10],2,F)`) after discarding two item. The internal consistency McDonald's $\omega_t$ of the five factors were  satisfactory (`r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`) Internal consistency reliability of the total scale (23 items) was also satisfactory, McDonald's $\omega_t$= `r apa(rel.k[5,6],2,F)`.  In the same sample, our measurement invariance analysis  revealed that the latent structure attained the residual measurement invariance across subgroups: male and female (CFI: `r apa (residual.fitm[5,1],2,F)`, TLI: `r apa (residual.fitm[6,1],2,F)`, SRMR: `r apa (residual.fitm[6,1],2,F)`).
@@ -3062,7 +3089,7 @@ The "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic] on the reta
 Lastly, we developed a short-LEBA (n=23) using IRT analysis. We fitted a graded response model model to the combined EFA and CFA sample (n =`r nrow(data)`). We discarded 5 items with relatively flat item information curve [I($\theta$) <.20]. IRT analysis indicated short form of LEBA is a psychometrically sound measure. Item fit indexes and person fit index for all five fitted model were acceptable. Items had diverse slope parameters indicating a good range of discrimination- the ability to differentiate respondents with different levels of the light exposure related behavior. Test information curve also indicated a good coverage of underlying trait continuum with precision.
 
 ## Conclusion
-"The Light exposure behavior assessment"(LEBA) gave a five solution with 25 items in an exploratory factor analysis. A confirmatory factor analysis with this 25-item scale again offered a five-factor solution, but this time two more item was discarded. The 23-item "LEBA" was found reliable and valid. A short-form of LEBA was developed using IRT analysis. IRT analysis gave a 18-item scale with  a good range of coverage across the underlying trait continuum. All-in-all, we can recommend both forms to be used to capture individual’s light exposure related behavior
+"The Light exposure behavior assessment"(LEBA) gave a five solution with 25 items in an EFA. A CFA with this 25-item scale again offered a five-factor solution, but this time two more item was discarded. The 23-item "LEBA" was found reliable and valid. A short-form of LEBA was developed using IRT analysis. IRT analysis gave a 18-item scale with  a good range of coverage across the underlying trait continuum. All-in-all, we can recommend both forms to be used to capture individual’s light exposure related behavior
 
 \newpage
 
