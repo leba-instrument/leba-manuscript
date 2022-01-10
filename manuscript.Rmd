@@ -575,65 +575,22 @@ psych::multi.hist(EFA.data[,sapply(EFA.data, is.numeric)])
 
 # Univariate normality
 
-#creating normality function
-shapiro_test_df <- function(df, bonf= TRUE, alpha= 0.05) {
-  l <- lapply(df, shapiro.test)
-  s <- do.call("c", lapply(l, "[[", 1))
-  p <- do.call("c", lapply(l, "[[", 2))
-  if (bonf == TRUE) {
-    sig <- ifelse(p > alpha / length(l), "H0", "*")
-  } else {
-    sig <- ifelse(p > alpha, "H0", "*")
-  }
-  return(list(statistic= s,
-              p.value= p,
-              significance= sig,
-              method= ifelse(bonf == TRUE, "Shapiro-Wilks test with Bonferroni Correction",
-                             "Shapiro-Wilks test without Bonferroni Correction")))
-}
+descriptives <- tabledown::des.tab(EFA.data)
+
+colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "SW Statistics", "Item-total corelation")
+
+vars_labels = as.data.frame(sapply(EFA.data,
+       function(x){attr(x,"label")}))
+
+vars_labels<- tibble::rownames_to_column(vars_labels, "Items")
+colnames(vars_labels) <- c("Item", "Stem")
 
 
-Shapiro.efa <- shapiro_test_df(EFA.data)
-
-
-efa.normality.tab = matrix(nrow = 48, ncol = 2)
-rownameprefix <- "Item"
-rownamesufix <- seq(1:48)
-my.item.names <- paste(rownameprefix,rownamesufix, sep = "" )
-rownames(efa.normality.tab) <- my.item.names
-colnames(efa.normality.tab) <- c("statistic", "p")
-
-efa.normality.tab[,1] <- apa(Shapiro.efa$statistic,2,T)
-efa.normality.tab[,2] <- apa(Shapiro.efa$p.value,2,T)
-
-efa.normalityprefix <- efa.normality.tab[,1]
-efa.normalitysufix <- Shapiro.efa$significance
-efa.normality.stat <- paste(efa.normalityprefix,efa.normalitysufix, sep = "" )
-
+descriptives2 <- cbind(vars_labels, descriptives[,-1])
 # Multivariate Normality
 mardia <- psych::mardia(EFA.data, na.rm = T, plot =T)
 
-# Descriptive Stats
-Descriptives <- psych::describe(EFA.data)
-alpha <- psych::alpha(EFA.data,check.keys=TRUE)
-Item.total <- alpha$item.stats
 
-Des.combined <- cbind(apa(Descriptives$mean,2,T), apa(Descriptives$sd,2,T), apa(Descriptives$skew,2,T),apa(Descriptives$kurtosis,2,T), efa.normality.stat,  apa(Item.total$r.cor,2,T))
-
-colnames(Des.combined) = c("Mean", "SD", "Skew", "Kurtosis", "Shapiro-Wilk Statistics","Item-Total Correlation")
-rownameprefix <- "Item"
-rownamesufix <- seq(01:48)
-my.names <- paste(rownameprefix,rownamesufix, sep = "" )
-rownames(Des.combined) = (my.names)
-rownames(Des.combined)[rownames(Des.combined) == "Item1"] <- "Item01"
-rownames(Des.combined)[rownames(Des.combined) == "Item2"] <- "Item02"
-rownames(Des.combined)[rownames(Des.combined) == "Item3"] <- "Item03"
-rownames(Des.combined)[rownames(Des.combined) == "Item4"] <- "Item04"
-rownames(Des.combined)[rownames(Des.combined) == "Item5"] <- "Item05"
-rownames(Des.combined)[rownames(Des.combined) == "Item6"] <- "Item06"
-rownames(Des.combined)[rownames(Des.combined) == "Item7"] <- "Item07"
-rownames(Des.combined)[rownames(Des.combined) == "Item8"] <- "Item08"
-rownames(Des.combined)[rownames(Des.combined) == "Item9"] <- "Item09"
 ```
 
 ## Item Analysis
@@ -668,7 +625,8 @@ cor.per <- print (BigR/totR)*100
 
 Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy [@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating a mediocre sample [@hutchesonMultivariateSocialScientist1999].  Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001 indicated the correlations between items are adequate for the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than .30. The absolute value of inter-item correlation ranged between `r min.cor` to `r max.cor`. Figure \@ref(fig:figCor) depicts the correlation matrix.
 ```{r tabDes,results='asis'}
-apa_table(Des.combined, caption = "Descriptive Statistics", align = "c", note = "*p<.001", longtable =T)
+descriptives2 %>% 
+apa_table(landscape =T,caption ="Descriptive Statistics", escape =F, font_size = "footnotesize", note = "*p<.001", align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
 ```
 
 ```{r corplot, include =F}
