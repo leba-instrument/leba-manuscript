@@ -255,7 +255,9 @@ relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
 
 ```{r reltab2, results='asis'}
 relevant.scale.data %>% 
-apa_table(landscape =T,caption ="Releated Scales", format = "latex",escape = T, font_size = "footnotesize", align = c("p{3cm}", rep("p{3.6cm}", ncol(relevant.scale.data)))) 
+apa_table(landscape =T,caption ="List of instruments measuring related consttucts to LEBA", format = "latex",escape = T, font_size = "footnotesize", align = c("p{3cm}", rep("p{3.6cm}", ncol(relevant.scale.data)))) 
+
+
 ```
 
 
@@ -1219,7 +1221,7 @@ gt() %>%
 # header
   tab_header(
     title = md("**LEBA**"),
-    subtitle = md("Summary Descriptives EFA Sample (N =428)")
+    subtitle = md("Summary Descriptives EFA Sample (n =428)")
   ) %>% 
   tab_footnote(
     footnote = md("**Histogram**"),
@@ -1267,8 +1269,33 @@ cols_label(
     mean,
     Items,
     palette = "ggthemes::fivethirtyeight") %>% 
-  gtsave("Manuscript.figures/efagt.png",vwidth = 7000)
-
+  tab_row_group(
+      label = md("**F5:Using light in the morning and during daytime**"),
+      rows = c(1,3,12,13,24,25) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F4:Using light before bedtime**"),
+      rows = c(16,17,18,20,21) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F3:Using phone and smart-watch in bed**"),
+      rows = c(2,14,15,22,23) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F2:Spending time outdoors**"),
+      rows = c(4,5,6,7,8,9) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F1:Wearing blue light filters**"),
+      rows = c(10,11,19) 
+        ) %>% gtsave("Manuscript.figures/efagt.png",vwidth = 7000)
+  
+  
+  
+  
+  
+  
+  
 ```
 
 ```{r cfagt,include=F}
@@ -1295,7 +1322,7 @@ gt() %>%
 # header
   tab_header(
     title = md("**LEBA**"),
-    subtitle = md("Summary Descriptives CFA Sample (N =262)")
+    subtitle = md("Summary Descriptives CFA Sample (Nn=262)")
   ) %>% 
   tab_footnote(
     footnote = md("**Histogram**"),
@@ -1343,6 +1370,26 @@ cols_label(
     mean,
     Items,
     palette = "ggthemes::fivethirtyeight") %>% 
+  tab_row_group(
+      label = md("**F5:Using light in the morning and during daytime**"),
+      rows = c(1,3,12,13,22,23) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F4:Using light before bedtime**"),
+      rows = c(15,16,17,19) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F3:Using phone and smart-watch in bed**"),
+      rows = c(2,13,14,20,21) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F2:Spending time outdoors**"),
+      rows = c(4,5,6,7,8,9) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F1:Wearing blue light filters**"),
+      rows = c(10,11,18) 
+        ) %>% 
   gtsave("Manuscript.figures/cfagt.png",vwidth = 7000)
 
 ```
@@ -1629,7 +1676,7 @@ SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryPara
 ```
 
 
-```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pain 41 and 30 to covary their error variance our model attained the best fit.", out.height="150%", out.width="100%", dpi=600,  warning=FALSE}
+```{r figcfa, fig.cap = "Five Factor  Model of LEBA obtained by Confirmatory Factor Analysis. By allowing item pair 41 and 30 to covary their error variance our model attained the best fit.", out.height="150%", out.width="100%", dpi=600,  warning=FALSE}
 
 #library(semPlot)
 
@@ -1790,7 +1837,7 @@ colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSE
 ```
 
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sampe (n=262) across native and non-native English speakers.", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
+apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
 
 ```
 
@@ -2484,7 +2531,7 @@ ggsave("Figures/ICC2.jpeg",ICC2 , width = 12, height = 8, dpi = 600, bg = "white
 
 
 ```{r IRTparameters, results='asis'}
-apa_table(itemparameters, caption = "Items discrimination and tesponse category thresholds of  LEBA with 23 items (n =690)", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
+apa_table(itemparameters, caption = "Items discrimination and response category difficulty thresholds of 23 items in  LEBA (n =690)", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
 ```{r shortIRT, include=FALSE}
@@ -2755,7 +2802,7 @@ F2.tic <- ggplot(F2.test.data, aes(x=Theta, y=F2.T1)) +
 
 F3.tic <- ggplot(F3.test.data, aes(x=Theta, y=F3.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F3 Test Inforfamtion")+ylim(0,6)
+  labs(y="Test Information", title = "F3 Test Inforfamtion")+ylim(0,8)
 
 F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
   geom_line()+apatheme+
@@ -2763,7 +2810,7 @@ F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
 
 F5.tic <- ggplot(F5.test.data, aes(x=Theta, y=F5.T1)) +
   geom_line()+apatheme+
-  labs(y="Test Information", title = "F5 Test Inforfamtion") +ylim(0,6)
+  labs(y="Test Information", title = "F5 Test Inforfamtion") +ylim(0,8)
 
 
 #panel TIC
@@ -2791,7 +2838,7 @@ Test information curve (TIC) (Figure \@ref(fig:Testinfo)) indicate the amount of
 Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All the items fitted well to the respective models as assessed by  RMSEA value obtained from Signed-$\chi^2$ index implementation. All of the items had RMSEA value $\le$.06 indicating adequate fit. Sup.Figure \@ref(fig:personfit) depicts the person fit of out fitted models. Person fit indicates the validity and meaningfulness of the fitted model at the participants latent trait level [@desjardinsHandbookEducationalMeasurement2018]. We estimated the person fit statistics using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 should be considered as a misfit. Fig indicates that Zh is larger than -2 for most participants, suggesting a good fit of the selected IRT models. 
 
 ```{r itemfittab, results='asis',warning=F, message=F}
-apa_table(IRT.details , caption ="Item discrimination, response category difficulty thrsholds and fit statistics of the short LEBA with 18 items (n=690)",note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
+apa_table(IRT.details , caption ="Item discrimination, response category difficulty thrsholds and fit statistics of the 18 items in short LEBA (n=690)",note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
 ```{r perfit, include=F}
