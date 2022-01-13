@@ -176,7 +176,8 @@ par(family = "Arial")
 ```{r pacman, eval=FALSE, include=FALSE}
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,reshape, ggsci)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,reshape, ggsci,networkD3, webshot)
+webshot::install_phantomjs()
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
 pacman::p_install_gh("masiraji/tabledown")
@@ -988,23 +989,33 @@ p1 <- ggplot2::ggplot() + ggplot2::annotation_custom(grid::rasterGrob(img1,
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank())
-        #text=element_text(family = "Helvetica"))
+        
 
 
-EFAplot.1 <- plot_grid(
- p1, residual.plot,
-  labels = "AUTO",
+EFAplot.1 <- cowplot::plot_grid(
+  NULL, residual.plot,
+  labels = c("", "B"),
   align="h",
   ncol = 1,
   label_size = 15,
   label_fontfamily = "Arial",
   label_fontface = "plain",
-  label_y = .99,
-  label_x = .02,
- rel_heights = c(1.5,1)
+  label_y = .99
 )
 
-ggsave("Manuscript.figures/EFAfull.png",EFAplot.1, width = 4, height =8, dpi = 600, bg ="white")
+EFAplot.2 <- cowplot::plot_grid(
+  p1, EFAplot.1,
+  labels = c("A",""),
+  align="h",
+  ncol = 2,
+  label_size = 15,
+  label_fontfamily = "Arial",
+  label_fontface = "plain",
+  label_y = .99,
+  label_x = .02
+)
+
+ggsave("Manuscript.figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200, bg ="white")
 
 ```
 
