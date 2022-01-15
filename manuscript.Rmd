@@ -265,41 +265,21 @@ apa_table(landscape =T,caption ="List of instruments measuring related consttuct
 
 
 # Methods
-## Ethical approval
 
-The cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, project ID Req-2021-00488) reviewed this project and issued an official clarification of responsibility (full document see Suppl. Fig X in appendix) stating: "The research project does not fall under the scope of the Human Research Act, because your project is using only anonymised data. An authorisation from the ethics committee is therefore not required and the EKNZ is not responsible for its review."
+## Item Generation
 
-## Data Availability
-
-All code and data underlying this article is available on a public GitHub repository (https://github.com/leba-instrument/leba-manuscript).
+To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioural component of light exposure were found (see Table \@ref(tab:eltab)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose, an expert researcher panel from the fields of chronobiology, light research, neuroscience, and psychology – comprising all authors of the present manuscript – generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behaviour* as opposed to subjective measurements of the light environment [@eklund1996development; @dianat2013objective]) and semi-quantitative assessments of light sources' illuminance [@bajaj2011validation] in order to maintain content validity. In a collective effort the generated items were then peer-reviewed, amended, unified, and complemented with a suitable response scale (5-point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
 
 
 ## Survey characteristics
 
-Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) of a Comic co-released with the survey[@Weinzaepflen.2021] , social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux software [@f.lux].
+Data was collected in a quantitative cross-sectional approach via a fully anonymous online survey hosted on REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) of a Comic co-released with the survey[@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux [@f.lux].
+Completing the online survey took approx. 15 to 20 minutes and was not compensated. The first page of the survey comprised a participant information sheet, where participants' informed consent to participate was obtained before any of the questions were displayed. Underaged participants (<18 years) were urged to obtain assent from their parents/legal guardians, before filling in the survey. Information on the first page included the objectives of the study, inclusion criteria, estimated duration, the use, storage and sharing of the data, compensation (none), and information about the type of questions in the survey. Moreover, participants needed to confirm that they were participating the survey for the first time. To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). The data analysed in this study was collected between 17 May 2021 and 3 September 2021. Questions incorporating retrospective recall were all aligned to the period of "past four weeks", matching the presented LEBA instrument.
 
-Completing the online survey took approx. 15 to 20 minutes and was not compensated. The first page of the survey comprised a participant information sheet, where participants' informed consent to participate was obtained before any of the questions were displayed. Underaged participants (<18 years) were urged to obtain assent from their parents/legal guardians, before filling in the survey. Information on the first page included the objectives of the study, inclusion criteria, estimated duration, the use, storage and sharing of the data, compensation (none), and information about the type of questions in the survey. Moreover, participants needed to confirm that they were participating the survey for the first time. To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). The data analysed in this study was collected between 17.05.2021 and 03.09.2021. Questions incorporating retrospective recall were all aligned to the period of "past four weeks", matching the presented LEBA instrument.
+In addition to the LEBA questionnaire, which is subject of the current study, we assessed other variables and items which were not included in the present analysis. This comprised various sleep-related measures, i.e., sleep disturbances and sleep-related impairment (adult and pediatric versions) [@Bevans.2019; @Buysse.2010; @Forrest.2018; @Harb.2015; @Yu.2011], sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration [MCTQ version for adults and adolescents @roenneberg2003life] plus sleep environment [@Olivier.2016]. Furthermore, we included a light sensitivity questionnaire (photophobia vs. photophilia) [@Wu.2017] and self-reported pubertal stage assessment [@Petersen.1988] for participants younger than 18 years of age. Moreover, we incorporated custom items on meal timing and caffeine consumption in the “workday vs. free day” structure of the MCTQ sleep-wake regulation. Example items are: “On workdays I usually have my first meal at __:__”, “On free days I usually have my last meal at __:__”, and “On workdays I usually drink my first caffeinated drink at __:__”.
 
-In addition to the LEBA questionnaire, which is subject of the current study, the following variables and items were assessed but not included in the analysis:
+Finally, we assessed age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language as single-item demographic variables. The demographic characteristics of our sample are given in Table \@ref(tab:demographics).
 
--   Sleep disturbance and sleep-related impairment (adult and pediatric versions) [@Bevans.2019; @Buysse.2010; @Forrest.2018; @Harb.2015; @Yu.2011]
--   Sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration (version for adults and adolescents) [@roenneberg2003life]
--   Sleep environment [@Olivier.2016]
--   Meal timing & caffeine consumption [custom items]
--   Light sensitivity (photophobia vs. photophilia) [@Wu.2017]
--   Self-reported pubertal stage (only if younger than 18 years old) [@Petersen.1988]
-
-Furthermore, the following 1-item demographic variables were assessed:
-
--   Age
--   Sex
--   Gender identity
--   Occupational Status
--   COVID-19 related Occupational setting during the past four weeks
--   Time zone & country of residence
--   English as native language
-
-## Participants
 
 ```{r Data, include=FALSE}
 data <- readRDS("leba_2021-09-08.rds")
@@ -428,32 +408,6 @@ descriptives.data%>%
 
 ```
 
-```{r demographics, warning=F, message=F}
-desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
-
-```
-
-Table 2 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA) , a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for Exploratory Factor Analysis (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and Confirmatory Factor Analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17.05.2021 to XX.XX.XXXX , whereas participants who filled out the questionnaire from YY.YY.YYYY to 03.09.2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country + timezone combinations included:
-
-- `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` 
-- `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
-- `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
-- `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
-- `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
-- `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
-- `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
-- `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
-- `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
-- `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
-
-For a complete list of geographic locations, see Suppl. Table X in the appendix.
-
-Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
-
-
-## Item Generation
-
-To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioral component of light exposure were found (Table \@ref(tab:eltab)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose an expert researcher panel from the fields of chronobiology, light research, neuroscience and psychology (including seven of the authors, see authors roles) generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behavior* as opposed to subjective measurements of the light environment (cf.[@eklund1996development] & [@dianat2013objective]) and semi-quantitive assesments of light sources' illuminance (cf. [@bajaj2011validation]) in order to maintain content validity. In a collective effort the generated items were then peer-reviewed,  amended, unified, and complemented with a suitable response scale (5 point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
 
 ```{r Manuflowchart, include=FALSE }
 Flowchart1 <- grViz("digraph my_flowchart{
@@ -537,7 +491,43 @@ We also conducted psychometric analysis on non-merged response options data (Sup
 knitr::include_graphics('Manuscript.figures/Flowchart1.jpeg', dpi = 800 )
 ```
 
+## Ethical approval
+
+By reason of using fully anonymous online survey data, the present research project does not fall under the scope of the Human Research Act, making an authorisation from the ethics committee redundant. Nevertheless, the cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, EKNZ) reviewed our proposition (project ID Req-2021-00488) and issued an official clarification of responsibility (full document see Suppl. X in appendix). 
+
+## Data Availability
+
+The present article is a fully reproducible open-access “R Markdown” document. All code and data underlying this article – along with two versions of the LEBA questionnaire (full and short) and online survey implementation templates on common survey platforms – will be available under open-access licence (CC-BY-NC-ND) on a public [GitHub repository](https://github.com/leba-instrument).
+
+
 # Results
+
+## Participants
+
+```{r demographics, warning=F, message=F}
+desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
+
+```
+
+Table \@ref(tab:demographics) summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA), a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17 May 2021 to XX XXX 2021, whereas participants who filled out the questionnaire from YY YYY 2021 to 3 September 2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country and time zone combinations included:
+
+- `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` 
+- `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
+- `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
+- `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
+- `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
+- `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
+- `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
+- `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
+- `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
+- `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
+
+For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztabprint).
+
+
+Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
+
+
 ```{r ggplot2, include=F}
 apatheme=theme_bw()+
   theme(panel.grid.major = element_blank(),
