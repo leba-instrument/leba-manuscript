@@ -2552,11 +2552,6 @@ F5.iic2 <- ggplot(F5.item.info.data.2,aes(Theta,value,col=variable))+geom_line()
   labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+
   scale_color_npg()+geom_hline(yintercept = .20, colour ="red")
 
-
-
-
-ICC2 <- cowplot::plot_grid(vic.iic2 , agg.iic2,  labels = "AUTO",ncol=2, label_size = 15,align = "v")
-ggsave("Figures/ICC2.jpeg",ICC2 , width = 12, height = 8, dpi = 600, bg = "white")
 ```
 
 
