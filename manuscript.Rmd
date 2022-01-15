@@ -2514,33 +2514,52 @@ F5.item.info.data.2 <- data.frame(Theta=seq(-6,6, by = .1), F5.item.info.data.lo
 
 
 
-library(ggsci)
+pacman::p_load(ggsci)
+
 F1.iic2 <- ggplot(F1.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F1 Item Information Plot")+theme(legend.position = "none")+
-  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+geom_hline(yintercept = .20, colour ="red")+scale_y_continuous(breaks=c(5,50,100,200), limits = c(0, 200))+geom_area()+ scale_color_npg()+aes(fill = as.factor(variable))
+  facet_wrap(~variable,scales = "free")+theme(strip.text.x = element_text(size = 15))+geom_hline(yintercept = .20, colour ="red")+geom_area()+ scale_color_npg()+aes(fill = as.factor(variable))+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+ggsave("Manuscript.figures/F1.itemplots.png",F1.iic2, width = 12, height =8, dpi = 1200, bg ="white")
+
 
 F2.iic2 <- ggplot(F2.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F2 Item Information Plot")+theme(legend.position = "none")+
-  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+
-  scale_color_npg()+geom_hline(yintercept = .20, colour ="red")
+  facet_wrap(~variable,scales = "free")+theme(strip.text.x = element_text(size = 15))+
+  geom_hline(yintercept = .20, colour ="red")+geom_area()+scale_color_npg()+aes(fill = as.factor(variable))+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+ggsave("Manuscript.figures/F2.itemplots.png",F2.iic2, width = 12, height =8, dpi = 1200, bg ="white")
 
 
 F3.iic2 <- ggplot(F3.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F3 Item Information Plot")+theme(legend.position = "none")+
-  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+
-  scale_color_npg()+geom_hline(yintercept = .20, colour ="red")
+  facet_wrap(~variable,scales = "free")+theme(strip.text.x = element_text(size = 15))+
+  geom_hline(yintercept = .20, colour ="red")+geom_area()+scale_color_npg()+aes(fill = as.factor(variable))+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+ggsave("Manuscript.figures/F3.itemplots.png",F3.iic2, width = 12, height =8, dpi = 1200, bg ="white")
 
 
 F4.iic2 <- ggplot(F4.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F4 Item Information Plot")+theme(legend.position = "none")+
-  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+
-  scale_color_npg()+geom_hline(yintercept = .20, colour ="red")
+  facet_wrap(~variable,scales = "free")+theme(strip.text.x = element_text(size = 15))+
+  geom_hline(yintercept = .20, colour ="red")+geom_area()+scale_color_npg()+aes(fill = as.factor(variable))+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+
+ggsave("Manuscript.figures/F4.itemplots.png",F4.iic2, width = 12, height =8, dpi = 1200, bg ="white")
 
 
 F5.iic2 <- ggplot(F5.item.info.data.2,aes(Theta,value,col=variable))+geom_line()+apatheme+
   ggtitle("F5 Item Information Plot")+theme(legend.position = "none")+
-  labs(y = "Item Information")+facet_wrap(~variable)+theme(strip.text.x = element_text(size = 15))+
-  scale_color_npg()+geom_hline(yintercept = .20, colour ="red")
+  facet_wrap(~variable,scales = "free")+theme(strip.text.x = element_text(size = 15))+
+  geom_hline(yintercept = .20, colour ="red")+geom_area()+scale_color_npg()+aes(fill = as.factor(variable))+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+
+ggsave("Manuscript.figures/F5.itemplots.png",F5.iic2, width = 12, height =8, dpi = 1200, bg ="white")
 
 ```
 
