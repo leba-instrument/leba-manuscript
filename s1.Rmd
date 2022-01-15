@@ -64,45 +64,19 @@ output            :
   papaja::apa6_pdf:
     keep_tex: true
     latex_engine: xelatex
+    includes:
+      in_header: header.tex
     
-appendix:
-  - "appendix-1.Rmd"
 mainfont: Arial
 ---
 ```{r library, include=FALSE}
 
 library(papaja) # devtools::install_github("crsh/papaja")
-library(lavaan)
-library(semPlot) #devtools::install_github('SachaEpskamp/semPlot',  dependencies = T)
-library(semTools)
-library(MOTE)
-library(car)#reversecoding 
-library(psych)
-library(dlookr)
-library(plyr)
-library(tidyverse)
-library(qgraph)
-library(kableExtra)
-library(paran) # Parallel analysis
-library(EFA.MRFA) # Hull method
-library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
 library(DiagrammeRsvg) #For DiagrammeR
 library(rsvg) #For DiagrammeR
-library(ggcorrplot)
-library(semTable)
-library(magick)
-library(mirt)
-library(gtsummary)
-library(gt)
-library(gtExtras)
-library(likert)
-library(VIM) #Missing data
-library(kutils)
-library(simsem)
-library(tabledown)
-library(readxl)
-library(koRpus)# stable release
-library(koRpus.lang.en)
+library(DiagrammeR) #devtools::install_github('rich-iannone/DiagrammeR')
+
+
 r_refs("references.bib")
 ```
 
@@ -111,13 +85,80 @@ library("papaja")
 r_refs("references.bib")
 ```
 
-(ref:foo) Factor Identification Methods (A) Parallel analysis drew 500 sets of random data set (n=428 each) and adjusted the mean eigenvalues for sample bias. In x-axis we plotted the number of possible factors and in y-axis we plotted the mean adjusted eigenvalues. The First inflection point of the plot indicated the optimal number of factors were six. (B) In the scree plot possible number of factors are plotted against obtained eigenvalues. Scree plot suggested six factors. (C) Hull method we plotted the number of possible factors in the x-axis and the CAF index(CAF: Common Part Accounted for-an indicator of model fit) in the y-axis. Hull method indicated 5 factors were required to balance the model fit and number of parameters.
 
-```{r foo, fig.cap='(ref:foo)',  warning=FALSE, results= 'asis',fig.align='center'}
+```{r Manuflowchart, eval=FALSE, include=FALSE}
+Flowchart1 <- grViz("digraph my_flowchart{
+         
+                    graph [fontname = Helvetica,layout = dot,fontsize = 100,layout = dot ]
+                     
+                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 65, height = 10, 
+                    fixedsize = true,fontsize = 200]  
+                     
+                    A[label = '48 items were generated'] 
+                    B[label = 'Exploratory Factor Analysis on 48 Items (n = 428)']
+                    
+                    node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 65, height = 20, 
+                    fixedsize = true, fontsize = 200]
+                    C[label = 
+                    <Factor Identification<br/>Scree Plot: 6 Factors<br/>Parallel Analysis: 6 Factors<br/>Minimum Average Partial Method: 5 Factors<br/>Hull Method: 5 Factors>
+                    ]
+                    
+                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 80, height = 10, 
+                    fixedsize = true,fontsize = 200]  
+                     1[label = '5 Factor Solution Retained 25 Items']
+                     2[label = <Reliability Analysis on EFA Sample (n=428)<br/>Ordinal alpha F1 =.94; F2 = .76; F3 = .75; F4 =.72; F5 =.62.>]
+                    
+                     3[label = <Confirmatory Factor Analysis<br/>on the Five Factor Model (25 Items; n=262)<br/>Acceptable Fit ( CFI = .94; TLI .93; RMSEA = .06, SRMR = .11)>]
+                    
+                    4[label = <Confirmatory Factor Analysis<br/>on the Five Factor Model (23 Items; n=262)<br/>Acceptable Fit ( CFI = .97; TLI= .96; RMSEA = .04, SRMR = .09)>]
+                     5[label = <Reliability Analysis (23 Items; n=262)<br/>Ordinal alpha F1=.93; F2=.83; F3 =.70; F4=.69; F5=.52<br/>Mcdonald  omega(total) for the total scale = .73>]
+                    8[label = <Measurement Invariance Analysis<br/>Residual measurement invariance achieved>]
+                    9[label = 'Semantic Analysis']
+                    10[label = <LEBA Short Form (18 Items; n=690)<br/>Based on Item Response Theory>]
+              
+              
+                    6[label = 
+                    <6-Factor solution:<br/>one factor emerged with only two salient loadings>
+                    ]
+                    7[label = 'Rejected']
+                    
+                     
+                    
+                     edge[fontname = Helvetica,color = black,arrowhead = vee, arrowsize = 5]
+                     A ->B
+                     B ->C
+                     C ->1
+                     1 ->2
+                     2 ->3
+                     3 ->4
+                     4 ->5
+                    5->8
+                    8 ->9
+                    9 ->10
+                     C ->6
+                     6 ->7
+                     
+                     
+}"
+)
 
-knitr::include_graphics('Manuscript.figures/factors.png', dpi =800)
+export_svg(Flowchart1) %>%
+  charToRaw() %>%
+  rsvg() %>%
+  png::writePNG("Manuscript.figures/Flowchart1.jpeg", dpi = 1200)
+
+
+networkD3::saveNetwork(Flowchart1, "Manuscript.figures/flow.html")
+
+
+webshot::webshot("Manuscript.figures/flow.html", "Manuscript.figures/flow1.png", vheight = 50, zoom = 8)
 
 ```
+
+```{r IF, echo=FALSE, fig.align='center', fig.cap='Item information curve ', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/allitemplots.png', dpi = 300)
+```
+
 
 \newpage
 
