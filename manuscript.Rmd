@@ -2637,7 +2637,7 @@ F1.personfit_model_misfits <- subset(F1.personfit, Zh < -2)
 rownames(F1.personfit_model_misfits)
 nrow(F1.personfit_model_misfits)
 
-F1.person <- ggplot(F1.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5,col=I("black"),fill=I("grey"))+geom_vline(xintercept = -2)+
+F1.person <- ggplot(F1.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5,col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
   labs( y="Number of Participants", x = "Zh Statistics: F1")+apatheme+ ylim(0,600) + xlim(-4,2)
 
 ## F2 Person fit ####
@@ -2647,7 +2647,7 @@ rownames(F2.personfit_model_misfits)
 nrow(F2.personfit_model_misfits)
 
 
-F2.person <- ggplot(F2.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill=I("grey"))+
+F2.person <- ggplot(F2.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+
   scale_x_continuous(limits = c(-5, 1))+geom_vline(xintercept = -2)+
   labs( y="Number of Participants", x = "Zh Statistics: F2")+apatheme+ylim(0,600) + xlim(-4,2)
 
@@ -2660,7 +2660,7 @@ rownames(F3.personfit_model_misfits)
 nrow(F3.personfit_model_misfits)
 
 
-F3.person <- ggplot(F3.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill=I("grey"))+geom_vline(xintercept = -2)+
+F3.person <- ggplot(F3.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
   labs( y="Number of Participants", x = "Zh Statistics: F3")+apatheme+ylim(0,600) + xlim(-4,2)
 
 
@@ -2671,7 +2671,7 @@ rownames(F4.personfit_model_misfits)
 nrow(F4.personfit_model_misfits)
 
 
-F4.person <- ggplot(F4.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill=I("grey"))+geom_vline(xintercept = -2)+
+F4.person <- ggplot(F4.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
   labs( y="Number of Participants", x = "Zh Statistics: F4")+apatheme+ylim(0,600) + xlim(-4,2)
 
 
@@ -2681,7 +2681,7 @@ F5.personfit_model_misfits <- subset(F5.personfit, Zh < -2)
 rownames(F3.personfit_model_misfits)
 nrow(F5.personfit_model_misfits)
 
-F5.person <- ggplot(F5.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill=I("grey"))+geom_vline(xintercept = -2)+
+F5.person <- ggplot(F5.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
   labs( y="Number of Participants", x = "Zh Statistics:F5")+apatheme+ylim(0,600) + xlim(-4,2)
 
 # Model Parameters ####
@@ -2874,7 +2874,7 @@ apa_table(IRT.details , caption ="Item discrimination, response category difficu
 ```
 
 ```{r perfit, include=F}
-personfit <- plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person, 
+personfit <- cowplot::plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person, 
           labels = "AUTO", label_size = 12,align = "v", ncol =2,
                        label_fontfamily = "Arial",
                      label_fontface = "plain")
