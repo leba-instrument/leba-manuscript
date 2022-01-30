@@ -520,16 +520,16 @@ desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
 
 Table \@ref(tab:demotab) summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA), a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17 May 2021 to XX XXX 2021, whereas participants who filled out the questionnaire from YY YYY 2021 to 3 September 2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country and time zone combinations included:
 
-<!-- - `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` -->
-<!-- - `r tz_tibble[3,1]`:     `r tz_tibble[3,2]` -->
-<!-- - `r tz_tibble[4,1]`:     `r tz_tibble[4,2]` -->
-<!-- - `r tz_tibble[5,1]`:     `r tz_tibble[5,2]` -->
-<!-- - `r tz_tibble[6,1]`:     `r tz_tibble[6,2]` -->
-<!-- - `r tz_tibble[7,1]`:     `r tz_tibble[7,2]` -->
-<!-- - `r tz_tibble[8,1]`:     `r tz_tibble[8,2]` -->
-<!-- - `r tz_tibble[9,1]`:     `r tz_tibble[9,2]` -->
-<!-- - `r tz_tibble[10,1]`:    `r tz_tibble[10,2]` -->
-<!-- - `r tz_tibble[11,1]`:    `r tz_tibble[11,2]` -->
+- `r tz_tibble[2,1]`:     `r tz_tibble[2,2]`
+- `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
+- `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
+- `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
+- `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
+- `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
+- `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
+- `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
+- `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
+- `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
 
 For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztable).
 
