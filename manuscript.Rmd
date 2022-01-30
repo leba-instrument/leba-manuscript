@@ -403,16 +403,16 @@ as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it
 #summarise country/time zone data
 #The following chunk is not working now. May be package problem (Sorting command is not working)
 
-# descriptives.data%>%
-#   tbl_summary(
-#     label = slypos_demographics_tz.factor ~ "Time zone - Country",
-#     statistic = list(all_categorical() ~ "{n} ({p}%)"),
-#     missing = "no",
-#     sort = all_categorical() ~ "frequency",
-#     include = "slypos_demographics_tz.factor"
-#   )  %>% bold_labels() %>% 
-#   modify_header(label ~ "") %>%
-#   as_tibble(format = 'pipe') -> tz_tibble
+descriptives.data%>%
+  tbl_summary(
+    label = slypos_demographics_tz.factor ~ "Time zone - Country",
+    statistic = list(all_categorical() ~ "{n} ({p}%)"),
+    missing = "no",
+    sort = all_categorical() ~ "frequency",
+    include = "slypos_demographics_tz.factor"
+  )  %>% bold_labels() %>%
+  modify_header(label ~ "") %>%
+  as_tibble(format = 'pipe') -> tz_tibble
 
 ```
 
