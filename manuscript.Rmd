@@ -132,7 +132,7 @@ authornote: |
 abstract: |
   Light exposure is an important driver of health and well-being. Many aspects of light exposure are modulated by our behaviour. How these light-related behaviours can be shaped to optimise personal light exposure is currently unknown. Here, we present a novel, self-reported and psychometrically validated instrument to capture light exposure-related behaviour, the Light Exposure Behavior Assessment (LEBA). 
   
-  An expert panel prepared the initial 48 item pool. Responses to these items were then collected in an online survey producing responses from an international sample (690 completed responses, 74 countries, 28 time zones). Exploratory factor analysis (EFA) on an initial subset of our sample (n=428) rendered a five-factor solution with 25 items (Wearing blue light filters, spending time outdoors, using phone and smart-watch in bed, using light before bedtime, using light in the morning and during daytime). In a confirmatory factor analysis (CFA) performed on an independent subset of participants (n=262), we removed two further items to attain the best fit for the five-factor solution (CFI=0.97, TLI=0.96, RMSEA=0.05, SRMR=0.09). The internal consistency reliability coefficient for the total instrument was McDonald’s omega_total=0.73. Measurement model invariance analysis between native and non-native English speakers showed our model attained the highest level of invariance (residual invariance; CFI=0.95, TLI =0.95, RMSEA=0.05). Lastly, a short form of LEBA (n=18) was developed using Item Response Theory on the complete sample (n=690). 
+  An expert panel prepared the initial 48 item pool. Responses, consisting rating the frequency of engaging in the per-item behavior on a 5-point Likert type scale were  collected in an online survey producing responses from an international sample (690 completed responses, 74 countries, 28 time zones). Exploratory factor analysis (EFA) on an initial subset of our sample (n=428) rendered a five-factor solution with 25 items (Wearing blue light filters, spending time outdoors, using phone and smart-watch in bed, using light before bedtime, using light in the morning and during daytime). In a confirmatory factor analysis (CFA) performed on an independent subset of participants (n=262), we removed two further items to attain the best fit for the five-factor solution (CFI=0.97, TLI=0.96, RMSEA=0.05, SRMR=0.09). The internal consistency reliability coefficient for the total instrument was McDonald’s omega_total=0.73. Measurement model invariance analysis between native and non-native English speakers showed our model attained the highest level of invariance (residual invariance; CFI=0.95, TLI =0.95, RMSEA=0.05). Lastly, a short form of LEBA (n=18) was developed using Item Response Theory on the complete sample (n=690). 
   
   The psychometric properties of the LEBA instrument indicate the usability to measure the light exposure-related behaviours across a variety of settings and may offer a scalable solution to characterise light exposure-related behaviours in remote samples. The LEBA instrument will be available under the open-access CC-BY-NC-ND license.
 
@@ -271,7 +271,7 @@ apa_table(landscape =T,caption ="List of instruments measuring related consttuct
 
 ## Item Generation
 
-To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioural component of light exposure were found (see Table \@ref(tab:eltab)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose, an expert researcher panel from the fields of chronobiology, light research, neuroscience, and psychology – comprising all authors of the present manuscript – generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behaviour* as opposed to subjective measurements of the light environment [@eklund1996development; @dianat2013objective]) and semi-quantitative assessments of light sources' illuminance [@bajaj2011validation] in order to maintain content validity. In a collective effort the generated items were then peer-reviewed, amended, unified, and complemented with a suitable response scale (5-point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
+To ensure construct adequacy we thoroughly assessed the current status of literature and identified a variety of light exposure related scales. However, no scales specifically measuring the behavioural component of light exposure were found (see Table \@ref(tab:reltab2)). Consequentially we pursued to introduce a new openly available scale to address this research gap. For this purpose, an expert researcher panel from the fields of chronobiology, light research, neuroscience, and psychology – comprising all authors of the present manuscript – generated and collected preliminary item ideas. Special attention was paid to design items circumscribed to assess light exposure *behaviour* as opposed to subjective measurements of the light environment [@eklund1996development; @dianat2013objective]) and semi-quantitative assessments of light sources' illuminance [@bajaj2011validation] in order to maintain content validity. In a collective effort the generated items were then peer-reviewed, amended, unified, and complemented with a suitable response scale (5-point Likert-scale ranging from 1 "Never/Does not apply/I don’t know" to 5 "Always"). This process was finalized when all experts were in agreement, resulting in 48 items to implement in the data collection.
 
 
 ## Survey characteristics
@@ -281,7 +281,7 @@ Completing the online survey took approx. 15 to 20 minutes and was not compensat
 
 In addition to the LEBA questionnaire, which is subject of the current study, we assessed other variables and items which were not included in the present analysis. This comprised various sleep-related measures, i.e., sleep disturbances and sleep-related impairment (adult and pediatric versions) [@Bevans.2019; @Buysse.2010; @Forrest.2018; @Harb.2015; @Yu.2011], sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration [MCTQ version for adults and adolescents @roenneberg2003life] plus sleep environment [@Olivier.2016]. Furthermore, we included a light sensitivity questionnaire (photophobia vs. photophilia) [@Wu.2017] and self-reported pubertal stage assessment [@Petersen.1988] for participants younger than 18 years of age. Moreover, we incorporated custom items on meal timing and caffeine consumption in the “workday vs. free day” structure of the MCTQ sleep-wake regulation. Example items are: “On workdays I usually have my first meal at __:__”, “On free days I usually have my last meal at __:__”, and “On workdays I usually drink my first caffeinated drink at __:__”.
 
-Finally, we assessed age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language as single-item demographic variables. The demographic characteristics of our sample are given in Table \@ref(tab:demographics).
+Finally, we assessed age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language as single-item demographic variables. The demographic characteristics of our sample are given in Table \@ref(tab:demotab).
 
 
 ```{r Data, include=FALSE}
@@ -391,6 +391,7 @@ desctable.data %>%
                  slypos_demographics_work_or_school.factor ~ "Occupational Status",
                  slypos_demographics_school.factor ~ "Occupational setting"
                  ),
+    
     missing = "no"
     ) %>% add_overall() %>% bold_labels() %>% add_p() %>% add_q() %>%
 modify_header(label ~ "**Variable**") %>% separate_p_footnotes() %>%
@@ -400,17 +401,18 @@ as_tibble(desc_table) -> desc_tibble
 as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
 
 #summarise country/time zone data
+#The following chunk is not working now. May be package problem (Sorting command is not working)
 
-descriptives.data%>%
-  tbl_summary(
-    label = slypos_demographics_tz.factor ~ "Time zone - Country",
-    statistic = list(all_categorical() ~ "{n} ({p}%)"),
-    missing = "no",
-    sort = all_categorical() ~ "frequency",
-    include = "slypos_demographics_tz.factor"
-  )  %>% bold_labels() %>% 
-  modify_header(label ~ "") %>%
-  as_tibble(format = 'pipe') -> tz_tibble
+# descriptives.data%>%
+#   tbl_summary(
+#     label = slypos_demographics_tz.factor ~ "Time zone - Country",
+#     statistic = list(all_categorical() ~ "{n} ({p}%)"),
+#     missing = "no",
+#     sort = all_categorical() ~ "frequency",
+#     include = "slypos_demographics_tz.factor"
+#   )  %>% bold_labels() %>% 
+#   modify_header(label ~ "") %>%
+#   as_tibble(format = 'pipe') -> tz_tibble
 
 ```
 
@@ -512,24 +514,24 @@ The present article is a fully reproducible open-access “R Markdown” documen
 
 ## Participants
 
-```{r demographics, warning=F, message=F}
+```{r demotab, warning=F, message=F}
 desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
 ```
 
-Table \@ref(tab:demographics) summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA), a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17 May 2021 to XX XXX 2021, whereas participants who filled out the questionnaire from YY YYY 2021 to 3 September 2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country and time zone combinations included:
+Table \@ref(tab:demotab) summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. XX participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA), a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per parameter is required to earn trustworthiness of the result. Our sample size exceeds these requirements: Anonymous responses from a total of *n* = `r nrow(desctable.data)` participants were included in the analysis of the current study, split into samples for exploratory (EFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "1. EFA Sample",])`) and confirmatory factor analysis (CFA: *n* = `r nrow(desctable.data[desctable.data$IncludedInCFA == "2. CFA Sample",])`). The EFA sample included participants filling out the questionnaire from 17 May 2021 to XX XXX 2021, whereas participants who filled out the questionnaire from YY YYY 2021 to 3 September 2021 were included in the CFA analysis. Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country and time zone combinations included:
 
-- `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` 
-- `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
-- `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
-- `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
-- `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
-- `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
-- `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
-- `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
-- `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
-- `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
+<!-- - `r tz_tibble[2,1]`:     `r tz_tibble[2,2]` -->
+<!-- - `r tz_tibble[3,1]`:     `r tz_tibble[3,2]` -->
+<!-- - `r tz_tibble[4,1]`:     `r tz_tibble[4,2]` -->
+<!-- - `r tz_tibble[5,1]`:     `r tz_tibble[5,2]` -->
+<!-- - `r tz_tibble[6,1]`:     `r tz_tibble[6,2]` -->
+<!-- - `r tz_tibble[7,1]`:     `r tz_tibble[7,2]` -->
+<!-- - `r tz_tibble[8,1]`:     `r tz_tibble[8,2]` -->
+<!-- - `r tz_tibble[9,1]`:     `r tz_tibble[9,2]` -->
+<!-- - `r tz_tibble[10,1]`:    `r tz_tibble[10,2]` -->
+<!-- - `r tz_tibble[11,1]`:    `r tz_tibble[11,2]` -->
 
-For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztabprint).
+For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztable).
 
 
 Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
@@ -783,6 +785,20 @@ fator <- cowplot::plot_grid(parallel, scree.plot,Hull,
                   label_fontfamily = "Arial",
                   label_fontface = "plain")
 ggsave("Manuscript.figures/factors.png",fator, width = 5, height = 7, dpi = 600)
+```
+
+
+
+```{r factorsplot, eval=FALSE, include=FALSE}
+#This chunk holds code for compiled factor identification plots
+
+fator2 <- cowplot::plot_grid(parallel, scree.plot,Hull, 
+                   labels = "AUTO",
+                   ncol=3, 
+                  align = "v", 
+                  label_fontfamily = "Arial",
+                  label_fontface = "plain")
+ggsave("Manuscript.figures/factors2.png",fator2, width = 18, height = 6, dpi = 600)
 ```
 
 (ref:facIdFig) Factor Identification Methods (A) Parallel analysis  indicated the optimal number of factors were six. (B) Scree plot suggested six factors. (C) Hull method indicated 5 factors were required to balance the model fit and number of parameters.
@@ -1955,7 +1971,7 @@ readability <- readability(ques,
 ```
 
 ## Developing Short form of LEBA
-We sought the Item Response Theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty, item discrimination, and item information [@bakerBasicsItemResponse2017]. Item is  judged based on item information in relation to participants' latent trait level ($\theta$). We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:F2IF)-\@ref(fig:F5IF)) indicated 5 items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20) thus discarded creating a short form of LEBA with 5 factors and 18 items.
+We sought the Item Response Theory (IRT) to develop the short form of LEBA. IRT the conventional classical test theory-based analysis by gathering information on item quality by indices like item difficulty, item discrimination, and item information [@bakerBasicsItemResponse2017]. Item is  judged based on item information in relation to participants' latent trait level ($\theta$). We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$), and item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item discrimination parameter and only discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. @bakerBasicsItemResponse2017 categorized the item discrimination in as none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. Table \@ref(tab:IRTparameters) summarizes the IRT parameters of our tool. Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:IF)) indicated 5 items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20) thus discarded creating a short form of LEBA with 5 factors and 18 items.
 
 
 ```{r IRTdata, include=FALSE}
@@ -2479,7 +2495,26 @@ allitemplots <- cowplot::plot_grid(F1.iteminfo.1,F1.iteminfo.2, F1.iteminfo.3,
 
 
 
-ggsave("Manuscript.figures/allitemplots.png",allitemplots, width = 12, height = 12, dpi = 1200, bg = "white")
+ggsave("Manuscript.figures/allitemplots.png",allitemplots, width = 18, height = 12, dpi = 600, bg = "white")
+
+discarded.items.plot <- cowplot::plot_grid(F3.iteminfo.4,
+                                           F3.iteminfo.5,
+                                           F4.iteminfo.3,
+                                           F5.iteminfo.3,
+                                           F5.iteminfo.5, 
+                                            labels = "AUTO",
+                                   align="v",
+                                   ncol = 5,
+                                   label_size = 12,
+                                   label_fontfamily = "Arial",
+                                   label_fontface = "plain")
+
+
+
+
+
+ggsave("Manuscript.figures/discarded.png",discarded.items.plot, width = 18, height = 4, dpi = 600, bg = "white")
+
 
 ```
 
@@ -3021,11 +3056,11 @@ TIC.plot <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                                    F4.tic,F5.tic,
                    labels = "AUTO",
                      align="v",
-                     ncol = 2,
+                     ncol = 3,
                      label_size = 15,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/TIC.png",TIC.plot, width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Manuscript.figures/TIC.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = "white")
 
 ```
 

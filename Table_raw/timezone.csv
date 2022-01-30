@@ -1,119 +1,119 @@
-"","V2","n"
-"1"," Africa/Ceuta (UTC +01:00)",2
-"2"," Africa/Douala (UTC +01:00)",1
-"3"," Africa/Johannesburg (UTC +02:00)",5
-"4"," Africa/Khartoum (UTC +02:00)",2
-"5"," Africa/Lagos (UTC +01:00)",1
-"6"," America/Adak (UTC -09:00)",2
-"7"," America/Anchorage (UTC -08:00)",3
-"8"," America/Araguaina (UTC -03:00)",2
-"9"," America/Argentina/Buenos_Aires (UTC -03:00)",5
-"10"," America/Argentina/Cordoba (UTC -03:00)",2
-"11"," America/Argentina/Jujuy (UTC -03:00)",1
-"12"," America/Bahia (UTC -03:00)",2
-"13"," America/Blanc-Sablon (UTC -04:00)",1
-"14"," America/Bogota (UTC -05:00)",2
-"15"," America/Boise (UTC -06:00)",4
-"16"," America/Cayman (UTC -05:00)",1
-"17"," America/Chicago (UTC -05:00)",30
-"18"," America/Costa_Rica (UTC -06:00)",2
-"19"," America/Cuiaba (UTC -04:00)",1
-"20"," America/Denver (UTC -06:00)",6
-"21"," America/Detroit (UTC -04:00)",6
-"22"," America/Edmonton (UTC -06:00)",14
-"23"," America/Fortaleza (UTC -03:00)",1
-"24"," America/Guatemala (UTC -06:00)",1
-"25"," America/Guayaquil (UTC -05:00)",2
-"26"," America/Halifax (UTC -03:00)",1
-"27"," America/Indiana/Indianapolis (UTC -04:00)",3
-"28"," America/Indiana/Tell_City (UTC -05:00)",1
-"29"," America/Kentucky/Louisville (UTC -04:00)",3
-"30"," America/Los_Angeles (UTC -07:00)",37
-"31"," America/Martinique (UTC -04:00)",1
-"32"," America/Mexico_City (UTC -06:00)",2
-"33"," America/Moncton (UTC -03:00)",2
-"34"," America/Monterrey (UTC -06:00)",1
-"35"," America/New_York (UTC -04:00)",63
-"36"," America/North_Dakota/Center (UTC -05:00)",1
-"37"," America/North_Dakota/New_Salem (UTC -05:00)",1
-"38"," America/Panama (UTC -05:00)",1
-"39"," America/Phoenix (UTC -07:00)",7
-"40"," America/Resolute (UTC -05:00)",1
-"41"," America/Santiago (UTC -03:00)",8
-"42"," America/Sao_Paulo (UTC -03:00)",19
-"43"," America/Toronto (UTC -04:00)",16
-"44"," America/Vancouver (UTC -07:00)",6
-"45"," Antarctica/Macquarie (UTC +11:00)",1
-"46"," Asia /Taipei City (UTC +08:00)",3
-"47"," Asia/Amman (UTC +03:00)",2
-"48"," Asia/Barnaul (UTC +07:00)",1
-"49"," Asia/Dhaka (UTC +06:00)",1
-"50"," Asia/Famagusta (UTC +02:00)",1
-"51"," Asia/Ho_Chi_Minh (UTC +07:00),British - America/Tortola (UTC -04:00)",2
-"52"," Asia/Hong_Kong (UTC +08:00)",2
-"53"," Asia/Jakarta (UTC +07:00)",9
-"54"," Asia/Jerusalem (UTC +02:00)",4
-"55"," Asia/Karachi (UTC +05:00)",1
-"56"," Asia/Kathmandu (UTC +05:45)",2
-"57"," Asia/Kolkata (UTC +05:30)",38
-"58"," Asia/Kuala_Lumpur (UTC +08:00)",7
-"59"," Asia/Kuching (UTC +08:00)",2
-"60"," Asia/Manila (UTC +08:00)",6
-"61"," Asia/Novosibirsk (UTC +07:00)",1
-"62"," Asia/Riyadh (UTC +03:00)",1
-"63"," Asia/Seoul (UTC +09:00)",1
-"64"," Asia/Shanghai (UTC +08:00)",7
-"65"," Asia/Singapore (UTC +08:00)",1
-"66"," Asia/Tokyo (UTC +09:00)",3
-"67"," Asia/Tomsk (UTC +07:00)",1
-"68"," Asia/Ulaanbaatar (UTC +08:00)",1
-"69"," Asia/Vladivostok (UTC +10:00)",1
-"70"," Asia/Yangon (UTC +06:30)",1
-"71"," Asia/Yekaterinburg (UTC +05:00)",1
-"72"," Atlantic/Canary (UTC)",1
-"73"," Australia/Adelaide (UTC +10:30)",2
-"74"," Australia/Brisbane (UTC +10:00)",4
-"75"," Australia/Darwin (UTC +09:30)",1
-"76"," Australia/Melbourne (UTC +11:00)",5
-"77"," Australia/Perth (UTC +08:00)",2
-"78"," Australia/Sydney (UTC +11:00)",2
-"79"," East Africa/Dodoma (UTC +03:00)",1
-"80"," Europe/Amsterdam (UTC +01:00)",19
-"81"," Europe/Athens (UTC +02:00)",3
-"82"," Europe/Belgrade (UTC +01:00)",3
-"83"," Europe/Berlin (UTC +01:00)",53
-"84"," Europe/Bratislava (UTC +01:00)",2
-"85"," Europe/Brussels (UTC +01:00)",4
-"86"," Europe/Bucharest (UTC +02:00)",3
-"87"," Europe/Budapest (UTC +01:00)",2
-"88"," Europe/Busingen (UTC +01:00)",3
-"89"," Europe/Copenhagen (UTC +01:00)",3
-"90"," Europe/Dublin (UTC)",5
-"91"," Europe/Helsinki (UTC +02:00)",9
-"92"," Europe/Istanbul (UTC +03:00)",6
-"93"," Europe/Kiev (UTC +02:00)",1
-"94"," Europe/Lisbon (UTC)",2
-"95"," Europe/Ljubljana (UTC +01:00)",3
-"96"," Europe/London (UTC)",57
-"97"," Europe/Madrid (UTC +01:00)",7
-"98"," Europe/Moscow (UTC +03:00)",8
-"99"," Europe/Oslo (UTC +01:00)",3
-"100"," Europe/Paris (UTC +01:00)",22
-"101"," Europe/Prague (UTC +01:00)",3
-"102"," Europe/Riga (UTC +02:00)",2
-"103"," Europe/Rome (UTC +01:00)",9
-"104"," Europe/Sofia (UTC +02:00)",1
-"105"," Europe/Stockholm (UTC +01:00)",4
-"106"," Europe/Tallinn (UTC +02:00)",2
-"107"," Europe/Tirane (UTC +01:00)",1
-"108"," Europe/Vienna (UTC +01:00)",1
-"109"," Europe/Vilnius (UTC +02:00)",5
-"110"," Europe/Warsaw (UTC +01:00)",15
-"111"," Europe/Zagreb (UTC +01:00)",2
-"112"," Europe/Zurich (UTC +01:00)",21
-"113"," European /Skopje (UTC +01:00)",1
-"114"," Iran /Tehran (UTC +0:30)",3
-"115"," Pacific/Auckland (UTC +13:00)",6
-"116"," Pacific/Chatham (UTC +13:45)",1
-"117"," Pacific/Easter (UTC -05:00)",1
-"118"," Pacific/Honolulu (UTC -10:00)",2
+"","V1","V2","freq"
+"1","Albania "," Europe/Tirane (UTC +01:00)",1
+"2","Argentina "," America/Argentina/Buenos_Aires (UTC -03:00)",5
+"3","Argentina "," America/Argentina/Cordoba (UTC -03:00)",2
+"4","Argentina "," America/Argentina/Jujuy (UTC -03:00)",1
+"5","Australia "," Antarctica/Macquarie (UTC +11:00)",1
+"6","Australia "," Australia/Adelaide (UTC +10:30)",2
+"7","Australia "," Australia/Brisbane (UTC +10:00)",4
+"8","Australia "," Australia/Darwin (UTC +09:30)",1
+"9","Australia "," Australia/Melbourne (UTC +11:00)",5
+"10","Australia "," Australia/Perth (UTC +08:00)",2
+"11","Australia "," Australia/Sydney (UTC +11:00)",2
+"12","Austria "," Europe/Vienna (UTC +01:00)",1
+"13","Bangladesh "," Asia/Dhaka (UTC +06:00)",1
+"14","Belgium "," Europe/Brussels (UTC +01:00)",4
+"15","Brazil "," America/Araguaina (UTC -03:00)",2
+"16","Brazil "," America/Bahia (UTC -03:00)",2
+"17","Brazil "," America/Cuiaba (UTC -04:00)",1
+"18","Brazil "," America/Fortaleza (UTC -03:00)",1
+"19","Brazil "," America/Sao_Paulo (UTC -03:00)",19
+"20","Bulgaria "," Europe/Sofia (UTC +02:00)",1
+"21","Cameroon "," Africa/Douala (UTC +01:00)",1
+"22","Canada "," America/Blanc-Sablon (UTC -04:00)",1
+"23","Canada "," America/Edmonton (UTC -06:00)",14
+"24","Canada "," America/Halifax (UTC -03:00)",1
+"25","Canada "," America/Moncton (UTC -03:00)",2
+"26","Canada "," America/Resolute (UTC -05:00)",1
+"27","Canada "," America/Toronto (UTC -04:00)",16
+"28","Canada "," America/Vancouver (UTC -07:00)",6
+"29","Cayman Islands "," America/Cayman (UTC -05:00)",1
+"30","Chile "," America/Santiago (UTC -03:00)",8
+"31","Chile "," Pacific/Easter (UTC -05:00)",1
+"32","China "," Asia/Shanghai (UTC +08:00)",7
+"33","Colombia "," America/Bogota (UTC -05:00)",2
+"34","Costa Rica "," America/Costa_Rica (UTC -06:00)",2
+"35","Croatia "," Europe/Zagreb (UTC +01:00)",2
+"36","Cyprus "," Asia/Famagusta (UTC +02:00)",1
+"37","Czech Republic "," Europe/Prague (UTC +01:00)",3
+"38","Denmark "," Europe/Copenhagen (UTC +01:00)",3
+"39","Ecuador "," America/Guayaquil (UTC -05:00)",2
+"40","Estonia "," Europe/Tallinn (UTC +02:00)",2
+"41","Finland "," Europe/Helsinki (UTC +02:00)",9
+"42","France "," Europe/Paris (UTC +01:00)",22
+"43","Germany "," Europe/Berlin (UTC +01:00)",53
+"44","Germany "," Europe/Busingen (UTC +01:00)",3
+"45","Greece "," Europe/Athens (UTC +02:00)",3
+"46","Guatemala "," America/Guatemala (UTC -06:00)",1
+"47","Hong Kong "," Asia/Hong_Kong (UTC +08:00)",2
+"48","Hungary "," Europe/Budapest (UTC +01:00)",2
+"49","India "," Asia/Kolkata (UTC +05:30)",38
+"50","Indonesia "," Asia/Jakarta (UTC +07:00)",9
+"51","Iran"," Iran /Tehran (UTC +0:30)",3
+"52","Ireland "," Europe/Dublin (UTC)",5
+"53","Israel "," Asia/Jerusalem (UTC +02:00)",4
+"54","Italy "," Europe/Rome (UTC +01:00)",9
+"55","Japan "," Asia/Tokyo (UTC +09:00)",3
+"56","Jordan "," Asia/Amman (UTC +03:00)",2
+"57","Korea,Republic of "," Asia/Seoul (UTC +09:00)",1
+"58","Latvia "," Europe/Riga (UTC +02:00)",2
+"59","Lithuania "," Europe/Vilnius (UTC +02:00)",5
+"60","Macedonia"," European /Skopje (UTC +01:00)",1
+"61","Malaysia "," Asia/Kuala_Lumpur (UTC +08:00)",7
+"62","Malaysia "," Asia/Kuching (UTC +08:00)",2
+"63","Martinique "," America/Martinique (UTC -04:00)",1
+"64","Mexico "," America/Mexico_City (UTC -06:00)",2
+"65","Mexico "," America/Monterrey (UTC -06:00)",1
+"66","Mongolia "," Asia/Ulaanbaatar (UTC +08:00)",1
+"67","Myanmar "," Asia/Yangon (UTC +06:30)",1
+"68","Nepal "," Asia/Kathmandu (UTC +05:45)",2
+"69","Netherlands "," Europe/Amsterdam (UTC +01:00)",19
+"70","New Zealand "," Pacific/Auckland (UTC +13:00)",6
+"71","New Zealand "," Pacific/Chatham (UTC +13:45)",1
+"72","Nigeria "," Africa/Lagos (UTC +01:00)",1
+"73","Norway "," Europe/Oslo (UTC +01:00)",3
+"74","Pakistan "," Asia/Karachi (UTC +05:00)",1
+"75","Panama "," America/Panama (UTC -05:00)",1
+"76","Philippines "," Asia/Manila (UTC +08:00)",6
+"77","Poland "," Europe/Warsaw (UTC +01:00)",15
+"78","Portugal "," Europe/Lisbon (UTC)",2
+"79","Romania "," Europe/Bucharest (UTC +02:00)",3
+"80","Russian Federation "," Asia/Barnaul (UTC +07:00)",1
+"81","Russian Federation "," Asia/Novosibirsk (UTC +07:00)",1
+"82","Russian Federation "," Asia/Tomsk (UTC +07:00)",1
+"83","Russian Federation "," Asia/Vladivostok (UTC +10:00)",1
+"84","Russian Federation "," Asia/Yekaterinburg (UTC +05:00)",1
+"85","Russian Federation "," Europe/Moscow (UTC +03:00)",8
+"86","Saudi Arabia "," Asia/Riyadh (UTC +03:00)",1
+"87","Serbia "," Europe/Belgrade (UTC +01:00)",3
+"88","Singapore "," Asia/Singapore (UTC +08:00)",1
+"89","Slovakia "," Europe/Bratislava (UTC +01:00)",2
+"90","Slovenia "," Europe/Ljubljana (UTC +01:00)",3
+"91","South Africa "," Africa/Johannesburg (UTC +02:00)",5
+"92","Spain "," Africa/Ceuta (UTC +01:00)",2
+"93","Spain "," Atlantic/Canary (UTC)",1
+"94","Spain "," Europe/Madrid (UTC +01:00)",7
+"95","Sudan "," Africa/Khartoum (UTC +02:00)",2
+"96","Sweden "," Europe/Stockholm (UTC +01:00)",4
+"97","Switzerland "," Europe/Zurich (UTC +01:00)",21
+"98","Taiwan"," Asia /Taipei City (UTC +08:00)",3
+"99","Tanzania"," East Africa/Dodoma (UTC +03:00)",1
+"100","Turkey "," Europe/Istanbul (UTC +03:00)",6
+"101","Ukraine "," Europe/Kiev (UTC +02:00)",1
+"102","United Kingdom "," Europe/London (UTC)",57
+"103","United States "," America/Adak (UTC -09:00)",2
+"104","United States "," America/Anchorage (UTC -08:00)",3
+"105","United States "," America/Boise (UTC -06:00)",4
+"106","United States "," America/Chicago (UTC -05:00)",30
+"107","United States "," America/Denver (UTC -06:00)",6
+"108","United States "," America/Detroit (UTC -04:00)",6
+"109","United States "," America/Indiana/Indianapolis (UTC -04:00)",3
+"110","United States "," America/Indiana/Tell_City (UTC -05:00)",1
+"111","United States "," America/Kentucky/Louisville (UTC -04:00)",3
+"112","United States "," America/Los_Angeles (UTC -07:00)",37
+"113","United States "," America/New_York (UTC -04:00)",63
+"114","United States "," America/North_Dakota/Center (UTC -05:00)",1
+"115","United States "," America/North_Dakota/New_Salem (UTC -05:00)",1
+"116","United States "," America/Phoenix (UTC -07:00)",7
+"117","United States "," Pacific/Honolulu (UTC -10:00)",2
+"118","Viet Nam "," Asia/Ho_Chi_Minh (UTC +07:00),British - America/Tortola (UTC -04:00)",2
