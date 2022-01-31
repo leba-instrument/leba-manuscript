@@ -3024,30 +3024,35 @@ F1.tic <- ggplot(F1.test.data, aes(x=Theta, y=F1.T1)) +
   geom_line()+apatheme+
   labs(y="Test Information", title = "F1: Wearing blue light filters")+geom_area()+theme(legend.position = "none")+
   aes(fill =  "#E64B3599")+
-     scale_fill_identity()
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
 
 F2.tic <- ggplot(F2.test.data, aes(x=Theta, y=F2.T1)) +
   geom_line()+apatheme+
   labs(y="Test Information", title = "F2: Spending time outdoors")+ylim(0,8)+
   geom_area()+aes(fill =  "#4DBBD599")+theme(legend.position = "none")+
-     scale_fill_identity()
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
 
 F3.tic <- ggplot(F3.test.data, aes(x=Theta, y=F3.T1)) +
   geom_line()+apatheme+
   labs(y="Test Information", title = "F3: Using phone and smart-watch in bed")+ylim(0,8)+
   geom_area()+aes(fill =  "#00A08799")+theme(legend.position = "none")+
-     scale_fill_identity()
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
 
 F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
   geom_line()+apatheme+
   labs(y="Test Information", title = "F4: Using light before bedtime")+
   geom_area()+aes(fill =  "#3C548899")+theme(legend.position = "none")+
-     scale_fill_identity()
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
 
 F5.tic <- ggplot(F5.test.data, aes(x=Theta, y=F5.T1)) +
   geom_line()+apatheme+
   labs(y="Test Information", title = "F5:Using light in the morning and during daytime") +ylim(0,8)+geom_area()+aes(fill =  "#B09C8599")+theme(legend.position = "none")+
-scale_fill_identity()
+scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
 
 
 #panel TIC
