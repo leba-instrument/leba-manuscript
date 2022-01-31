@@ -623,8 +623,8 @@ Table \@ref(tab:tabDes) summarizes the univariate descriptive statistics for the
 correlations <- psych::polychoric(EFA.data, correct = 0)
 upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 
-min.cor <- apa(min(abs(upper)),2,F) #minimum cor.coefficient of the matrix
-max.cor <- apa(max(abs(upper)),2,F) # max. correlation coefficient of the matrix
+min.cor <- apa(min((upper)),2,F) #minimum cor.coefficient of the matrix
+max.cor <- apa(max((upper)),2,F) # max. correlation coefficient of the matrix
 
 determinets <- det(correlations$rho) 
 # Calculating the percentage of correlations higher than .30
