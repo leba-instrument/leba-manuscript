@@ -640,6 +640,21 @@ descriptives2 %>%
 apa_table(landscape =T,caption ="Descriptive Statistics", escape =F, font_size = "footnotesize", note = "*p<.001", align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
 ```
 
+
+
+```{r correlation-hits, include=F}
+#This chunk holds code for plotting the correlation matrix in histogram format
+
+cor.hits <- as.data.frame(melt(upper))
+colnames(cor.hits) <- c("value")
+corr.histogram <- ggplot(cor.hits,aes(x=value)) + 
+  geom_histogram(binwidth=.1, col=I("black"),fill="#00A08799")+apatheme+
+  labs( y="", x = "Inter-item correlation")
+
+ggsave("Manuscript.figures/correlation_histogram.png", corr.histogram, width = 6, height = 6, dpi = 600, bg ="white")
+```
+
+
 ```{r corplot, include =F}
 #This chunk holds code for plotting the correlation matrix
 
