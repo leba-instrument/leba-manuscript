@@ -680,7 +680,7 @@ knitr::include_graphics('Manuscript.figures/corplot.png', dpi =600)
 
 ```
 
-```{r ParallelEFA, include=FALSE}
+```{r ParallelEFA, eval=FALSE, include=FALSE}
 #This chunk holds code for factor identification method : Horn
 # Parallel analysis
 Horn <- paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
@@ -789,11 +789,11 @@ full.map <- cbind(map.map,map.statistics)
 
 write.csv(full.map, "Table_raw/map_stat.csv")
 ```
-Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. Horn's parallel analysis [@hornRationaleTestNumber1965] with 500 iterations also indicated a six-factor solution. However, the minimum average partial (MAP) method (Table \@ref(tab:factormp)) [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
+Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. However, the minimum average partial (MAP) method (Table \@ref(tab:factormp)) [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 ```{r factors, include=F}
 #This chunk holds code for compiled factor identification plots
 
-fator <- cowplot::plot_grid(parallel, scree.plot,Hull, 
+fator <- cowplot::plot_grid(scree.plot,Hull, 
                    labels = "AUTO",
                    ncol=1, 
                   align = "v", 
@@ -816,7 +816,7 @@ fator2 <- cowplot::plot_grid(parallel, scree.plot,Hull,
 ggsave("Manuscript.figures/factors2.png",fator2, width = 18, height = 6, dpi = 600)
 ```
 
-(ref:facIdFig) Factor Identification Methods (A) Parallel analysis  indicated the optimal number of factors were six. (B) Scree plot suggested six factors. (C) Hull method indicated 5 factors were required to balance the model fit and number of parameters.
+(ref:facIdFig) Factor Identification Methods  (A) Scree plot suggested six factors. (B) Hull method indicated 5 factors were required to balance the model fit and number of parameters.
 
 ```{r facIdFig, fig.align= 'center', fig.cap='(ref:facIdFig)',  warning=FALSE, results= 'asis'}
 
