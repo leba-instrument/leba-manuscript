@@ -631,7 +631,7 @@ low.r.corec <- (min(Item_analysis$item.stats$r.cor))  #minimum item total correl
 high.r.corec <- (max(Item_analysis$item.stats$r.cor))     # maximum item total correlation
 ```
 
-Table \@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. Some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions [Marida's test;[@mardiaMeasuresMultivariateSkewness1970]]. Multivariate skew was = `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was = `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
+Table \@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. Some of the items were skewed with high Kurtosis values. Our data violated both univariate normality (Shapiro-Wilk statistics; [@shapiroAnalysisVarianceTest1965]) and multivariate normality assumptions [Marida's test;[@mardiaMeasuresMultivariateSkewness1970]]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
 
 ## Exploratory Factor Analysis
 ```{r CorrMatrix, include=FALSE}
@@ -808,7 +808,8 @@ full.map <- cbind(map.map,map.statistics)
 
 write.csv(full.map, "Table_raw/map_stat.csv")
 ```
-Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. However, the minimum average partial (MAP) method (Table \@ref(tab:factormp)) [@velicerDeterminingNumberComponents1976] and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
+
+Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. However, the minimum average partial (MAP) [@velicerDeterminingNumberComponents1976] method (Table \@ref(tab:factormp)) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 ```{r factors, include=F}
 #This chunk holds code for compiled factor identification plots
 
