@@ -268,8 +268,6 @@ apa_table(landscape =T,caption ="List of instruments measuring related consttuct
 
 # Methods
 
-
-
 ```{r rafel, include=F}
 # In addition to the LEBA questionnaire, which is subject of the current study, we assessed other variables and items which were not included in the present analysis. This comprised various sleep-related measures, i.e., sleep disturbances and sleep-related impairment (adult and pediatric versions) [@Bevans.2019; @Buysse.2010; @Forrest.2018; @Harb.2015; @Yu.2011], sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration [MCTQ version for adults and adolescents @roenneberg2003life] plus sleep environment [@Olivier.2016]. Furthermore, we included a light sensitivity questionnaire (photophobia vs. photophilia) [@Wu.2017] and self-reported pubertal stage assessment [@Petersen.1988] for participants younger than 18 years of age. Moreover, we incorporated custom items on meal timing and caffeine consumption in the “workday vs. free day” structure of the MCTQ sleep-wake regulation. Example items are: “On workdays I usually have my first meal at __:__”, “On free days I usually have my last meal at __:__”, and “On workdays I usually drink my first caffeinated drink at __:__”.
 
