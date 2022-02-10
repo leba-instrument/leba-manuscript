@@ -658,26 +658,24 @@ After reviewing the literature, we identified several light exposure related sca
 Table \@ref(tab:demotab) summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. (XX??) participants were excluded from analysis due to not passing at least one of the "attention check" items. For exploring initial factor structure (EFA), a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013].For estimating the sample size for the confirmatory factor analysis (CFA) we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per item is required to earn trustworthiness of the result. Our sample size exceeds these requirements.
 We collected data from `r nrow(num.countries)` countries (`r nrow(numUTC)` time zones).
 Participants reported a diverse range of geographic location
-Participants indicated filling out the online survey from a diverse range of geographic locations. The ten most common country and time zone combinations included:
+Participants indicated filling out the online survey from a diverse range of geographic locations. Figure \@ref(fig:partmap) depicts the top ten countries with highest participation in our survey.For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztable).
 
-```{r fig.cap="Countries with Highest Responses", out.height= '100%', out.width= '100%'}
+```{r partmap, fig.cap="Countries with Highest Responses", out.height= '100%', out.width= '100%'}
 knitr::include_graphics('Manuscript.figures/distribution.png', dpi = 800 )
 ```
 
-
-- `r tz_tibble[2,1]`:     `r tz_tibble[2,2]`
-- `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
-- `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
-- `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
-- `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
-- `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
-- `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
-- `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
-- `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
-- `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
-
-For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztable).
-
+```{r rafael2, eval=FALSE, include=FALSE}
+# - `r tz_tibble[2,1]`:     `r tz_tibble[2,2]`
+# - `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
+# - `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
+# - `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
+# - `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
+# - `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
+# - `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
+# - `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
+# - `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
+# - `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
+```
 
 Age among all participants ranged from `r min(desctable.data$slypos_demographics_age)` years to `r max(desctable.data$slypos_demographics_age)` years [EFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 0)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
 
