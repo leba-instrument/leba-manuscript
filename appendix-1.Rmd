@@ -61,7 +61,7 @@ map3 <- cbind(map1, map2)
 ```
 
 ```{r map}
-papaja::apa_table(map3, caption = "Minimum Average Partial (MAP) method of factor numder determination. MAP Statistics is the lowest in the 5th row indicating five factors are required.")
+papaja::apa_table(map3, caption = "Minimum average partial (MAP) method of factor numder determination. MAP Statistics is the lowest in the 5th row indicating five factors are required.")
 ```
 
 ```{r MI, include=F, warning=F}
@@ -91,7 +91,7 @@ mi.desc_table <- CFA.descriptives[,c(1,2,5,6,7)] %>%
     missing = "no"
     ) %>% add_overall() %>% bold_labels() %>% add_p() %>% add_q() %>%
 modify_header(label ~ "**Variable**") %>% separate_p_footnotes() %>%
-  modify_caption("Demographic Characteristics: Native English Speakers") 
+  modify_caption("Demographic characteristics: measurement invariance") 
 
 
 mides_kable <-  as_kable_extra(mi.desc_table, format = "latex",booktabs = T) 
@@ -176,7 +176,7 @@ minresTab <- tabledown::fac.tab(fa.5F.min.3, cut =.3,complexity = F)
 ```
 
 ```{r MinResTab}
-papaja::apa_table(minresTab,  caption = "Factor loadings and communality of the retained items (Minimum Residual)", note = "Only loading higher than .30 is reported", longtable=T, font_size = "footnotesize")
+papaja::apa_table(minresTab,  caption = "Factor loadings and communality of the retained items (minimum residual)", note = "Only loading higher than .30 is reported", longtable=T, font_size = "footnotesize")
 ```
 
 ```{r sixFac, include=F}
@@ -350,7 +350,7 @@ efa.table <- tabledown::fac.tab(fa.5F.4,.3, complexity = F)
 ```
 
 ```{r efaunmerged}
-apa_table(efa.table, caption = "Factor loadings and communality of the retained items in five factor solution [Unmerged Responses]", note = "Only loading higher than .30 is reported", longtable =T, font_size = "footnotesize")
+apa_table(efa.table, caption = "Factor loadings and communality of the retained items in five factor solution [Unmerged responses]", note = "Only loading higher than .30 is reported", longtable =T, font_size = "footnotesize")
 ```
 
 ```{r EFAAppsix, include=FALSE, warning=F,message=FALSE}
@@ -390,7 +390,7 @@ efa.table.2 <- tabledown::fac.tab(fa.6F.4,.3, complexity = F)
 ```
 
 ```{r EFAsix}
-apa_table(efa.table.2, caption = "Factor loadings and communality of the retained items in six factor solution [Unmerged Responses]", note = "Only loading higher than .30 is reported, Sixth factor has only two salient loadings", longtable =T, font_size = "footnotesize")
+apa_table(efa.table.2, caption = "Factor loadings and communality of the retained items in six factor solution [Unmerged responses]", note = "Only loading higher than .30 is reported, Sixth factor has only two salient loadings", longtable =T, font_size = "footnotesize")
 ```
 
 ```{r tzdata, include=F}
@@ -401,7 +401,7 @@ participants <- sum(tz[, 'Number of Participants'])
 ```
 
 ```{r tztable}
-apa_table(tz, longtable =T,font_size = "footnotesize", caption = "Geographical Location of the participants (n =690)")
+apa_table(tz, longtable =T,font_size = "footnotesize", caption = "Geographical location of the participants (n =690)")
 ```
 
 ```{r unmerged-data, include =F}
@@ -412,7 +412,7 @@ unmerged <- readxl::read_excel("Table_raw/LEBA_unmerged_fa.xlsx")
 apa_table(unmerged , longtable =T, font_size = "footnotesize", caption = "Five factor obtained from the unmerged data.")
 ```
 
-```{r IF, echo=FALSE, fig.align='center', fig.cap='Item information curve. Five items (1, 25,  38, 30, & 41) had relatively flat information curves ', out.width='100%', out.height='80%'}
+```{r IF, echo=FALSE, fig.align='center', fig.cap='Item information curve. Five items (1, 25,  38, 30,41) had relatively flat information curves', out.width='100%', out.height='100%'}
 knitr::include_graphics('Manuscript.figures/allitemplots.png', dpi = 300)
 ```
 
