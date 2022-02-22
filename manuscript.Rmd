@@ -191,7 +191,7 @@ pacman::p_install_gh("crsh/citr")
 devtools::install_github("unDocUMeantIt/koRpus")
 koRpus::install.koRpus.lang(lang=c("en"))
 
-
+install.packages("correlation")
 #if you dont have LaTeX installed run the following lines
 #install.packages("tinytex")
 #tinytex::install_tinytex()
@@ -464,13 +464,13 @@ Flowchart1 <- grViz("digraph my_flowchart{
                     
                     I[label = 'Reliability analysis on latent stucture obtained in CFA (n=262)']
                     
-                    K[label = 'Long LEBA: 23-item', style = filled, fillcolor = Beige]
+                    K[label = 'LEBA long format: 23-item', style = filled, fillcolor = Beige]
                     
                     L[label = 'Measurement invariance analysis (n=262)']
                     M[label = 'Semantic analysis (n=262)']
                     N[label = 'Item Response Theory based analysis on the combined sample (n=690)']
                     
-                    O[label = 'Short LEBA: 18-item',style = filled, fillcolor = Beige]
+                    O[label = 'LEBA short format: 18-item', style = filled, fillcolor = Beige]
                     
                 
                     
@@ -736,6 +736,7 @@ Table \@ref(tab:tabDes) summarizes the univariate descriptive statistics for the
 #Polychoric Correlation matrix
 
 correlations <- psych::polychoric(EFA.data, correct = 0)
+
 upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
 
 min.cor <- apa(min((upper)),2,F) #minimum cor.coefficient of the matrix
@@ -771,7 +772,11 @@ ggsave("Manuscript.figures/correlation_histogram.png", corr.histogram, width = 6
 ```{r corplot, include =F}
 #This chunk holds code for plotting the correlation matrix
 
-corplot <- ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", type = "lower", legend.title = "Correlation",
+p.mat <- correlation::cor_to_p(correlations$rho, 428, method = "polychoric")
+
+
+corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order = FALSE, outline.col = "white", type = "lower", legend.title = "Correlation",sig.level = 0.05, pch.cex=1.8,
+                      # insig = "blank",
            ggtheme = ggplot2::theme_minimal(),tl.srt = 90,colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
          axis.text.x = element_text(size = 8),
@@ -779,9 +784,8 @@ corplot <- ggcorrplot(correlations$rho, hc.order = TRUE, outline.col = "white", 
          panel.border = element_rect(color = "black",
                                     fill = NA,
                                     size = 1))
-#p.mat <- cor_to_p(correlations$rho, 428, method = "polychoric")
 #to show pvalue in the fig add p.mat=p.mat
-ggsave("Manuscript.figures/corplot.png",corplot, width = 6, height = 6, dpi = 600, bg ="white")
+ggsave("Manuscript.figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 600, bg ="white")
 
 ```
 
@@ -3251,7 +3255,4 @@ Since, LEBA is the first of its kind, estimating convergent validity with other 
 ```
 
 
-```{r echo = FALSE, results = 'asis', cache = FALSE}
-papaja::render_appendix('appendix-1.Rmd')
-```
 
