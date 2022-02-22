@@ -443,69 +443,58 @@ descriptives.data%>%
 
 Flowchart1 <- grViz("digraph my_flowchart{
          
-                    graph [fontname = Helvetica,layout = dot,fontsize = 45,layout = dot ]
+                    graph [fontname = Helvetica,layout = dot,fontsize = 45 ]
                      
-                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 16, height = 2, 
+                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 20, height = 3, 
                     fixedsize = true,fontsize = 45]  
                      
                     A[label = 'Initial development of 48 items'] 
-                    B[label = 'Large scale survey (n=690)']
+                    B[label = 'Large scale survey: first round (n=428)']
                     C[label = 'Initial item analysis']
                     D[label = 'Exploratory factor analysis (48 items; n=428)']
                     
-                    node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 16, height = 6, 
-                    fixedsize = true, fontsize = 45]
                     E[label = 
-                    <Factor identification<br/>Scree plot: 6 factors<br/>Minimum average partial method: 5 factors<br/>Hull method: 5 factors>
+                    <Factor Identification Method<br/>Scree plot<br/>Minimum average partial method<br/>Hull method>
                     ]
                     
-                     subgraph cluster_1 {
-                      graph[fontname = Helvetica, shape = box, style =dashed]
-                      
-                     node[fontname = Helvetica, margin = 0.2,width = 22, height = 2.5, 
-                    fixedsize = true, fontsize = 45,style =dashed]
+                    F[label = 'Reliability analysis on latent stucture obtained in EFA (n=428)']
+                    G[label = 'Large scale survey: second round (n=262)']
                     
-                     1[label = '5 factor solution retained 25 items']
-                     2[label = <Reliability analysis on EFA sample (n=428)<br/>Ordinal alpha F1 =.94; F2 = .76; F3 = .75; F4 =.72; F5 =.62.>]
+                    H[label = 'Confirmatory factor analysis ( n=262)']
                     
-                     3[label = <Confirmatory factor analysis<br/>on the five factor model (25 items; n=262)<br/>Acceptable fit ( CFI = .94; TLI .93; RMSEA = .06, SRMR = .11)>]
+                    I[label = 'Reliability analysis on latent stucture obtained in CFA (n=262)']
                     
-                    4[label = <Confirmatory factor analysis<br/>on the five factor model (23 Items; n=262)<br/>Acceptable fit ( CFI = .97; TLI= .96; RMSEA = .04, SRMR = .09)>]
-                     5[label = <Reliability analysis (23 items; n=262)<br/>Ordinal alpha F1=.93; F2=.83; F3 =.70; F4=.69; F5=.52<br/>Mcdonald  omega(total) for the total scale = .73>]
-                    8[label = <Measurement invariance analysis (n=262)<br/>Residual measurement invariance achieved>]
-                    9[label = <Semantic analysis (n=262):<br/>Semantic scale network analysis<br/>Readbility: grade level 3.33>]
-                    10[label = <LEBA short form (18 Items; n=690)<br/>Based on Item Response Theory>]
-                    }
-                subgraph cluster_2 {
-                      graph[fontname = Helvetica,shape = rectangle]
-                      style = rounded
-                     node[fontname = Helvetica, margin = 0.2,width = 18, height = 2.5, 
-                fixedsize = true, fontsize = 45 ]
-                    6[label = 
-                    <6 factor solution:<br/>One factor emerged with only two salient loadings>
-                    ]
-                    7[label = 'Rejected']
-                    }     
-                     
+                    K[label = 'Long LEBA: 23-item', style = filled, fillcolor = Beige]
+                    
+                    L[label = 'Measurement invariance analysis (n=262)']
+                    M[label = 'Semantic analysis (n=262)']
+                    N[label = 'Item Response Theory based analysis on the combined sample (n=690)']
+                    
+                    O[label = 'Short LEBA: 18-item',style = filled, fillcolor = Beige]
+                    
+                
                     
                      edge[fontname = Helvetica,color = black,arrowhead = vee, arrowsize = 1.25]
                      A ->B
                      B ->C
                      C ->D
                      D ->E
-                E ->1
-                     1 ->2
-                     2 ->3
-                     3 ->4
-                     4 ->5
-                    5->8
-                    8 ->9
-                    9 ->10
-                     E ->6
-                     6 ->7
+                     E ->F
+                    F ->G
+                     G ->H
+                     H ->I
+                     I ->K
+                     
+                    K->L
+                    L ->M
+                    M ->N
+                    N->O
+                 
+                    
                      
                      
 }")
+
 
 library(jpeg)
 export_svg(Flowchart1) %>%
@@ -635,8 +624,8 @@ We also analysed possible semantic overlap of our developed tool using "Semantic
 Lastly, we sought Item Response Theory (IRT) based analysis on developing a short form of LEBA. We fitted each factor of LEBA using the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =`r nrow(sem.data)`). IRT assesses the item quality by estimating item discrimination, item difficulty, item information, and test information [@bakerBasicsItemResponse2017]. Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$). Item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported  the item discrimination parameter and categorize the items according to the suggestions of @bakerBasicsItemResponse2017 : none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. We discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. We also assessed the precision of the short LEBA using Test information curve (TIC). TIC  indicates the amount of information an the full-scale carry along the latent trait continuum. 
 Item fit and person fit of the fitted IRT models were also analyzed to gather more evidence on validity and meaningfulness of our Tool [@desjardinsHandbookEducationalMeasurement2018]. Item fit was evaluated using  the RMSEA value obtained from Signed-$\chi^2$ index implementation, RMSEA value $\le$.06 was considered adequate item fit. Person fit was estimated using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 was be considered as a misfit [@drasgow1985appropriateness]. 
 
-```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long and short form of LEBA', out.height='100%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/Flowchart1.jpeg', dpi = 800 )
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long form (23-item) and short form (18-item) of LEBA. ', out.height='100%', out.width='100%'}
+knitr::include_graphics('Manuscript.figures/Flowchart1.jpeg', dpi = 600 )
 ```
 
 ## Ethical approval
@@ -3259,5 +3248,10 @@ Since, LEBA is the first of its kind, estimating convergent validity with other 
 
 ```{=tex}
 \endgroup
+```
+
+
+```{r echo = FALSE, results = 'asis', cache = FALSE}
+papaja::render_appendix('appendix-1.Rmd')
 ```
 
