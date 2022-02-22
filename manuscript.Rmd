@@ -1124,7 +1124,7 @@ In the five-factor solution, the first factor contained three items and explaine
 
 ```{r EFATable, results='asis'}
 
-apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items", note = "Only loading higher than .30 is reported", font_size = "small")
+apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items", note = "Only loading > .30 is reported", font_size = "small")
 ```
 
 ```{r EFARes, message=FALSE, warning=FALSE, include=F}
