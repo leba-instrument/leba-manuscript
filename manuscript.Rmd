@@ -1811,7 +1811,7 @@ Table \@ref(tab:tabCfa) summarizes the CFA fit indices of our fitted model. Our 
 #This chunk holds codes to create CFA output table (better options are avaiable at 'tabledown' package)
 
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
-colnames(CFa.matrix) = c("Model", "Chi-Squre", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper CI", "SRMR")
+colnames(CFa.matrix) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
 CFa.matrix[1,] = c("Five factor model:25", 
                    apa(cfa.sum.1$FIT[6],2,T), 
                    apa(cfa.sum.1$FIT[7],2,T), 
@@ -1835,7 +1835,7 @@ CFa.matrix[2,] = c("Five factor model:23",
 ```
 
 ```{r tabCfa, results='asis'}
-apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: five factor model with 25 items and five factor model with 23 items. The second model attained the best fit.", align = "c", landscape = T, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
+apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: five factor model with 25 items and five factor model with 23 items. The second model attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
 ```
 
 ```{r simulation, eval=FALSE, include=FALSE}
@@ -2049,13 +2049,18 @@ Invariance.table <- compareLavaan(models,
               scaled = T,
               chidif = T, digits = 2)
 
-colnames(Invariance.table) <- c("Chi-Square", "df", "CFI", "TLI", "RMSEA", "RMSEA 90% Lower CI", "RMSEA 90% Upper", "Chi-Square Difference", "df difference*", "p")
+
+
+
+colnames(Invariance.table) <- c("$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper", "$\\Delta$ $\\chi^{2}$", "$\\Delta$ df*", "p")
 
 
 ```
 
+
+
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = " a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize" )
+apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize", escape=F )
 
 ```
 
@@ -3251,6 +3256,4 @@ Since, LEBA is the first of its kind, estimating convergent validity with other 
 ```{=tex}
 \endgroup
 ```
-
-
 
