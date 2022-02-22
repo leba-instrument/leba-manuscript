@@ -412,7 +412,7 @@ unmerged <- readxl::read_excel("Table_raw/LEBA_unmerged_fa.xlsx")
 apa_table(unmerged , longtable =T, font_size = "footnotesize", caption = "Five factor obtained from the unmerged data.")
 ```
 
-```{r IF, echo=FALSE, fig.align='center', fig.cap='Item information curve. Five items (1, 25,  38, 30,41) had relatively flat information curves', out.width='100%', out.height='100%'}
+```{r IF, fig.env = "sidewaysfigure", echo=FALSE, fig.align='center', fig.cap='Item information curve. Five items (1, 25,  38, 30, 41) had relatively flat information curves', out.width="100%", out.height="120%", out.extra = ""}
 knitr::include_graphics('Manuscript.figures/allitemplots.png', dpi = 300)
 ```
 

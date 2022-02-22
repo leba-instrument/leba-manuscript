@@ -160,6 +160,9 @@ output            :
     latex_engine: xelatex
     includes:
       in_header: header.tex
+header-includes:
+  - \usepackage{rotating}
+  - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
 appendix:
   - "appendix-1.Rmd"
 mainfont: Arial
@@ -417,8 +420,7 @@ modify_header(label ~ "**Variable**") %>% separate_p_footnotes() %>%
   modify_caption("Demographic Characteristics of Partinipants (n=690)") -> desc_table 
 
 as_tibble(desc_table) -> desc_tibble 
-as_kable_extra(desc_table, format = "latex",booktabs = T) %>% 
-  kable(col.names=c("Variable", "Overall, n=690$^{1}$","EFA Sample, n=428$^{1}$", "CFA sample, n=262$^{1}$", "p", "q$^{2}$"), escape = FALSE)-> desc_kable #save it as a knitr::kable
+as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
 
 #summarise country/time zone data
 #The following chunk is not working now. May be package problem (Sorting command is not working)
@@ -660,7 +662,7 @@ Table \@ref(tab:demotab) summarizes the survey participants' demographic charact
 We collected data from `r nrow(num.countries)` countries (`r nrow(numUTC)` time zones).Participants reported a diverse range of geographic location
 Participants indicated filling out the online survey from a diverse range of geographic locations. For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztable).
 
-```{r partmap, eval=FALSE, fig.cap="Top ten countries with highest responses in our survey", include=FALSE, out.height='100%', out.width=}
+```{r partmap, eval=FALSE, fig.cap="Top ten countries with highest responses in our survey", include=FALSE, out.height='100%'}
 knitr::include_graphics('Manuscript.figures/distribution.png', dpi = 300 )
 ```
 
@@ -2976,7 +2978,7 @@ ggsave("Manuscript.figures/TIC.png",TIC.plot, width = 18, height = 12, dpi = 600
 
 ```
 
-```{r Testinfo, fig.cap="Test information curves for the five factors of LEBA: (a) wearing blue light filters (b) spending time outdoors (c) using phone and smartwatchin bed (d) using light before bedtime (e) using light in the morning andduring daytime. Along x-axis we plotted the underlying latent trait continumm for each factor. Along y-axis we plotted how much information a particular factor is caring across its latent trait continuum", warning=FALSE}
+```{r Testinfo, fig.env = "sidewaysfigure", fig.cap="Test information curves for the five factors of LEBA: (a) wearing blue light filters (b) spending time outdoors (c) using phone and smartwatchin bed (d) using light before bedtime (e) using light in the morning andduring daytime. Along x-axis we plotted the underlying latent trait continumm for each factor. Along y-axis we plotted how much information a particular factor is caring across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
 
 knitr::include_graphics('Manuscript.figures/TIC.png', dpi =600)
 ```
