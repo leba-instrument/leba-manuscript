@@ -706,7 +706,7 @@ psych::multi.hist(EFA.data[,sapply(EFA.data, is.numeric)])
 
 descriptives <- tabledown::des.tab(EFA.data)
 
-colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "$SW^{1}$", "Item Total Correlation")
+colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "SW$^{1}$", "Item Total Correlation")
 
 vars_labels = as.data.frame(sapply(EFA.data,
        function(x){attr(x,"label")}))
@@ -760,7 +760,7 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 
 ```{r tabDes,results='asis'}
 descriptives2 %>% 
-apa_table(landscape =T,caption ="Univariate Descriptive Statistics for the 48 Items. All Items Violated Univariate Normality Assumption Assessed by Shapiro–Wilk (SW) Test. The  Item-total Correlation Ranges Between .03-.48", escape =F, font_size = "footnotesize", note = ("$*p<.001$, $^{1}Shapiro–Wilk$ $Statistics$"), align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
+apa_table(landscape =T,caption ="Univariate Descriptive Statistics for the 48 Items. All Items Violated Univariate Normality Assumption Assessed by Shapiro–Wilk (SW) Test. The  Item-total Correlation Ranges Between .03-.48", escape =F, font_size = "footnotesize", note = ("$^{*}$p<.001, $^{1}$Shapiro–Wilk Statistics"), align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
 ```
 
 ```{r correlation-hits, include=F}
