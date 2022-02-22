@@ -283,7 +283,7 @@ relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
 
 ```{r reltab2, results='asis'}
 relevant.scale.data %>% 
-apa_table(landscape =T,caption ="List of instruments measuring related consttucts to LEBA", format = "latex",escape = T, font_size = "footnotesize", align = c("p{3cm}", rep("p{3.6cm}", ncol(relevant.scale.data)))) 
+apa_table(landscape =T,caption ="List of instruments measuring related constucts to LEBA", format = "latex",escape = T, font_size = "footnotesize", align = c("p{3cm}", rep("p{3.6cm}", ncol(relevant.scale.data)))) 
 
 ```
 
@@ -414,7 +414,7 @@ desctable.data %>%
     missing = "no"
     ) %>% add_overall() %>% bold_labels() %>% add_p() %>% add_q() %>%
 modify_header(label ~ "**Variable**") %>% separate_p_footnotes() %>%
-  modify_caption("Demographic Characteristics") -> desc_table 
+  modify_caption("Demographic Characteristics of Partinipants (n=690)") -> desc_table 
 
 as_tibble(desc_table) -> desc_tibble 
 as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
@@ -706,7 +706,7 @@ psych::multi.hist(EFA.data[,sapply(EFA.data, is.numeric)])
 
 descriptives <- tabledown::des.tab(EFA.data)
 
-colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "SW Statistics", "Item Total Correlation")
+colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "$SW^{1}$", "Item Total Correlation")
 
 vars_labels = as.data.frame(sapply(EFA.data,
        function(x){attr(x,"label")}))
@@ -760,7 +760,7 @@ Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of samplin
 
 ```{r tabDes,results='asis'}
 descriptives2 %>% 
-apa_table(landscape =T,caption ="Descriptive Statistics", escape =F, font_size = "footnotesize", note = "*p<.001", align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
+apa_table(landscape =T,caption ="Univariate Descriptive Statistics for the 48 Items. All Items Violated Univariate Normality Assumption Assessed by Shapiro–Wilk (SW) Test. The  Item-total Correlation Ranges Between .03-.48", escape =F, font_size = "footnotesize", note = ("$*p<.001$, $^{1}Shapiro–Wilk$ $Statistics$"), align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
 ```
 
 ```{r correlation-hits, include=F}
@@ -3251,4 +3251,6 @@ Since, LEBA is the first of its kind, estimating convergent validity with other 
 ```{=tex}
 \endgroup
 ```
+
+
 
