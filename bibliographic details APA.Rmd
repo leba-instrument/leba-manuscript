@@ -1,0 +1,11 @@
+---
+title: "LEBA: Output & Publications (APA)"
+output: html_document
+bibliography      : ["bibliographic details.bib"]
+documentclass     : "apa6"
+classoption       : "man"
+mainfont: Arial
+nocite: '@*'
+---
+
+
