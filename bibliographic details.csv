@@ -1,4 +1,21 @@
 ,Citation
-CIE Conference,"Siraji, M. A., Lazar, R. R., van Duijnhoven, J., Schlangen, L. J. M., Haque, S., Kalavally, V., Vetter, C., Glickman, G., Smolders, K. C. H. J., & Spitschan, M. (2022). Light exposure behaviour assessment (LEBA): a novel self-reported instrument to capture light exposure-related behaviour. CIE Australia Lighting Research Conference, Australia.Ê"
-SLIM,
-SBM,
+SBM,"@inproceedings{LEBA2022SBM,
+title={LEBA â€“ A novel self-report instrument to capture light exposure-related behaviours},
+  author={Siraji, Mushfiqul Anwar and Lazar, Rafael Robert and van Duijnhoven, Juli{\"e}tte and Schlangen, Luc JM and Haque, Shamsul and Kalavally, Vineetha and Vetter, Celine and Glickman, Gena and Smolders, Karin CHJ and Spitschan, Manuel},
+  booktitle={SBM Sleep SIG Research Webinar},
+  date={2022-02-22}
+}"
+
+CIE Conference, "@inproceedings{LEBA2022CIE,
+title={Light Exposure Behaviour Assessment (LEBA): A novel self-report instrument to capture light exposure-related behaviours},
+  author={Siraji, Mushfiqul Anwar and Lazar, Rafael Robert and van Duijnhoven, Juli{\"e}tte and Schlangen, Luc JM and Haque, Shamsul and Kalavally, Vineetha and Vetter, Celine and Glickman, Gena and Smolders, Karin CHJ and Spitschan, Manuel},
+  booktitle={CIE Australia Lighting Research Conference 2022},
+  year={2022-02-08}
+}"
+
+SLIM,"@inproceedings{LEBA2021SLIM,
+title={Light Exposure Behaviour Assessment (LEBA): A novel self-report instrument to capture light exposure-related behaviours},
+  author={Siraji, Mushfiqul Anwar and Lazar, Rafael Robert and van Duijnhoven, Juli{\"e}tte and Schlangen, Luc JM and Haque, Shamsul and Kalavally, Vineetha and Vetter, Celine and Glickman, Gena and Smolders, Karin CHJ and Spitschan, Manuel},
+  booktitle={LIGHTCAP SLIM Webinar},
+  year={2021-12-17}
+}"
