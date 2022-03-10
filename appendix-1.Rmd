@@ -39,7 +39,7 @@ apa_table(landscape =T,caption ="LEBA Short Form (18 Items) ",  font_size = "foo
 
 ```{r shortreldata, include =F}
 short.rel <- readxl::read_excel("Table_raw/LEBA_short_structure.xlsx")
-short.rel <- long.rel %>% mutate_all(~ replace_na(.x, " "))
+short.rel <- short.rel %>% mutate_all(~ replace_na(.x, " "))
 ```
 
 ```{r lshortrel, warning =F}

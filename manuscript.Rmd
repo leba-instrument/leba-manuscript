@@ -115,9 +115,9 @@ affiliation:
   - id            : "10"
     institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"   
   - id            : "11"
-    institution   : "Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
+    institution   : "Translational Sensory & Circadian Neuroscience, Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
   - id            : "12"
-    institution   : "Technical University of Munich, Department of Sport and Health Sciences (TUM SG), Munich, Germany"
+    institution   : "TUM Department of Sport and Health Sciences (TUM SG), Technical University of Munich, Munich, Germany"
   - id            : "13"
     institution   : "University of Oxford, Department of Experimental Psychology, Oxford, United Kingdom"
   - id            : "*"
@@ -1776,6 +1776,7 @@ F3 ~~ 0*F4
 F3 ~~ 0*F5
 F4 ~~ 0*F5"  
 
+
 #item26 & 37 are removed
                 
 ## Fit the model 
@@ -1875,11 +1876,11 @@ summaryParam(simulation, detail =T, alpha = .05)
 SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
 ```
 
-```{r cfaplot, include =F}
+```{r cfaplot, eval=FALSE, include=FALSE}
 #This chunk holds codes to store CFA plot
 
 
-png(filename="Manuscript.figures/CFAplot.png", 
+png(filename="Manuscript.figures/CFAplot2.png", 
     type="cairo",
     units="in", 
     width=12, 
@@ -1924,7 +1925,7 @@ dev.off()
 ```
 
 
-```{r figcfa, fig.cap = "Five factor  model of LEBA obtained by confirmatory factor analysis. By allowing item pair 41 and 30 to covary their error variance our model attained the best fit.",  out.height='100%', warning=FALSE}
+```{r figcfa, fig.cap = "Five factor  model of LEBA obtained by confirmatory factor analysis. By allowing item pair 41 and 30 to covary their error variance our model attained the best fit.",  out.height='100%',out.width='100%', warning=FALSE}
 
 knitr::include_graphics("Manuscript.figures/CFAplot.png", dpi =600)
 
