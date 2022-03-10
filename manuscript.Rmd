@@ -415,8 +415,10 @@ desctable.data %>%
                  ),
     
     missing = "no"
-    ) %>% add_overall() %>% bold_labels() %>% add_p() %>% add_q() %>%
-modify_header(label ~ "**Variable**") %>% separate_p_footnotes() %>%
+    ) %>% add_overall() %>% bold_labels() %>% 
+  # add_p() %>% add_q() %>%
+modify_header(label ~ "**Variable**") %>% 
+  # separate_p_footnotes() %>%
   modify_caption("Demographic Characteristics of Partinipants (n=690)") -> desc_table 
 
 as_tibble(desc_table) -> desc_tibble 
