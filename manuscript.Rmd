@@ -609,15 +609,20 @@ ggsave("Manuscript.figures/distribution.png", distribution, width = 12, height =
 desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
 ```
 
-A quantitative cross-sectional fully anonymous online survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (https://enlightenyourclock.org/participate-in-research) of the science-communication comic-book "Enlighten your clock" co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux [@f.lux]. The landing page of the online survey had the explanatory statements where we mentioned participation was voluntary and that respondents could withdraw from participation anytime without being penalized. At the beginning of the survey, for the adult participants (>18 years) consent was recorded digitally. Underaged participants (<18 years) were urged to obtain assent from their parents/legal guardians. The entire survey was estimated to take <30 minutes. Participants were not compensated. As a part of the demographic information participants provided information regarding age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in Table \@ref(tab:demotab).To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). Participants were asked to confirm that they were participating the survey for the first time. Questions incorporating retrospective recall were all aligned to the period of "past four weeks". At first we collected data for from `r nrow(EFA.descriptives)` participants (EFA sample). Next, we collected data from another `r nrow(CFA.descriptives)` participants (CFA sample) making a total sample of `r nrow(desctable.data)`. The data analysed in this study was collected between 17 May 2021 and 3 September 2021. 
+A quantitative cross-sectional fully anonymous online survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (https://enlightenyourclock.org/participate-in-research) of the science-communication comic-book "Enlighten your clock" co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux [@f.lux]. The landing page of the online survey had the explanatory statements where we mentioned participation was voluntary and that respondents could withdraw from participation anytime without being penalized. At the beginning of the survey, for the adult participants (>18 years) consent was recorded digitally. Underaged participants (<18 years) were urged to obtain assent from their parents/legal guardians. The entire survey was estimated to take <30 minutes. Participants were not compensated. As a part of the demographic information participants provided information regarding age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in Table \@ref(tab:demotab).To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). Participants were asked to confirm that they were participating the survey for the first time. Questions incorporating retrospective recall were all aligned to the period of "past four weeks".  
+We conducted two rounds of data collections. At first we collected data for from `r nrow(EFA.descriptives)` participants  In the second round we collected data from another `r nrow(CFA.descriptives)` participants making a total sample of `r nrow(desctable.data)`.
+
+The data analysed in this study was collected between 17 May 2021 and 3 September 2021. 
 
 ## Analytic Strategy
 
-Figure \@ref(fig:FlowchartFig) summarizes the steps of our psychometric analysis. In our analysis we used R (version 4.1.0) [@R-base]. In the item generation and selection phase we had developed a item pool of 48 items with six-point Likert type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always). Our purpose was to capture light exposure related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we collapsed them into one, making it a 5 point Likert type response format. We conducted an initial item analysis and proceed to the exploratory factor analysis (EFA) with all 48 items (EFA sample;n=`r nrow(EFA.descriptives)`). Prior to the EFA, necessary assumptions, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, in EFA we used  polychoric correlation matrix and employed principal axis (PA) as  factor extraction method with varimax rotation [@desjardinsHandbookEducationalMeasurement2018;@watkinsStepbyStepGuideExploratory2020]. We used a combination of factor identification method including Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines : (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading > .3 across factors [@bandalosFactorAnalysisExploratory2018]. We also conducted a EFA on non-merged response options data (Supp. Table \@ref(tab:efaunmerged)).
+Figure \@ref(fig:FlowchartFig) summarizes the steps of our psychometric analysis. In our analysis we used R (version 4.1.0) [@R-base]. In the item generation and selection phase we had developed a item pool of 48 items with six-point Likert type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always). Our purpose was to capture light exposure related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we collapsed them into one, making it a 5 point Likert type response format. 
+
+We conducted an initial item analysis and proceed to the exploratory factor analysis (EFA) with all 48 items using the data collected in our first round. (EFA sample;n=`r nrow(EFA.descriptives)`). Prior to the EFA, necessary assumptions, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, in EFA we used  polychoric correlation matrix and employed principal axis (PA) as  factor extraction method with varimax rotation [@desjardinsHandbookEducationalMeasurement2018;@watkinsStepbyStepGuideExploratory2020]. We used a combination of factor identification method including Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines : (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading > .3 across factors [@bandalosFactorAnalysisExploratory2018]. We also conducted a EFA on non-merged response options data (Supp. Table \@ref(tab:efaunmerged)).
 
 For reliability estimation we used internal consistency reliability coefficient ordinal $\alpha$. Though Cronbach's alpha coefficient is widely used for estimating internal consistency, it has a tendency to deflate the estimates for Likert-type data since the calculation is based on pearson-correlation matrix which requires response data to be continuous of nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently to get  better estimates of reliability  we reported ordinal alpha for each factors using polychoric-correlation matrix [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total scale using McDonald's $\omega_t$  coefficient which is a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient value range from 0 to 1 and higher value represents better reliability.
 
-To validated the latent structure obtained in EFA, We conducted a categorical confirmatory factor analysis (CFA) with weighted least square with mean and variance adjusted (WLSMV) estimator estimator [@desjardinsHandbookEducationalMeasurement2018] on a separate sample (CFA sample;n=`r nrow(CFA.descriptives)`). We assessed the model fit using common model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI):  close to .95 or above/ between 90-95 and above (iii) root mean square error of approximation (RMSEA): close to .06 or below, (iv) Standardized root mean square (SRMR): close to .08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015] and SRMR does not work well with ordinal data [@RN1272] As such, we judged the model fit using CFI, TLI, SRMR and RMSEA.
+To validated the latent structure obtained in EFA, We conducted a categorical confirmatory factor analysis (CFA) with weighted least square with mean and variance adjusted (WLSMV) estimator estimator [@desjardinsHandbookEducationalMeasurement2018] on the data collected n our second round of data collection (CFA sample;n=`r nrow(CFA.descriptives)`). We assessed the model fit using common model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI):  close to .95 or above/ between 90-95 and above (iii) root mean square error of approximation (RMSEA): close to .06 or below, (iv) Standardized root mean square (SRMR): close to .08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015] and SRMR does not work well with ordinal data [@RN1272] As such, we judged the model fit using CFI, TLI, SRMR and RMSEA.
 
 We assessed the measurement invariance (MI) of our construct between native English speakers (n=`r invariance.data.descriptives.count[1,2]`) and non native English speakers (n=`r invariance.data.descriptives.count[2,2]`) among the CFA sample (n=`r nrow(CFA.descriptives)`). MI evaluates whether a construct has the psychometric equivalence and same meaning across groups [@putnick2016measurement;@klinePrinciplesPracticeStructural2015]. We used  structural equation modelling framework to assess the measurement invariance.  We successively compared four nested models:  configural, metric, scalar, and residual models using the $\chi^2$ difference test ($\Delta \chi^2$). Among MI models, configural model is the least restrictive model and residual model is the most restrictive model. A non-significant $\Delta \chi^2$ test between two nested measurement invariance models indicates mode fit does not significantly decrease for the superior model [@dimitrov2010testing] thus allowing the superior invariance model to be accepted. [@widaman1997exploring]. 
 
@@ -673,7 +678,302 @@ knitr::include_graphics('Manuscript.figures/distribution.png', dpi = 300 )
 
 Participants in our survey aged between  `r min(desctable.data$slypos_demographics_age)`  to `r max(desctable.data$slypos_demographics_age)` years [EFA sample: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA sample: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 2)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
 
+### Descriptive Statistics
 
+```{r gtvis, include =F}
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (data preparation)
+
+## Recoding sem.data$item8
+gt.data <- sem.data
+gt.data$item08 <- as.character(gt.data$item08)
+gt.data$item08 <- fct_recode(gt.data$item08,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+## Recoding gt.data$item26
+gt.data$item26 <- as.character(gt.data$item26)
+gt.data$item26 <- fct_recode(gt.data$item26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+## Recoding gt.data$item37
+gt.data$item37 <- as.character(gt.data$item26)
+gt.data$item37 <- fct_recode(gt.data$item26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+
+# all data Gt Table
+##Long table
+gt.long <- as.data.frame(gather(gt.data, Items, value))
+gt.long$value <- as.numeric(as.character(gt.long$value))
+
+##Summarizing and creating gt object
+
+gt.tab <- gt.long %>% 
+  group_by(Items) %>% 
+  # calculate summary stats & create data for the histogram and density plot
+  dplyr::summarise(
+    nr = n(),
+    mean = mean(value, na.rm = TRUE),
+    med = median(value, na.rm = TRUE),
+    sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  gt() 
+
+gt.tab1 <- gt.tab$`_data` 
+
+gt.tab2 <- gt.tab1[,-c(1,2)]
+
+
+
+
+vars_labels = as.data.frame(sapply(sem.data,
+       function(x){attr(x,"label")}))
+
+vars_labels<- tibble::rownames_to_column(vars_labels, "Items")
+colnames(vars_labels) <- c("Item", "Stem")
+
+
+
+
+gt.tab3 <- cbind(vars_labels, gt.tab2)
+
+#Preparation for likert data
+LEBA.likert <- as.data.frame(gt.data) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+LEBA.likert <-  mutate(LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+LEBA.Factor = as.data.frame(lapply(LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+items <- names(LEBA.Factor) 
+#Calculate percentage
+percentage <- kutils::likert(LEBA.Factor, vlist = items ) 
+
+percentage <- percentage$table %>% 
+  as.data.frame(.)
+
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.percentage <- cbind(labels,percentage) #tables with labels  
+full.percentage<- t(full.percentage ) #transpose
+as.data.frame(full.percentage)
+full.percentage1 <- full.percentage[-1,-6] #removing 1st row and total column
+full.percentage2 <- full.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.percentage2)
+
+
+colnames(full.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+Items <- rownames(full.percentage2)
+as.data.frame(Items)
+full.percentage3 <- cbind(Items,full.percentage2)
+
+full.percentage3 <- full.percentage3[order(Items),] 
+full.percentage3 <- as.data.frame(full.percentage3[,-1]) %>% 
+  gt()
+
+
+
+liket.full <- full.percentage3$"_data"
+
+
+full.table <-  cbind( gt.tab3, liket.full)%>% 
+  gt()
+
+
+```
+
+
+```{r fullgt,  include=FALSE}
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (EFA+CFA); 
+
+full.tab <- full.table$`_data`
+
+full.tab.1 <- full.tab[1:24,] %>% 
+  gt()
+
+full.tab.2 <- full.tab[24:48,] %>% 
+  gt()
+
+full.tab.1 %>% 
+# histogram and density plots
+  gtExtras::gt_sparkline(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_sparkline(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "grey",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# format decimals
+  fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("Summary Descriptives (n =690)"),
+    subtitle = md("Items 01-24 ")) %>% 
+#create groups of columns
+tab_spanner(
+  label = "Item",
+  columns = Item:Stem
+) %>%
+  cols_align(
+    align = "left",
+    columns = Item:Stem
+  ) %>% 
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = mean:sd
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+# change column names to appear in the table
+cols_label(
+  Item = ("Items"),
+  Stem = ("Stem"),
+  mean = ("Mean"),
+  med = ("Median "),
+  sd = (("SD")),
+  hist_data = "Histogram",
+  dens_data = "Density"
+) %>%
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = mean:Always
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    mean,
+    Item,
+    palette = "ggthemes::fivethirtyeight"
+  ) %>% tab_options(
+    table.font.size = px(14L)) %>% 
+  cols_width(
+    Stem ~ px(200)) %>% 
+ gtsave("Manuscript.figures/gt_full_p1.png", vwidth = 6000)
+
+
+
+full.tab.2 %>% 
+# histogram and density plots
+  gtExtras::gt_sparkline(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_sparkline(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "grey",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# format decimals
+  fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("Summary Descriptives (n =690)"),
+    subtitle = md("Items 24-48 ")) %>% 
+#create groups of columns
+tab_spanner(
+  label = "Item",
+  columns = Item:Stem
+) %>%
+  cols_align(
+    align = "left",
+    columns = Item:Stem
+  ) %>% 
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = mean:sd
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+# change column names to appear in the table
+cols_label(
+  Item = ("LEBA  Items"),
+  Stem = ("Stem"),
+  mean = ("Mean"),
+  med = ("Median "),
+  sd = (("SD")),
+  hist_data = "Histogram",
+  dens_data = "Density"
+) %>%
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = mean:Always
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    mean,
+    Item,
+    palette = "ggthemes::fivethirtyeight"
+  ) %>% tab_options(
+    table.font.size = px(14L)) %>% 
+  cols_width(
+    Stem ~ px(200)) %>% 
+gtsave("Manuscript.figures/gt_full_p2.png",vwidth = 6000)
+
+```
+
+
+```{r efagtPic1, echo=FALSE,  fig.cap= ' Summary descriptives and response pattern'}
+knitr::include_graphics('Manuscript.figures/gt_full_p1.png')
+
+```
+
+```{r efagtPic2, echo=FALSE,  fig.cap= ' Summary descriptives and response pattern'}
+knitr::include_graphics('Manuscript.figures/gt_full_p2.png')
+
+```
+
+Figure \@ref(fig:efagtPic1) and Figure \@ref(fig:efagtPic2) summarize the response pattern of our total sample (n = `r nrow(sem.data)`) for all 48 items. Most of the items were skewed and violated normality assumption.
+
+
+### Item Analysis
 
 ```{r EFAdata, include=FALSE}
 #This chunk holds code for creating EFA data subset
@@ -701,7 +1001,7 @@ psych::multi.hist(EFA.data[,sapply(EFA.data, is.numeric)])
 
 descriptives <- tabledown::des.tab(EFA.data)
 
-colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "SW$^{1}$", "Item Total Correlation")
+colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "SW", "Item Total Correlation")
 
 vars_labels = as.data.frame(sapply(EFA.data,
        function(x){attr(x,"label")}))
@@ -717,8 +1017,6 @@ mardia <- psych::mardia(EFA.data, na.rm = T, plot =T)
 
 ```
 
-### Item Analysis
-
 ```{r ItemAnalysis, include=FALSE}
 #This chunk holds code for Item analysis (Classical Test Theory)
 # Item analysis
@@ -728,7 +1026,193 @@ low.r.corec <- (min(Item_analysis$item.stats$r.cor))  #minimum item total correl
 high.r.corec <- (max(Item_analysis$item.stats$r.cor))     # maximum item total correlation
 ```
 
-Table \@ref(tab:tabDes) summarizes the univariate descriptive statistics for the 48 items. Some of the items were skewed with high Kurtosis values. Our data violated both univariate normality [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
+```{r gt-EFA, include =F}
+#EFA data
+gt.efa.data <- EFA.data
+
+# gt.efa.data.table <- gt.efa.data %>% 
+#   dplyr::select(item16, item36, item17,
+#                  item11, item10,item12,item07,item08,item09,
+#                  item27,  item03, item40,  item30, item41,
+#                  item33, item32,item35, item37,item38, 
+#                  item46, item45, item25, item04, item01,item26)
+
+#Creating long data
+gt.efa.long <- as.data.frame(gather(gt.efa.data, Items, value))
+gt.efa.long$value <- as.numeric(as.character(gt.efa.long$value))
+
+#Summarizing and creating gt object
+gt.efa.tab <- gt.efa.long %>% 
+  group_by(Items) %>% 
+  # calculate summary stats & create data for the histogram and density plot
+  dplyr::summarise(
+    # nr = n(),
+    # mean = mean(value, na.rm = TRUE),
+    # med = median(value, na.rm = TRUE),
+    # sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  gt() 
+
+
+#Preparation for likert data
+efa.LEBA.likert <- as.data.frame(gt.efa.data) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+efa.LEBA.likert <-  mutate(efa.LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+efa.LEBA.Factor = as.data.frame(lapply(efa.LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+efa.items <- names(efa.LEBA.Factor) 
+#Calculate percentage
+efa.percentage <- kutils::likert(efa.LEBA.Factor, vlist = efa.items ) 
+
+efa.percentage <- efa.percentage$table %>% 
+  as.data.frame(.)
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.efa.percentage <- cbind(labels,efa.percentage) #tables with labels  
+full.efa.percentage<- t(full.efa.percentage ) #transpose
+as.data.frame(full.efa.percentage)
+full.efa.percentage1 <- full.efa.percentage[-1,-6] #removing 1st row and total column
+full.efa.percentage2 <- full.efa.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.efa.percentage2)
+
+
+colnames(full.efa.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+efa.Items <- rownames(full.efa.percentage2)
+as.data.frame(efa.Items)
+full.efa.percentage3 <- cbind(efa.Items,full.efa.percentage2)
+
+full.efa.percentage3 <- full.efa.percentage3[order(efa.Items),] 
+full.efa.percentage3 <- as.data.frame(full.efa.percentage3[,-1]) %>% 
+  gt()
+
+
+gt.efa.table <- gt.efa.tab$'_data'
+gt.liket.efa <- full.efa.percentage3$"_data"
+
+
+efaTable <-  cbind( gt.efa.table, gt.liket.efa)%>% 
+  gt()
+
+
+ efa.gt <- efaTable$"_data"
+ 
+ efa.gt.2 <- cbind(descriptives2[,-2], efa.gt[,-1])
+```
+
+```{r efagt,include=F}
+
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (EFA descriptives Supplimentary
+
+efa.gt.2 %>% 
+gt() %>% 
+# histogram and density plots
+  gtExtras::gt_sparkline(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_sparkline(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "#E64B3599",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# # format decimals
+#   fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("**Light Exposure Behavior Assessment**"),
+    subtitle = md("Summary Descriptives EFA Sample (n =428)")
+  ) %>% 
+   tab_footnote(
+     footnote = md("**Shapiro–Wilk test**"),
+     locations = cells_column_labels(columns = SW)
+  ) %>%
+  
+#create groups of columns
+tab_spanner(
+  label = "Items",
+  columns = Item
+)  %>% 
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = Mean:SW
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+# change column names to appear in the table
+cols_label(
+  hist_data = "Histogram",
+  dens_data = "Density"
+) %>%
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    Mean,
+    Item,
+    palette = "ggthemes::fivethirtyeight") %>% 
+  tab_options(
+    table.font.size = px(14L)) %>% 
+  
+  gtsave("Supplimentary_Materials/S_Figure/S1_Fig.png", vwidth=6000)
+  
+# tab_row_group(
+  #     label = md("**F5: Using light in the morning and during daytime**"),
+  #     rows = c(1,3,12,13,24,25) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F4: Using light before bedtime**"),
+  #     rows = c(16,17,18,20,21) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F3: Using phone and smart-watch in bed**"),
+  #     rows = c(2,14,15,22,23) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F2: Spending time outdoors**"),
+  #     rows = c(4,5,6,7,8,9) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F1: Wearing blue light filters**"),
+  #     rows = c(10,11,19) )
+
+  
+  
+  
+  
+  
+  
+  
+```
+
+
+S1 Fig summarizes the univariate descriptive statistics for the 48 items among  EFA sample (n =`r nrow(EFA.data)`.  Our data violated both univariate normality [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
 
 ### Exploratory Factor Analysis
 
@@ -752,9 +1236,9 @@ totR = length(EFA.data)*(length(EFA.data)-1)/2
 cor.per <- print (BigR/totR)*100
 ```
 
-Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy [@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating adequate sample size [@hutchesonMultivariateSocialScientist1999].  Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001 indicated the correlations between items are adequate for conducting the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than |.30|. The inter-item correlation coefficients ranged between `r min.cor` to `r max.cor`. Figure \@ref(fig:figCor) depicts the correlation matrix.
+Sampling adequacy was checked using Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy using the EFA sample (n =`r nrow(EFA.data)` [@kaiserIndexFactorialSimplicity1974] . The overall KMO vale for 48 items was `r printnum(KMO$MSA)` which was above the cutoff value (.50) indicating adequate sample size [@hutchesonMultivariateSocialScientist1999].  Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954], $\chi^2$ (`r bartlet$df`) = `r apa(bartlet$chisq, 2, T)`, p < .001 indicated the correlations between items are adequate for conducting the EFA. However only `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than |.30|. The inter-item correlation coefficients ranged between `r min.cor` to `r max.cor`. Figure \@ref(fig:figCor) depicts the correlation matrix.
 
-```{r tabDes,results='asis'}
+```{r tabDes, eval=FALSE, include=FALSE, results='asis'}
 descriptives2 %>% 
 apa_table(landscape =T,caption ="Univariate Descriptive Statistics for the 48 Items. All Items Violated Univariate Normality Assumption Assessed by Shapiro–Wilk (SW) Test. The  Item-total Correlation Ranges Between .03-.48", escape =F, font_size = "footnotesize", note = ("$^{*}$p<.001, $^{1}$Shapiro–Wilk Statistics"), align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
 ```
@@ -1185,121 +1669,14 @@ ggsave("Manuscript.figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1
 
 ```
 
-```{r EFAplot, fig.align='center', fig.cap='(A) Five factor solution obtained in exploratory factor analysis (B) Histogram of nonredundent residula correlations', warning=FALSE,  results='asis'}
+```{r EFAplot, eval=FALSE, fig.align='center', fig.cap='(A) Five factor solution obtained in exploratory factor analysis (B) Histogram of nonredundent residula correlations', warning=FALSE, include=FALSE, results='asis'}
 
-knitr::include_graphics('Manuscript.figures/EFAfull.png', dpi =600)
+knitr::include_graphics('Manuscript.figures/gt_full.png', dpi =600)
 ```
 
-```{r gtvis, include =F}
-#This chunk holds codes for creating 'gtExtra' based descriptive figures (data preparation)
-
-## Recoding sem.data$item8
-gt.data <- sem.data
-gt.data$item08 <- as.character(gt.data$item08)
-gt.data$item08 <- fct_recode(gt.data$item08,
-  "5" = "1",
-  "4" = "2",
-  "2" = "4",
-  "1" = "5"
-)
-
-## Recoding gt.data$item26
-gt.data$item26 <- as.character(gt.data$item26)
-gt.data$item26 <- fct_recode(gt.data$item26,
-  "5" = "1",
-  "4" = "2",
-  "2" = "4",
-  "1" = "5"
-)
-## Recoding gt.data$item37
-gt.data$item37 <- as.character(gt.data$item26)
-gt.data$item37 <- fct_recode(gt.data$item26,
-  "5" = "1",
-  "4" = "2",
-  "2" = "4",
-  "1" = "5"
-)
 
 
-
-
-#EFA data
-gt.efa.data <- gt.data[1:428, ]
-
-gt.efa.data.table <- gt.efa.data %>% 
-  dplyr::select(item16, item36, item17,
-                 item11, item10,item12,item07,item08,item09,
-                 item27,  item03, item40,  item30, item41,
-                 item33, item32,item35, item37,item38, 
-                 item46, item45, item25, item04, item01,item26)
-
-#Creating long data
-gt.efa.long <- as.data.frame(gather(gt.efa.data.table, Items, value))
-gt.efa.long$value <- as.numeric(as.character(gt.efa.long$value))
-
-#Summarizing and creating gt object
-gt.efa.tab <- gt.efa.long %>% 
-  group_by(Items) %>% 
-  # calculate summary stats & create data for the histogram and density plot
-  dplyr::summarise(
-    nr = n(),
-    mean = mean(value, na.rm = TRUE),
-    med = median(value, na.rm = TRUE),
-    sd = sd(value, na.rm = TRUE),
-    hist_data = list(value),
-    dens_data = list(value),
-    .groups = "drop"
-  ) %>% 
-  gt() 
-
-
-#Preparation for likert data
-efa.LEBA.likert <- as.data.frame(gt.efa.data.table) 
-
-recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
-                 "5" = "Always")
-efa.LEBA.likert <-  mutate(efa.LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
-
-efa.LEBA.Factor = as.data.frame(lapply(efa.LEBA.likert,factor,
-                                   ordered = T))
-#get the items name
-efa.items <- names(efa.LEBA.Factor) 
-#Calculate percentage
-efa.percentage <- kutils::likert(efa.LEBA.Factor, vlist = efa.items ) 
-
-efa.percentage <- efa.percentage$table %>% 
-  as.data.frame(.)
-
-#data wrangling
-labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
-as.data.frame(labels)
-
-full.efa.percentage <- cbind(labels,efa.percentage) #tables with labels  
-full.efa.percentage<- t(full.efa.percentage ) #transpose
-as.data.frame(full.efa.percentage)
-full.efa.percentage1 <- full.efa.percentage[-1,-6] #removing 1st row and total column
-full.efa.percentage2 <- full.efa.percentage1[, c(2, 4, 5, 3,1)]# rearranging
-as.data.frame(full.efa.percentage2)
-
-
-colnames(full.efa.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
-
-efa.Items <- rownames(full.efa.percentage2)
-as.data.frame(efa.Items)
-full.efa.percentage3 <- cbind(efa.Items,full.efa.percentage2)
-
-full.efa.percentage3 <- full.efa.percentage3[order(efa.Items),] 
-full.efa.percentage3 <- as.data.frame(full.efa.percentage3[,-1]) %>% 
-  gt()
-
-
-gt.efa.table <- gt.efa.tab$'_data'
-gt.liket.efa <- full.efa.percentage3$"_data"
-
-
-efaTable <-  cbind( gt.efa.table, gt.liket.efa)%>% 
-  gt()
-
+```{r ft-CFA, include =F}
 gt.cfa.data <- gt.data[429:690,]
 gt.cfa.data.table <- gt.cfa.data %>% 
   dplyr::select(item16, item36, item17,
@@ -1372,119 +1749,14 @@ gt.liket.cfa <- full.cfa.percentage3$"_data"
 cfaTable <-  cbind( gt.cfa.table, gt.liket.cfa) %>% 
   gt() 
 
-efa.gt <- efaTable$"_data"
+
 cfa.gt <- cfaTable$"_data"
 
-
-
 ```
 
-```{r efagt,include=F}
-
-#This chunk holds codes for creating 'gtExtra' based descriptive figures (EFA descriptives
-
-efa.gt %>% 
-gt() %>% 
-# histogram and density plots
-  gtExtras::gt_sparkline(
-    hist_data,
-    type = "histogram",
-    line_color = "black", 
-    fill_color = "#00A08799",
-    bw = 1,
-    same_limit = TRUE)%>%
-  gtExtras::gt_sparkline(
-    dens_data,
-    type = "density",
-    line_color = "black", 
-    fill_color = "#E64B3599",
-    bw = 0.75,
-    same_limit = TRUE
-  )%>%
-# format decimals
-  fmt_number(columns = mean:sd, decimals = 1) %>%
-# header
-  tab_header(
-    title = md("**Light Exposure Behavior Assessment**"),
-    subtitle = md("Summary Descriptives EFA Sample (n =428)")
-  ) %>% 
-  # tab_footnote(
-  #   footnote = md("**Histogram**"),
-  #   locations = cells_column_labels(columns = hist_data)
-  # ) %>%
-  # tab_footnote(
-  #   footnote = md("**Density**"),
-  #   locations = cells_column_labels(columns = dens_data)
-  # ) %>% 
-#create groups of columns
-tab_spanner(
-  label = "Items",
-  columns = Items
-) %>%
-  tab_spanner(
-    label = "Summary Statistics",
-    columns = nr:sd
-  ) %>%
-  tab_spanner(
-    label = "Graphics",
-    columns = hist_data:dens_data
-  ) %>% 
-  tab_spanner(
-    label = "Response Pattern",
-    columns = Never:Always
-  ) %>%
-# change column names to appear in the table
-cols_label(
-  Items = (""),
-  nr = ("n"),
-  mean = ("Mean"),
-  med = ("Median "),
-  sd = (("SD")),
-  hist_data = "Histogram",
-  dens_data = "Density"
-) %>%
-# set alignment as per wish
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  opt_align_table_header(align = "left") %>%
-# add coloured dots and lines on the first column
-  gt_plt_dot(
-    mean,
-    Items,
-    palette = "ggthemes::fivethirtyeight") %>% 
-  tab_row_group(
-      label = md("**F5: Using light in the morning and during daytime**"),
-      rows = c(1,3,12,13,24,25) 
-        ) %>% 
-  tab_row_group(
-      label = md("**F4: Using light before bedtime**"),
-      rows = c(16,17,18,20,21) 
-        ) %>% 
-  tab_row_group(
-      label = md("**F3: Using phone and smart-watch in bed**"),
-      rows = c(2,14,15,22,23) 
-        ) %>% 
-  tab_row_group(
-      label = md("**F2: Spending time outdoors**"),
-      rows = c(4,5,6,7,8,9) 
-        ) %>% 
-  tab_row_group(
-      label = md("**F1: Wearing blue light filters**"),
-      rows = c(10,11,19) 
-        ) %>% gtsave("Manuscript.figures/efagt.png",vwidth = 7000)
-  
-  
-  
-  
-  
-  
-  
-```
 
 ```{r cfagt,include=F}
-#This chunk holds codes for creating 'gtExtra' based descriptive figures (CFA Descriptives)
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (CFA Descriptives Supplementary
 
 
 cfa.gt %>% 
@@ -1578,108 +1850,11 @@ cols_label(
       label = md("**F1: Wearing blue light filters**"),
       rows = c(10,11,18) 
         ) %>% 
-  gtsave("Manuscript.figures/cfagt.png",vwidth = 7000)
+  gtsave("Supplimentary Materials/S_Figure/cfagt.png",vwidth = 7000)
 
 ```
 
-```{r eval=FALSE, include=FALSE}
-#This chunk holds codes for creating 'gtExtra' based descriptive figures (EFA+CFA); 
-#Not included in the manuscript
 
-gt.fullTable <-  rbind( efa.gt, cfa.gt) %>% 
-  gt() %>% 
-# histogram and density plots
-  gtExtras::gt_sparkline(
-    hist_data,
-    type = "histogram",
-    line_color = "black", 
-    fill_color = "#00A08799",
-    bw = 1,
-    same_limit = TRUE)%>%
-  gtExtras::gt_sparkline(
-    dens_data,
-    type = "density",
-    line_color = "black", 
-    fill_color = "grey",
-    bw = 0.75,
-    same_limit = TRUE
-  )%>%
-# format decimals
-  fmt_number(columns = mean:sd, decimals = 1) %>%
-# header
-  tab_header(
-    title = md("**LEBA**"),
-    subtitle = md("Summary Descriptives of CFA and EFA Sample (N =690)")
-  ) %>% 
-  tab_footnote(
-    footnote = md("**Histogram**"),
-    locations = cells_column_labels(columns = hist_data)
-  ) %>%
-  tab_footnote(
-    footnote = md("**Density**"),
-    locations = cells_column_labels(columns = dens_data)
-  ) %>% 
-#create groups of columns
-tab_spanner(
-  label = "Items",
-  columns = Items
-) %>%
-  tab_spanner(
-    label = "Summary Statistics",
-    columns = nr:sd
-  ) %>%
-  tab_spanner(
-    label = "Graphics",
-    columns = hist_data:dens_data
-  ) %>% 
-  tab_spanner(
-    label = "Response Pattern",
-    columns = Never:Always
-  ) %>%
-# change column names to appear in the table
-cols_label(
-  Items = ("LEBA  Items"),
-  nr = ("n"),
-  mean = ("Mean"),
-  med = ("Median "),
-  sd = (("SD")),
-  hist_data = "Histogram",
-  dens_data = "Density"
-) %>%
-# set alignment as per wish
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  opt_align_table_header(align = "left") %>%
-# add coloured dots and lines on the first column
-  gt_plt_dot(
-    mean,
-    Items,
-    palette = "ggthemes::fivethirtyeight"
-  ) %>% 
-    tab_row_group(
-      group = "CFA (n =262)",
-     rows = 26:48
-    
-  ) %>% 
-  tab_row_group(
-  group = "EFA (n = 428)",
-    rows = 1:25  
-  ) %>% gtsave("Manuscript.figures/gt.png",vwidth = 7000)
-
-
-```
-
-```{r efagtPic, echo=FALSE, out.height="100%", out.width= '100%', fig.cap= ' Summary descriptives and response pattern of EFA sample'}
-knitr::include_graphics('Manuscript.figures/efagt.png',dpi =600)
-
-```
-
-```{r cfagtPic, echo=FALSE, out.height="100%", out.width= '100%', fig.cap= ' Summary descriptives and response pattern of CFA sample'}
-knitr::include_graphics('Manuscript.figures/cfagt.png',dpi =600)
-
-```
 
 ### Confirmatory Factor Analysis
 
