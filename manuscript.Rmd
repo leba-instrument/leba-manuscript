@@ -278,13 +278,13 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-```{r relscale, include=F, warning=F, message=F}
+```{r relscale, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 #This chunk holds code for Relevant scales table in the manuscript
 relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
 
 ```
 
-```{r reltab2, results='asis'}
+```{r reltab2, eval=FALSE, include=FALSE, results='asis'}
 relevant.scale.data %>% 
 apa_table(landscape =T,caption ="List of instruments measuring related constucts to LEBA", format = "latex",escape = T, font_size = "footnotesize", align = c("p{3cm}", rep("p{3.6cm}", ncol(relevant.scale.data)))) 
 
