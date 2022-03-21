@@ -270,7 +270,7 @@ nocite: |
 
 -   Light exposure is important
 
--   Light exposure Behavior is important
+-   Light exposure Behaviour is important
 
 -   Supplementary Table S1 Overview Existing Related Scales: items in total / items on light exposure (behaviour)
 
@@ -960,12 +960,12 @@ gtsave("Manuscript.figures/gt_full_p2.png",vwidth = 6000)
 ```
 
 
-```{r efagtPic1, echo=FALSE,  fig.cap= ' Summary descriptives and response pattern'}
+```{r efagtPic1, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern'}
 knitr::include_graphics('Manuscript.figures/gt_full_p1.png')
 
 ```
 
-```{r efagtPic2, echo=FALSE,  fig.cap= ' Summary descriptives and response pattern'}
+```{r efagtPic2, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern'}
 knitr::include_graphics('Manuscript.figures/gt_full_p2.png')
 
 ```
@@ -1462,7 +1462,7 @@ var4 <- CC$Vaccounted[2,4]*100
 var5 <- CC$Vaccounted[2,5]*100
 ```
 
-```{r EFAplotcode, include=FALSE}
+```{r EFAplotcode, eval=FALSE, include=FALSE}
 #This chunk holds code for the EFA plot
 EFAplot <- grViz("
 digraph nicegraph {
@@ -1577,6 +1577,40 @@ alpha.tab <- rbind(F1.alpha,F2.alpha,F3.alpha,F4.alpha,F5.alpha )
 
 efa.table <- tabledown::fac.tab(fa.5F.3,cut=.3, complexity = F)
 
+
+item16 <- Hmisc::label(EFA.data$item16)
+item36 <- Hmisc::label(EFA.data$item36)
+item17 <- Hmisc::label(EFA.data$item17)
+item11 <- Hmisc::label(EFA.data$item11)
+item10 <- Hmisc::label(EFA.data$item10)
+item12 <- Hmisc::label(EFA.data$item12)
+item07 <- Hmisc::label(EFA.data$item07)
+item08 <- Hmisc::label(EFA.data$item08)
+item09 <- Hmisc::label(EFA.data$item09)
+item27 <- Hmisc::label(EFA.data$item27)
+item03 <- Hmisc::label(EFA.data$item03)
+item40 <- Hmisc::label(EFA.data$item40)
+item30 <- Hmisc::label(EFA.data$item30)
+item41 <- Hmisc::label(EFA.data$item41)
+item33 <- Hmisc::label(EFA.data$item33)
+item32 <- Hmisc::label(EFA.data$item32)
+item35 <- Hmisc::label(EFA.data$item35)
+item37 <- Hmisc::label(EFA.data$item37)
+item38 <- Hmisc::label(EFA.data$item38)
+item46 <- Hmisc::label(EFA.data$item46)
+item45 <- Hmisc::label(EFA.data$item45)
+item25 <- Hmisc::label(EFA.data$item25)
+item04 <- Hmisc::label(EFA.data$item04)
+item01 <- Hmisc::label(EFA.data$item01)
+item26 <- Hmisc::label(EFA.data$item26)
+
+efa.stems <- as.data.frame(rbind(item16,item36, item17, item11, item10, item12, item07, item08, item09, item27, item03, item40, item30, item41, item33, item32, item35, item37, item38, item46, item45, item25, item04, item01, item26, ""))
+colnames(efa.stems) <- "Stem"
+
+efa.tab.ful <- cbind(efa.table[,1],efa.stems, efa.table[,2:8] )
+
+
+
 #Communality
 Fac.5 <- fa.5F.3
 min.com <- min(Fac.5$communality)
@@ -1607,7 +1641,9 @@ In the five-factor solution, the first factor contained three items and explaine
 
 ```{r EFATable, results='asis'}
 
-apa_table(efa.table,align = "c", caption = "Factor loadings and communality of the retained items", note = "Only loading > .30 is reported", font_size = "small")
+apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items", note = "Only loading > .30 is reported", 
+          font_size = "footnotesize", escape=F,landscape = T,
+           align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(efa.tab.ful))))
 ```
 
 ```{r EFARes, message=FALSE, warning=FALSE, include=F}
@@ -1987,7 +2023,7 @@ Table \@ref(tab:tabCfa) summarizes the CFA fit indices of our fitted model. Our 
 
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
 colnames(CFa.matrix) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
-CFa.matrix[1,] = c("Five factor model:25", 
+CFa.matrix[1,] = c("Model 1", 
                    apa(cfa.sum.1$FIT[6],2,T), 
                    apa(cfa.sum.1$FIT[7],2,T), 
                    apa(cfa.sum.1$FIT[19],2,F), 
@@ -1998,7 +2034,7 @@ CFa.matrix[1,] = c("Five factor model:25",
                    apa(cfa.sum.1$FIT[35],2,T))
 
 
-CFa.matrix[2,] = c("Five factor model:23", 
+CFa.matrix[2,] = c("Model 2", 
                    apa(cfa.sum.2$FIT[6],2,T), 
                    apa(cfa.sum.2$FIT[7],2,T), 
                    apa(cfa.sum.2$FIT[19],2,F), 
@@ -2010,7 +2046,7 @@ CFa.matrix[2,] = c("Five factor model:23",
 ```
 
 ```{r tabCfa, results='asis'}
-apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: five factor model with 25 items and five factor model with 23 items. The second model attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
+apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
 ```
 
 ```{r simulation, eval=FALSE, include=FALSE}
@@ -2235,7 +2271,7 @@ colnames(Invariance.table) <- c("$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMS
 
 
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index;RMSEA:Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual;* =  df of model comparison", landscape = T, font_size = "footnotesize", escape=F )
+apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square; a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual; * =  df of model comparison", landscape = T, font_size = "footnotesize", escape=F )
 
 ```
 
@@ -2286,7 +2322,7 @@ readability <- readability(ques,
 
 ### Developing Short form of LEBA
 
-We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$). Examination of the item information curve (Sup.fig \@ref(fig:IF)) indicated five items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20). We discarded those items which yielded a short form of LEBA with 5 factors and 18 items.
+We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$) (Supplementary Table 2). Examination of the item information curve (Sup.fig \@ref(fig:IF)) indicated five items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20). We discarded those items which yielded a short form of LEBA with 5 factors and 18 items.
 
 ```{r IRTdata, include=FALSE}
 #This chunk holds codes for preparing IRT data and 1st IRT model fitting
@@ -2831,7 +2867,7 @@ ggsave("Manuscript.figures/discarded.png",discarded.items.plot, width = 18, heig
 
 ```
 
-```{r IRTparameters, results='asis'}
+```{r IRTparameters, eval=FALSE, include=FALSE, results='asis'}
 apa_table(itemparameters, caption = "Items discrimination and response category difficulty thresholds of 23 items in  LEBA (n =690)", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
@@ -3156,9 +3192,9 @@ knitr::include_graphics('Manuscript.figures/TIC.png', dpi =600)
 
 We treated each factor of short-LEBA as an unidimensional construct and obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except the first and fifth factors, the other three factor's TICs are roughly centred on the centre of the trait continuum ($\theta$).The first and fifth factor had a peak to the right side of the centre of latent trait.Thus we conferred the LEBA tool estimated the light exposure related behaviour with precision near the centre of trait continuum for 2nd, 3rd and 4th factors and near the right side of the centre of trait continuum for 1st and 5th factors [@bakerBasicsItemResponse2017].
 
-Table \@ref(tab:itemfittab) summarizes the item fit indexes of the items. All of the items had RMSEA value $\le$.06 indicating adequate fit of the items to the fitted IRT model. Sup.Figure \@ref(fig:personfit) depicts the person fit Zh statistics histogram of out fitted models. Zh statistics are larger than -2 for most participants, suggesting a good person fit of the selected IRT models. 
+Supplementary Table S3 summarizes the item fit indexes of the 18 items. All of the items had RMSEA value $\le$.06 indicating adequate fit of the items to the fitted IRT model. Sup.Figure \@ref(fig:personfit) depicts the person fit Zh statistics histogram of out fitted models. Zh statistics are larger than -2 for most participants, suggesting a good person fit of the selected IRT models. 
 
-```{r itemfittab, results='asis',warning=F, message=F}
+```{r itemfittab, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
 apa_table(IRT.details , caption ="Item discrimination, response category difficulty thrsholds and fit statistics of the 18 items in short LEBA (n=690)",note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
 ```
 
@@ -3431,6 +3467,5 @@ Since, LEBA is the first of its kind, estimating convergent validity with other 
 ```{=tex}
 \endgroup
 ```
-
 
 
