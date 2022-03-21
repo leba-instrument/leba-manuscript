@@ -272,7 +272,7 @@ nocite: |
 
 -   Light exposure Behavior is important
 
--   Table: Overview Existing Related Scales: items in total / items on light exposure (behaviour)
+-   Supplementary Table S1 Overview Existing Related Scales: items in total / items on light exposure (behaviour)
 
 -   Existing Scales: Review them in text
 
