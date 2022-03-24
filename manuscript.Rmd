@@ -182,7 +182,7 @@ par(family = "Arial")
 
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,reshape, ggsci,networkD3, webshot,ggtext)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr, paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,reshape, ggsci,ggtext)
 webshot::install_phantomjs()
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
@@ -265,7 +265,7 @@ apatheme=theme_bw()+
 nocite: |
   `r cite_r("references.bib")`
   [@verriotto2017new][@eklund1996development][@bajaj2011validation][@dianat2013objective]
-  [@horne1976self][@roenneberg2003life][@Olivier.2016][@buysse1989pittsburgh][@Xie.2021][@bossini2006sensibilita]
+  [@horne1976self][@roenneberg2003life][@buysse1989pittsburgh][@Xie.2021][@bossini2006sensibilita][@grandner2014development]
 ---
 
 # Introduction
@@ -280,25 +280,9 @@ nocite: |
 
 -   None of these do light exposure behavior.
 
-```{r relscale, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-#This chunk holds code for Relevant scales table in the manuscript
-relevant.scale.data <- readxl::read_excel("Table_raw/relevant_scales.xlsx")
-
-```
-
-```{r reltab2, eval=FALSE, include=FALSE, results='asis'}
-relevant.scale.data %>% 
-apa_table(landscape =T,caption ="List of instruments measuring related constucts to LEBA", format = "latex",escape = T, font_size = "footnotesize", align = c("p{3cm}", rep("p{3.6cm}", ncol(relevant.scale.data)))) 
-
-```
 
 
 # Methods
-
-```{r rafel, eval=FALSE, include=FALSE}
-# In addition to the LEBA questionnaire, which is subject of the current study, we assessed other variables and items which were not included in the present analysis. This comprised various sleep-related measures, i.e., sleep disturbances and sleep-related impairment (adult and pediatric versions) [@Bevans.2019; @Buysse.2010; @Forrest.2018; @Harb.2015; @Yu.2011], sleep duration, timing, and latency, chronotype, social jetlag, time in bed, work/sleep schedule and outdoor light exposure duration [MCTQ version for adults and adolescents @roenneberg2003life] plus sleep environment [@Olivier.2016]. Furthermore, we included a light sensitivity questionnaire (photophobia vs. photophilia) [@Wu.2017] and self-reported pubertal stage assessment [@Petersen.1988] for participants younger than 18 years of age. Moreover, we incorporated custom items on meal timing and caffeine consumption in the “workday vs. free day” structure of the MCTQ sleep-wake regulation. Example items are: “On workdays I usually have my first meal at __:__”, “On free days I usually have my last meal at __:__”, and “On workdays I usually drink my first caffeinated drink at __:__”.
-
-```
 
 ```{r Data, include=FALSE}
 #This chunk holds code for data wrangling
@@ -442,169 +426,6 @@ descriptives.data%>%
 
 ```
 
-```{r Manuflowchart, eval=FALSE, include=FALSE}
-#This chunk holds code for the work flow chart of the data analysis
-
-Flowchart1 <- grViz("digraph my_flowchart{
-         
-                    graph [fontname = Helvetica,layout = dot,fontsize = 45 ]
-                     
-                     node[fontname = Helvetica, shape = rectangle, margin = 0.2, width = 20, height = 3, 
-                    fixedsize = true,fontsize = 45]  
-                     
-                    A[label = 'Initial development of 48 items'] 
-                    B[label = 'Large scale survey: first round (n=428)']
-                    C[label = 'Initial item analysis']
-                    D[label = 'Exploratory factor analysis (48 items; n=428)']
-                    
-                    E[label = 
-                    <Factor Identification Method<br/>Scree plot<br/>Minimum average partial method<br/>Hull method>
-                    ]
-                    
-                    F[label = 'Reliability analysis on latent stucture obtained in EFA (n=428)']
-                    G[label = 'Large scale survey: second round (n=262)']
-                    
-                    H[label = 'Confirmatory factor analysis ( n=262)']
-                    
-                    I[label = 'Reliability analysis on latent stucture obtained in CFA (n=262)']
-                    
-                    K[label = 'LEBA long format: 23-item', style = filled, fillcolor = Beige]
-                    
-                    L[label = 'Measurement invariance analysis (n=262)']
-                    M[label = 'Semantic analysis (n=262)']
-                    N[label = 'Item Response Theory based analysis on the combined sample (n=690)']
-                    
-                    O[label = 'LEBA short format: 18-item', style = filled, fillcolor = Beige]
-                    
-                
-                    
-                     edge[fontname = Helvetica,color = black,arrowhead = vee, arrowsize = 1.25]
-                     A ->B
-                     B ->C
-                     C ->D
-                     D ->E
-                     E ->F
-                    F ->G
-                     G ->H
-                     H ->I
-                     I ->K
-                     
-                    K->L
-                    L ->M
-                    M ->N
-                    N->O
-                 
-                    
-                     
-                     
-}")
-
-
-library(jpeg)
-export_svg(Flowchart1) %>%
-  charToRaw() %>%
-  rsvg() %>%
-  png::writePNG("Figures/Flowchart1.jpeg", dpi = 600)
-
-
-
-```
-
-
-```{r participantmap, include =F}
-
-countries <- as.data.frame(tz_tibble[,1])
-countries <- as.data.frame(countries[-1,])
-
-colnames(countries) <- "TZ"
-countries.2 <- as.data.frame(str_split_fixed(countries$TZ, "-", 2))
-countries.2[ ,1][ countries.2[ , 1 ] == "United States " ] <- "USA"
-countries.2[ ,1][ countries.2[ , 1 ] == "United Kingdom " ] <- "UK"
-countries.2[ ,1][ countries.2[ , 1 ] == "Germany " ] <- "Germany"
-countries.2[ ,1][ countries.2[ , 1 ] == "India "  ] <- "India" 
-countries.2[ ,1][ countries.2[ , 1 ] == "France "  ] <- "France" 
-countries.2[ ,1][ countries.2[ , 1 ] == "Switzerland " ] <- "Switzerland"
-countries.2[ ,1][ countries.2[ , 1 ] == "Brazil "  ] <- "Brazil"
-countries.2[ ,1][ countries.2[ , 1 ] == "Netherlands " ] <- "Netherlands"
-countries.2[ ,1][ countries.2[ , 1 ] == "Canada "  ] <- "Canada" 
-countries.2[ ,1][ countries.2[ , 1 ] == "Poland " ] <- "Poland"
-
-
-country_name <- as.data.frame(unique(countries.2[,1]))
-country_name.2 <- (country_name[1:10,])
-
-
-
-thismap = map_data("world")
-
-
-# Set colors
-colors <- scales::hue_pal()(10)
-thismap <- mutate(thismap, fill = ifelse(region %in% country_name.2, 
-                                         sample(colors, 10), "white"))
-thismap <- within(thismap, fill[region == 'Canada'] <- '#FF62BC')
-thismap <- within(thismap, fill[region == 'Brazil'] <- '#D89000')
-thismap <- within(thismap, fill[region == 'USA'] <- '#00BFC4')
-thismap <- within(thismap, fill[region == 'UK'] <- 'blue')
-thismap <- within(thismap, fill[region == 'Germany'] <- 'Green')
-thismap <- within(thismap, fill[region == 'Netherlands'] <- '#A3A500')
-thismap <- within(thismap, fill[region == 'Poland'] <- 'Pink')
-thismap <- within(thismap, fill[region == 'France'] <- 'Orange')
-thismap <- within(thismap, fill[region == 'Switzerland'] <- 'purple')
-
-
-
-
-label.data <-thismap[thismap$region %in% country_name.2,]
-
-USA <- subset(label.data, region == "USA")
-UK <- subset(label.data, region == "UK")
-Germany <- subset(label.data, region == "Germany")
-India <- subset(label.data, region == "India")
-France <- subset(label.data, region == "France")
-Switzerland <- subset(label.data, region == "Switzerland")
-Brazil <- subset(label.data, region == "Brazil")
-Netherlands <- subset(label.data, region == "Netherlands")
-Canada <- subset(label.data, region == "Canada")
-Poland <- subset(label.data, region == "Poland")
-
-label.data.2 <- rbind(USA[386,],UK[1,],Germany[1,],India[327,],France[1,],
-                      Switzerland[1,],Brazil[33,],Netherlands[1,],Canada[5000,],Poland[1,])
-
-label.data.2[1,1] <- -100
-label.data.2[1,2] <- 40
-label.data.2[2,2] <- 52
-label.data.2[9,2] <- 55
-label.data.2[7,2] <- -9
-label.data.2[7,1] <- -48
-label.data.2[4,2] <- 25
-label.data.2[4,1] <- 84
-
-label.data.2[5,2] <- 46
-label.data.2[5,1] <- 6
-label.data.2[8,2] <- 51
-
-distribution <- ggplot(thismap, aes(long, lat, fill = fill, group=group)) + 
-  geom_polygon(colour="gray", size =.3) +  
-  scale_fill_identity()+apatheme+ theme(
-    axis.text.x = element_blank(),
-                                        axis.text.y = element_blank(),
-                                        axis.title.x = element_blank(),
-                                        axis.title.y = element_blank(),
-                                        plot.title = element_blank(),
-                                        axis.line.x = element_blank(),
-                                        axis.line.y = element_blank(),
-                                        axis.ticks = element_blank())+
-  # xlab("Longitude") + ylab("Latitude")+
-  ggrepel::geom_text_repel(data= label.data.2,aes(x=long, y= lat, label=region),inherit.aes = F,
-            color = "darkblue", fontface = "bold", stat = 'identity',
-            position = "identity")
-            
-
-ggsave("Figures/distribution.png", distribution, width = 12, height = 6, dpi = 600, bg ="white")
-
-```
-
 ## Data Collection
 
 ```{r demotab, warning=F, message=F}
@@ -662,20 +483,6 @@ Participants indicated filling out the online survey from a diverse range of geo
 
 ```{r partmap, eval=FALSE, fig.cap="Top ten countries with highest responses in our survey", include=FALSE, out.height='100%'}
 knitr::include_graphics('Figures/distribution.png', dpi = 300 )
-```
-
-```{r rafael2, eval=FALSE, include=FALSE}
-# Figure \@ref(fig:partmap) depicts the top ten countries with highest participation in our survey.
-# - `r tz_tibble[2,1]`:     `r tz_tibble[2,2]`
-# - `r tz_tibble[3,1]`:     `r tz_tibble[3,2]`
-# - `r tz_tibble[4,1]`:     `r tz_tibble[4,2]`
-# - `r tz_tibble[5,1]`:     `r tz_tibble[5,2]`
-# - `r tz_tibble[6,1]`:     `r tz_tibble[6,2]`
-# - `r tz_tibble[7,1]`:     `r tz_tibble[7,2]`
-# - `r tz_tibble[8,1]`:     `r tz_tibble[8,2]`
-# - `r tz_tibble[9,1]`:     `r tz_tibble[9,2]`
-# - `r tz_tibble[10,1]`:    `r tz_tibble[10,2]`
-# - `r tz_tibble[11,1]`:    `r tz_tibble[11,2]`
 ```
 
 Participants in our survey aged between  `r min(desctable.data$slypos_demographics_age)`  to `r max(desctable.data$slypos_demographics_age)` years [EFA sample: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA sample: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 2)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. We tested all demographic variables in Table 1 for significant group differences between the EFA and CFA sample, applying Wilcoxon rank sum test for the continuous variable "Age" and Pearson's $\chi^2$ test for all other categorical variables via the gtsummary R package's "add_p" function [@sjoberg2021] . The p-values were corrected for multiple testing applying false discovery rate (FDR) via the "add_q" function of the same package. After p-value (FDR) correction for multiple testing, none of the demographic variables were significantly different between the EFA sample and the CFA sample (all q-values *q* $\ge$ `r min(desc_tibble$"**q-value**", na.rm=T)`).
@@ -812,7 +619,7 @@ full.tab <- full.table$`_data`
 full.tab.1 <- full.tab[1:24,] %>% 
   gt()
 
-full.tab.2 <- full.tab[24:48,] %>% 
+full.tab.2 <- full.tab[25:48,] %>% 
   gt()
 
 full.tab.1 %>% 
@@ -910,7 +717,7 @@ full.tab.2 %>%
 # header
   tab_header(
     title = md("Summary Descriptives (n =690)"),
-    subtitle = md("Items 24-48 ")) %>% 
+    subtitle = md("Items 25-48 ")) %>% 
 #create groups of columns
 tab_spanner(
   label = "Item",
@@ -1214,7 +1021,7 @@ cols_label(
 ```
 
 
-S1 Fig summarizes the univariate descriptive statistics for the 48 items among  EFA sample (n =`r nrow(EFA.data)`.  Our data violated both univariate normality [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
+Supplementary Fig1 summarizes the univariate descriptive statistics for the 48 items among  EFA sample (n =`r nrow(EFA.data)`.  Our data violated both univariate normality [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
 
 ### Exploratory Factor Analysis
 
@@ -1387,7 +1194,7 @@ full.map <- cbind(map.map,map.statistics)
 write.csv(full.map, "Table_raw/map_stat.csv")
 ```
 
-Scree plot ( Figure \@ref(fig:efa-plot)) suggested a six-factor solution. However, the minimum average partial (MAP) [@velicerDeterminingNumberComponents1976] method (Table \@ref(tab:map)) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
+Scree plot ( Figure \@ref(fig:efa-plot) B) suggested a six-factor solution. However, the minimum average partial (MAP) [@velicerDeterminingNumberComponents1976] method (Supplementary Table 2) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:efa-plot-print) D) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
 
 ```{r EFA, include=FALSE}
@@ -1648,7 +1455,7 @@ knitr::include_graphics('Figures/efa.plot.png', dpi =600)
 
 ```
 
-With the initial 48 items we conducted three rounds of EFA and gradually discarded problematic items. (cross-loading items and poor factor loading (<.30) items). Finally, a five-factor EFA solution with 25 items was accepted with all factor-loading higher than .30 and no cross-loading greater than .30. We further confirmed this five-factor latent structure by another EFA using varimax rotation with a minimum residual extraction method (Sup.Table \@ref(tab:MinResTab)). Table \@ref(tab:EFATable) displays the factor-loading (structural coefficients) and communality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. Supplimentary figure 1 depicts the data distribution and endorsement pattern for the included 25 items. However, the histogram of the absolute values of non-redundant residual-correlations (Figure \@ref(fig:efa-plot-print)(D)) showed `r apa(sumR,0, T)`% correlations were greater than the absolute value of .05, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution. However, a factor emerged with only two salient variables, thus disqualifying the six-factor solution (Sup.Table \@ref(tab:sixFacTab)).
+With the initial 48 items we conducted three rounds of EFA and gradually discarded problematic items. (cross-loading items and poor factor loading (<.30) items). Finally, a five-factor EFA solution with 25 items was accepted with all factor-loading higher than .30 and no cross-loading greater than .30. We further confirmed this five-factor latent structure by another EFA using varimax rotation with a minimum residual extraction method (Sup.Table \@ref(tab:MinResTab)). Table \@ref(tab:EFATable) displays the factor-loading (structural coefficients) and communality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. Supplimentary figure 1 depicts the data distribution and endorsement pattern for the included 25 items. However, the histogram of the absolute values of non-redundant residual-correlations (Figure \@ref(fig:efa-plot-print)(D)) showed `r apa(sumR,0, T)`% correlations were greater than the absolute value of .05, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution. However, a factor emerged with only two salient variables, thus disqualifying the six-factor solution (Supplementary Table 3)).
 
 In the five-factor solution, the first factor contained three items and explained `r apa(var1,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F1.alpha,2,F)`. All the items in this factor stemmed from the individual's preference of using blue light filters in different light environments. The second factor contained six items and explained `r apa(var2,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F2.alpha,2,F)`. Items under this factor investigated individuals' hours spent outdoor. The third factor contained five items and explained `r apa(var3,2,F)`% of the total variance. Items under this factor dealt with the specific behaviours pertaining to using phone and smart-watch in bed. The internal consistency reliability coefficient was, ordinal $\alpha$ = `r apa(F3.alpha,2,F)`. The fourth factor contained five items and explained `r apa(var4,2,F)`% of the total variance with an internal consistency coefficient, ordinal $\alpha$ = `r apa(F4.alpha,2,F)`. These five items investigated the behaviours related to individual's light exposure before bedtime. Lastly, the fifth factor contained six items and explained `r apa(var5,2,F)`% of the total variance. This factor  captured individual's morning and daytime light exposure related behaviour.  The  internal consistency reliability was, ordinal $\alpha$ = `r apa(F5.alpha,2,F)` . It is essential to attain a balance between psychometric properties and interpretability of the common themes when exploring the latent structure. As all of the emerged factors are highly interpretable and relevant towards our aim to capture light exposure related behaviour, regardless of the apparent low reliability of the fifth factor, we retain all the five-factors with 23 items for our confirmatory factor analysis (CFA). Two items showed negative factor-loading (items 44 and 21). Upon inspection, it was understood that these items are negatively correlated to the respective common theme, and thus in the CFA analysis, we reverse coded these two items. 
 
@@ -2043,45 +1850,7 @@ CFa.matrix[2,] = c("Model 2",
 apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
 ```
 
-```{r simulation, eval=FALSE, include=FALSE}
-#This chunk holds codes for simulating Standard error for the accepted CFA model 
 
-library("simsem")
-pop.model <- "F1 =~ a1*item16 + .95*item36 + a2*item17
-                 F2 =~ .87*item11 + .85*item10 + .74*item12+ .60*item07+ .50*Ritem08+ .49*item09
-                 F3 =~  .78*item27+ .77*item03+ .68*item40 + .13*item30 + .20*item41
-                 F4 =~ a3*item32 + .63*item35 + .33*item38+ a4*item33 
-                 F5 =~ .80*item46+ .53*item45+ .36*item25+ .30*item04+ .22*item01 
-                       a1==a2
-                       a3==a4
-                item30 ~~ .82*item41
-F1~~1*F1
-F2~~1*F2
-F3~~1*F3
-F4~~1*F4
-F5~~1*F5
-"  
-
-sam.model <- "F1 =~ a1*item16 + item36 + a2*item17
-                 F2 =~ item11 + item10 + item12+ item7+ Ritem8+ item9
-                 F3 =~  item27+ item3+ item40 + item30 + item41
-                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
-                 F5 =~ item46+ item45+ item25+ item4+ item1 
-                       a1==a2
-                       a3==a4
-                item30 ~~  item41
-                       "  
-
-
-sim.300 <- sim(200, model = sam.model, n =200, generate = pop.model, lavaanfun = "lavaan", auto.var =T, auto.fix.first =F, seed = 123)
-summary(simulation)
-summaryParam(simulation, detail =T, alpha = .05)
-
-#power should be higher than .80, average CI width should be lower than .15
-#Estimate standard error bias
-
-SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryParam(simulation)[3]
-```
 
 ```{r cfaplot, eval=FALSE, include=FALSE}
 #This chunk holds codes to store CFA plot
