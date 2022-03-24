@@ -413,11 +413,11 @@ apa_table(unmerged , longtable =T, font_size = "footnotesize", caption = "Five f
 ```
 
 ```{r IF, fig.env = "sidewaysfigure", echo=FALSE, fig.align='center', fig.cap='Item information curve. Five items (1, 25,  38, 30, 41) had relatively flat information curves', out.width="100%", out.height="120%", out.extra = ""}
-knitr::include_graphics('Manuscript.figures/allitemplots.png', dpi = 300)
+knitr::include_graphics('Figures/allitemplots.png', dpi = 300)
 ```
 
 
 ```{r personfit, fig.cap="Person fit of the five fitted IRT models (a) Wearing blue light filters (b) Spending time outdoors (c) Using phone and smartwatchin bed (d) Using light before bedtime (e) Using light in the morning andduring daytime", warning=FALSE, out.width="100%", out.height="120%"}
-knitr::include_graphics("Manuscript.figures/personfit.png",dpi = 600)
+knitr::include_graphics("Figures/personfit.png",dpi = 600)
 ```
 

@@ -182,7 +182,7 @@ par(family = "Arial")
 
 #You need to run this chunk 1X in your system 
 #install.packages("pacman")#Run this if you don't have pacman installed.
-pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,reshape, ggsci,networkD3, webshot)
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr,qgraph,paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,rsvg,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,huxtable,reshape, ggsci,networkD3, webshot,ggtext)
 webshot::install_phantomjs()
 pacman::p_install_gh("jthomasmock/gtExtras")
 pacman::p_install_gh("crsh/papaja")
@@ -192,6 +192,7 @@ devtools::install_github("unDocUMeantIt/koRpus")
 koRpus::install.koRpus.lang(lang=c("en"))
 
 install.packages("correlation")
+install.packages("ggtext")
 #if you dont have LaTeX installed run the following lines
 #install.packages("tinytex")
 #tinytex::install_tinytex()
@@ -234,6 +235,7 @@ library(koRpus)# stable release
 library(koRpus.lang.en)
 library(reshape)
 library(ggsci)
+library(ggtext)
 r_refs("references.bib")
 ```
 
@@ -440,7 +442,7 @@ descriptives.data%>%
 
 ```
 
-```{r Manuflowchart, include=FALSE }
+```{r Manuflowchart, eval=FALSE, include=FALSE}
 #This chunk holds code for the work flow chart of the data analysis
 
 Flowchart1 <- grViz("digraph my_flowchart{
@@ -502,7 +504,7 @@ library(jpeg)
 export_svg(Flowchart1) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("Manuscript.figures/Flowchart1.jpeg", dpi = 600)
+  png::writePNG("Figures/Flowchart1.jpeg", dpi = 600)
 
 
 
@@ -599,7 +601,7 @@ distribution <- ggplot(thismap, aes(long, lat, fill = fill, group=group)) +
             position = "identity")
             
 
-ggsave("Manuscript.figures/distribution.png", distribution, width = 12, height = 6, dpi = 600, bg ="white")
+ggsave("Figures/distribution.png", distribution, width = 12, height = 6, dpi = 600, bg ="white")
 
 ```
 
@@ -632,7 +634,7 @@ Lastly, we sought Item Response Theory (IRT) based analysis on developing a shor
 Item fit and person fit of the fitted IRT models were also analyzed to gather more evidence on validity and meaningfulness of our Tool [@desjardinsHandbookEducationalMeasurement2018]. Item fit was evaluated using  the RMSEA value obtained from Signed-$\chi^2$ index implementation, RMSEA value $\le$.06 was considered adequate item fit. Person fit was estimated using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 was be considered as a misfit [@drasgow1985appropriateness]. 
 
 ```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Development of long form (23-item) and short form (18-item) of LEBA. ', out.height='100%', out.width='100%'}
-knitr::include_graphics('Manuscript.figures/Flowchart1.jpeg', dpi = 600 )
+knitr::include_graphics('Figures/Flowchart.png', dpi = 600 )
 ```
 
 ## Ethical approval
@@ -659,7 +661,7 @@ We collected data from `r nrow(num.countries)` countries (`r nrow(numUTC)` time 
 Participants indicated filling out the online survey from a diverse range of geographic locations. For a complete list of geographic locations, see Suppl. Table \@ref(tab:tztable).
 
 ```{r partmap, eval=FALSE, fig.cap="Top ten countries with highest responses in our survey", include=FALSE, out.height='100%'}
-knitr::include_graphics('Manuscript.figures/distribution.png', dpi = 300 )
+knitr::include_graphics('Figures/distribution.png', dpi = 300 )
 ```
 
 ```{r rafael2, eval=FALSE, include=FALSE}
@@ -882,7 +884,7 @@ cols_label(
     table.font.size = px(14L)) %>% 
   cols_width(
     Stem ~ px(200)) %>% 
- gtsave("Manuscript.figures/gt_full_p1.png", vwidth = 6000)
+ gtsave("Figures/gt_full_p1.png", vwidth = 6000)
 
 
 
@@ -955,18 +957,18 @@ cols_label(
     table.font.size = px(14L)) %>% 
   cols_width(
     Stem ~ px(200)) %>% 
-gtsave("Manuscript.figures/gt_full_p2.png",vwidth = 6000)
+gtsave("Figures/gt_full_p2.png",vwidth = 6000)
 
 ```
 
 
 ```{r efagtPic1, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern'}
-knitr::include_graphics('Manuscript.figures/gt_full_p1.png')
+knitr::include_graphics('Figures/gt_full_p1.png')
 
 ```
 
 ```{r efagtPic2, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern'}
-knitr::include_graphics('Manuscript.figures/gt_full_p2.png')
+knitr::include_graphics('Figures/gt_full_p2.png')
 
 ```
 
@@ -1180,7 +1182,7 @@ cols_label(
   tab_options(
     table.font.size = px(14L)) %>% 
   
-  gtsave("Supplimentary_Materials/S_Figure/S1_Fig.png", vwidth=6000)
+  gtsave("Supplimentary_materials/S_Figure/S1_Fig.png", vwidth=6000)
   
 # tab_row_group(
   #     label = md("**F5: Using light in the morning and during daytime**"),
@@ -1252,7 +1254,7 @@ corr.histogram <- ggplot(cor.hits,aes(x=value)) +
   geom_histogram(binwidth=.1, col=I("black"),fill="#00A08799")+apatheme+
   labs( y="", x = "Inter-item correlation")
 
-ggsave("Manuscript.figures/correlation_histogram.png", corr.histogram, width = 6, height = 6, dpi = 600, bg ="white")
+# ggsave("Figures/correlation_histogram.png", corr.histogram, width = 6, height = 6, dpi = 600, bg ="white")
 ```
 
 ```{r corplot, include =F}
@@ -1261,25 +1263,17 @@ ggsave("Manuscript.figures/correlation_histogram.png", corr.histogram, width = 6
 p.mat <- correlation::cor_to_p(correlations$rho, 428, method = "polychoric")
 
 
-corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order = FALSE, outline.col = "white", type = "lower", legend.title = "Correlation",sig.level = 0.05, pch.cex=1.8,
+corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order = FALSE, outline.col = "white", type = "lower", legend.title = "Correlation",sig.level = 0.05, pch.cex=1.2,
                       # insig = "blank",
            ggtheme = ggplot2::theme_minimal(),tl.srt = 90,colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
-         axis.text.x = element_text(size = 8),
-         axis.text.y = element_text(size = 8),
+         axis.text.x = element_text(size = 6),
+         axis.text.y = element_text(size = 6),
          panel.border = element_rect(color = "black",
                                     fill = NA,
                                     size = 1))
 #to show pvalue in the fig add p.mat=p.mat
-ggsave("Manuscript.figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 600, bg ="white")
-
-```
-
-(ref:figCor) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than |.30|
-
-```{r figCor, out.height="150%",out.width="100%", fig.align= 'center', fig.cap='(ref:figCor)', results='asis', fig.align='center'}
-
-knitr::include_graphics('Manuscript.figures/corplot.png', dpi =600)
+# ggsave("Figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 600, bg ="white")
 
 ```
 
@@ -1360,7 +1354,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
   geom_point(size=1.5,colour ='#3C5488FF')+
   #geom_point(data = PA.Scree, size=3)+
   scale_y_continuous(name="Eigen Value", limits=c(0, 5), breaks=seq(0,5,1)) +
-  scale_x_continuous(name='Factor Number (Scree Plot)', limits=c(0, 20),breaks=seq(0,20,4))+
+  scale_x_continuous(name="Factor Number", limits=c(0, 20),breaks=seq(0,20,4))+
   geom_hline(yintercept=1, linetype = 'dashed') + apatheme +theme(legend.position = "None") 
 #text = element_text(size = 25
 
@@ -1373,7 +1367,7 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
 EFA.MRFA::hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
         details = TRUE)
 hull <- ggplot2::last_plot()
-Hull <- hull+ ggtitle(NULL)+xlab("Factor Number (Hull Method)")+ylab("CAF")+ aes(color = '#DC000099')+geom_point(color ='#3C5488FF',size =1)+
+Hull <- hull+ ggtitle(NULL)+xlab("Factor Number")+ylab("CAF")+ aes(color = '#DC000099')+geom_point(color ='#3C5488FF',size =1)+
   apatheme +theme(legend.position = "None") +scale_fill_identity()
 
 
@@ -1393,39 +1387,8 @@ full.map <- cbind(map.map,map.statistics)
 write.csv(full.map, "Table_raw/map_stat.csv")
 ```
 
-Scree plot ( Figure \@ref(fig:facIdFig)) suggested a six-factor solution. However, the minimum average partial (MAP) [@velicerDeterminingNumberComponents1976] method (Table \@ref(tab:map)) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
+Scree plot ( Figure \@ref(fig:efa-plot)) suggested a six-factor solution. However, the minimum average partial (MAP) [@velicerDeterminingNumberComponents1976] method (Table \@ref(tab:map)) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:facIdFig)) suggested a five-factor solution. As a result, we tested both five-factor and six-factor solutions.
 
-```{r factors, include=F}
-#This chunk holds code for compiled factor identification plots
-
-fator <- cowplot::plot_grid(scree.plot,Hull, 
-                   labels = "AUTO",
-                   ncol=1, 
-                  align = "v", 
-                  label_fontfamily = "Arial",
-                  label_fontface = "plain")
-ggsave("Manuscript.figures/factors.png",fator, width = 5, height = 7, dpi = 600)
-```
-
-```{r factorsplot, eval=FALSE, include=FALSE}
-#This chunk holds code for compiled factor identification plots
-
-fator2 <- cowplot::plot_grid(scree.plot,Hull, 
-                   labels = "AUTO",
-                   ncol=3, 
-                  align = "v", 
-                  label_fontfamily = "Arial",
-                  label_fontface = "plain")
-ggsave("Manuscript.figures/factors2.png",fator2, width = 18, height = 6, dpi = 600)
-```
-
-(ref:facIdFig) Factor Identification Methods  (A) Scree plot suggested six factors. (B) Hull method indicated 5 factors were required to balance the model fit and number of parameters.
-
-```{r facIdFig, fig.align= 'center', fig.cap='(ref:facIdFig)',  warning=FALSE, results= 'asis'}
-
-knitr::include_graphics('Manuscript.figures/factors.png', dpi =800)
-
-```
 
 ```{r EFA, include=FALSE}
 #This chunk holds code for five factor EFA (pa-varimax)
@@ -1540,7 +1503,7 @@ F1-> d [label = '0.80']
 export_svg(EFAplot) %>%
   charToRaw() %>%
   rsvg() %>%
-  png::writePNG("Manuscript.figures/EFAplot.png",dpi =600)
+  png::writePNG("Figures/EFAplot.png",dpi =600)
 
 ```
 
@@ -1635,17 +1598,6 @@ sumR <- sum(BigRR/totRR*100)
 
 ```
 
-With the initial 48 items we conducted three rounds of EFA and gradually discarded problematic items. (cross-loading items and poor factor loading (<.30) items). Finally, a five-factor EFA solution with 25 items was accepted with all factor-loading higher than .30 and no cross-loading greater than .30. We further confirmed this five-factor latent structure by another EFA using varimax rotation with a minimum residual extraction method (Sup.Table \@ref(tab:MinResTab)). Table \@ref(tab:EFATable) displays the factor-loading (structural coefficients) and communality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. Figure \@ref(fig:efagtPic) depicts the data distribution and endorsement pattern for the included 25 items. Figure \@ref(fig:EFAplot)(A) depicts the five factor structure obtained in EFA. However, the histogram of the absolute values of non-redundant residual-correlations (Figure \@ref(fig:EFAplot)(B)) showed `r apa(sumR,0, T)`% correlations were greater than the absolute value of .05, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution. However, a factor emerged with only two salient variables, thus disqualifying the six-factor solution (Sup.Table \@ref(tab:sixFacTab)).
-
-In the five-factor solution, the first factor contained three items and explained `r apa(var1,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F1.alpha,2,F)`. All the items in this factor stemmed from the individual's preference of using blue light filters in different light environments. The second factor contained six items and explained `r apa(var2,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F2.alpha,2,F)`. Items under this factor investigated individuals' hours spent outdoor. The third factor contained five items and explained `r apa(var3,2,F)`% of the total variance. Items under this factor dealt with the specific behaviours pertaining to using phone and smart-watch in bed. The internal consistency reliability coefficient was, ordinal $\alpha$ = `r apa(F3.alpha,2,F)`. The fourth factor contained five items and explained `r apa(var4,2,F)`% of the total variance with an internal consistency coefficient, ordinal $\alpha$ = `r apa(F4.alpha,2,F)`. These five items investigated the behaviours related to individual's light exposure before bedtime. Lastly, the fifth factor contained six items and explained `r apa(var5,2,F)`% of the total variance. This factor  captured individual's morning and daytime light exposure related behaviour.  The  internal consistency reliability was, ordinal $\alpha$ = `r apa(F5.alpha,2,F)` . It is essential to attain a balance between psychometric properties and interpretability of the common themes when exploring the latent structure. As all of the emerged factors are highly interpretable and relevant towards our aim to capture light exposure related behaviour, regardless of the apparent low reliability of the fifth factor, we retain all the five-factors with 23 items for our confirmatory factor analysis (CFA). Two items showed negative factor-loading (items 44 and 21). Upon inspection, it was understood that these items are negatively correlated to the respective common theme, and thus in the CFA analysis, we reverse coded these two items. 
-
-```{r EFATable, results='asis'}
-
-apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items", note = "Only loading > .30 is reported", 
-          font_size = "footnotesize", escape=F,landscape = T,
-           align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(efa.tab.ful))))
-```
-
 ```{r EFARes, message=FALSE, warning=FALSE, include=F}
 #This chunk holds codes for creating the residual plot for 5 factor EFA (pa-varimax)
 res.dat <- as.data.frame(unclass(residual.5F))
@@ -1657,14 +1609,64 @@ residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwid
 
 ```
 
-```{r EFAplotprep, include=F}
+
+```{r efa-plot, include=F}
+#This chunk holds code for compiled factor identification plots
+
+cor.scree <- cowplot::plot_grid(corplot, scree.plot,
+                                labels = c("A", "B"),
+                                nrow =1, ncol =2,
+                                rel_widths = c(2, 1),
+                                label_fontfamily = "Arial",
+                  label_fontface = "plain")
+
+hull.residual <- cowplot::plot_grid(Hull, residual.plot,
+                                labels = c("C", "D"),
+                                nrow =1, ncol =2,
+                                                                label_fontfamily = "Arial",
+                  label_fontface = "plain")
+
+efa.plot <- cowplot::plot_grid(cor.scree, hull.residual,
+                               
+                                nrow =2)
+
+
+# efa.plot <- cowplot::plot_grid(corplot , scree.plot,Hull, residual.plot,
+#                    labels = "AUTO",
+#                    ncol=2,nrow=2, 
+#                   align = "v", 
+#                   label_fontfamily = "Arial",
+#                   label_fontface = "plain")
+ggsave("Figures/efa.plot.png",efa.plot, width = 7, height = 8, dpi = 600)
+```
+
+(ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than |.30|. (B) Scree plot suggested six factors. (C) Hull method indicated 5 factors were required to balance the model fit and number of parameters. (D) Histogram of nonredundent residual correlations indicated 26% of inter-item correlations were higher than .05, hinting a possible under factoring.
+
+```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE, results= 'asis'}
+
+knitr::include_graphics('Figures/efa.plot.png', dpi =600)
+
+```
+
+With the initial 48 items we conducted three rounds of EFA and gradually discarded problematic items. (cross-loading items and poor factor loading (<.30) items). Finally, a five-factor EFA solution with 25 items was accepted with all factor-loading higher than .30 and no cross-loading greater than .30. We further confirmed this five-factor latent structure by another EFA using varimax rotation with a minimum residual extraction method (Sup.Table \@ref(tab:MinResTab)). Table \@ref(tab:EFATable) displays the factor-loading (structural coefficients) and communality of the items. The absolute value of the factor-loading ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)` indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` to `r apa(max.com, 2, F)`. Supplimentary figure 1 depicts the data distribution and endorsement pattern for the included 25 items. However, the histogram of the absolute values of non-redundant residual-correlations (Figure \@ref(fig:efa-plot-print)(D)) showed `r apa(sumR,0, T)`% correlations were greater than the absolute value of .05, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution. However, a factor emerged with only two salient variables, thus disqualifying the six-factor solution (Sup.Table \@ref(tab:sixFacTab)).
+
+In the five-factor solution, the first factor contained three items and explained `r apa(var1,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F1.alpha,2,F)`. All the items in this factor stemmed from the individual's preference of using blue light filters in different light environments. The second factor contained six items and explained `r apa(var2,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F2.alpha,2,F)`. Items under this factor investigated individuals' hours spent outdoor. The third factor contained five items and explained `r apa(var3,2,F)`% of the total variance. Items under this factor dealt with the specific behaviours pertaining to using phone and smart-watch in bed. The internal consistency reliability coefficient was, ordinal $\alpha$ = `r apa(F3.alpha,2,F)`. The fourth factor contained five items and explained `r apa(var4,2,F)`% of the total variance with an internal consistency coefficient, ordinal $\alpha$ = `r apa(F4.alpha,2,F)`. These five items investigated the behaviours related to individual's light exposure before bedtime. Lastly, the fifth factor contained six items and explained `r apa(var5,2,F)`% of the total variance. This factor  captured individual's morning and daytime light exposure related behaviour.  The  internal consistency reliability was, ordinal $\alpha$ = `r apa(F5.alpha,2,F)` . It is essential to attain a balance between psychometric properties and interpretability of the common themes when exploring the latent structure. As all of the emerged factors are highly interpretable and relevant towards our aim to capture light exposure related behaviour, regardless of the apparent low reliability of the fifth factor, we retain all the five-factors with 23 items for our confirmatory factor analysis (CFA). Two items showed negative factor-loading (items 44 and 21). Upon inspection, it was understood that these items are negatively correlated to the respective common theme, and thus in the CFA analysis, we reverse coded these two items. 
+
+```{r EFATable, results='asis'}
+
+apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items", note = "Only loading > .30 is reported", 
+          font_size = "footnotesize", escape=F,landscape = T,
+           align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(efa.tab.ful))))
+```
+
+```{r EFAplotprep, eval=FALSE, include=FALSE}
 #This chunk holds codes for co-plotting EFA-plot and residual plot.
 
 library(jpeg)
 library(png)
 library(cowplot)
 
-img1 <- png::readPNG("Manuscript.figures/EFAplot.png")
+img1 <- png::readPNG("Figures/EFAplot.png")
 
 
 
@@ -1701,18 +1703,13 @@ EFAplot.2 <- cowplot::plot_grid(
   label_x = .02
 )
 
-ggsave("Manuscript.figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200, bg ="white")
+ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200, bg ="white")
 
 ```
 
-```{r EFAplot, eval=FALSE, fig.align='center', fig.cap='(A) Five factor solution obtained in exploratory factor analysis (B) Histogram of nonredundent residula correlations', warning=FALSE, include=FALSE, results='asis'}
+### Confirmatory Factor Analysis
 
-knitr::include_graphics('Manuscript.figures/gt_full.png', dpi =600)
-```
-
-
-
-```{r ft-CFA, include =F}
+```{r gt-CFA, include =F}
 gt.cfa.data <- gt.data[429:690,]
 gt.cfa.data.table <- gt.cfa.data %>% 
   dplyr::select(item16, item36, item17,
@@ -1886,13 +1883,10 @@ cols_label(
       label = md("**F1: Wearing blue light filters**"),
       rows = c(10,11,18) 
         ) %>% 
-  gtsave("Supplimentary Materials/S_Figure/cfagt.png",vwidth = 7000)
+  gtsave("Supplimentary_materials/S_Figure/S2_Fig.png",vwidth = 7000)
 
 ```
 
-
-
-### Confirmatory Factor Analysis
 
 ```{r CFAdataframe, include=FALSE}
 #This chunk holds codes for CFA data preparation.
@@ -2093,7 +2087,7 @@ SD.Bias <- (summaryParam(simulation)[3]-summaryParam(simulation)[2])/summaryPara
 #This chunk holds codes to store CFA plot
 
 
-png(filename="Manuscript.figures/CFAplot2.png", 
+png(filename="Figures/CFAplot2.png", 
     type="cairo",
     units="in", 
     width=12, 
@@ -2140,7 +2134,7 @@ dev.off()
 
 ```{r figcfa, fig.cap = "Five factor  model of LEBA obtained by confirmatory factor analysis. By allowing item pair 41 and 30 to covary their error variance our model attained the best fit.",  out.height='100%',out.width='100%', warning=FALSE}
 
-knitr::include_graphics("Manuscript.figures/CFAplot.png", dpi =600)
+knitr::include_graphics("Figures/CFAplot.png", dpi =600)
 
 
 ```
@@ -2844,7 +2838,7 @@ allitemplots <- cowplot::plot_grid(F1.iteminfo.1,F1.iteminfo.2, F1.iteminfo.3,
 
 
 
-ggsave("Manuscript.figures/allitemplots.png",allitemplots, width = 18, height = 12, dpi = 600, bg = "white")
+ggsave("Figures/allitemplots.png",allitemplots, width = 18, height = 12, dpi = 600, bg = "white")
 
 discarded.items.plot <- cowplot::plot_grid(F3.iteminfo.4,
                                            F3.iteminfo.5,
@@ -2862,7 +2856,7 @@ discarded.items.plot <- cowplot::plot_grid(F3.iteminfo.4,
 
 
 
-ggsave("Manuscript.figures/discarded.png",discarded.items.plot, width = 18, height = 4, dpi = 600, bg = "white")
+ggsave("Figures/discarded.png",discarded.items.plot, width = 18, height = 4, dpi = 600, bg = "white")
 
 
 ```
@@ -3181,13 +3175,13 @@ TIC.plot <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                      label_size = 15,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
-ggsave("Manuscript.figures/TIC.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = "white")
+ggsave("Figures/TIC.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = "white")
 
 ```
 
 ```{r Testinfo, fig.env = "sidewaysfigure", fig.cap="Test information curves for the five factors of LEBA: (a) wearing blue light filters (b) spending time outdoors (c) using phone and smartwatchin bed (d) using light before bedtime (e) using light in the morning andduring daytime. Along x-axis we plotted the underlying latent trait continumm for each factor. Along y-axis we plotted how much information a particular factor is caring across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
 
-knitr::include_graphics('Manuscript.figures/TIC.png', dpi =600)
+knitr::include_graphics('Figures/TIC.png', dpi =600)
 ```
 
 We treated each factor of short-LEBA as an unidimensional construct and obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except the first and fifth factors, the other three factor's TICs are roughly centred on the centre of the trait continuum ($\theta$).The first and fifth factor had a peak to the right side of the centre of latent trait.Thus we conferred the LEBA tool estimated the light exposure related behaviour with precision near the centre of trait continuum for 2nd, 3rd and 4th factors and near the right side of the centre of trait continuum for 1st and 5th factors [@bakerBasicsItemResponse2017].
@@ -3207,7 +3201,7 @@ personfit <- cowplot::plot_grid(F1.person, F2.person,F3.person,F4.person,F5.pers
                      label_fontface = "plain")
 
 
-ggsave("Manuscript.figures/personfit.png",personfit , width = 10, height = 12, dpi = 600, bg = "white")
+ggsave("Figures/personfit.png",personfit , width = 10, height = 12, dpi = 600, bg = "white")
 
 ```
 
@@ -3407,7 +3401,7 @@ itemlevelcolors <- matrix(rep(brewer.pal(4, "Set1"), 18), byrow = TRUE, ncol = 4
 
 ```{r saveWrightmao, include=FALSE, warning=F, message=F}
 #This chunk holds codes for saving the wright-map
-jpeg("Manuscript.figures/wm.png", width = 800, height = 750)
+jpeg("Figures/wm.png", width = 800, height = 750)
 WrightMap::wrightMap(estimation, threshold, 
           item.prop = 0.65,
           
@@ -3423,7 +3417,7 @@ dev.off()
 
 ```{r WP, eval=FALSE, fig.cap="Person Item Map", warning=FALSE, include=FALSE, out.height="120%", out.width="100%"}
 
-knitr::include_graphics('Manuscript.figures/wm.png')
+knitr::include_graphics('Figures/wm.png')
 ```
 
 ```{r IRTscoreCor, eval=FALSE, include=FALSE, results='asis'}
