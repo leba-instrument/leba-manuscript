@@ -163,8 +163,7 @@ output            :
 header-includes:
   - \usepackage{rotating}
   - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
-appendix:
-  - "appendix-1.Rmd"
+
 mainfont: Arial
 ---
 
