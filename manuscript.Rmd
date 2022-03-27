@@ -1149,8 +1149,8 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
   geom_point(size=1.5,colour ='#3C5488FF')+
   #geom_point(data = PA.Scree, size=3)+
   scale_y_continuous(name="Eigen Value", limits=c(0, 5), breaks=seq(0,5,1)) +
-  scale_x_continuous(name="Factor Number", limits=c(0, 20),breaks=seq(0,20,4))+
-  geom_hline(yintercept=1, linetype = 'dashed') + apatheme +theme(legend.position = "None") 
+  scale_x_continuous(name="Factor Number", limits=c(0, 18),breaks=c(0,6,18))+
+  geom_hline(yintercept=1, linetype = 'dashed') + apatheme +theme(legend.position = "None")
 #text = element_text(size = 25
 
 ```
@@ -1163,7 +1163,8 @@ EFA.MRFA::hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, gra
         details = TRUE)
 hull <- ggplot2::last_plot()
 Hull <- hull+ ggtitle(NULL)+xlab("Factor Number")+ylab("CAF")+ aes(color = '#DC000099')+geom_point(color ='#3C5488FF',size =1)+
-  apatheme +theme(legend.position = "None") +scale_fill_identity()
+  apatheme +theme(legend.position = "None") +scale_fill_identity()+
+  scale_x_continuous(breaks=c(0,5,12))
 
 
 
