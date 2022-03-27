@@ -267,7 +267,7 @@ nocite: |
 
 -   Light exposure Behaviour is important
 
--   Supplementary Table S1 Overview Existing Related Scales: items in total / items on light exposure (behaviour)
+-   Supplementary Table S1: Overview Existing Related Scales
 
 -   Existing Scales: Review them in text
 
@@ -1292,8 +1292,10 @@ min.com <- min(Fac.5$communality)
 max.com <- max(Fac.5$communality)
 
 # loading
-min.loadings <- abs(min(Fac.5$loadings))
-max.loadings <- abs(max(Fac.5$loadings))
+Fac.5.min.max <- Fac.5$loadings %>% 
+  subset(abs(Fac.5$loadings)>(.3))
+min.loadings <- min(abs(Fac.5.min.max))
+max.loadings <- max(Fac.5.min.max)
 
 # Residuals
 residual.5F =residuals(fa.5F.3, diag = FALSE, na.rm =T)
