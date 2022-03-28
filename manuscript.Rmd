@@ -271,7 +271,7 @@ nocite: |
 
 -   Existing Scales: Review them in text
 
--   None of these do light exposure behavior.
+-   None of these do light exposure behaviour.
 
 
 
@@ -425,16 +425,14 @@ descriptives.data%>%
 desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
 ```
 
-A quantitative cross-sectional fully anonymous online survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (https://enlightenyourclock.org/participate-in-research) of the science-communication comic-book "Enlighten your clock" co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux [@f.lux]. The landing page of the online survey had the explanatory statements where we mentioned participation was voluntary and that respondents could withdraw from participation anytime without being penalized. At the beginning of the survey, for the adult participants (>18 years) consent was recorded digitally. Underaged participants (<18 years) were urged to obtain assent from their parents/legal guardians. The entire survey was estimated to take <30 minutes. Participants were not compensated. As a part of the demographic information participants provided information regarding age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in Table 1.To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). Participants were asked to confirm that they were participating the survey for the first time. Questions incorporating retrospective recall were all aligned to the period of "past four weeks".  
-We conducted two rounds of data collections. At first we collected data for from `r nrow(EFA.descriptives)` participants.  In the second round we collected data from another `r nrow(CFA.descriptives)` participants making a total sample of `r nrow(desctable.data)`.
-
-The data analysed in this study was collected between 17 May 2021 and 3 September 2021. 
+A quantitative cross-sectional fully anonymous online large scale survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (https://enlightenyourclock.org/participate-in-research) of the science-communication comic-book "Enlighten your clock" co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by distribution of the survey link via f.lux [@f.lux]. The landing page of the online survey had the explanatory statements where we mentioned participation was voluntary and that respondents could withdraw from participation anytime without being penalized. At the beginning of the survey, for the adult participants (>18 years) consent was recorded digitally. Underaged participants (<18 years) were urged to obtain assent from their parents/legal guardians. The entire survey was estimated to take <30 minutes. Participants were not compensated. As a part of the demographic information participants provided information regarding age, sex, gender identity, occupational status, COVID-19 related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in Table 1. To ensure high data quality, five attention check items were included in the survey (e.g., "We want to make sure you are paying attention. What is 4+5?"). Participants were asked to confirm that they were participating the survey for the first time. Questions incorporating retrospective recall were all aligned to the period of "past four weeks".  
+We conducted two rounds of data collections. At first we collected data for from `r nrow(EFA.descriptives)` participants.  In the second round we collected data from another `r nrow(CFA.descriptives)` participants making a total sample of `r nrow(desctable.data)`. The data analysed in this study was collected between 17 May 2021 and 3 September 2021. 
 
 ## Analytic Strategy
 
-Figure \@ref(fig:FlowchartFig) summarizes the steps of our psychometric analysis. In our analysis we used R (version 4.1.0) [@R-base]. In the item generation and selection phase we had developed a item pool of 48 items with six-point Likert type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always). Our purpose was to capture light exposure related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we collapsed them into one, making it a 5 point Likert type response format. 
+Figure \@ref(fig:FlowchartFig) summarizes the steps we followed while developing LEBA. In our analysis we used R statistical tool [@R-base]. **First**, we  developed a item pool of 48 items with six-point Likert type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always) for our initial scale. Our purpose was to capture light exposure related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never" were providing similar information. As such we collapsed them into one, making it a 5 point Likert type response format. 
 
-We conducted an initial item analysis and proceed to the exploratory factor analysis (EFA) with all 48 items using the data collected in our first round. (EFA sample; n=`r nrow(EFA.descriptives)`). Prior to the EFA, necessary assumptions, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, in EFA we used  polychoric correlation matrix and employed principal axis (PA) as  factor extraction method with varimax rotation [@desjardinsHandbookEducationalMeasurement2018;@watkinsStepbyStepGuideExploratory2020]. We used a combination of factor identification method including Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines : (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading > .3 across factors [@bandalosFactorAnalysisExploratory2018]. We also conducted a EFA on non-merged response options data (**Supplementary File 3**)
+**Second**, for data collection we conducted a large scale survey. **Third**, with the data collected on the first round of the large scale survey (EFA sample; n=`r nrow(EFA.descriptives)`) we conducted descriptive and item analysis and proceeded to the exploratory factor analysis (EFA). Prior to the EFA, necessary assumptions, including sample adequacy, normality assumptions, quality of correlation matrix were assessed. Our data violated both the univariate and multivariate normality assumptions. Due to these violations and the ordinal nature of our response data, in EFA we used  polychoric correlation matrix and employed principal axis (PA) as  factor extraction method [@desjardinsHandbookEducationalMeasurement2018;@watkinsStepbyStepGuideExploratory2020]. We used a combination of factor identification method including Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines : (i) no factors with fewer than three items (ii) no factors with a factor loading <0.3 (iii) no items with cross-loading > .3 across factors [@bandalosFactorAnalysisExploratory2018]. We also conducted a EFA on non-merged response options data (**Supplementary File 1**)
 
 For reliability estimation we used internal consistency reliability coefficient ordinal $\alpha$. Though Cronbach's alpha coefficient is widely used for estimating internal consistency, it has a tendency to deflate the estimates for Likert-type data since the calculation is based on pearson-correlation matrix which requires response data to be continuous of nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently to get  better estimates of reliability  we reported ordinal alpha for each factors using polychoric-correlation matrix [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total scale using McDonald's $\omega_t$  coefficient which is a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient value range from 0 to 1 and higher value represents better reliability.
 
@@ -442,9 +440,9 @@ To validated the latent structure obtained in EFA, We conducted a categorical co
 
 We assessed the measurement invariance (MI) of our construct between native English speakers (n=`r invariance.data.descriptives.count[1,2]`) and non native English speakers (n=`r invariance.data.descriptives.count[2,2]`) among the CFA sample (n=`r nrow(CFA.descriptives)`). MI evaluates whether a construct has the psychometric equivalence and same meaning across groups [@putnick2016measurement;@klinePrinciplesPracticeStructural2015]. We used  structural equation modelling framework to assess the measurement invariance.  We successively compared four nested models:  configural, metric, scalar, and residual models using the $\chi^2$ difference test ($\Delta \chi^2$). Among MI models, configural model is the least restrictive model and residual model is the most restrictive model. A non-significant $\Delta \chi^2$ test between two nested measurement invariance models indicates mode fit does not significantly decrease for the superior model [@dimitrov2010testing] thus allowing the superior invariance model to be accepted. [@widaman1997exploring]. 
 
-We also analysed possible semantic overlap of our developed tool using "Semantic Scale Network" (SSN) engine [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pair of scales with a cosine similarity index value of 1 indicates they are perfectly semantically similar scales indicating redundancy. Additionally, to identify the educational grade level required to understand the items in our tool we subjected the tool to Flesch-Kincaid Grade Level [@flesch1948new] 
+**Fourth**, as secondary analysis we analysed possible semantic overlap of our developed tool using "Semantic Scale Network" (SSN) engine [@rosenbusch2020semantic] and identified the the educational grade level required to understand the items in our tool using Flesch-Kincaid Grade Level identification method [@flesch1948new]. The SSN detects semantically related scales and provides cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pair of scales with a cosine similarity index value of 1 indicates they are perfectly semantically similar scales indicating redundancy. 
 
-Lastly, we sought Item Response Theory (IRT) based analysis on developing a short form of LEBA. We fitted each factor of LEBA using the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =`r nrow(sem.data)`). IRT assesses the item quality by estimating item discrimination, item difficulty, item information, and test information [@bakerBasicsItemResponse2017]. Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$). Item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported  the item discrimination parameter and categorize the items according to the suggestions of @bakerBasicsItemResponse2017 : none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. We discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. We also assessed the precision of the short LEBA using Test information curve (TIC). TIC  indicates the amount of information an the full-scale carry along the latent trait continuum. 
+**Fifth**,  we developed a short form of LEBA using Item Response Theory (IRT) based analysis. We fitted each factor of LEBA using the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =`r nrow(sem.data)`). IRT assesses the item quality by estimating item discrimination, item difficulty, item information, and test information [@bakerBasicsItemResponse2017]. Item discrimination indicates the pattern of variation in the categorical responses with the changes in latent trait level ($\theta$). Item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported  the item discrimination parameter and categorize the items according to the suggestions of @bakerBasicsItemResponse2017 : none = 0; very low =0.01 to 0.34; low = 0.35 to 0.64; moderate = 0.65 to 1.34 ; high = 1.35 to 1.69; very high >1.70. We discarded the items with relatively flat item information curve (information <.2) to develop the short form of LEBA. We also assessed the precision of the short LEBA using Test information curve (TIC). TIC  indicates the amount of information an the full-scale carry along the latent trait continuum. 
 Item fit and person fit of the fitted IRT models were also analyzed to gather more evidence on validity and meaningfulness of our Tool [@desjardinsHandbookEducationalMeasurement2018]. Item fit was evaluated using  the RMSEA value obtained from Signed-$\chi^2$ index implementation, RMSEA value $\le$.06 was considered adequate item fit. Person fit was estimated using standardized fit index Zh statistics [@drasgow1985appropriateness]. Zh < -2 was be considered as a misfit [@drasgow1985appropriateness]. 
 
 
@@ -463,19 +461,19 @@ The present article is a fully reproducible open-access “R Markdown” documen
 
 # Results
 
-## Initial development of items
+## Initial Scale
 
 After reviewing the literature, we identified several light exposure related scale. However, no scales specifically measuring the behavioural component of light exposure were found (**Supplementary Table 1**). As such, all authors in collaboration of an expert panel developed a comprehensive item pool of 48 items. The expert panel composed of all authors and researchers from the fields of chronobiology, light research, neuroscience and psychology. The 48 items were then judged  based on their relevance and representativeness of the construct "Light Exposure Related Behaviour" by the expert panel. The panel members independently judged each of the items in terms of their relevance and representativeness and suggested required modification, if there is any. The author team acknowledged the suggestions and amended the items as required thus creating a 48-item scale.
 
-## Large-scale  survey of instruments
-
-### Participants
+## Large-scale  survey of scale
 
 Table 1 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. (XX??) participants were excluded from analysis due to not passing at least one of the "attention check" items. For EFA, a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. To assess sampling adequacy for CFA, we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per item is required to earn trustworthiness of the result. Both our EFA and CFA sample size exceeded these requirements.
 We collected data from `r nrow(num.countries)` countries (`r nrow(numUTC)` time zones).Participants reported a diverse range of geographic location
 Participants indicated filling out the online survey from a diverse range of geographic locations. For a complete list of geographic locations, see **Supplementary Table 2**.
 
 Participants in our survey aged between  `r min(desctable.data$slypos_demographics_age)`  to `r max(desctable.data$slypos_demographics_age)` years [EFA sample: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA sample: *min* = `r min(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *max* = `r max(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`], with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 2)` years of age [Overall: *M* = `r mean(desctable.data$slypos_demographics_age)`, *SD* = `r sd(desctable.data$slypos_demographics_age)`; EFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: *M* = `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`, *SD* = `r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total `r desc_tibble[3,2]` of the participants indicated female sex [EFA: `r desc_tibble[3,3]`; CFA: `r desc_tibble[3,4]`], `r desc_tibble[4,2]` indicated male [EFA: `r desc_tibble[4,3]`; CFA: `r desc_tibble[4,4]`] and `r desc_tibble[5,2]` indicated other sex [EFA: `r desc_tibble[5,3]`, CFA: `r desc_tibble[5,4]`]. Overall, `r desc_tibble[6,2]` [EFA: `r desc_tibble[6,3]`; CFA: `r desc_tibble[6,4]`] participants indicated a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample reported that they currently work [Overall: `r desc_tibble[9,2]`; EFA: `r desc_tibble[9,3]`; CFA: `r desc_tibble[9,4]`], whereas `r desc_tibble[10,2]` [EFA: `r desc_tibble[10,3]`; CFA: `r desc_tibble[10,4]`] reported that they go to school and `r desc_tibble[11,2]` [EFA: `r desc_tibble[11,3]`; CFA: `r desc_tibble[11,4]`] responded that they do "Neither". With respect to the COVID-19 pandemic we asked participants to indicate their occupational setting during the last four weeks: In the overall sample `r desc_tibble[13,2]` [EFA: `r desc_tibble[13,3]`; CFA: `r desc_tibble[13,4]`] of the participants indicated that they were in a home office/ home schooling setting, while `r desc_tibble[14,2]` overall [EFA: `r desc_tibble[14,3]` ; CFA: `r desc_tibble[14,4]`] reported face-to-face work/schooling. Lastly, `r desc_tibble[15,2]` overall [EFA: `r desc_tibble[15,3]` ; CFA: `r desc_tibble[15,4]`] reported a combination of home- and face-to-face work/schooling, whereas `r desc_tibble[16,2]` overall [EFA: `r desc_tibble[16,3]`; CFA: `r desc_tibble[16,4]`] filled in the "Neither (no work or school, or on vacation)" response option. 
+
+## Psychometric Analysis: Development of the Long Form
 
 ### Descriptive Statistics
 
@@ -767,7 +765,7 @@ knitr::include_graphics('Figures/Figure3.png')
 
 ```
 
-Figure \@ref(fig:efagtPic1) and Figure \@ref(fig:efagtPic2) summarize the response pattern of our total sample (n = `r nrow(sem.data)`) for all 48 items. Most of the items were skewed and violated normality assumption.
+Figure \@ref(fig:efagtPic1) and Figure \@ref(fig:efagtPic2) summarize the response pattern of our total sample (n = `r nrow(sem.data)`) for all 48 items. Most of the items were skewed.
 
 
 ### Item Analysis
@@ -1009,7 +1007,7 @@ cols_label(
 ```
 
 
-**Supplementary Fig1** summarizes the univariate descriptive statistics for the 48 items among  EFA sample (n =`r nrow(EFA.data)`.  Our data violated both univariate normality [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
+**Supplementary Figure 1** summarizes the univariate descriptive statistics for the 48 items among  EFA sample (n =`r nrow(EFA.data)`.  Our data violated both univariate normality [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. Multivariate skew was  `r printnum(mardia$b1p)` (p <0.001) and multivariate kurtosis was `r printnum(mardia$b2p)` (p <0.001). Due to these violations and ordinal nature of the response data polychoric correlations over Pearson's correlations was chosen [@desjardinsHandbookEducationalMeasurement2018]. The corrected item-total correlation ranges between `r apa(low.r.corec,2,F)` -`r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
 
 ### Exploratory Factor Analysis
 
@@ -1040,7 +1038,7 @@ descriptives2 %>%
 apa_table(landscape =T,caption ="Univariate Descriptive Statistics for the 48 Items. All Items Violated Univariate Normality Assumption Assessed by Shapiro–Wilk (SW) Test. The  Item-total Correlation Ranges Between .03-.48", escape =F, font_size = "footnotesize", note = ("$^{*}$p<.001, $^{1}$Shapiro–Wilk Statistics"), align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
 ```
 
-```{r correlation-hits, include=F}
+```{r correlation-hits, eval=FALSE, include=FALSE}
 #This chunk holds code for plotting the correlation matrix in histogram format
 
 cor.hits <- as.data.frame(melt(upper))
@@ -1218,6 +1216,10 @@ var2 <- CC$Vaccounted[2,2]*100
 var3 <- CC$Vaccounted[2,3]*100
 var4 <- CC$Vaccounted[2,4]*100
 var5 <- CC$Vaccounted[2,5]*100
+
+omega <- omega(reduced.model.5F.2,nfactors=5,fm="minres",n.iter=1,p=.05,poly=T,key=NULL,
+    flip=TRUE,digits=2, title="Omega",sl=TRUE,labels=NULL,
+    plot=TRUE,n.obs=NA,rotate="oblimin",Phi=NULL,option="equal",covar=FALSE)
 ```
 
 ```{r Cronbach alpha for 5 fators, message=TRUE, warning=FALSE, include=FALSE}
@@ -1354,9 +1356,9 @@ efa.plot <- cowplot::plot_grid(cor.scree, hull.residual,
 ggsave("Figures/Figure4.png",efa.plot, width = 7, height = 8, dpi = 600)
 ```
 
-(ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than |.30|. (B) Scree plot suggested six factors. (C) Hull method indicated 5 factors were required to balance the model fit and number of parameters. (D) Histogram of nonredundent residual correlations indicated 26% of inter-item correlations were higher than .05, hinting a possible under factoring.
+(ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than |.30|. 'x' denotes non-significant item-total correlation. (B) Scree plot suggested six factors. (C) Hull method indicated 5 factors were required to balance the model fit and number of parameters. (D) Histogram of nonredundent residual correlations indicated 26% of inter-item correlations were higher than .05, hinting a possible under factoring.
 
-```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE, results= 'asis', out.height='100%', out.width='110%'}
+```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE, results= 'asis', out.height='90%', out.width='110%'}
 
 knitr::include_graphics('Figures/Figure4.png', dpi =600)
 
@@ -1421,7 +1423,7 @@ ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200, bg ="w
 
 ```
 
-### Confirmatory Factor Analysis
+### Confirmatory Factor Analysis and Reliability Analysis
 
 ```{r gt-CFA, include =F}
 gt.cfa.data <- gt.data[429:690,]
@@ -1938,7 +1940,7 @@ apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analy
 
 ```
 
-### Semantic Analysis 
+## Secondary Analysis: Semantic Scale Network and Grade Level
 
 "Semantic Scale Network"(SSN) analysis [@rosenbusch2020semantic] indicated that LEBA (23 items)  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990]. The cosine similarities lie between .47 to .51. Flesch-Kincaid Grade Level [@flesch1948new] analysis on the the 23 items of our scale indicated required educational grade level was 3.33 and with a age above 8.33.
 
@@ -1983,7 +1985,7 @@ readability <- readability(ques,
                            as.feature = FALSE)
 ```
 
-### Developing Short form of LEBA
+## Developing Short form of LEBA
 
 We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 5**). Examination of the item information curve (**Supplementary Figure 3**) indicated five items (1, 25,  38, 30, & 41) had relatively flat information curves (I($\theta$) <.20). We discarded those items which yielded a short form of LEBA with 5 factors and 18 items.
 
