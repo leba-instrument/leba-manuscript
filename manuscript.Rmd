@@ -398,7 +398,7 @@ desctable.data %>%
   # add_p() %>% add_q() %>%
 modify_header(label ~ "**Variable**") %>% 
   # separate_p_footnotes() %>%
-  modify_caption("Demographic Characteristics of Participants (n=690)") -> desc_table 
+  modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table 
 
 as_tibble(desc_table) -> desc_tibble 
 as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
@@ -1370,7 +1370,7 @@ In the five-factor solution, the first factor contained three items and explaine
 
 ```{r EFATable, results='asis'}
 
-apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items in EFA using principal axis extraction method", note = "Only loading > .30 is reported", 
+apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items in EFA using principal axis extraction method.", note = "Only loading > .30 is reported.", 
           font_size = "footnotesize", escape=F,landscape = T,
            align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(efa.tab.ful))))
 ```
@@ -1754,7 +1754,7 @@ CFa.matrix[2,] = c("Model 2",
 ```
 
 ```{r tabCfa, results='asis'}
-apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square ")
+apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square.")
 ```
 
 ```{r cfaplot, eval=FALSE, include=FALSE}
@@ -1936,13 +1936,13 @@ colnames(Invariance.table) <- c("$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMS
 ```
 
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square; a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual; * =  df of model comparison", landscape = T, font_size = "footnotesize", escape=F )
+apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square; a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual; * =  df of model comparison.", landscape = T, font_size = "footnotesize", escape=F )
 
 ```
 
 ## Secondary Analysis: Semantic Scale Network and Grade Level
 
-Semantic Scale Network (SSN) analysis [@rosenbusch2020semantic] indicated that LEBA (23 items)  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "WHO-Composite International Diagnostic Interview (CIDI): Insomnia"[@who1990]. The cosine similarities lie between .47 to .51. Flesch-Kincaid grade level [@flesch1948new] analysis on the the 23 items of our scale indicated required educational grade level was 3.33 and with a age above 8.33.
+Semantic Scale Network (SSN) analysis [@rosenbusch2020semantic] indicated that LEBA (23 items)  appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. The cosine similarities lie between .47 to .51. Flesch-Kincaid grade level [@flesch1948new] analysis on the the 23 items of our scale indicated required educational grade level was 3.33 and with a age above 8.33.
 
 ```{r textanalysis, include=F}
 #This chunk holds codes for semantic analysis and readability test
