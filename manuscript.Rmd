@@ -1811,13 +1811,38 @@ knitr::include_graphics("Figures/Figure5.png", dpi =600)
 invariance.data <- cbind(CFA.data, data$slypos_demographics_language.factor[429:690])
 colnames(invariance.data)[52] <- "English_Speaking"
 
+
+
 mi.count <- invariance.data %>% 
   group_by(English_Speaking) %>% 
   count() %>% 
   as.data.frame()
+
+mi.descriptives <- CFA.descriptives[, c(1,2,5,6,7)] 
+colnames(mi.descriptives)[3] <- "English_Speaking"
+
+
+english.speaking <- mi.descriptives %>% 
+  subset(English_Speaking=="Yes")
+
+non.english.speaking <- mi.descriptives %>% 
+  subset(English_Speaking=="No")
+
+
+mi.des.sum <- mi.descriptives %>% 
+psych::describeBy("English_Speaking")
+
+mi.english.sum <- english.speaking %>% 
+psych::describeBy("slypos_demographics_sex.factor")
+
+mi.non.english.sum <- non.english.speaking %>% 
+psych::describeBy("slypos_demographics_sex.factor")
+
+mi.des.sum.english <- as.data.frame(mi.des.sum$Yes)
+mi.des.sum.nonenglish <- as.data.frame(mi.des.sum$No)
 ```
 
-In our CFA sample we had `r mi.count[1,2]` native English speakers and `r mi.count[2,2]` non-native English speakers. Table \@ref(tab:InvarianceTab) indicates our fitted model had acceptable fit indices for all of the fitted MI models. The model fit did not significantly decrease across the nested models indicating the acceptability of the highest measurement invariance model : residual model.
+In our CFA sample we had `r mi.count[1,2]` native English speakers and `r mi.count[2,2]` non-native English speakers. **Supplementary Table 5** summarizes the demographic descriptions native and non-native English speakers.Table \@ref(tab:InvarianceTab) indicates our fitted model had acceptable fit indices for all of the fitted MI models. The model fit did not significantly decrease across the nested models indicating the acceptability of the highest measurement invariance model : residual model.
 
 ```{r Invariancedetail, include=FALSE}
 #This chunk holds codes for measurement Invariance
@@ -1978,7 +2003,7 @@ readability <- readability(ques,
 
 ## Developing Short form of LEBA
 
-We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 5**). Examination of the item information curve (**Supplementary Figure 3**) indicated five items (1, 25, 38, 30, & 41) had relatively flat information curves (I($\theta$) \<.20). We discarded those items which yielded a short form of LEBA with 5 factors and 18 items.
+We fitted each factor of LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n =690). Item discrimination parameters of our tool fell in very high (10 items), high (4 items), moderate (4 items), and low ( 5 items) categorizes indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 6**). Examination of the item information curve (**Supplementary Figure 3**) indicated five items (1, 25, 38, 30, & 41) had relatively flat information curves (I($\theta$) \<.20). We discarded those items which yielded a short form of LEBA with 5 factors and 18 items.
 
 ```{r IRTdata, include=FALSE}
 #This chunk holds codes for preparing IRT data and 1st IRT model fitting
@@ -2914,7 +2939,7 @@ knitr::include_graphics('Figures/Figure6.png', dpi =600)
 
 We treated each factor of short-LEBA as a unidimensional construct and obtain 5 TICs (Figure \@ref(fig:Testinfo)). These information curves indicated except the first and fifth factors, the other three factor's TICs are roughly centred on the centre of the trait continuum ($\theta$). The first and fifth factor had a peak to the right side of the centre of latent trait.Thus we conferred the LEBA tool estimated the light exposure related behaviour with precision near the centre of trait continuum for 2nd, 3rd and 4th factors and near the right side of the centre of trait continuum for 1st and 5th factors [@bakerBasicsItemResponse2017].
 
-**Supplementary Table 6** summarizes the item fit indexes of the 18 items. All items had RMSEA value $\le$.06 indicating adequate fit of the items to the fitted IRT model. **Supplementary Figure 4** depicts the person fit Zh statistics histogram of our fitted models. Zh statistics are larger than -2 for most participants, suggesting a good person fit of the selected IRT models.
+**Supplementary Table 7** summarizes the item fit indexes of the 18 items. All items had RMSEA value $\le$.06 indicating adequate fit of the items to the fitted IRT model. **Supplementary Figure 4** depicts the person fit Zh statistics histogram of our fitted models. Zh statistics are larger than -2 for most participants, suggesting a good person fit of the selected IRT models.
 
 ```{r itemfittab, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
 apa_table(IRT.details , caption ="Item discrimination, response category difficulty thrsholds and fit statistics of the 18 items in short LEBA (n=690)",note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
@@ -3156,7 +3181,7 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 
 Though there are lots of validated tool to measure light exposure, they don't tell us much about the behavioural aspects pertaining to the light exposure. At present there is a dearth of validated tool to measure light exposure related behaviours. In that vein we have developed a subjective self-reported tool that can capture light exposure related behaviour in different dimensions.
 
-Authors along with an expert panel generated 48 items and evaluated their quality and relevance and made necessary amendments. A large scale geographically unconstrained quantitative cross-sectional survey was conducted yielding responses from large sample (n=`r nrow(EFA.descriptives)`) to explore the latent structure. Exploratory factor analysis revealed a five factor solution with 25 items. ("Wearing blue light filters", "Spending time outdoors", "Using phone and smart-watch in bed", "Using light before bedtime", and "Using light in the morning and during daytime"). The internal consistency reliability coefficient ordinal alpha ranged between `r apa(min(alpha.tab),2,F)-apa(max(alpha.tab),2,F)`. As all the retained factors were meaningful and contributed essentially towards our aim we retained all five factors.
+Authors along with an expert panel generated 48 items and evaluated their quality and relevance and made necessary amendments. A large scale geographically unconstrained quantitative cross-sectional survey was conducted yielding responses from large sample (n=`r nrow(EFA.descriptives)`) to explore the latent structure. Exploratory factor analysis revealed a five factor solution with 25 items. ("Wearing blue light filters", "Spending time outdoors", "Using phone and smart-watch in bed", "Using light before bedtime", and "Using light in the morning and during daytime"). The internal consistency reliability coefficient ordinal alpha ranged between `r apa(min(alpha.tab),2,F)`-`r apa(max(alpha.tab),2,F)`. As all the retained factors were meaningful and contributed essentially towards our aim we retained all five factors.
 
 <!-- A CFA on a separate sample ((n=`r nrow(CFA.descriptives)` gave a five-factor solution (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]) and SRMR = `r apa(fit.2[10],2,F)`) after discarding two item. The internal consistency McDonald's $\omega_t$ of the five factors were  satisfactory (`r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`) Internal consistency reliability of the total scale (23 items) was also satisfactory, McDonald's $\omega_t$= `r apa(rel.k[5,6],2,F)`.In the same sample, our measurement invariance analysis  revealed that the latent structure attained the residual measurement invariance across subgroups: male and female (CFI: `r apa (residual.fitm[5,1],2,F)`, TLI: `r apa (residual.fitm[6,1],2,F)`, SRMR: `r apa(residual.fitm[6,1],2,F)`). -->
 
