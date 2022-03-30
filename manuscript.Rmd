@@ -446,7 +446,7 @@ We assessed the measurement invariance (MI) of our scale between native English 
 knitr::include_graphics('Figures/Figure1.png', dpi = 600 )
 ```
 
-## Ethical approval
+## Ethical Approval
 
 By reason of using fully anonymous online survey data, the present research project does not fall under the scope of the Human Research Act, making an authorisation from the ethics committee redundant. Nevertheless, the cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, EKNZ) reviewed our proposition (project ID Req-2021-00488) and issued an official clarification of responsibility.
 
@@ -460,7 +460,7 @@ The present article is a fully reproducible open access "R Markdown" document. A
 
 After reviewing the literature, we identified several light exposure related scales. However, no scale specifically measuring the behavioural component of light exposure were found (**Supplementary Table 1**). As such, an expert panel developed a comprehensive item pool of 48 items. The expert panel composed of all authors and researchers from the fields of chronobiology, light research, neuroscience and psychology. The 48 items were then judged based on their relevance and representativeness of the construct "Light Exposure Related Behaviour" by the expert panel. The panel members independently judged each of the items in terms of their relevance and representativeness and suggested required modification, if there is any. The author team acknowledged the suggestions and amended the items as required thus creating a 48-item scale.
 
-## Large-scale survey
+## Large-scale Survey
 
 Table 1 summarizes the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included, thus there are no missing values in the item analyses. (XX??) participants were excluded from analysis due to not passing at least one of the "attention check" items. For EFA, a sample of 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. To assess sampling adequacy for CFA, we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where ten participants per item is required to earn trustworthiness of the result. Both our EFA and CFA sample size exceeded these requirements. We collected data from `r nrow(num.countries)` countries (`r nrow(numUTC)` time zones).Participants reported a diverse range of geographic location Participants indicated filling out the online survey from a diverse range of geographic locations. For a complete list of geographic locations, see **Supplementary Table 2**.
 
