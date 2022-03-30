@@ -1376,7 +1376,7 @@ In the five-factor solution, the first factor contained three items and explaine
 
 ```{r EFATable, results='asis'}
 
-apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items in EFA using principal axis extraction method.", note = "Only loading > .30 is reported.", 
+apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items in EFA using principal axis extraction method (n=482).", note = "Only loading > .30 is reported.", 
           font_size = "footnotesize", escape=F,landscape = T,
            align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(efa.tab.ful))))
 ```
