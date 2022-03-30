@@ -1959,8 +1959,9 @@ apa_table(Invariance.table, align = "c",  caption = "Measurment Invariance analy
 ```
 
 ## Secondary Analysis: Grade Level Identification and Semantic Scale Network Analysis
-Flesch-Kincaid grade level [@flesch1948new] analysis on the 23 items of our scale indicated required educational grade level was 3.33 and with a age above 8.33.
-Semantic Scale Network (SSN) analysis [@rosenbusch2020semantic] indicated that LEBA (23 items) appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. The cosine similarities lie between .47 to .51. 
+Flesch-Kincaid grade level [@flesch1948new] analysis on the 23 items using "readability" function from the packaged "koRpus" [@R-koRpus] indicated required educational grade level was 3.33 and with a age above 8.33. This indicated our scale will be understandable to students of grade four and aged at least 8.33. 
+[Semantic Scale Network (SSN) analysis](https://rosenbusch.shinyapps.io/semantic_net) [@rosenbusch2020semantic] indicated that LEBA (23 items) appeared most strongly related to scales about sleep: "Sleep Disturbance Scale For Children" [@bruni1996sleep] and "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. The cosine similarities lie between .47 to .51. 
+
 ```{r textanalysis, include=F}
 #This chunk holds codes for semantic analysis and readability test
 
