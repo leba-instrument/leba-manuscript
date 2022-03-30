@@ -1,5 +1,5 @@
 ---
-title             : "_Light Exposure behaviour Assessment (LEBA)_: Development of a novel instrument to capture light exposure-related behaviours"
+title             : "_Light Exposure Behaviour Assessment (LEBA)_: Development of a novel instrument to capture light exposure-related behaviours"
 shorttitle        : "LEBA"
 
 author: 
@@ -765,12 +765,12 @@ gtsave("Figures/Figure3.png",vwidth = 6000)
 
 ```
 
-```{r efagtPic1, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern', out.height='100%', out.width='250%'}
+```{r efagtPic1, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern observed in the large-scale survey for item 01-24. All items violated normality assumption', out.height='100%', out.width='250%'}
 knitr::include_graphics('Figures/Figure2.png')
 
 ```
 
-```{r efagtPic2, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern', out.height='100%', out.width='250%'}
+```{r efagtPic2, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern observed in the large-scale survey for item 25-48. All items violated normality assumption', out.height='100%', out.width='250%'}
 knitr::include_graphics('Figures/Figure3.png')
 
 ```
@@ -2949,7 +2949,7 @@ ggsave("Figures/Figure6.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = 
 
 ```
 
-```{r Testinfo, fig.env = "sidewaysfigure", fig.cap="Test information curves for the five factors of LEBA: (a) wearing blue light filters (b) spending time outdoors (c) using phone and smartwatchin bed (d) using light before bedtime (e) using light in the morning andduring daytime. Along x-axis we plotted the underlying latent trait continumm for each factor. Along y-axis we plotted how much information a particular factor is caring across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
+```{r Testinfo, fig.env = "sidewaysfigure", fig.cap="Test information curves for the five factors of LEBA: (a) wearing blue light filters (b) spending time outdoors (c) using phone and smart-watch in bed (d) using light before bedtime (e) using light in the morning and during daytime. Along x-axis we plotted the underlying latent trait continuum for each factor. Along y-axis we plotted how much information a particular factor is caring across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
 
 knitr::include_graphics('Figures/Figure6.png', dpi =600)
 ```
