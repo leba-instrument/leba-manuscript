@@ -2770,7 +2770,7 @@ rownames(F3.personfit_model_misfits)
 nrow(F5.personfit_model_misfits)
 
 F5.person <- ggplot(F5.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
-  labs( y="Number of Participants", x = "Zh Statistics:F5")+apatheme+ylim(0,600) + xlim(-4,2)
+  labs( y="Number of Participants", x = "Zh Statistics: F5")+apatheme+ylim(0,600) + xlim(-4,2)
 
 # Model Parameters ####
 ## F1 Model Parameters####
