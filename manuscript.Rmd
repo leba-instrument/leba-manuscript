@@ -1638,10 +1638,12 @@ CFA.data$Ritem26 <- fct_recode(CFA.data$Ritem26,
 LB.model.Cor.1 <- "F1 =~ a1*item16 + item36 + a2*item17
                  F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
                  F3 =~  item27+ item03+ item40 + item30 + item41
-                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
-                 F5 =~ item46+ item45+ item25+ item04+ item01 
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 + item37
+                 F5 =~ item46+ item45+ item25+ item04+ item01 +item26
                        a1==a2
                        a3==a4" 
+
+
 
 
 fit.Cor.1 <- cfa(LB.model.Cor.1, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
@@ -1715,7 +1717,7 @@ modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE)
 modfit.Cor.one[modfit.Cor.one$mi>3.84,]
 ```
 
-Table \@ref(tab:tabCfa) summarizes the CFA fit indices of our fitted model. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 [`r Hmisc::label(sem.data$item32)`; `r Hmisc::label(sem.data$item33)`] and 16-17 [`r Hmisc::label(sem.data$item16)`; `r Hmisc::label(sem.data$item17)`]. Items pair 32-33 stemmed from the preference of dimming electric device's brightness before bed time and items pair 16 and 19 stemmed from the preference of using blue filtering or coloured glasses during the daytime. Nevertheless, SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) [`r Hmisc::label(sem.data$item30)`; `r Hmisc::label(sem.data$item41)`] to covary their error variance and discarding two item (item 37 & 26) for very low r-square value, our model attained the best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]). Internal consistency ordinal $\alpha$ for the five factors of LEBA were `r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)` respectively. Internal consistency McDonald's $\omega_t$ coefficient for the total scale was `r apa(rel.k[5,6],2,F)`. Figure \@ref(fig:figcfa) depicts the obtained CFA structure. **Supplementary Figure 2** depicts the data distribution and endorsement pattern of the retained 23 items in our CFA sample.
+Table \@ref(tab:tabCfa) summarizes the CFA fit indices of our fitted model. Our fitted model attained acceptable fit (CFI =`r apa(fit.1[5],2,F)`; TLI = `r apa(fit.1[6],2,F)`); RMSEA = `r apa(fit.1[7],2,F)`[`r apa(fit.1[8],2,F)`-`r apa(fit.1[9],2,F)`, 90% CI]) with two imposed equity constrain on item pairs 32-33 [`r Hmisc::label(sem.data$item32)`; `r Hmisc::label(sem.data$item33)`] and 16-17 [`r Hmisc::label(sem.data$item16)`; `r Hmisc::label(sem.data$item17)`]. Items pair 32-33 stemmed from the preference of dimming electric device's brightness before bed time and items pair 16 and 19 stemmed from the preference of using blue filtering or coloured glasses during the daytime. Nevertheless, SRMR value was higher than the guideline (SRMR = `r apa(fit.1[10],2,F)`). Further by allowing one pair of items (30-41) [`r Hmisc::label(sem.data$item30)`; `r Hmisc::label(sem.data$item41)`] to covary their error variance and discarding two item (item 37 & 26) for possible cross-loading, our model attained the best fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)`[`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]). Internal consistency ordinal $\alpha$ for the five factors of LEBA were `r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)` respectively. Internal consistency McDonald's $\omega_t$ coefficient for the total scale was `r apa(rel.k[5,6],2,F)`. Figure \@ref(fig:figcfa) depicts the obtained CFA structure. **Supplementary Figure 2** depicts the data distribution and endorsement pattern of the retained 23 items in our CFA sample.
 
 ```{r cfaMat, results='asis'}
 #This chunk holds codes to create CFA output table (better options are avaiable at 'tabledown' package)
