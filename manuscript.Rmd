@@ -1426,7 +1426,7 @@ EFAplot.2 <- cowplot::plot_grid(
   label_x = .02
 )
 
-ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200, bg ="white")
+ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200)
 
 ```
 
