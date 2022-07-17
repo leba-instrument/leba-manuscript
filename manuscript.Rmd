@@ -598,7 +598,7 @@ full.table <-  cbind( gt.tab3, liket.full)%>%
 ```
 
 ```{r fullgt,  include=FALSE}
-#This chunk holds codes for creating 'gtExtra' based descriptive figures (EFA+CFA); 
+#This chunk holds codes for creating 'gtExtra' based descriptive figures  
 
 full.tab <- full.table$`_data`
 
