@@ -615,14 +615,14 @@ full.tab.2 <- full.tab[25:48,] %>%
 
 full.tab.1 %>% 
 # histogram and density plots
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     hist_data,
     type = "histogram",
     line_color = "black", 
     fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     dens_data,
     type = "density",
     line_color = "black", 
@@ -694,14 +694,14 @@ cols_label(
 
 full.tab.2 %>% 
 # histogram and density plots
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     hist_data,
     type = "histogram",
     line_color = "black", 
     fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     dens_data,
     type = "density",
     line_color = "black", 
@@ -924,14 +924,14 @@ efaTable <-  cbind( gt.efa.table, gt.liket.efa)%>%
 efa.gt.2 %>% 
 gt() %>% 
 # histogram and density plots
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     hist_data,
     type = "histogram",
     line_color = "black", 
     fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     dens_data,
     type = "density",
     line_color = "black", 
@@ -1525,14 +1525,14 @@ cfa.gt <- cfaTable$"_data"
 cfa.gt %>% 
 gt() %>% 
 # histogram and density plots
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     hist_data,
     type = "histogram",
     line_color = "black", 
     fill_color = "#00A08799",
     bw = 1,
     same_limit = TRUE)%>%
-  gtExtras::gt_sparkline(
+  gtExtras::gt_plt_dist(
     dens_data,
     type = "density",
     line_color = "black", 
@@ -1753,25 +1753,25 @@ Accordingly, we accept the five-factor model with 23 items, finalizing the long 
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
 colnames(CFa.matrix) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
 CFa.matrix[1,] = c("Model 1", 
-                   apa(cfa.sum.1$FIT[6],2,T), 
-                   apa(cfa.sum.1$FIT[7],2,T), 
-                   apa(cfa.sum.1$FIT[19],2,F), 
-                   apa(cfa.sum.1$FIT[20],2,T),
-                   apa(cfa.sum.1$FIT[27],2,T),
-                   apa(cfa.sum.1$FIT[28],2,T),
-                   apa(cfa.sum.1$FIT[29],2,T),
-                   apa(cfa.sum.1$FIT[35],2,T))
+                   apa(as.numeric(cfa.sum.1$FIT[6]),2,T), 
+                   apa(as.numeric(cfa.sum.1$FIT[7]),2,T), 
+                   apa(as.numeric(cfa.sum.1$FIT[19]),2,F), 
+                   apa(as.numeric(cfa.sum.1$FIT[20]),2,T),
+                   apa(as.numeric(cfa.sum.1$FIT[27]),2,T),
+                   apa(as.numeric(cfa.sum.1$FIT[28]),2,T),
+                   apa(as.numeric(cfa.sum.1$FIT[29]),2,T),
+                   apa(as.numeric(cfa.sum.1$FIT[35]),2,T))
 
 
 CFa.matrix[2,] = c("Model 2", 
-                   apa(cfa.sum.2$FIT[6],2,T), 
-                   apa(cfa.sum.2$FIT[7],2,T), 
-                   apa(cfa.sum.2$FIT[19],2,F), 
-                   apa(cfa.sum.2$FIT[20],2,T),
-                   apa(cfa.sum.2$FIT[27],2,T),
-                   apa(cfa.sum.2$FIT[28],2,T),
-                   apa(cfa.sum.2$FIT[29],2,T),
-                   apa(cfa.sum.2$FIT[35],2,T))
+                   apa(as.numeric(cfa.sum.2$FIT[6]),2,T), 
+                   apa(as.numeric(cfa.sum.2$FIT[7]),2,T), 
+                   apa(as.numeric(cfa.sum.2$FIT[19]),2,F), 
+                   apa(as.numeric(cfa.sum.2$FIT[20]),2,T),
+                   apa(as.numeric(cfa.sum.2$FIT[27]),2,T),
+                   apa(as.numeric(cfa.sum.2$FIT[28]),2,T),
+                   apa(as.numeric(cfa.sum.2$FIT[29]),2,T),
+                   apa(as.numeric(cfa.sum.2$FIT[35]),2,T))
 ```
 
 ```{r tabCfa, results='asis'}
@@ -3239,7 +3239,7 @@ We acknowledge that this work is limited concerning the following aspects:
 To our knowledge, the LEBA is the first questionnaire characterising light exposure-related behaviour in a scalable manner. Thus, estimating convergent validity with similar subjective scales was impossible. Alternatively, the validity of the LEBA could be evaluated by administering it conjointly with objective field measurements of light exposure (e.g. with portable light loggers, see literature review). By this route, one could study how the (subjectively measured) light exposure-related behavioural patterns translate into (objectively measured) received light exposure. 
 Additionally, developing daily recall scales of light-related behaviour could provide a more detailed behavioural assessment to supplement the LEBA's broader (four-week) measurement approach. Comparing the LEBA scores to 24-hour recall scores could provide helpful information about how light exposure-related behaviour assessment is related between different time perspectives.
 Moreover, light-exposure-related behaviour might depend on the respondents' profession, geographical location, housing conditions, socio-economic status, or other contextual factors. As the current data is limited to our international online survey context, future research should apply the LEBA across more variable populations and contexts. On the other hand, this will require the development of cross-cultural adaptations and translations into other languages of the LEBA scale, which should be targeted in prospective studies.
-Finally, in the future, applying the LEBA scales should not just be limited to gathering information in cross-sectional quantitative studies but allow for individual behaviour profiling. For instance, the LEBA could be applied in a clinical context as part of Cognitive Behavioural Therapy for Insomnia (CBT-I). More specifically, it could be used to supplement the sleep hygiene aspects of CBT-I, as receiving light exposure at different times has implications for sleep [@santhi_applications_2020]. This match was also evident in the semantic relationship between the LEBA and two scales capturing sleep problems (CIDI: Insomnia; @robins1988 & SDSC; @bruni1996sleep) found in the semantic similarity analysis. However, before applying the LEBA in such contexts in the future, more work is certainly needed to understand light exposure-related behaviour and its’ relationship to relevant health outcomes measured subjectively and objectively.
+Finally, in the future, applying the LEBA scales should not just be limited to gathering information in cross-sectional quantitative studies but allow for individual behaviour profiling. For instance, the LEBA could be applied in a clinical context as part of Cognitive Behavioural Therapy for Insomnia (CBT-I). More specifically, it could be used to supplement the sleep hygiene aspects of CBT-I, as receiving light exposure at different times has implications for sleep [@santhi_applications_2020]. This match was also evident in the semantic relationship between the LEBA and two scales capturing sleep problems (CIDI: Insomnia;@robins1988composite & SDSC; @bruni1996sleep) found in the semantic similarity analysis. However, before applying the LEBA in such contexts in the future, more work is certainly needed to understand light exposure-related behaviour and its’ relationship to relevant health outcomes measured subjectively and objectively.
 
 
 ## Conclusion
