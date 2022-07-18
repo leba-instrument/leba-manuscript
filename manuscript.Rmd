@@ -239,12 +239,12 @@ apatheme=theme_bw()+
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
         #text=element_text(family = "Helvetian"),
-        axis.text.x = element_text(size = 15),
-        axis.text.y = element_text(size = 15),
-        axis.title.x = element_text(size = 15),
-        axis.title.y = element_text(size = 15),
-        plot.title = element_text(size = 15),
-        legend.text = element_text(size = 15),
+        axis.text.x = element_text(size = 70),
+        axis.text.y = element_text(size = 70),
+        axis.title.x = element_text(size = 70),
+        axis.title.y = element_text(size = 70),
+        plot.title = element_text(size = 70),
+        legend.text = element_text(size =50),
         legend.title=element_blank(),
         axis.line.x = element_line(color='black'),
         axis.line.y = element_line(color='black'),
@@ -1071,8 +1071,8 @@ corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order =
                       # insig = "blank",
            ggtheme = ggplot2::theme_minimal(),tl.srt = 90,colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
-         axis.text.x = element_text(size = 6),
-         axis.text.y = element_text(size = 6),
+         axis.text.x = element_text(size = 40),
+         axis.text.y = element_text(size = 40),
          panel.border = element_rect(color = "black",
                                     fill = NA,
                                     size = 1))
@@ -1332,8 +1332,7 @@ sumR <- sum(BigRR/totRR*100)
 res.dat <- as.data.frame(unclass(residual.5F))
 residual.data <- as.data.frame(gather(res.dat, Items, Residuals))
 
-residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill="#00A08799") + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+theme(axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 12))+
+residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill="#00A08799") + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+
   labs( y="Frequency")
 
 ```
@@ -2540,7 +2539,7 @@ F1.plots <- cowplot::plot_grid(F1.iteminfo.1,F1.iteminfo.2, F1.iteminfo.3,NULL, 
                      labels = c("A", "B", "C"),
                      align="h",
                      nrow = 1,
-                     label_size = 12,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 
@@ -2550,7 +2549,7 @@ F2.plots <- cowplot::plot_grid(F2.iteminfo.1,F2.iteminfo.2, F2.iteminfo.3,F2.ite
                      labels = c("D", "E", "F", "G", "H", "I"),
                      align="h",
                      nrow = 1,
-                     label_size = 12,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 
@@ -2559,7 +2558,7 @@ F3.plots <- cowplot::plot_grid(F3.iteminfo.1, F3.iteminfo.2, F3.iteminfo.3, F3.i
                      labels = c("J", "K", "L", "M", "N"),
                      align="h",
                      nrow = 1,
-                     label_size = 12,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 
@@ -2568,7 +2567,7 @@ F4.plots <- cowplot::plot_grid(F4.iteminfo.1, F4.iteminfo.2 ,F4.iteminfo.3 ,F4.i
                      labels = c("O", "P", "Q", "R"),
                      align="h",
                      nrow = 1,
-                     label_size = 12,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 
@@ -2577,7 +2576,7 @@ F5.plots <- cowplot::plot_grid(F5.iteminfo.1,F5.iteminfo.2,F5.iteminfo.3,F5.item
                      labels = c("S", "T", "U", "V", "W"),
                      align="h",
                      nrow = 1,
-                     label_size = 12,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 
@@ -2591,7 +2590,7 @@ all.factot.itemplots <- cowplot::plot_grid(F1.plots,
                      
                      align="v",
                      nrow = 5,
-                     label_size = 12,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 
@@ -2954,7 +2953,7 @@ TIC.plot <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                    labels = "AUTO",
                      align="v",
                      ncol = 3,
-                     label_size = 15,
+                     label_size = 60,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 ggsave("Figures/Figure6.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = "white")
