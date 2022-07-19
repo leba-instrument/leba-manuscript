@@ -1062,7 +1062,7 @@ corr.histogram <- ggplot(cor.hits,aes(x=value)) +
 
 ```{r corplot, include =F}
 #This chunk holds code for plotting the correlation matrix
-
+#
 p.mat <- correlation::cor_to_p(correlations$rho, 428, method = "polychoric")
 
 
@@ -1070,10 +1070,10 @@ corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order =
                       # insig = "blank",
            ggtheme = ggplot2::theme_minimal(),tl.srt = 90,  colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
-         axis.text.x = element_text(size = 35),
-         axis.text.y = element_text(size = 35),
-          legend.text=element_text(size =30),
-         legend.title = element_blank(),
+         axis.text.x = element_text(size = 90),
+         axis.text.y = element_text(size = 90),
+         legend.text=element_text(size =90),
+         legend.title = element_text(size =90),
          panel.border = element_rect(color = "black",
                                     fill = NA,
                                     size = 1))
@@ -1081,7 +1081,7 @@ corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order =
         # legend.spacing.x = unit(0.5, 'cm'),
         # legend.text = element_text(margin = margin(t = 10)))
 #to show pvalue in the fig add p.mat=p.mat
-# ggsave("Figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 600, bg ="white")
+# ggsave("Figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 300, bg ="white")
 
 ```
 
@@ -1341,7 +1341,8 @@ residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwid
 
 ```
 
-```{r efa-plot, include=F}
+```{r efa-plot, eval=FALSE, include=FALSE}
+#Not in use. Figure developed using illustrator.
 #This chunk holds code for compiled factor identification plots
 
 cor.scree <- cowplot::plot_grid(corplot, scree.plot,
