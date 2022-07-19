@@ -239,12 +239,12 @@ apatheme=theme_bw()+
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
         #text=element_text(family = "Helvetian"),
-        axis.text.x = element_text(size = 70),
-        axis.text.y = element_text(size = 70),
-        axis.title.x = element_text(size = 70),
-        axis.title.y = element_text(size = 70),
-        plot.title = element_text(size = 70),
-        legend.text = element_text(size =50),
+        axis.text.x = element_text(size = 80),
+        axis.text.y = element_text(size = 80),
+        axis.title.x = element_text(size = 80),
+        axis.title.y = element_text(size = 80),
+        plot.title = element_text(size = 80),
+        legend.text = element_text(size =80),
         legend.title=element_blank(),
         axis.line.x = element_line(color='black'),
         axis.line.y = element_line(color='black'),
@@ -1069,13 +1069,18 @@ p.mat <- correlation::cor_to_p(correlations$rho, 428, method = "polychoric")
 
 corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order = FALSE, outline.col = "white", type = "lower", legend.title = "Correlation",sig.level = 0.05, pch.cex=1.2,
                       # insig = "blank",
-           ggtheme = ggplot2::theme_minimal(),tl.srt = 90,colors = c("#E64B35FF", "white", "#3C5488FF") )+
+           ggtheme = ggplot2::theme_minimal(),tl.srt = 90,  colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
-         axis.text.x = element_text(size = 40),
-         axis.text.y = element_text(size = 40),
+         axis.text.x = element_text(size = 35),
+         axis.text.y = element_text(size = 35),
+          legend.text=element_text(size =30),
+         legend.title = element_blank(),
          panel.border = element_rect(color = "black",
                                     fill = NA,
                                     size = 1))
+        # legend.position = 'right', 
+        # legend.spacing.x = unit(0.5, 'cm'),
+        # legend.text = element_text(margin = margin(t = 10)))
 #to show pvalue in the fig add p.mat=p.mat
 # ggsave("Figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 600, bg ="white")
 
@@ -1364,7 +1369,7 @@ efa.plot <- cowplot::plot_grid(cor.scree, hull.residual,
 #                   align = "v", 
 #                   label_fontfamily = "Arial",
 #                   label_fontface = "plain")
-ggsave("Figures/Figure4.png",efa.plot, width = 7, height = 8, dpi = 600)
+ggsave("Figures/Figure4.png",efa.plot, width = 7, height = 8, dpi = 600, bg = "white")
 ```
 
 (ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than \|.30\|. 'x' denotes a non-significant item-total correlation. (B) The Scree plot suggested six factors. (C) Hull method indicated that five factors were required to balance the model fit and number of parameters. (D) The histogram of nonredundant residual correlations indicated that 26% of inter-item correlations were higher than .05, hinting at a possible under-factoring.
