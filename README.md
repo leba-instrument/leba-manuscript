@@ -5,9 +5,9 @@ Repository for the manuscript describing the LEBA instrument.
 This repository contains:
 
 ## Folders: 
-- **Figures**: A folder with all figures (Manuscript and supplementary)
+- **Figures**: A folder with all figures (Manuscript and supplementary).
 
-- **manuscript_files**: A folder containing files rendered during the knitting process of the `manuscript.Rmd` file
+- **manuscript_files**: A folder containing files rendered during the knitting process of the `manuscript.Rmd` file.
 
 - **Supplementary_materials**: A folder containing all supplementary materials to the manuscript.
 
@@ -37,11 +37,11 @@ This repository contains:
 
 - Open **leba-manuscript.Rproj** using RStudio.
 
-- In the Rstudio console open **manuscript.Rmd**
+- In the Rstudio console open **manuscript.Rmd**.
 
 - The second chunk in the `manuscript.Rmd` is deactivated. Run this manually for the very first time you are knitting to install all packages.
 
--   Once all the packages are installed try knitting
+-   Once all the packages are installed try knitting in PDF.
 
 - Supplementary files are provided in a separate .docx file named `Supplementary_Materials.docx`.
 
