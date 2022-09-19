@@ -1755,30 +1755,17 @@ Accordingly, we accept the five-factor model with 23 items, finalizing the long 
 
 CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
 colnames(CFa.matrix) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
-CFa.matrix[1,] = c("Model 1", 
-                   apa(as.numeric(cfa.sum.1$FIT[6]),2,T), 
-                   apa(as.numeric(cfa.sum.1$FIT[7]),2,T), 
-                   apa(as.numeric(cfa.sum.1$FIT[19]),2,F), 
-                   apa(as.numeric(cfa.sum.1$FIT[20]),2,T),
-                   apa(as.numeric(cfa.sum.1$FIT[27]),2,T),
-                   apa(as.numeric(cfa.sum.1$FIT[28]),2,T),
-                   apa(as.numeric(cfa.sum.1$FIT[29]),2,T),
-                   apa(as.numeric(cfa.sum.1$FIT[35]),2,T))
 
 
-CFa.matrix[2,] = c("Model 2", 
-                   apa(as.numeric(cfa.sum.2$FIT[6]),2,T), 
-                   apa(as.numeric(cfa.sum.2$FIT[7]),2,T), 
-                   apa(as.numeric(cfa.sum.2$FIT[19]),2,F), 
-                   apa(as.numeric(cfa.sum.2$FIT[20]),2,T),
-                   apa(as.numeric(cfa.sum.2$FIT[27]),2,T),
-                   apa(as.numeric(cfa.sum.2$FIT[28]),2,T),
-                   apa(as.numeric(cfa.sum.2$FIT[29]),2,T),
-                   apa(as.numeric(cfa.sum.2$FIT[35]),2,T))
+Cfa.matrix <- tabledown::cfa.tab.multi(fit.Cor.1,fit.Cor.2)
+Cfa.matrix.selected <- as.data.frame(Cfa.matrix[, c(1,2,6,7,8,9,10,11)])
+Cfa.matrix.selected <- tibble::rowid_to_column(Cfa.matrix.selected,"Model")
+colnames(Cfa.matrix.selected) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
+
 ```
 
-```{r tabCfa, results='asis'}
-apa_table(CFa.matrix, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square.")
+```{r tabCfa}
+apa_table(Cfa.matrix.selected, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square.")
 ```
 
 ```{r cfaplot, eval=FALSE, include=FALSE}
@@ -1985,7 +1972,7 @@ colnames(Invariance.table) <- c("$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMS
 ```
 
 ```{r InvarianceTab, results='asis'}
-apa_table(Invariance.table, align = "c",  caption = "Measurement Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square; a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; d = Structural vs Residual; * =  df of model comparison.", landscape = T, font_size = "footnotesize", escape=F )
+apa_table(Invariance.table, align = "c",  caption = "Measurement Invariance analysis on CFA sample (n=262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square; a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; * =  df of model comparison.", landscape = T, font_size = "footnotesize", escape=F )
 
 ```
 
