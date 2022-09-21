@@ -6,7 +6,7 @@ This repository contains:
 
 ## Folders: 
 - **Figures**: A folder with all figures (Manuscript and supplementary).
-- **Table_raw**: Containes processed data for different tables.
+- **Table_raw**: Contains processed data for different tables.
 
 
 
