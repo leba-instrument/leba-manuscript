@@ -19,14 +19,14 @@ This repository contains:
 - **install_packages**: A R script to install all packages required.
 - **leba_2021-09-08.rds**: Data file of LEBA.
 - **header.tex**: TEX file containing codes to format landscape pages in the PDF.
-- **manuscript_v1.Rmd**: RMarkdown file containing all codes and text body for the manuscript: LEBA.
-- **manuscript_v2.Rmd**: RMarkdown file containing all codes and text body for the manuscript: LEBA with all comments from the authors addressed.
+- **manuscript_v1.Rmd**: R Markdown file containing all codes and text body for the manuscript: LEBA.
+- **manuscript_v2.Rmd**: R Markdown file containing all codes and text body for the manuscript: LEBA with all comments from the authors addressed.
 - **lib_reference.bib**: Contains all references of the packages used in the manuscript.
 - **reference.bib**: Contains all references  used in the manuscript.
 - **manuscript_v1.pdf**: PDF of the manuscript rendered using `manuscript_v1.Rmd`.
 - **manuscript_v2.pdf**: PDF of the manuscript rendered using `manuscript_v2.Rmd`.
-- **Supplementary_materials.docx**: Complied supplementary materials in a `.docx` format.
-- **Supplementary_materials.pdf**: Complied supplementary materials in a `.pdf` format.
+- **Supplementary_materials.docx**: All supplementary materials in a `.docx` format.
+- **Supplementary_materials.pdf**: All supplementary materials in a `.pdf` format.
 - **full_manuscript.pdf**: Combined pdf created from `manuscript_v2.pdf` and `Supplementary_materials.pdf`.
 
 # Workflow:
