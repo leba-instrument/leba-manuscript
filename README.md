@@ -8,7 +8,7 @@ This repository contains:
 - **Figures**: A folder with all figures (Manuscript and supplementary).
 
 - **manuscript_files**: A folder containing files rendered during the knitting process of the `manuscript.Rmd` file.
-
+- **Table_raw**: Containes processed data for different tables.
 
 
 
