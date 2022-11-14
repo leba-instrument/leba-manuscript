@@ -41,3 +41,8 @@ appendix-3.tex
 manuscript_files
 manuscript_files/
 .DS_Store
+*.ttt
+*.fff
+*.log
+*.tex
+manuscript_v2_files/*

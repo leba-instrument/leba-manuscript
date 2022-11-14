@@ -138,7 +138,7 @@ abstract: |
 
   
 keywords          : "light exposure, light-related behaviours, non-visual effects of light, psychometrics"
-wordcount         : "6358"
+wordcount         : "6249"
 
 bibliography      : ["references.bib", "lib_references.bib"]
 
@@ -264,11 +264,11 @@ nocite: |
 Light exposure received by the eyes affects many facets of human health, well-being, and performance beyond visual sensation and perception [@boyce_light_2022]. The so-called non-image-forming (NIF) effects of light comprise light’s circadian and non-circadian influence on several physiological and psychological functions, such as the secretion of melatonin, sleep, mood, pupil size, body temperature, alertness, and higher cognitive functions [@Bedrosian.2017;@lok2018light; @siraji2021effects; @blume_effects_2019; @paul_direct_2019; @santhi_applications_2020; @zele_editorial_2020].
 With the introduction of artificial electric light, human behaviour has become somewhat independent of the natural light-dark cycle – people can now frequently choose when to be exposed to light or darkness. For example, they can decide whether to go outdoors and seek out sunlight, switch on/off light-emitting devices, use certain types of lights at home, or avoid specific light environments altogether. Additionally, when light sources can not be directly manipulated, sought out, or avoided (for example, at school, work, or in public places), there is still potential leeway to influence them behaviourally, for instance, by wearing sunglasses, directing one’s gaze away or supplementing the situation with additional light sources. Although clearly yielding the potential for good, these behaviours are further associated with increased electric light exposure at night and indoor time during the day, compromising the natural temporal organisation of the light-dark cycle. For example, in the US, an average of 87% of the time is spent in enclosed buildings [@Klepeis.2001], and more than 80% of the population is exposed to a night sky that is brighter than nights with a full moon due to electric light at night [@navara2007dark].
 
-An extensive body of scientific evidence suggests that the imbalance of light and dark exposure disrupts humans’ light-dependent physiological systems [@Lunn.2017]. Subsequently, this disruption gives rise to a series of adverse health consequences, including the alteration of hormonal rhythms, increased cancer rates, cardiovascular diseases, and metabolic disorders, such as obesity and type II diabetes [@Lunn.2017; @navara2007dark; @Chellappa.2019]. These findings have sparked a significant call for assessment and guidance regarding healthy light exposure as exemplified by a recently published set of consensus-based experts’ recommendations with specific requirements for indoor light environments during the daytime, evening, and nighttime [@Brown.2022]. Furthermore, building on earlier attempts [e.g. @hubalek_ambulant_2006], there was a recent push toward the development and use of portable light loggers to improve ambulant light assessment and gain more insight into the NIF effects of light on human health in field conditions [@stampfli_light-dosimeter_2021; @van_duijnhoven_recommendations_2017; @webler_towards_2021; @aarts2017performance]. Attached to different body parts (e.g., wrist; head, at eye level; chest), these devices allow for the objective measurement of individual photic exposure patterns under real-world conditions and thus are a valuable tools for field studies.. Nevertheless, these devices also encompass limiting factors such as potentially being intrusive (e.g., when eye-level worn), yielding the risk of getting covered (e.g., when wrist- or chest-worn) and requiring (monetary) resources and expertise for acquisition and maintenance of the devices.
+An extensive body of scientific evidence suggests that the imbalance of light and dark exposure disrupts humans’ light-dependent physiological systems [@Lunn.2017]. Subsequently, this disruption gives rise to a series of adverse health consequences, including the alteration of hormonal rhythms, increased cancer rates, cardiovascular diseases, and metabolic disorders, such as obesity and type II diabetes [@Lunn.2017; @navara2007dark; @Chellappa.2019]. These findings have sparked a significant call for assessment and guidance regarding healthy light exposure as exemplified by a recently published set of consensus-based experts’ recommendations with specific requirements for indoor light environments during the daytime, evening, and nighttime [@Brown.2022]. Furthermore, building on earlier attempts [e.g. @hubalek_ambulant_2006], there was a recent push toward the development and use of portable light loggers to improve ambulant light assessment and gain more insight into the NIF effects of light on human health in field conditions [@stampfli_light-dosimeter_2021; @van_duijnhoven_recommendations_2017; @webler_towards_2021; @aarts2017performance]. Attached to different body parts (e.g., wrist; head, at eye level; chest), these devices allow for the objective measurement of individual photic exposure patterns under real-world conditions and thus are valuable tools for field studies. Nevertheless, these devices also encompass limiting factors such as potentially being intrusive (e.g., when eye-level worn), yielding the risk of getting covered (e.g., when wrist- or chest-worn) and requiring (monetary) resources and expertise for acquisition and maintenance of the devices.
 
 On the other hand, several attempts have been made to quantify received light exposure subjectively with self-report questionnaires (**Supplementary Table 1**), bypassing the cost and intrusiveness issues. However, subjective light intensity assessments pose a new set of challenges: The human visual system constantly adapts to brightness [@hurvich_perception_1966], while the human non-visual light processing works largely subconsciously [@allen_exploiting_2018], making the self-report assessment of light properties potentially quite challenging. Retrospectively recalling the properties of a light source can further complicate such subjective evaluations. Moreover, measuring light properties alone does not yield any information about how individuals might behave differently regarding diverse light environments such  as work, home or outdoors. These measurement limitations point to a couple of research challenges we aim to take on here: How can we gain insight into light exposure patterns via self-report but circumvent directly inquiring about the specific properties and intensity of a light source? And how can we simultaneously assess how people habitually interact with the received light? We propose that these challenges can be tackled by assessing light-exposure-related behaviour. We argue that, besides measuring received light exposure as intensity, it is also essential to understand people's behaviours with respect to different light situations. In many cases, humans have become their own agents regarding their exposure to light or darkness through daylight and electric light, and as such people’s light exposure-related behaviours ultimately determine their light consumption and timing: People receive different light depending on their daily activities, including workplace habits, bedtime hygiene, pastime and social activities. Ultimately, in order to optimize lighting for human health and well being, better understanding of light-related behaviours will serve to identify additional points of intervention as well as to provide an added dimension to efficacy and implementation studies of novel lighting strategies. We argue that assessing these activities is a beneficial stepping stone for prospective behaviour change to maintain light hygiene: a proper balance of exposures to light to maintain circadian rhythms. 
 
-To date, little effort has been made to understand and capture these activities. **Supplementary Table 1** summarises the existing questionnaire literature assessing light exposure-related properties. However, only a few questions of these existing tools were associated with light exposure-related behaviour. For example, the “Munich Chronotype  Questionnaire” [@roenneberg2003life], a popular self-report tool for identifying chronotypes via mid-sleep times, includes questions about the individual’s typical time spent outdoors on workdays and free days. The Visual Light Sensitivity Questionnaire-8 [@verriotto2017new] and Photosensitivity Assessment Questionnaire (@bossini2006sensibilita) are a couple of self-report tools measuring visual light sensitivity. They contain single items which probe the preference for specific light situations such as: “In the past month, how often did you need to wear dark glasses on cloudy days or indoors?” [@verriotto2017new];"I prefer rooms that are in semi-darkness."; [@bossini2006sensibilita]. In addition, the “Pittsburgh Sleep Quality Index” [@buysse1989pittsburgh], is a popular measure of sleep quality. It contains questions about bedtime and wake-up times, which are relevant to light exposure around bedtime. However, none of these questionnaires provides a scalable solution to capture light exposure-related behaviour in various lighting situations. To fill this gap, we here present the development process of a novel self-reported tool - the “Light Exposure Behaviour Assessment” (LEBA) - for characterizing diverse light exposure-related behaviours. 
+To date, little effort has been made to understand and capture these activities. **Supplementary Table 1** summarises the existing questionnaire literature assessing light exposure-related properties. However, only a few questions of these existing tools were associated with light exposure-related behaviour. For example, the “Munich Chronotype  Questionnaire” [@roenneberg2003life], a popular self-report tool for identifying chronotypes via mid-sleep times, includes questions about the individual’s typical time spent outdoors on workdays and free days. The Visual Light Sensitivity Questionnaire-8 [@verriotto2017new] and Photosensitivity Assessment Questionnaire [@bossini2006sensibilita] are a couple of self-report tools measuring visual light sensitivity. They contain single items which probe the preference for specific light situations such as: “In the past month, how often did you need to wear dark glasses on cloudy days or indoors?” [@verriotto2017new];"I prefer rooms that are in semi-darkness."; [@bossini2006sensibilita]. In addition, the “Pittsburgh Sleep Quality Index” [@buysse1989pittsburgh], is a popular measure of sleep quality. It contains questions about bedtime and wake-up times, which are relevant to light exposure around bedtime. However, none of these questionnaires provides a scalable solution to capture light exposure-related behaviour in various lighting situations. To fill this gap, we here present the development process of a novel self-reported tool - the “Light Exposure Behaviour Assessment” (LEBA) - for characterizing diverse light exposure-related behaviours. 
 
 # Methods
 
@@ -434,7 +434,7 @@ Figure \@ref(fig:FlowchartFig) summarises the steps we followed while developing
 **Secondly**, the two rounds of data collection were administered. 
 **Thirdly**, we conducted descriptive and item analyses and proceeded to the exploratory factor analysis (EFA) using the "psych" package [@R-psych] on the data collected in the first round (EFA sample; n=`r nrow(EFA.descriptives)`), as a part of psychometric analysis. Prior to the EFA, the necessary assumptions, including sample adequacy, normality assumptions, and quality of correlation matrix, were assessed. As our data violated both the univariate and multivariate normality assumption and yielded ordinal response data, we used a polychoric correlation matrix in the EFA and employed "principal axis" (PA) as the factor extraction method [@desjardinsHandbookEducationalMeasurement2018; @watkinsStepbyStepGuideExploratory2020]. We applied a combination of methods, including a Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines: (i) no factors with fewer than three items (ii) no factors with a factor loading \<0.3 (iii) no items with cross-loading \> .3 across factors [@bandalosFactorAnalysisExploratory2018]. <!-- We also conducted an EFA on the non-merged response options data set (**Supplementary File 1**). -->
 
-For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates or ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total scale using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
+For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates for ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total scale using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
 
 To validate the latent structure obtained in the EFA, we conducted a categorical confirmatory factor analysis (CFA) with the weighted least squares means and variance adjusted (WLSMV) estimation [@desjardinsHandbookEducationalMeasurement2018], using the "lavaan" package [@R-lavaan] on the data collected in the second round (CFA sample; n=`r nrow(CFA.descriptives)`). We assessed the model fit using standard model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI): close to .95 or above/ between .90-.95 and above (iii) root mean square error of approximation (RMSEA): close to .06 or below, (iv) Standardized root mean square (SRMR): close to .08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015], and SRMR does not work well with ordinal data [@RN1272]. Consequently, we judged the model fit using CFI, TLI and RMSEA.
 
@@ -633,12 +633,7 @@ full.tab.1 %>%
 # header
   tab_header(
     title = md("Summary Descriptives (n=690)"),
-    subtitle = md("Items 01-24 ")) %>% 
-#create groups of columns
-tab_spanner(
-  label = "Item",
-  columns = Item:Stem
-) %>%
+    subtitle = md("Items 01-24 ")) %>%
   cols_align(
     align = "left",
     columns = Item:Stem
@@ -655,8 +650,6 @@ tab_spanner(
     label = "Response Pattern",
     columns = Never:Always
   ) %>%
-  
-
      tab_footnote(
      footnote = md("**Shapiro–Wilk test**"),
      locations = cells_column_labels(columns = `S-W Statistics`)
@@ -714,10 +707,10 @@ full.tab.2 %>%
     title = md("Summary Descriptives (n=690)"),
     subtitle = md("Items 25-48 ")) %>% 
 #create groups of columns
-tab_spanner(
-  label = "Item",
-  columns = Item:Stem
-) %>%
+# tab_spanner(
+#   label = "Item",
+#   columns = Item:Stem
+# ) %>%
   cols_align(
     align = "left",
     columns = Item:Stem
@@ -1379,8 +1372,8 @@ knitr::include_graphics('Figures/Figure4.png', dpi =600)
 
 ```
 
-Applying varimax rotation, we conducted three rounds of EFA with the initial 48 items and gradually discarded problematic items (cross-loading items and items with factor loading \<.30).
-Finally, a five-factor EFA solution with 25 items was accepted with all factor-loading higher than .30 and no cross-loading greater than .30. Table \@ref(tab:EFATable) displays the factor-loading (structural coefficients) and communality of the items. The absolute values of the factor-loadings ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)`, indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` and `r apa(max.com, 2, F)`. However, the histogram of the absolute values of nonredundant residual correlations (Figure \@ref(fig:efa-plot-print)-D) displayed that `r apa(sumR,0, T)`% of correlations were greater than the absolute value of .05, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution, where a factor with only two salient variables emerged, thus disqualifying the six-factor solution (**Supplementary Table 4**).
+Applying varimax rotation, we conducted three rounds of EFA with the initial 48 items and gradually discarded problematic items (cross-loading items and items with factor loading <.30).
+Finally, a five-factor EFA solution with 25 items was accepted with all factor-loading higher than .30 and no cross-loading greater than .30. Table \@ref(tab:EFATable) displays the factor-loading (structural coefficients) and communality of the items. The absolute values of the factor-loadings ranged from `r apa(min.loadings,2,F)` to `r apa(max.loadings, 2, F)`, indicating strong coefficients. The commonalities ranged between `r apa(min.com,2,F)` and `r apa(max.com, 2, F)`. However, the histogram of the absolute values of nonredundant residual correlations (Figure \@ref(fig:efa-plot-print)-D) displayed that `r sumR`% of correlations were greater than the absolute value of .05, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution, where a factor with only two salient variables emerged, thus disqualifying the six-factor solution (**Supplementary Table 4**).
 
 In the five-factor solution, the first factor contained three items and explained `r apa(var1,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F1.alpha,2,F)`. All the items in this factor encapsulated the individual's preference for using blue light filters in different light environments. The second factor contained six items and explained `r apa(var2,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F2.alpha,2,F)`. Items under this factor incorporated the individuals' hours spent outdoors. The third factor contained five items and explained `r apa(var3,2,F)`% of the total variance. Items under this factor covered the specific behaviours of using a phone and smartwatch in bed. The internal consistency reliability coefficient was ordinal $\alpha$ = `r apa(F3.alpha,2,F)`. The fourth factor comprised five items and explained `r apa(var4,2,F)`% of the total variance with an internal consistency coefficient, ordinal $\alpha$ = `r apa(F4.alpha,2,F)`. These five items investigated the behaviours related to the individual's light exposure before bedtime. The fifth factor encompassed six items and explained `r apa(var5,2,F)`% of the total variance. This factor captured the individual's morning and daytime light exposure-related behaviour. The internal consistency reliability yielded ordinal $\alpha$ = `r apa(F5.alpha,2,F)`. 
 
@@ -1559,10 +1552,10 @@ gt() %>%
   #   locations = cells_column_labels(columns = dens_data)
   # ) %>% 
 #create groups of columns
-tab_spanner(
-  label = "Items",
-  columns = Items
-) %>%
+# tab_spanner(
+#   label = "Items",
+#   columns = Items
+# ) %>%
   tab_spanner(
     label = "Summary Statistics",
     columns = nr:sd
@@ -1592,10 +1585,10 @@ cols_label(
   ) %>%
   opt_align_table_header(align = "left") %>%
 # add coloured dots and lines on the first column
-  gt_plt_dot(
-    mean,
-    Items,
-    palette = "ggthemes::fivethirtyeight") %>% 
+gt_plt_dot(
+  mean,
+  Items,
+  palette = "ggthemes::fivethirtyeight") %>%
   tab_row_group(
       label = md("**F5: Using light in the morning and during daytime**"),
       rows = c(1,3,12,13,22,23) 
@@ -2816,11 +2809,11 @@ IRT.details <- tibble::rownames_to_column(IRT.details, "Items")
 #F5.reliability <- plot(F5_fit, type = 'rxx', theta_lim = c(-6, 6), main="" )
 
 ##IRT reliability (marginal reliability of scales)
-#F1.marginal.rel <- marginal_rxx(F1_fit)
-#F2.marginal.rel <-marginal_rxx(F2_fit.redu)
-#F3.marginal.rel <-marginal_rxx(F3_fit.redu)
-#F4.marginal.rel <-marginal_rxx(F4_fit.redu)
-#F5.marginal.rel <-marginal_rxx(F5_fit)
+# F1.marginal.rel <- marginal_rxx(F1_fit)
+# F2.marginal.rel <-marginal_rxx(F2_fit.redu)
+# F3.marginal.rel <-marginal_rxx(F3_fit.redu)
+# F4.marginal.rel <-marginal_rxx(F4_fit.redu)
+# F5.marginal.rel <-marginal_rxx(F5_fit)
 
 
 # Plots2 ####

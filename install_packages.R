@@ -1,5 +1,5 @@
 
-#maintenance 
+#maintenance
 install.packages("devtools")
 install.packages("remotes")
 install.packages("usethis")
@@ -36,7 +36,7 @@ install.packages("lavaan")
 install.packages("semPlot")
 install.packages("semTable")
 install.packages("semTools")
-
+install.packages("seminr")
 ## Correlation
 install.packages("ggcorrplot")
 
@@ -63,8 +63,7 @@ install.packages("rsvg")
 #Addins
 devtools::install_github("crsh/citr")
 install.packages("questionr")
-install.packages("wordcountaddin")
-#Others
+devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)#Others
 install.packages("magick")
 
 #fonts
