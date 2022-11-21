@@ -1,5 +1,5 @@
 ---
-title             : "_Light Exposure Behaviour Assessment (LEBA)_: Development of a novel instrument to capture light exposure-related behaviours"
+title             : "An inventory of human light exposure related behaviour"
 shorttitle        : "LEBA"
 
 author: 
@@ -129,11 +129,11 @@ authornote: |
 
 
 abstract: |
-  Light exposure is an essential driver of health and well-being, and individual behaviours during rest and activity modulate physiologically-relevant aspects of light exposure. Further understanding the behaviours that influence individual photic exposure patterns may provide insight into volitional contributions to the physiological effects of light and guide bevavioral points of intervention.  Here, we present a novel, self-reported and psychometrically validated instrument to capture light exposure-related behaviour, the Light Exposure Behaviour Assessment (LEBA). 
+  Light exposure is an essential driver of health and well-being, and individual behaviours during rest and activity modulate physiologically-relevant aspects of light exposure. Further understanding the behaviours that influence individual photic exposure patterns may provide insight into volitional contributions to the physiological effects of light and guide bevavioral points of intervention.  Here, we present a novel, self-reported and psychometrically validated inventory to capture light exposure-related behaviour, the Light Exposure Behaviour Assessment (LEBA). 
   
   An expert panel prepared the initial 48-item pool spanning different light exposure-related behaviours. Responses, consisting of rating the frequency of engaging in the per-item behaviour on a 5-point Likert type scale, were collected in an online survey yielding responses from a geographically unconstrained sample (690 completed responses, 74 countries, 28 time zones). The exploratory factor analysis (EFA) on an initial subsample (n=428) rendered a five-factor solution with 25 items (Wearing blue light filters, spending time outdoors, using a phone and smartwatch in bed, using light before bedtime, using light in the morning and during daytime). In a confirmatory factor analysis (CFA) performed on an independent subset of participants (n=262), we removed two additional items to attain the best fit for the five-factor solution (CFI=0.95, TLI=0.95, RMSEA=0.06). The internal consistency reliability coefficient for the total instrument yielded McDonald’s Omega=0.68. Measurement model invariance analysis between native and non-native English speakers showed our model attained the highest level of invariance (residual invariance; CFI=0.95, TLI=0.95, RMSEA=0.05). Lastly, a short form of the LEBA (n=18) was developed using Item Response Theory on the complete sample (n=690). 
   
-  The psychometric properties of the LEBA instrument indicate the usability to measure light exposure-related behaviours. The instrument may offer a scalable solution to characterize behaviours that influence individual photic exposure patterns in remote samples. The LEBA instrument will be available under the open-access CC-BY-NC-ND license.
+  The psychometric properties of the LEBA indicate the usability to measure light exposure-related behaviours. The instrument may offer a scalable solution to characterize behaviours that influence individual photic exposure patterns in remote samples. The LEBA inventory will be available under the open-access CC-BY-NC-ND license.
 
 
   
@@ -250,6 +250,42 @@ apatheme=theme_bw()+
                                     fill = NA,
                                     size = 1))
 
+
+apatheme_2=theme_bw()+ #Figure 4
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x = element_text(size = 35),
+        axis.text.y = element_text(size = 35),
+        axis.title.x = element_text(size = 35),
+        axis.title.y = element_text(size = 35),
+        plot.title = element_text(size = 35),
+        legend.text = element_text(size =35),
+        legend.title=element_blank(),
+        axis.line.x = element_line(color='black'),
+        axis.line.y = element_line(color='black'),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+
+
+apatheme_3=theme_bw()+ #Figure 6
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x = element_text(size = 90),
+        axis.text.y = element_text(size = 90),
+        axis.title.x = element_text(size = 90),
+        axis.title.y = element_text(size = 90),
+        plot.title = element_text(size = 90),
+        legend.text = element_text(size =90),
+        legend.title=element_blank(),
+        axis.line.x = element_line(color='black'),
+        axis.line.y = element_line(color='black'),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+
 ```
 
 ---
@@ -268,7 +304,7 @@ An extensive body of scientific evidence suggests that the imbalance of light an
 
 On the other hand, several attempts have been made to quantify received light exposure subjectively with self-report questionnaires (**Supplementary Table 1**), bypassing the cost and intrusiveness issues. However, subjective light intensity assessments pose a new set of challenges: The human visual system constantly adapts to brightness [@hurvich_perception_1966], while the human non-visual light processing works largely subconsciously [@allen_exploiting_2018], making the self-report assessment of light properties potentially quite challenging. Retrospectively recalling the properties of a light source can further complicate such subjective evaluations. Moreover, measuring light properties alone does not yield any information about how individuals might behave differently regarding diverse light environments such  as work, home or outdoors. These measurement limitations point to a couple of research challenges we aim to take on here: How can we gain insight into light exposure patterns via self-report but circumvent directly inquiring about the specific properties and intensity of a light source? And how can we simultaneously assess how people habitually interact with the received light? We propose that these challenges can be tackled by assessing light-exposure-related behaviour. We argue that, besides measuring received light exposure as intensity, it is also essential to understand people's behaviours with respect to different light situations. In many cases, humans have become their own agents regarding their exposure to light or darkness through daylight and electric light, and as such people’s light exposure-related behaviours ultimately determine their light consumption and timing: People receive different light depending on their daily activities, including workplace habits, bedtime hygiene, pastime and social activities. Ultimately, in order to optimize lighting for human health and well being, better understanding of light-related behaviours will serve to identify additional points of intervention as well as to provide an added dimension to efficacy and implementation studies of novel lighting strategies. We argue that assessing these activities is a beneficial stepping stone for prospective behaviour change to maintain light hygiene: a proper balance of exposures to light to maintain circadian rhythms. 
 
-To date, little effort has been made to understand and capture these activities. **Supplementary Table 1** summarises the existing questionnaire literature assessing light exposure-related properties. However, only a few questions of these existing tools were associated with light exposure-related behaviour. For example, the “Munich Chronotype  Questionnaire” [@roenneberg2003life], a popular self-report tool for identifying chronotypes via mid-sleep times, includes questions about the individual’s typical time spent outdoors on workdays and free days. The Visual Light Sensitivity Questionnaire-8 [@verriotto2017new] and Photosensitivity Assessment Questionnaire [@bossini2006sensibilita] are a couple of self-report tools measuring visual light sensitivity. They contain single items which probe the preference for specific light situations such as: “In the past month, how often did you need to wear dark glasses on cloudy days or indoors?” [@verriotto2017new];"I prefer rooms that are in semi-darkness."; [@bossini2006sensibilita]. In addition, the “Pittsburgh Sleep Quality Index” [@buysse1989pittsburgh], is a popular measure of sleep quality. It contains questions about bedtime and wake-up times, which are relevant to light exposure around bedtime. However, none of these questionnaires provides a scalable solution to capture light exposure-related behaviour in various lighting situations. To fill this gap, we here present the development process of a novel self-reported tool - the “Light Exposure Behaviour Assessment” (LEBA) - for characterizing diverse light exposure-related behaviours. 
+To date, little effort has been made to understand and capture these activities. **Supplementary Table 1** summarises the existing questionnaire literature assessing light exposure-related properties. However, only a few questions of these existing tools were associated with light exposure-related behaviour. For example, the “Munich Chronotype  Questionnaire” [@roenneberg2003life], a popular self-report tool for identifying chronotypes via mid-sleep times, includes questions about the individual’s typical time spent outdoors on workdays and free days. The Visual Light Sensitivity Questionnaire-8 [@verriotto2017new] and Photosensitivity Assessment Questionnaire [@bossini2006sensibilita] are a couple of self-report tools measuring visual light sensitivity. They contain single items which probe the preference for specific light situations such as: “In the past month, how often did you need to wear dark glasses on cloudy days or indoors?” [@verriotto2017new];"I prefer rooms that are in semi-darkness."; [@bossini2006sensibilita]. In addition, the “Pittsburgh Sleep Quality Index” [@buysse1989pittsburgh], is a popular measure of sleep quality. It contains questions about bedtime and wake-up times, which are relevant to light exposure around bedtime. However, none of these questionnaires provides a scalable solution to capture light exposure-related behaviour in various lighting situations. To fill this gap, we here present the development process of a novel self-reported inventory - the “Light Exposure Behaviour Assessment” (LEBA) - for characterizing diverse light exposure-related behaviours. 
 
 # Methods
 
@@ -429,23 +465,23 @@ We collected the survey data between 17 May 2021 and 3 September 2021 – firstl
 ## Analytic Strategy
 
 Figure \@ref(fig:FlowchartFig) summarises the steps we followed while developing the LEBA. We conducted all analyses with the statistical software environment R [@R-base]. 
-**Firstly**, we set an item pool of 48 items with a six-point Likert-type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always) for our initial scale. Our purpose was to capture light exposure-related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never", provided similar information. As such, we collapsed them into one, making it a 5-point Likert-type response format (1-Never, 2-Rarely, 3-Sometimes, 4-Often, 5-Always).
+**Firstly**, we set an item pool of 48 items with a six-point Likert-type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always) for our initial inventory. Our purpose was to capture light exposure-related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never", provided similar information. As such, we collapsed them into one, making it a 5-point Likert-type response format (1-Never, 2-Rarely, 3-Sometimes, 4-Often, 5-Always).
 
 **Secondly**, the two rounds of data collection were administered. 
 **Thirdly**, we conducted descriptive and item analyses and proceeded to the exploratory factor analysis (EFA) using the "psych" package [@R-psych] on the data collected in the first round (EFA sample; n=`r nrow(EFA.descriptives)`), as a part of psychometric analysis. Prior to the EFA, the necessary assumptions, including sample adequacy, normality assumptions, and quality of correlation matrix, were assessed. As our data violated both the univariate and multivariate normality assumption and yielded ordinal response data, we used a polychoric correlation matrix in the EFA and employed "principal axis" (PA) as the factor extraction method [@desjardinsHandbookEducationalMeasurement2018; @watkinsStepbyStepGuideExploratory2020]. We applied a combination of methods, including a Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines: (i) no factors with fewer than three items (ii) no factors with a factor loading \<0.3 (iii) no items with cross-loading \> .3 across factors [@bandalosFactorAnalysisExploratory2018]. <!-- We also conducted an EFA on the non-merged response options data set (**Supplementary File 1**). -->
 
-For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates for ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total scale using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
+For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates for ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total inventory using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
 
 To validate the latent structure obtained in the EFA, we conducted a categorical confirmatory factor analysis (CFA) with the weighted least squares means and variance adjusted (WLSMV) estimation [@desjardinsHandbookEducationalMeasurement2018], using the "lavaan" package [@R-lavaan] on the data collected in the second round (CFA sample; n=`r nrow(CFA.descriptives)`). We assessed the model fit using standard model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI): close to .95 or above/ between .90-.95 and above (iii) root mean square error of approximation (RMSEA): close to .06 or below, (iv) Standardized root mean square (SRMR): close to .08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015], and SRMR does not work well with ordinal data [@RN1272]. Consequently, we judged the model fit using CFI, TLI and RMSEA.
 
 In order to evaluate whether the construct demonstrated psychometric equivalence and the same meaning across native English speakers (n=`r invariance.data.descriptives.count[1,2]`) and non-native English speakers (n=`r invariance.data.descriptives.count[2,2]`) in the CFA sample (n=`r nrow(CFA.descriptives)`) [@putnick2016measurement; @klinePrinciplesPracticeStructural2015] measurement invariance analysis was used. We used structural equation modelling framework applying the "lavaan" package [@R-lavaan] to assess the measurement invariance. We successively compared four nested models: configural, metric, scalar, and residual models using the $\chi^2$ difference test ($\Delta \chi^2$). Among MI models, the configural model is the least restrictive, and the residual model is the most restrictive. A non-significant $\Delta \chi^2$ test between two nested measurement invariance models indicates mode fit does not significantly decrease for the superior model, thus allowing the superior invariance model to be accepted [@dimitrov2010testing; @widaman1997exploring].
 
 
-**Fourthly**, in a secondary analysis, we identified the educational grade level (US education system) required to understand the items in our scale with the Flesch-Kincaid grade level identification method [@flesch1948new] applying the "koRpus" [@R-koRpus] package. Correspondingly, we analysed possible semantic overlap of our developed scale using the ["Semantic Scale Network" (SSN)](https://rosenbusch.shinyapps.io/semantic_net/) engine [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides a cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pairs of scales with a cosine similarity index value of 1 inidicate full semantical similarity, suggesting redundancy.
+**Fourthly**, in a secondary analysis, we identified the educational grade level (US education system) required to understand the items in our inventory with the Flesch-Kincaid grade level identification method [@flesch1948new] applying the "koRpus" [@R-koRpus] package. Correspondingly, we analysed possible semantic overlap of our developed inventory using the ["Semantic Scale Network" (SSN)](https://rosenbusch.shinyapps.io/semantic_net/) engine [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides a cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pairs of scales with a cosine similarity index value of 1 inidicate full semantical similarity, suggesting redundancy.
 
 **Lastly**, we derived a short form of the LEBA employing an Item Response Theory (IRT) based analysis. We fitted each factor of the LEBA to the combined EFA and CFA sample (n=`r nrow(sem.data)`) using the graded response model [@samejima1997handbook] via the "mirt" package [@R-mirt]. IRT assesses the item quality by estimating the item discrimination, item difficulty, item information curve, and test information curve [@bakerBasicsItemResponse2017]. Item discrimination indicates how well a particular item can differentiate between participants across the given latent trait continuum ($\theta$). Item difficulty corresponds to the latent trait level at which the probability of endorsing a particular response option is 50%. The item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item difficulty and discrimination parameter and categorized the items based on their item discrimination index: (i) none = 0; (ii) very low = 0.01 to 0.34; (iii) low = 0.35 to 0.64; (iv) moderate = 0.65 to 1.34 ; (v) high = 1.35 to 1.69; (vi) very high \>1.70 [@bakerBasicsItemResponse2017]. We discarded the items with a relatively flat item information curve (information \<.2) to derive the short form of LEBA. We also assessed the precision of the short LEBA utilizing the test information curve (TIC). TIC indicates the amount of information a particular scale carries along the latent trait continuum. Additionally, the item and person fit of the fitted IRT models were analysed to gather more evidence on the validity and meaningfulness of our scale [@desjardinsHandbookEducationalMeasurement2018]. The item fit was evaluated using the RMSEA value obtained from Signed-$\chi^2$ index implementation, where an RMSEA value $\le$.06 was considered an adequate item fit. The person fit was estimated employing the standardized fit index Zh statistics [@drasgow1985appropriateness]. Here, Zh \< -2 was considered as a misfit [@drasgow1985appropriateness].
 
-```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Flow chart of the LEBA (long and short form) development and evaluation. ', out.height='100%', out.width='100%'}
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Flow chart of the LEBA (long and short form) development and evaluation. ', out.height='50%', out.width='50%'}
 knitr::include_graphics('Figures/Figure1.png', dpi = 600 )
 ```
 
@@ -455,17 +491,17 @@ The current research project utilizes fully anonymous online survey data and the
 
 ## Data Availability
 
-The present article is a fully reproducible open access "R Markdown" document. All code and data underlying this article -- along with two versions of the LEBA questionnaire (full and short) and online survey implementation templates on common survey platforms -- will be available under open-access licence (CC-BY-NC-ND) on a public [GitHub repository](https://github.com/leba-instrument).
+The present article is a fully reproducible open access "R Markdown" document. All code and data underlying this article -- along with two versions of the LEBA inventory (full and short) and online survey implementation templates on common survey platforms -- will be available under open-access licence (CC-BY-NC-ND) on a public [GitHub repository](https://github.com/leba-instrument).
 
 # Results
 
-## Development of the Initial Scale
+## Development of the Initial Inventory
 
-An expert panel comprising all authors -- researchers from chronobiology, light research, neuroscience and psychology -- developed a comprehensive item pool of 48 items. The 48 items were examined independently based on their relevance and representativeness of the construct "Light Exposure Related Behaviour" by each panel member, and modifications were suggested as required. The author team discussed the suggestions and amended the items as indicated, thus creating a 48-item scale. 
+An expert panel comprising all authors -- researchers from chronobiology, light research, neuroscience and psychology -- developed a comprehensive item pool of 48 items. The 48 items were examined independently based on their relevance and representativeness of the construct "Light Exposure Related Behaviour" by each panel member, and modifications were suggested as required. The author team discussed the suggestions and amended the items as indicated, thus creating a 48-item inventory. 
 
 ## Anonymous Online Survey
 
-Table 1 summarises the survey participants' demographic characteristics. Only participants completing the full LEBA questionnaire were included. Thus, there are no missing values in the item analyses. (XXX??) participants were excluded from the analysis due to not passing at least one of the "attention check" items. For the EFA, a sample of at least 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. To assess sampling adequacy for CFA, we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where at least ten participants per item are required to earn trustworthiness of the result. Both our EFA and CFA sample size exceeded these requirements. Participants indicated filling out the online survey from various geographic locations, including `r nrow(num.countries)` countries and `r nrow(numUTC)` time zones. For a complete list of geographic locations, see **Supplementary Table 2**.
+Table 1 summarises the survey participants' demographic characteristics. Only participants completing the full LEBA inventory were included. Thus, there are no missing values in the item analyses. (XXX??) participants were excluded from the analysis due to not passing at least one of the "attention check" items. For the EFA, a sample of at least 250-300 is recommended [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. To assess sampling adequacy for CFA, we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where at least ten participants per item are required to earn trustworthiness of the result. Both our EFA and CFA sample size exceeded these requirements. Participants indicated filling out the online survey from various geographic locations, including `r nrow(num.countries)` countries and `r nrow(numUTC)` time zones. For a complete list of geographic locations, see **Supplementary Table 2**.
 
 Participants in our survey were aged between `r min(desctable.data$slypos_demographics_age)` to `r max(desctable.data$slypos_demographics_age)` years, with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 2)` years of age [Overall: `r mean(desctable.data$slypos_demographics_age)`±`r sd(desctable.data$slypos_demographics_age)`; EFA: `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`±`r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`±`r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In total, `r desc_tibble[3,2]` of the participants indicated female sex, `r desc_tibble[4,2]` indicated male, and `r desc_tibble[5,2]` indicated other sex. Overall, `r desc_tibble[6,2]` participants reported a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample (`r desc_tibble[9,2]`) reported that they currently work, whereas `r desc_tibble[10,2]` reported that they go to school, and `r desc_tibble[11,2]` responded that they do "Neither". With respect to the COVID-19 pandemic, we asked participants to indicate their occupational setting during the last four weeks: In the overall sample, `r desc_tibble[13,2]` of the participants indicated that they were in a home office/ home schooling setting, `r desc_tibble[14,2]` reported face-to-face work/schooling, `r desc_tibble[15,2]`  reported a combination of home- and face-to-face work/schooling, and `r desc_tibble[16,2]`  filled in the "Neither (no work or school, or on vacation)" response option.
 
@@ -1062,18 +1098,16 @@ corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order =
                       # insig = "blank",
            ggtheme = ggplot2::theme_minimal(),tl.srt = 90,  colors = c("#E64B35FF", "white", "#3C5488FF") )+
   theme( panel.grid.major = element_blank(),
-         axis.text.x = element_text(size = 90),
-         axis.text.y = element_text(size = 90),
-         legend.text=element_text(size =90),
-         legend.title = element_text(size =90),
+         axis.text.x = element_text(size = 35),
+         axis.text.y = element_text(size = 35),
+         legend.text=element_text(size =35),
+         legend.title = element_text(size =35),
+          plot.title = element_text(size = 35),
          panel.border = element_rect(color = "black",
                                     fill = NA,
-                                    size = 1))
-        # legend.position = 'right', 
-        # legend.spacing.x = unit(0.5, 'cm'),
-        # legend.text = element_text(margin = margin(t = 10)))
-#to show pvalue in the fig add p.mat=p.mat
-# ggsave("Figures/corplot.png",corplot, width = 12, height = 8.5, dpi = 300, bg ="white")
+                                    size = 1))+labs(title = "(A)")
+
+
 
 ```
 
@@ -1155,7 +1189,11 @@ scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
   #geom_point(data = PA.Scree, size=3)+
   scale_y_continuous(name="Eigen Value", limits=c(0, 5), breaks=seq(0,5,1)) +
   scale_x_continuous(name="Factor Number", limits=c(0, 18),breaks=c(0,6,18))+
-  geom_hline(yintercept=1, linetype = 'dashed') + apatheme +theme(legend.position = "None")
+  geom_hline(yintercept=1, linetype = 'dashed') + apatheme_2 +theme(legend.position = "None")+labs(title= "(B)")
+# ggsave("Figures/scree.plot.png",scree.plot, width = 4, height =4, dpi = 600,bg = "white", unit ="in")
+
+
+
 #text = element_text(size = 25
 
 ```
@@ -1168,10 +1206,10 @@ EFA.MRFA::hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, gra
         details = TRUE)
 hull <- ggplot2::last_plot()
 Hull <- hull+ ggtitle(NULL)+xlab("Factor Number")+ylab("CAF")+ aes(color = '#DC000099')+geom_point(color ='#3C5488FF',size =1)+
-  apatheme +theme(legend.position = "None") +scale_fill_identity()+
-  scale_x_continuous(breaks=c(0,5,12))
+  apatheme_2 +theme(legend.position = "None") +scale_fill_identity()+
+  scale_x_continuous(breaks=c(0,5,12))+labs(title= "(C)")
 
-
+# ggsave("Figures/Hull.png",Hull, width = 4, height =4, dpi = 600,bg = "white")
 
 
 ```
@@ -1188,7 +1226,7 @@ full.map <- cbind(map.map,map.statistics)
 write.csv(full.map, "Table_raw/map_stat.csv")
 ```
 
-Inspection via the Scree plot ( Figure \@ref(fig:efa-plot-print)-B) suggested a six-factor solution, whereas the minimum average partial (MAP) method [@velicerDeterminingNumberComponents1976] (**Supplementary Table 3**) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:efa-plot-print)-C) implied a five-factor solution for the LEBA questionnaire. As a result, we tested both five-factor and six-factor solutions.
+Inspection via the Scree plot ( Figure \@ref(fig:efa-plot-print)-B) suggested a six-factor solution, whereas the minimum average partial (MAP) method [@velicerDeterminingNumberComponents1976] (**Supplementary Table 3**) and Hull method [@lorenzo-sevaHullMethodSelecting2011] ( Figure \@ref(fig:efa-plot-print)-C) implied a five-factor solution for the LEBA inventory. As a result, we tested both five-factor and six-factor solutions.
 
 ```{r EFA, include=FALSE}
 #This chunk holds code for five factor EFA (pa-varimax)
@@ -1328,45 +1366,35 @@ sumR <- sum(BigRR/totRR*100)
 res.dat <- as.data.frame(unclass(residual.5F))
 residual.data <- as.data.frame(gather(res.dat, Items, Residuals))
 
-residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill="#00A08799") + xlim(-.2,.2)+ ylim(0,250)+apatheme +geom_vline(xintercept = .05)+
-  labs( y="Frequency")
+residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill="#00A08799") + xlim(-.2,.2)+ ylim(0,250)+apatheme_2 +geom_vline(xintercept = .05)+
+  labs( y="Frequency",title = "(D)")
+
+# ggsave("Figures/residual.plot.png",residual.plot, width = 4, height =4, dpi = 600,bg = "white")
+
 
 ```
 
-```{r efa-plot, eval=FALSE, include=FALSE}
-#Not in use. Figure developed using illustrator.
+```{r efa-plot, include=FALSE}
+
 #This chunk holds code for compiled factor identification plots
 
-cor.scree <- cowplot::plot_grid(corplot, scree.plot,
-                                labels = c("A", "B"),
-                                nrow =1, ncol =2,
-                                rel_widths = c(2, 1),
-                                label_fontfamily = "Arial",
-                  label_fontface = "plain")
+library(patchwork)
 
-hull.residual <- cowplot::plot_grid(Hull, residual.plot,
-                                labels = c("C", "D"),
-                                nrow =1, ncol =2,
-                                                                label_fontfamily = "Arial",
-                  label_fontface = "plain")
+# all_plot <-corplot|(Hull|scree.plot)/residual.plot
+# ggsave("Figures/all_plot.png",all_plot, width = 16, height = 8, dpi = 600, bg = "white")
 
-efa.plot <- cowplot::plot_grid(cor.scree, hull.residual,
-                               
-                                nrow =2)
+all_plot_2 <-corplot|(scree.plot|Hull)/residual.plot
+# all_plot_3 <-corplot|(scree.plot|Hull)/(residual.plot|plot_spacer())
+
+ggsave("Figures/Figure4.png",all_plot_2, width = 8, height = 4, dpi = 600, bg = "white", units = "in")
 
 
-# efa.plot <- cowplot::plot_grid(corplot , scree.plot,Hull, residual.plot,
-#                    labels = "AUTO",
-#                    ncol=2,nrow=2, 
-#                   align = "v", 
-#                   label_fontfamily = "Arial",
-#                   label_fontface = "plain")
-ggsave("Figures/Figure4.png",efa.plot, width = 7, height = 8, dpi = 600, bg = "white")
+
 ```
 
 (ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than \|.30\|. 'x' denotes a non-significant item-total correlation. (B) The Scree plot suggested six factors. (C) Hull method indicated that five factors were required to balance the model fit and number of parameters. (D) The histogram of nonredundant residual correlations indicated that 26% of inter-item correlations were higher than .05, hinting at a possible under-factoring.
 
-```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE,  out.height='60%', out.width='110%'}
+```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE,  out.height='130%', out.width='100%'}
 
 knitr::include_graphics('Figures/Figure4.png', dpi =600)
 
@@ -1377,7 +1405,7 @@ Finally, a five-factor EFA solution with 25 items was accepted with all factor-l
 
 In the five-factor solution, the first factor contained three items and explained `r apa(var1,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F1.alpha,2,F)`. All the items in this factor encapsulated the individual's preference for using blue light filters in different light environments. The second factor contained six items and explained `r apa(var2,2,F)`% of the total variance with an internal reliability coefficient ordinal $\alpha$ = `r apa(F2.alpha,2,F)`. Items under this factor incorporated the individuals' hours spent outdoors. The third factor contained five items and explained `r apa(var3,2,F)`% of the total variance. Items under this factor covered the specific behaviours of using a phone and smartwatch in bed. The internal consistency reliability coefficient was ordinal $\alpha$ = `r apa(F3.alpha,2,F)`. The fourth factor comprised five items and explained `r apa(var4,2,F)`% of the total variance with an internal consistency coefficient, ordinal $\alpha$ = `r apa(F4.alpha,2,F)`. These five items investigated the behaviours related to the individual's light exposure before bedtime. The fifth factor encompassed six items and explained `r apa(var5,2,F)`% of the total variance. This factor captured the individual's morning and daytime light exposure-related behaviour. The internal consistency reliability yielded ordinal $\alpha$ = `r apa(F5.alpha,2,F)`. 
 
-Lastly, we examined the factor's interpretability in the five-factor solution and weighed it against the psychometric properties as we considered it essential to attain a balance between the two. As we deemed the five derived factors interpretable and relevant concerning our aim to capture light exposure-related behaviour, we retained all of them with 25 items for our confirmatory factor analysis (CFA), despite the apparent lower reliability of the fifth factor. Two of the items showed negative factor-loading (item 08: `r Hmisc::label(data$slypos_leba_08)` and item 37: `r Hmisc::label(data$slypos_leba_37)`). Upon re-inspection, we recognized these items to be negatively correlated to the respective factor, and thus, we reverse-scored these two items in the CFA analysis. The internal consistency coefficient McDonald's $\omega_t$ for the total scale was `r apa(omega$omega.tot,2,T)`.
+Lastly, we examined the factor's interpretability in the five-factor solution and weighed it against the psychometric properties as we considered it essential to attain a balance between the two. As we deemed the five derived factors interpretable and relevant concerning our aim to capture light exposure-related behaviour, we retained all of them with 25 items for our confirmatory factor analysis (CFA), despite the apparent lower reliability of the fifth factor. Two of the items showed negative factor-loading (item 08: `r Hmisc::label(data$slypos_leba_08)` and item 37: `r Hmisc::label(data$slypos_leba_37)`). Upon re-inspection, we recognized these items to be negatively correlated to the respective factor, and thus, we reverse-scored these two items in the CFA analysis. The internal consistency coefficient McDonald's $\omega_t$ for the total inventory was `r apa(omega$omega.tot,2,T)`.
 
 ```{r EFATable, results='asis'}
 
@@ -1394,6 +1422,7 @@ library(png)
 library(cowplot)
 
 img1 <- png::readPNG("Figures/EFAplot.png")
+ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200)
 
 
 
@@ -1741,7 +1770,7 @@ Table \@ref(tab:tabCfa) compares the CFA fit indices of the original CFA five-fa
 
 In order to improve the model fit, we conducted a post-hoc model modification. Firstly, the  modification indices suggested cross-loadings between item 37 and 26 [item 37: I purposely leave a light on in my sleep environment while sleeping; item 26: I turn on my ceiling room light when it is light outside], which were hence discarded.  Secondly, items 30 and 41 [item 30: I look at my smartwatch within 1 hour before attempting to fall asleep; item 41: I look at my smartwatch when I wake up at night] showed a tendency to co-vary in their error variance (MI = 141.127, p<.001 ). By allowing the latter pair of items (30 $\&$ 41) to co-vary, the model's error variance attained an improved fit (CFI =`r apa(fit.2[5],2,F)`; TLI = `r apa(fit.2[6],2,F)`); RMSEA = `r apa(fit.2[7],2,F)` [`r apa(fit.2[8],2,F)`-`r apa(fit.2[9],2,F)`, 90% CI]; SRMR = `r apa(fit.2[10],2,F) `).  
 
-Accordingly, we accept the five-factor model with 23 items, finalizing the long Form of LEBA (see **Supplementary File 1**). Internal consistency ordinal $\alpha$ for the five factors of the LEBA were `r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`, respectively. The Internal consistency McDonald's $\omega_t$ coefficient for the total scale yielded `r apa(rel.k[5,6],2,F)`. Figure \@ref(fig:figcfa) depicts the obtained CFA structure, while  **Supplementary Figure 2** depicts the data distribution and endorsement pattern of the retained 23 items in our CFA sample.
+Accordingly, we accept the five-factor model with 23 items, finalizing the long Form of LEBA (see **Supplementary File 1**). Internal consistency ordinal $\alpha$ for the five factors of the LEBA were `r apa(rel.k[2,1],2,F)`, `r apa(rel.k[2,2],2,F)`, `r apa(rel.k[2,3],2,F)`, `r apa(rel.k[2,4],2,F)`, `r apa(rel.k[2,5],2,F)`, respectively. The Internal consistency McDonald's $\omega_t$ coefficient for the total inventory yielded `r apa(rel.k[5,6],2,F)`. Figure \@ref(fig:figcfa) depicts the obtained CFA structure, while  **Supplementary Figure 2** depicts the data distribution and endorsement pattern of the retained 23 items in our CFA sample.
 
 ```{r cfaMat, results='asis'}
 #This chunk holds codes to create CFA output table (better options are avaiable at 'tabledown' package)
@@ -2015,7 +2044,7 @@ readability <- readability(ques,
 ```
 
 ## Developing a Short Form of LEBA: IRT-Based Analysis
-In order to derive a short form of the LEBA instrument, we fitted each factor of the LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n=690). The resulting item discrimination parameters of the scale fell into categories of "very high" (10 items), "high" (4 items), "moderate" (4 items), and "low" ( 5 items), indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 6**). An examination of the item information curve (**Supplementary Figure 3**) revealed five items (1, 25, 30, 38, & 41) with relatively flat curves (I($\theta$) \<.20). We discarded those items, culminating in a short form of LEBA with five factors and 18 items (**Supplementary File 2**).
+In order to derive a short form of the LEBA inventory, we fitted each factor of the LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n=690). The resulting item discrimination parameters of the inventory fell into categories of "very high" (10 items), "high" (4 items), "moderate" (4 items), and "low" ( 5 items), indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 6**). An examination of the item information curve (**Supplementary Figure 3**) revealed five items (1, 25, 30, 38, & 41) with relatively flat curves (I($\theta$) \<.20). We discarded those items, culminating in a short form of LEBA with five factors and 18 items (**Supplementary File 2**).
 
 ```{r IRTdata, include=FALSE}
 #This chunk holds codes for preparing IRT data and 1st IRT model fitting
@@ -2896,35 +2925,35 @@ TIC <- ggplot(Test.data.2,aes(Theta,value))+geom_line(size = 1)+apatheme+
 
 
 F1.tic <- ggplot(F1.test.data, aes(x=Theta, y=F1.T1)) +
-  geom_line()+apatheme+
+  geom_line()+apatheme_3+
   labs(y="Test Information", title = "F1: Wearing blue light filters")+geom_area()+theme(legend.position = "none")+
   aes(fill =  "#E64B3599")+
      scale_fill_identity()+xlab(expression(theta)) + 
   ylab(expression(I(theta)))
 
 F2.tic <- ggplot(F2.test.data, aes(x=Theta, y=F2.T1)) +
-  geom_line()+apatheme+
+  geom_line()+apatheme_3+
   labs(y="Test Information", title = "F2: Spending time outdoors")+ylim(0,8)+
   geom_area()+aes(fill =  "#4DBBD599")+theme(legend.position = "none")+
      scale_fill_identity()+xlab(expression(theta)) + 
   ylab(expression(I(theta)))
 
 F3.tic <- ggplot(F3.test.data, aes(x=Theta, y=F3.T1)) +
-  geom_line()+apatheme+
+  geom_line()+apatheme_3+
   labs(y="Test Information", title = "F3: Using phone and smartwatch in bed")+ylim(0,8)+
   geom_area()+aes(fill =  "#00A08799")+theme(legend.position = "none")+
      scale_fill_identity()+xlab(expression(theta)) + 
   ylab(expression(I(theta)))
 
 F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
-  geom_line()+apatheme+
+  geom_line()+apatheme_3+
   labs(y="Test Information", title = "F4: Using light before bedtime")+
   geom_area()+aes(fill =  "#3C548899")+theme(legend.position = "none")+
      scale_fill_identity()+xlab(expression(theta)) + 
   ylab(expression(I(theta)))
 
 F5.tic <- ggplot(F5.test.data, aes(x=Theta, y=F5.T1)) +
-  geom_line()+apatheme+
+  geom_line()+apatheme_3+
   labs(y="Test Information", title = "F5:Using light in the morning and during daytime") +ylim(0,8)+geom_area()+aes(fill =  "#B09C8599")+theme(legend.position = "none")+
 scale_fill_identity()+xlab(expression(theta)) + 
   ylab(expression(I(theta)))
@@ -2934,22 +2963,22 @@ scale_fill_identity()+xlab(expression(theta)) +
 
 TIC.plot <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
                                    F4.tic,F5.tic,
-                   labels = "AUTO",
+                   labels = c("(A)", "(B)", "(C)", "(D)", "(E)"),
                      align="v",
                      ncol = 3,
-                     label_size = 60,
+                     label_size = 90,
                      label_fontfamily = "Arial",
                      label_fontface = "plain")
 ggsave("Figures/Figure6.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = "white")
 
 ```
 
-```{r Testinfo, fig.env = "sidewaysfigure", fig.cap="Test information curves for the five factors of LEBA: (a) wearing blue light filters (b) spending time outdoors (c) using a phone and smartwatch in bed (d) using light before bedtime (e) using light in the morning and during daytime. Along the x-axis, we plotted the underlying latent trait continuum for each factor. Along the y-axis, we plotted how much information a particular factor is carrying across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
+```{r Testinfo,  fig.cap="Test information curves for the five factors of LEBA: (A) wearing blue light filters (B) spending time outdoors (C) using a phone and smartwatch in bed (D) using light before bedtime (E) using light in the morning and during daytime. Along the x-axis, we plotted the underlying latent trait continuum for each factor. Along the y-axis, we plotted how much information a particular factor is carrying across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
 
 knitr::include_graphics('Figures/Figure6.png', dpi =600)
 ```
 
-Subsequently, we treated each factor of the short-LEBA as a unidimensional construct and obtained five test information curves (TICs). As Figure \@ref(fig:Testinfo) illustrates, the TICs of the first and fifth factors peaked on the right side of the centre of their latent traits, while the TICs of the other three factors were roughly centred on the respective trait continuum ($\theta$). This points out that the LEBA short-scale estimates the light exposure-related behaviour most precisely near the centre of the trait continuum for the second, third and fourth factors and, in contrast, to the right of the centre for the first and fifth factors [@bakerBasicsItemResponse2017].
+Subsequently, we treated each factor of the short-LEBA as a unidimensional construct and obtained five test information curves (TICs). As Figure \@ref(fig:Testinfo) illustrates, the TICs of the first and fifth factors peaked on the right side of the centre of their latent traits, while the TICs of the other three factors were roughly centred on the respective trait continuum ($\theta$). This points out that the LEBA short-form estimates the light exposure-related behaviour most precisely near the centre of the trait continuum for the second, third and fourth factors and, in contrast, to the right of the centre for the first and fifth factors [@bakerBasicsItemResponse2017].
 
 Finally, **Supplementary Table 7** summarises the item fit indexes of the LEBA short form. All 18 items yielded RMSEA value $\le$.06, indicating an adequate fit to the fitted IRT model. Furthermore, **Supplementary Figure 4** depicts the person fit Zh statistics histogram for the five IRT models. Zh statistics are larger than -2 for most participants, suggesting a good person fit regarding the selected IRT models.
 
@@ -3193,12 +3222,12 @@ apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtai
 # Discussion
 Today, in most industrialized countries, the vast majority of time is spent in built environments [@Klepeis.2001], where photic exposure patterns are determined not only by the solar cycle but by electrical light sources as well. As a consequence, light received may vary considerably, in terms of timing, intensity and spectrum, all of which are subject to the further influence of individual behaviours. [reviewed in @Bedrosian.2017;@lok2018light; @siraji2021effects; @blume_effects_2019; @paul_direct_2019; @santhi_applications_2020; @zele_editorial_2020; @vetter2022review]. Thus, there is a clear need for guidance [@Brown.2022] and assessment regarding healthy light exposure and consequentially healthy light-related behaviour. 
 
-In reviewing the literature, we found that a handful of previously introduced instruments assess aspects of light exposure by self-report (see **Supplementary Table 1**). Few studies to date have attempted to assess light exposure by self-report. That body of research becomes even smaller when limiting it to those focusing on <behaviours> that influence photic exposure patterns, and typically these home in only on particular behaviours of interest, such as estimates of time spent outside [@roenneberg2003life] or preferences for specific lighting situations [@bossini2006sensibilita]. To our knowledge, there is no questionnaire in existence that captures behaviours that modify light exposure across different scenarios in a comprehensive way.  With the present LEBA tool, we have developed two versions of a self-report scale that can capture light exposure-related behaviours in multiple dimensions.
+In reviewing the literature, we found that a handful of previously introduced instruments assess aspects of light exposure by self-report (see **Supplementary Table 1**). Few studies to date have attempted to assess light exposure by self-report. That body of research becomes even smaller when limiting it to those focusing on <behaviours> that influence photic exposure patterns, and typically these home in only on particular behaviours of interest, such as estimates of time spent outside [@roenneberg2003life] or preferences for specific lighting situations [@bossini2006sensibilita]. To our knowledge, there is no questionnaire in existence that captures behaviours that modify light exposure across different scenarios in a comprehensive way. We have developed two versions of a self-report inventory-LEBA, that can capture light exposure-related behaviours in multiple dimensions.
 
 
 The 48 generated items were applied in a large-scale, geographically unconstrained, cross-sectional study, yielding `r nrow(data)` completed surveys. To assure high data quality, participant responses were only included when the five “attention check items” throughout the survey were passed. Ultimately, data was recorded from `r nrow(num.countries)` countries and `r nrow(numUTC)` time zones, including native and non-native English speakers from a sex-balanced and age-diverse sample (see Table 1). The acquired study population complied with our objective to avoid bias from a selective sample, which is crucial when relying on voluntary uncompensated participation.
 
-Data collected in the first round was used to explore the latent structure (EFA sample; n=`r nrow(EFA.descriptives)`). The exploratory factor analysis revealed a highly interpretable five-factor solution ("Wearing blue light filters", "Spending time outdoors", "Using phone and smartwatch in bed", "Using light before bedtime", and "Using light in the morning and during daytime") with 25 items. Our CFA analysis (CFA sample; n=`r nrow(CFA.descriptives)`) confirmed the five-factor structure we obtained in our EFA, thus providing evidence for structural validity.(CFI=`r apa(fit.2[5],2,F)`; TLI=`r apa(fit.2[6],2,F)`; RMSEA=`r apa(fit.2[7],2,F)`). In this model, we discarded two more items (item 26 $\&$ 37 ) for possible cross-loadings. As a rule of thumb, reliability coefficients higher than .70 are regarded as “satisfactory”. However, at the early developmental stage, a value of .50 is considered acceptable [@dall2010developmental; @field2013discovering; @Nunnally1978]. Thus, we confer, the internal consistency coefficients ordinal alpha for the five factors and the total scale were satisfactory (Ordinal alpha ranged between `r apa(min(rel.k[2,(1:5)]),2,T)` to `r apa(max(rel.k[2,(1:5)]),2,T)`; McDonald's $\omega_t$=`r apa(rel.k[5,6],2,F)`). 
+Data collected in the first round was used to explore the latent structure (EFA sample; n=`r nrow(EFA.descriptives)`). The exploratory factor analysis revealed a highly interpretable five-factor solution ("Wearing blue light filters", "Spending time outdoors", "Using phone and smartwatch in bed", "Using light before bedtime", and "Using light in the morning and during daytime") with 25 items. Our CFA analysis (CFA sample; n=`r nrow(CFA.descriptives)`) confirmed the five-factor structure we obtained in our EFA, thus providing evidence for structural validity.(CFI=`r apa(fit.2[5],2,F)`; TLI=`r apa(fit.2[6],2,F)`; RMSEA=`r apa(fit.2[7],2,F)`). In this model, we discarded two more items (item 26 $\&$ 37 ) for possible cross-loadings. As a rule of thumb, reliability coefficients higher than .70 are regarded as “satisfactory”. However, at the early developmental stage, a value of .50 is considered acceptable [@dall2010developmental; @field2013discovering; @Nunnally1978]. Thus, we confer, the internal consistency coefficients ordinal alpha for the five factors and the total inventory were satisfactory (Ordinal alpha ranged between `r apa(min(rel.k[2,(1:5)]),2,T)` to `r apa(max(rel.k[2,(1:5)]),2,T)`; McDonald's $\omega_t$=`r apa(rel.k[5,6],2,F)`). 
 
 The results of the measurement invariance analysis indicate that the construct "Light exposure-related behaviour" is equivalent across native and non-native English speakers and thus suitable for assessment in both groups. Furthermore, according to the grade level identification method, the LEBA appears understandable for students at least 8.33 years of age visiting grade four or higher. Interestingly, the semantic similarity analysis ("Semantic Scale Network" database @rosenbusch2020semantic) revealed that the "LEBA" is semantically related to the "Sleep Disturbance Scale For Children" (SDSC) [@bruni1996sleep] and the "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. Upon inspecting the questionnaire contents, we found that some items in the factors "Using phone and smartwatch in bed" and "Using light before bedtime" have semantic overlap with the SDSC’s and CIDI’s items. However, while the CIDI and the SDSC capture various clinically relevant sleep problems and related activities, the LEBA aims to assess light-exposure-related behaviour. Since light exposure at night has been shown to influence sleep negatively [@Brown.2022; @santhi_applications_2020], this overlap confirms our aim to measure the physiologically relevant aspects of light-exposure-related behaviour. Nevertheless, the general objectives of the complete questionnaires and the LEBA differ evidently.
 
@@ -3210,25 +3239,26 @@ Findings from the Item and person fit index analysis demonstrate that all five f
 
 We acknowledge that this work is limited concerning the following aspects:
 
-- The fifth factor: "using light in the morning and during daytime" exhibited low internal consistency both in the exploratory and confirmatory factor analysis (EFA: `r apa(F5.alpha,2,F)`; CFA:`r apa(rel.k[2,5],2,F)` ). Since, it was above .50, considering the developmental phase of this scale we accepted the fifth factor. 
+- The fifth factor: "using light in the morning and during daytime" exhibited low internal consistency both in the exploratory and confirmatory factor analysis (EFA: `r apa(F5.alpha,2,F)`; CFA:`r apa(rel.k[2,5],2,F)` ). Since, it was above .50, considering the developmental phase of this inventory we accepted the fifth factor. This particular factor captures our behaviour related to usages of light in the morning and daytime. Since, light exposure during morning and daytime influences our alertness and cognition [@lok2018light; @siraji2021effects], we deemed capturing these behaviours is essential for the sake of completeness of our inventory. However, the possibility of improving the reliability should be investigated further by adding more appropriate and relevant items to this factor.
+
+
 - During the post-hoc model modification, as part of the confirmatory factor analysis, we discarded two items (item 26 $\&$ 37 ) for possible cross-loadings, as demonstrated in the data. However, two additional items covaried in their error variance. By allowing the latter pair (30 $\&$ 41) to covary, the model attained an improved fit ( **Figure 5**). A possible explanation for the covariation is that many respondents might not have used a smartwatch at all, resulting in similar response patterns between these two items. Thus, though rather unconventional, we decided to accept this post-hoc modification to our five-factor model.
-- The habitual patterns queried in the developed scales might not exhaustively represent all relevant light-exposure-related behaviours. For instance, it is conceivable that additional light-related activities not included in the LEBA depend on the respondents' profession/occupation, geographical context, and socio-economic status. However, we generated the initial item pool with an international team of researchers and followed a thorough psychometric analysis. Therefore, we are confident that the developed LEBA scales can serve as a good starting point for exploring the light exposure related behaviours in more depth and inform room for modification of light exposure-related behaviour to improve light hygiene.
-- As with all studies relying on retrospective self-report data, individuals filling in the LEBA may have difficulties precisely recalling the inquired light-related behaviours. In the interest of bypassing a substantial memory component, we limited the recall period to four weeks and chose response options that do not require exact memory recall. In contrast to directly assessing light properties via self-report, we assume that reporting behaviours might be more manageable for inexperienced laypeople, as the latter does not rely on existing knowledge about light sources. The accessibility of the LEBA is also reflected in the “grade level identification” findings suggesting a minimum age of 8.33 years and an educational grade of four or higher. We argue that measuring light-related behaviours via self-report is crucial because these behaviours will hardly be as observable by anyone else or measurable with other methods (like behavioural observations) with reasonable effort. 
+- The habitual patterns queried in the developed inventory might not exhaustively represent all relevant light-exposure-related behaviours. For instance, it is conceivable that additional light-related activities not included in the LEBA depend on the respondents' profession/occupation, geographical context, and socio-economic status. However, we generated the initial item pool with an international team of researchers and followed a thorough psychometric analysis. Therefore, we are confident that the developed LEBA inventory can serve as a good starting point for exploring the light exposure related behaviours in more depth and inform room for modification of light exposure-related behaviour to improve light hygiene.
+- As with all studies relying on retrospective self-report data, individuals filling in the LEBA may have difficulties precisely recalling the inquired light-related behaviours. In the interest of bypassing a substantial memory component, we limited the recall period to four weeks and chose response options that do not require exact memory recall. In contrast to directly assessing light properties via self-report, we assume that reporting behaviours might be more manageable for inexperienced laypeople, as the latter does not rely on existing knowledge about light sources. The comprehensibility of the LEBA is also reflected by the Flesch-Kincaid grade level identification method [@flesch1948new] that suggested a minimum age of 8.33 years and an educational grade of four or higher (US grading system). We argue that measuring light-related behaviours via self-report is crucial because these behaviours will hardly be as observable by anyone else or measurable with other methods (like behavioural observations) with reasonable effort. 
 
 
 ## Future Directions
 
-To our knowledge, the LEBA is the first questionnaire characterising light exposure-related behaviour in a scalable manner. Thus, estimating convergent validity with similar subjective scales was impossible. Alternatively, the validity of the LEBA could be evaluated by administering it conjointly with objective field measurements of light exposure (e.g. with portable light loggers, see literature review). By this route, one could study how the (subjectively measured) light exposure-related behavioural patterns translate into (objectively measured) received light exposure. 
+To our knowledge, the LEBA is the first inventory characterising light exposure-related behaviour in a scalable manner. Thus, estimating convergent validity with similar subjective scales was impossible. Alternatively, the validity of the LEBA could be evaluated by administering it conjointly with objective field measurements of light exposure (e.g. with portable light loggers, see literature review). By this route, one could study how the (subjectively measured) light exposure-related behavioural patterns translate into (objectively measured) received light exposure. 
 Additionally, developing daily recall scales of light-related behaviour could provide a more detailed behavioural assessment to supplement the LEBA's broader (four-week) measurement approach. Comparing the LEBA scores to 24-hour recall scores could provide helpful information about how light exposure-related behaviour assessment is related between different time perspectives.
-Moreover, light-exposure-related behaviour might depend on the respondents' profession, geographical location, housing conditions, socio-economic status, or other contextual factors. As the current data is limited to our international online survey context, future research should apply the LEBA across more variable populations and contexts. On the other hand, this will require the development of cross-cultural adaptations and translations into other languages of the LEBA scale, which should be targeted in prospective studies.
+Moreover, light-exposure-related behaviour might depend on the respondents' profession, geographical location, housing conditions, socio-economic status, or other contextual factors. As the current data is limited to our international online survey context, future research should apply the LEBA across more variable populations and contexts. On the other hand, this will require the development of cross-cultural adaptations and translations into other languages of the LEBA, which should be targeted in prospective studies.
 
 Finally, in the future, the use of the LEBA instrument need not remain restricted to gathering information in cross-sectinal quantitative studies. The instrument can also be used for individual behavioural profiling. For instance, the LEBA could be applied in a clinical context as part of Cognitive Behavioural Therapy for Insomnia (CBT-I). More specifically, it could be used to supplement the sleep hygiene aspects of CBT-I, as receiving light exposure at different times has implications for sleep [@santhi_applications_2020]. This match was also evident in the semantic relationship between the LEBA and two scales capturing sleep problems (CIDI: Insomnia; @robins1988composite & SDSC; @bruni1996sleep) found in the semantic similarity analysis. However, before applying the LEBA in such contexts in the future, more work is certainly needed to understand light exposure-related behaviour and its’ relationship to relevant health outcomes measured subjectively and objectively.
 
 
 ## Conclusion
 
-With the "Light exposure behaviour assessment"(LEBA), we developed a novel, internally consistent and structurally valid 23-item self-report scale for capturing light exposure-related behaviour in five scalable factors. In addition, an 18-item short-form of the LEBA was derived using IRT analysis, yielding adequate coverage across the underlying trait continuum. Applying the LEBA scales can provide insights into light exposure-related habits on a population-based level. Furthermore, it can serve as a good starting point to profile individuals based on their light  exposure-related behaviour and to asseses their light
-consumption and timing.
+With the "Light exposure behaviour assessment"(LEBA), we developed a novel, internally consistent and structurally valid 23-item self-report inventory for capturing light exposure-related behaviour in five scalable factors. In addition, an 18-item short-form of the LEBA was derived using IRT analysis, yielding adequate coverage across the underlying trait continuum. Applying the LEBA inventory can provide insights into light exposure-related habits on a population-based level. Furthermore, it can serve as a good starting point to profile individuals based on their light  exposure-related behaviour and to asseses their light consumption and timing.
 
 
 \newpage
