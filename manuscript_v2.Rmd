@@ -1396,7 +1396,7 @@ ggsave("Figures/Figure4.png",all_plot_2, width = 8, height = 4, dpi = 600, bg = 
 
 ```
 
-(ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than \|.30\|. 'x' denotes a non-significant item-total correlation. (B) The Scree plot suggested six factors. (C) Hull method indicated that five factors were required to balance the model fit and number of parameters. (D) The histogram of nonredundant residual correlations indicated that 26% of inter-item correlations were higher than .05, hinting at a possible under-factoring.
+(ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than \|.30\|. 'x' denotes non-significant correlation. (B) The Scree plot suggested six factors. (C) Hull method indicated that five factors were required to balance the model fit and number of parameters. (D) The histogram of nonredundant residual correlations indicated that 26% of inter-item correlations were higher than .05, hinting at a possible under-factoring.
 
 ```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE,  out.height='130%', out.width='100%'}
 
