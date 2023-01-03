@@ -141,7 +141,7 @@ abstract: |
 
   
 keywords          : "light exposure, light-related behaviours, non-visual effects of light, psychometrics"
-wordcount         : "6249"
+wordcount         : "6305"
 
 bibliography      : ["references.bib", "lib_references.bib"]
 
