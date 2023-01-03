@@ -314,196 +314,6 @@ These measurement limitations point to a couple of research challenges which we 
 
 To date, little effort has been made to understand and capture these activities. **Supplementary Table 1** summarises the existing questionnaire literature assessing light exposure-related properties. However, only a few questions of these existing tools were associated with light exposure-related behaviour. For example, the “Munich Chronotype  Questionnaire” [@roenneberg2003life], a popular self-report tool for identifying chronotypes via mid-sleep times, includes questions about the individual’s typical time spent outdoors on workdays and free days. The Visual Light Sensitivity Questionnaire-8 [@verriotto2017new] and Photosensitivity Assessment Questionnaire [@bossini2006sensibilita] are a couple of self-report tools measuring visual light sensitivity. They contain single items which probe the preference for specific light situations such as: “In the past month, how often did you need to wear dark glasses on cloudy days or indoors?” [@verriotto2017new];"I prefer rooms that are in semi-darkness."; [@bossini2006sensibilita]. In addition, the “Pittsburgh Sleep Quality Index” [@buysse1989pittsburgh], is a popular measure of sleep quality. It contains questions about bedtime and wake-up times, which are relevant to light exposure around bedtime. However, none of these questionnaires provides a scalable solution to capture light exposure-related behaviour in various lighting situations. To fill this gap, we here present the development process of a novel self-reported inventory - the Light Exposure Behaviour Assessment (LEBA) - for characterizing diverse light exposure-related behaviours. 
 
-# Methods
-
-```{r Data, include=FALSE}
-#This chunk holds code for data wrangling
-
-data <- readRDS("leba_2021-09-08.rds")
-
-# Separating EFA and CFA samples with descriptive column
-descriptives.data <- data
-
-## Merge "0"s and "1"s into "1"s select,subset assign)
-descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
-#EFA.descriptives <- descriptives.data[1:428,]
-EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
-#CFA.descriptives <- descriptives.data[429:690, ]
-CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
-
-#Separating the EFA and CFA(only items)
-sem.data <- data[, 9:56] #EFA & CFA data
-sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
-
-
-
-invariance.data.descriptives.count <- CFA.descriptives %>% 
-  group_by(slypos_demographics_language.factor) %>% 
-  count() %>% 
-  as.data.frame()
-
-
-
-## renaming the column-header
-prefix <- "item"
-sufix <- c(1:48)
-colnam <- paste(prefix,sufix, sep = "" )
-colnames(sem.data) <- colnam
-names(sem.data)[names(sem.data) == "item1"] <- "item01"
-names(sem.data)[names(sem.data) == "item2"] <- "item02"
-names(sem.data)[names(sem.data) == "item3"] <- "item03"
-names(sem.data)[names(sem.data) == "item4"] <- "item04"
-names(sem.data)[names(sem.data) == "item5"] <- "item05"
-names(sem.data)[names(sem.data) == "item6"] <- "item06"
-names(sem.data)[names(sem.data) == "item7"] <- "item07"
-names(sem.data)[names(sem.data) == "item8"] <- "item08"
-names(sem.data)[names(sem.data) == "item9"] <- "item09"
-```
-
-```{r country, include=FALSE}
-#This chunk holds code for time-zone calculation
-
-library(stringr)
-country <- data
-
-TZ <- as.data.frame(str_split_fixed(country$slypos_demographics_tz.factor, "-", 2))
-TZ[97, 2] <- " East Africa/Dodoma (UTC +03:00)"
-TZ[146, 2] <- " European /Skopje (UTC +01:00)"
-TZ[176, 2] <- " Asia /Taipei City (UTC +08:00)"
-TZ[574, 2] <- " Asia /Taipei City (UTC +08:00)"
-TZ[690, 2] <- " Asia /Taipei City (UTC +08:00)"
-TZ[273, 2] <- " Iran /Tehran (UTC +0:30)"
-TZ[418, 2] <- " Iran /Tehran (UTC +0:30)"
-TZ[673, 2] <- " Iran /Tehran (UTC +0:30)"
-
-num.countries <- as.data.frame(unique(TZ$V1))
-num.Timezone <- unique(TZ$V2)
-
-UTC <- as.data.frame(str_split_fixed(TZ$V2, "UTC", 2))
-numUTC <- as.data.frame(unique(UTC$V2))
-nrow(numUTC)
-```
-
-```{r timezone, include=F}
-#This chunk holds code for creating time-zone.csv file
-timezone <- TZ %>% 
-  group_by(V2) %>% 
-  count() %>% 
-  as.data.frame()
-
-write.csv(timezone, "Table_raw/timezone.csv")
-
-
-```
-
-```{r prepareDescTable, include=FALSE}
-#This chunk holds code for demographic data wrangling.
-
-listdescVars <- colnames(descriptives.data[c(1:3,5:7)])
-
-
-#separating naming and  reducing data for descriptive Table 
-desctable.data <- dplyr::select(descriptives.data, c(listdescVars,
-                          IncludedInCFA))
-
-#renaming TRUE and FALSE from the IncludedInCFA to EFA and CFA for Descriptive Table
-desctable.data$IncludedInCFA[desctable.data$IncludedInCFA == T ] <-
- "2. CFA Sample"
-desctable.data$IncludedInCFA[desctable.data$IncludedInCFA == F ] <- 
- "1. EFA Sample"
-
-# recode the Gender factor so it will only show "Gender Diverse" in the summary table
-desctable.data$slypos_demographics_gender.factor <-
-  recode_factor(desctable.data$slypos_demographics_gender.factor, "No" = "Yes",
-         "Yes"= "No")
-       
-# create descriptive table for the demographic vars (excluding tz & Country) with gtsummary
-desctable.data %>%
-  tbl_summary(
-    by = IncludedInCFA,
-    statistic = list(all_continuous() ~ "{mean} ({sd})",
-                     all_categorical() ~ "{n} ({p}%)"),
-    digits = all_continuous() ~ 2,
-    label = list(slypos_demographics_age ~ "Age",
-                 slypos_demographics_sex.factor ~ "Sex",
-                 slypos_demographics_gender.factor ~ "Gender-Variant Identity",
-                 slypos_demographics_language.factor ~ "Native English Speaker",
-                 slypos_demographics_work_or_school.factor ~ "Occupational Status",
-                 slypos_demographics_school.factor ~ "Occupational setting"
-                 ),
-    
-    missing = "no"
-    ) %>% add_overall() %>% bold_labels() %>% 
-  # add_p() %>% add_q() %>%
-modify_header(label ~ "**Variable**") %>% 
-  # separate_p_footnotes() %>%
-  modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table 
-
-as_tibble(desc_table) -> desc_tibble 
-as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
-
-#summarise country/time zone data
-#The following chunk is not working now. May be package problem (Sorting command is not working)
-
-descriptives.data%>%
-  tbl_summary(
-    label = slypos_demographics_tz.factor ~ "Time zone - Country",
-    statistic = list(all_categorical() ~ "{n} ({p}%)"),
-    missing = "no",
-    sort = all_categorical() ~ "frequency",
-    include = "slypos_demographics_tz.factor"
-  )  %>% bold_labels() %>%
-  modify_header(label ~ "") %>%
-  as_tibble(format = 'pipe') -> tz_tibble
-
-```
-
-## Data collection
-
-```{r demotab, warning=F, message=F}
-desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
-```
-
-A quantitative cross-sectional, fully anonymous, geographically unconstrained online survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (<https://enlightenyourclock.org/participate-in-research>) of the science-communication comic book "Enlighten your clock", co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by the distribution of the survey link via f.lux [@f.lux]. The initial page of the online survey provided information about the study, including that participation was voluntary and that respondents could withdraw from participation at any time without being penalised. Subsequently, consent was recorded digitally for the adult participants (\>18 years), while under-aged participants (\<18 years) were prompted to obtain additional assent from their parents/legal guardians. Filling in all questionnaires was estimated to take less than 30 minutes, and participation was not compensated.
-
-As a part of the demographic data, participants provided information regarding age, sex, gender identity, occupational status, COVID-19-related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in **Table 1**. Participants were further asked to confirm that they participated in the survey for the first time.  All questions incorporating retrospective recall were aligned to a "past four weeks" period. Additionally, four attention check items  were included among the questionnaires to ensure high data quality, with the following phrasing:
-- We want to make sure you are paying attention. What is 4+5?
-- [...] Please select "Strongly disagree" here.
-- [...] Please type in "nineteen" as a number.
-- [...] Please select "Does not apply/I don't know." here.
-
-We collected the survey data between 17 May 2021 and 3 September 2021 – firstly from `r nrow(EFA.descriptives)` participants (EFA sample) – and subsequently, another dataset from `r nrow(CFA.descriptives)` participants (CFA sample), totalling `r nrow(desctable.data)`.
-
-## Analytic strategy
-
-Figure \@ref(fig:FlowchartFig) summarises the steps we followed while developing the LEBA. We conducted all analyses with the statistical software environment R [@R-base]. 
-**Firstly**, we set an item pool of 48 items with a six-point Likert-type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always) for our initial inventory. Our purpose was to capture light exposure-related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never", provided similar information. As such, we collapsed them into one, making it a 5-point Likert-type response format (1-Never, 2-Rarely, 3-Sometimes, 4-Often, 5-Always).
-
-**Secondly**, the two rounds of data collection were administered. 
-**Thirdly**, we conducted descriptive and item analyses and proceeded to the exploratory factor analysis (EFA) using the "psych" package [@R-psych] on the data collected in the first round (EFA sample; n=`r nrow(EFA.descriptives)`), as a part of psychometric analysis. Prior to the EFA, the necessary assumptions, including sample adequacy, normality assumptions, and quality of correlation matrix, were assessed. As our data violated both the univariate and multivariate normality assumption and yielded ordinal response data, we used a polychoric correlation matrix in the EFA and employed "principal axis" (PA) as the factor extraction method [@desjardinsHandbookEducationalMeasurement2018; @watkinsStepbyStepGuideExploratory2020]. We applied a combination of methods, including a Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines: (i) no factors with fewer than three items (ii) no factors with a factor loading \<0.3 (iii) no items with cross-loading \> .3 across factors [@bandalosFactorAnalysisExploratory2018]. <!-- We also conducted an EFA on the non-merged response options data set (**Supplementary File 1**). -->
-
-For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates for ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total inventory using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
-
-To validate the latent structure obtained in the EFA, we conducted a categorical confirmatory factor analysis (CFA) with the weighted least squares means and variance adjusted (WLSMV) estimation [@desjardinsHandbookEducationalMeasurement2018], using the "lavaan" package [@R-lavaan] on the data collected in the second round (CFA sample; n=`r nrow(CFA.descriptives)`). We assessed the model fit using standard model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI): close to .95 or above/ between .90-.95 and above (iii) root mean square error of approximation (RMSEA): close to .06 or below, (iv) Standardized root mean square (SRMR): close to .08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015], and SRMR does not work well with ordinal data [@RN1272]. Consequently, we judged the model fit using CFI, TLI and RMSEA.
-
-In order to evaluate whether the construct demonstrated psychometric equivalence and the same meaning across native English speakers (n=`r invariance.data.descriptives.count[1,2]`) and non-native English speakers (n=`r invariance.data.descriptives.count[2,2]`) in the CFA sample (n=`r nrow(CFA.descriptives)`) [@putnick2016measurement; @klinePrinciplesPracticeStructural2015] measurement invariance analysis was used. We used structural equation modelling framework applying the "lavaan" package [@R-lavaan] to assess the measurement invariance. We successively compared four nested models: configural, metric, scalar, and residual models using the $\chi^2$ difference test ($\Delta \chi^2$). Among MI models, the configural model is the least restrictive, and the residual model is the most restrictive. A non-significant $\Delta \chi^2$ test between two nested measurement invariance models indicates mode fit does not significantly decrease for the superior model, thus allowing the superior invariance model to be accepted [@dimitrov2010testing; @widaman1997exploring].
-
-
-**Fourthly**, in a secondary analysis, we identified the educational grade level (US education system) required to understand the items in our inventory with the Flesch-Kincaid grade level identification method [@flesch1948new] applying the "koRpus" [@R-koRpus] package. Correspondingly, we analysed possible semantic overlap of our developed inventory using the ["Semantic Scale Network" (SSN)](https://rosenbusch.shinyapps.io/semantic_net/) engine [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides a cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pairs of scales with a cosine similarity index value of 1 inidicate full semantical similarity, suggesting redundancy.
-
-**Lastly**, we derived a short form of the LEBA employing an Item Response Theory (IRT) based analysis. We fitted each factor of the LEBA to the combined EFA and CFA sample (n=`r nrow(sem.data)`) using the graded response model [@samejima1997handbook] via the "mirt" package [@R-mirt]. IRT assesses the item quality by estimating the item discrimination, item difficulty, item information curve, and test information curve [@bakerBasicsItemResponse2017]. Item discrimination indicates how well a particular item can differentiate between participants across the given latent trait continuum ($\theta$). Item difficulty corresponds to the latent trait level at which the probability of endorsing a particular response option is 50%. The item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item difficulty and discrimination parameter and categorized the items based on their item discrimination index: (i) none = 0; (ii) very low = 0.01 to 0.34; (iii) low = 0.35 to 0.64; (iv) moderate = 0.65 to 1.34 ; (v) high = 1.35 to 1.69; (vi) very high \>1.70 [@bakerBasicsItemResponse2017]. We discarded the items with a relatively flat item information curve (information \<.2) to derive the short form of LEBA. We also assessed the precision of the short LEBA utilizing the test information curve (TIC). TIC indicates the amount of information a particular scale carries along the latent trait continuum. Additionally, the item and person fit of the fitted IRT models were analysed to gather more evidence on the validity and meaningfulness of our scale [@desjardinsHandbookEducationalMeasurement2018]. The item fit was evaluated using the RMSEA value obtained from Signed-$\chi^2$ index implementation, where an RMSEA value $\le$.06 was considered an adequate item fit. The person fit was estimated employing the standardized fit index Zh statistics [@drasgow1985appropriateness]. Here, Zh \< -2 was considered as a misfit [@drasgow1985appropriateness].
-
-```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Flow chart of the LEBA (long and short form) development and evaluation. ', out.height='50%', out.width='50%'}
-knitr::include_graphics('Figures/Figure1.png', dpi = 600 )
-```
-
-## Ethical approval
-
-The current research project utilizes fully anonymous online survey data and therefore does not fall under the scope of the Human Research Act, making an authorisation from the ethics committee redundant. Nevertheless, the cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, EKNZ) reviewed our proposition (project ID Req-2021-00488) and issued an official clarification of responsibility.
-
-## Data availability
-
-The present article is a fully reproducible open access "R Markdown" document. All code and data underlying this article -- along with two versions of the LEBA inventory (full and short) and online survey implementation templates on common survey platforms -- is available under an open-access licence (Creative Commons CC-BY-NC-ND) on a public [GitHub repository](https://github.com/leba-instrument).
 
 # Results
 
@@ -3237,6 +3047,198 @@ knitr::include_graphics('Figures/wm.png')
 ```{r IRTscoreCor, eval=FALSE, include=FALSE, results='asis'}
 apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
 ```
+
+# Methods
+
+```{r Data, include=FALSE}
+#This chunk holds code for data wrangling
+
+data <- readRDS("leba_2021-09-08.rds")
+
+# Separating EFA and CFA samples with descriptive column
+descriptives.data <- data
+
+## Merge "0"s and "1"s into "1"s select,subset assign)
+descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
+#EFA.descriptives <- descriptives.data[1:428,]
+EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
+#CFA.descriptives <- descriptives.data[429:690, ]
+CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
+
+#Separating the EFA and CFA(only items)
+sem.data <- data[, 9:56] #EFA & CFA data
+sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
+
+
+
+invariance.data.descriptives.count <- CFA.descriptives %>% 
+  group_by(slypos_demographics_language.factor) %>% 
+  count() %>% 
+  as.data.frame()
+
+
+
+## renaming the column-header
+prefix <- "item"
+sufix <- c(1:48)
+colnam <- paste(prefix,sufix, sep = "" )
+colnames(sem.data) <- colnam
+names(sem.data)[names(sem.data) == "item1"] <- "item01"
+names(sem.data)[names(sem.data) == "item2"] <- "item02"
+names(sem.data)[names(sem.data) == "item3"] <- "item03"
+names(sem.data)[names(sem.data) == "item4"] <- "item04"
+names(sem.data)[names(sem.data) == "item5"] <- "item05"
+names(sem.data)[names(sem.data) == "item6"] <- "item06"
+names(sem.data)[names(sem.data) == "item7"] <- "item07"
+names(sem.data)[names(sem.data) == "item8"] <- "item08"
+names(sem.data)[names(sem.data) == "item9"] <- "item09"
+```
+
+```{r country, include=FALSE}
+#This chunk holds code for time-zone calculation
+
+library(stringr)
+country <- data
+
+TZ <- as.data.frame(str_split_fixed(country$slypos_demographics_tz.factor, "-", 2))
+TZ[97, 2] <- " East Africa/Dodoma (UTC +03:00)"
+TZ[146, 2] <- " European /Skopje (UTC +01:00)"
+TZ[176, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[574, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[690, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[273, 2] <- " Iran /Tehran (UTC +0:30)"
+TZ[418, 2] <- " Iran /Tehran (UTC +0:30)"
+TZ[673, 2] <- " Iran /Tehran (UTC +0:30)"
+
+num.countries <- as.data.frame(unique(TZ$V1))
+num.Timezone <- unique(TZ$V2)
+
+UTC <- as.data.frame(str_split_fixed(TZ$V2, "UTC", 2))
+numUTC <- as.data.frame(unique(UTC$V2))
+nrow(numUTC)
+```
+
+```{r timezone, include=F}
+#This chunk holds code for creating time-zone.csv file
+timezone <- TZ %>% 
+  group_by(V2) %>% 
+  count() %>% 
+  as.data.frame()
+
+write.csv(timezone, "Table_raw/timezone.csv")
+
+
+```
+
+```{r prepareDescTable, include=FALSE}
+#This chunk holds code for demographic data wrangling.
+
+listdescVars <- colnames(descriptives.data[c(1:3,5:7)])
+
+
+#separating naming and  reducing data for descriptive Table 
+desctable.data <- dplyr::select(descriptives.data, c(listdescVars,
+                          IncludedInCFA))
+
+#renaming TRUE and FALSE from the IncludedInCFA to EFA and CFA for Descriptive Table
+desctable.data$IncludedInCFA[desctable.data$IncludedInCFA == T ] <-
+ "2. CFA Sample"
+desctable.data$IncludedInCFA[desctable.data$IncludedInCFA == F ] <- 
+ "1. EFA Sample"
+
+# recode the Gender factor so it will only show "Gender Diverse" in the summary table
+desctable.data$slypos_demographics_gender.factor <-
+  recode_factor(desctable.data$slypos_demographics_gender.factor, "No" = "Yes",
+         "Yes"= "No")
+       
+# create descriptive table for the demographic vars (excluding tz & Country) with gtsummary
+desctable.data %>%
+  tbl_summary(
+    by = IncludedInCFA,
+    statistic = list(all_continuous() ~ "{mean} ({sd})",
+                     all_categorical() ~ "{n} ({p}%)"),
+    digits = all_continuous() ~ 2,
+    label = list(slypos_demographics_age ~ "Age",
+                 slypos_demographics_sex.factor ~ "Sex",
+                 slypos_demographics_gender.factor ~ "Gender-Variant Identity",
+                 slypos_demographics_language.factor ~ "Native English Speaker",
+                 slypos_demographics_work_or_school.factor ~ "Occupational Status",
+                 slypos_demographics_school.factor ~ "Occupational setting"
+                 ),
+    
+    missing = "no"
+    ) %>% add_overall() %>% bold_labels() %>% 
+  # add_p() %>% add_q() %>%
+modify_header(label ~ "**Variable**") %>% 
+  # separate_p_footnotes() %>%
+  modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table 
+
+as_tibble(desc_table) -> desc_tibble 
+as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
+
+#summarise country/time zone data
+#The following chunk is not working now. May be package problem (Sorting command is not working)
+
+descriptives.data%>%
+  tbl_summary(
+    label = slypos_demographics_tz.factor ~ "Time zone - Country",
+    statistic = list(all_categorical() ~ "{n} ({p}%)"),
+    missing = "no",
+    sort = all_categorical() ~ "frequency",
+    include = "slypos_demographics_tz.factor"
+  )  %>% bold_labels() %>%
+  modify_header(label ~ "") %>%
+  as_tibble(format = 'pipe') -> tz_tibble
+
+```
+
+## Data collection
+
+```{r demotab, warning=F, message=F}
+desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
+```
+
+A quantitative cross-sectional, fully anonymous, geographically unconstrained online survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (<https://enlightenyourclock.org/participate-in-research>) of the science-communication comic book "Enlighten your clock", co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by the distribution of the survey link via f.lux [@f.lux]. The initial page of the online survey provided information about the study, including that participation was voluntary and that respondents could withdraw from participation at any time without being penalised. Subsequently, consent was recorded digitally for the adult participants (\>18 years), while under-aged participants (\<18 years) were prompted to obtain additional assent from their parents/legal guardians. Filling in all questionnaires was estimated to take less than 30 minutes, and participation was not compensated.
+
+As a part of the demographic data, participants provided information regarding age, sex, gender identity, occupational status, COVID-19-related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in **Table 1**. Participants were further asked to confirm that they participated in the survey for the first time.  All questions incorporating retrospective recall were aligned to a "past four weeks" period. Additionally, four attention check items  were included among the questionnaires to ensure high data quality, with the following phrasing:
+- We want to make sure you are paying attention. What is 4+5?
+- [...] Please select "Strongly disagree" here.
+- [...] Please type in "nineteen" as a number.
+- [...] Please select "Does not apply/I don't know." here.
+
+We collected the survey data between 17 May 2021 and 3 September 2021 – firstly from `r nrow(EFA.descriptives)` participants (EFA sample) – and subsequently, another dataset from `r nrow(CFA.descriptives)` participants (CFA sample), totalling `r nrow(desctable.data)`.
+
+## Analytic strategy
+
+Figure \@ref(fig:FlowchartFig) summarises the steps we followed while developing the LEBA. We conducted all analyses with the statistical software environment R [@R-base]. 
+**Firstly**, we set an item pool of 48 items with a six-point Likert-type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always) for our initial inventory. Our purpose was to capture light exposure-related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never", provided similar information. As such, we collapsed them into one, making it a 5-point Likert-type response format (1-Never, 2-Rarely, 3-Sometimes, 4-Often, 5-Always).
+
+**Secondly**, the two rounds of data collection were administered. 
+**Thirdly**, we conducted descriptive and item analyses and proceeded to the exploratory factor analysis (EFA) using the "psych" package [@R-psych] on the data collected in the first round (EFA sample; n=`r nrow(EFA.descriptives)`), as a part of psychometric analysis. Prior to the EFA, the necessary assumptions, including sample adequacy, normality assumptions, and quality of correlation matrix, were assessed. As our data violated both the univariate and multivariate normality assumption and yielded ordinal response data, we used a polychoric correlation matrix in the EFA and employed "principal axis" (PA) as the factor extraction method [@desjardinsHandbookEducationalMeasurement2018; @watkinsStepbyStepGuideExploratory2020]. We applied a combination of methods, including a Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines: (i) no factors with fewer than three items (ii) no factors with a factor loading \<0.3 (iii) no items with cross-loading \> .3 across factors [@bandalosFactorAnalysisExploratory2018]. <!-- We also conducted an EFA on the non-merged response options data set (**Supplementary File 1**). -->
+
+For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates for ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total inventory using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
+
+To validate the latent structure obtained in the EFA, we conducted a categorical confirmatory factor analysis (CFA) with the weighted least squares means and variance adjusted (WLSMV) estimation [@desjardinsHandbookEducationalMeasurement2018], using the "lavaan" package [@R-lavaan] on the data collected in the second round (CFA sample; n=`r nrow(CFA.descriptives)`). We assessed the model fit using standard model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI): close to .95 or above/ between .90-.95 and above (iii) root mean square error of approximation (RMSEA): close to .06 or below, (iv) Standardized root mean square (SRMR): close to .08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015], and SRMR does not work well with ordinal data [@RN1272]. Consequently, we judged the model fit using CFI, TLI and RMSEA.
+
+In order to evaluate whether the construct demonstrated psychometric equivalence and the same meaning across native English speakers (n=`r invariance.data.descriptives.count[1,2]`) and non-native English speakers (n=`r invariance.data.descriptives.count[2,2]`) in the CFA sample (n=`r nrow(CFA.descriptives)`) [@putnick2016measurement; @klinePrinciplesPracticeStructural2015] measurement invariance analysis was used. We used structural equation modelling framework applying the "lavaan" package [@R-lavaan] to assess the measurement invariance. We successively compared four nested models: configural, metric, scalar, and residual models using the $\chi^2$ difference test ($\Delta \chi^2$). Among MI models, the configural model is the least restrictive, and the residual model is the most restrictive. A non-significant $\Delta \chi^2$ test between two nested measurement invariance models indicates mode fit does not significantly decrease for the superior model, thus allowing the superior invariance model to be accepted [@dimitrov2010testing; @widaman1997exploring].
+
+
+**Fourthly**, in a secondary analysis, we identified the educational grade level (US education system) required to understand the items in our inventory with the Flesch-Kincaid grade level identification method [@flesch1948new] applying the "koRpus" [@R-koRpus] package. Correspondingly, we analysed possible semantic overlap of our developed inventory using the ["Semantic Scale Network" (SSN)](https://rosenbusch.shinyapps.io/semantic_net/) engine [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides a cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pairs of scales with a cosine similarity index value of 1 inidicate full semantical similarity, suggesting redundancy.
+
+**Lastly**, we derived a short form of the LEBA employing an Item Response Theory (IRT) based analysis. We fitted each factor of the LEBA to the combined EFA and CFA sample (n=`r nrow(sem.data)`) using the graded response model [@samejima1997handbook] via the "mirt" package [@R-mirt]. IRT assesses the item quality by estimating the item discrimination, item difficulty, item information curve, and test information curve [@bakerBasicsItemResponse2017]. Item discrimination indicates how well a particular item can differentiate between participants across the given latent trait continuum ($\theta$). Item difficulty corresponds to the latent trait level at which the probability of endorsing a particular response option is 50%. The item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item difficulty and discrimination parameter and categorized the items based on their item discrimination index: (i) none = 0; (ii) very low = 0.01 to 0.34; (iii) low = 0.35 to 0.64; (iv) moderate = 0.65 to 1.34 ; (v) high = 1.35 to 1.69; (vi) very high \>1.70 [@bakerBasicsItemResponse2017]. We discarded the items with a relatively flat item information curve (information \<.2) to derive the short form of LEBA. We also assessed the precision of the short LEBA utilizing the test information curve (TIC). TIC indicates the amount of information a particular scale carries along the latent trait continuum. Additionally, the item and person fit of the fitted IRT models were analysed to gather more evidence on the validity and meaningfulness of our scale [@desjardinsHandbookEducationalMeasurement2018]. The item fit was evaluated using the RMSEA value obtained from Signed-$\chi^2$ index implementation, where an RMSEA value $\le$.06 was considered an adequate item fit. The person fit was estimated employing the standardized fit index Zh statistics [@drasgow1985appropriateness]. Here, Zh \< -2 was considered as a misfit [@drasgow1985appropriateness].
+
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Flow chart of the LEBA (long and short form) development and evaluation. ', out.height='50%', out.width='50%'}
+knitr::include_graphics('Figures/Figure1.png', dpi = 600 )
+```
+
+## Ethical approval
+
+The current research project utilizes fully anonymous online survey data and therefore does not fall under the scope of the Human Research Act, making an authorisation from the ethics committee redundant. Nevertheless, the cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, EKNZ) reviewed our proposition (project ID Req-2021-00488) and issued an official clarification of responsibility.
+
+## Data availability
+
+The present article is a fully reproducible open access "R Markdown" document. All code and data underlying this article -- along with two versions of the LEBA inventory (full and short) and online survey implementation templates on common survey platforms -- is available under an open-access licence (Creative Commons CC-BY-NC-ND) on a public [GitHub repository](https://github.com/leba-instrument).
+
 
 # Discussion
 Today, in most industrialized countries, the vast majority of time is spent in built environments [@Klepeis.2001], where photic exposure patterns are determined not only by the solar cycle but by electrical light sources as well. As a consequence, light received may vary considerably, in terms of timing, intensity and spectrum, all of which are subject to the further influence of individual behaviours. [reviewed in @Bedrosian.2017;@lok2018light; @siraji2021effects; @blume_effects_2019; @paul_direct_2019; @santhi_applications_2020; @zele_editorial_2020; @vetter2022review]. Thus, there is a clear need for guidance [@Brown.2022] and assessment regarding healthy light exposure and consequentially healthy light-related behaviour. 
