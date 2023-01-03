@@ -819,7 +819,7 @@ knitr::include_graphics('Figures/Figure3.png')
 
 ```
 
-Figures \@ref(fig:efagtPic1) and \@ref(fig:efagtPic2) depict the response patterns of our total sample (n=`r nrow(sem.data)`) for all 48 items. Most of the items appeared skewed. The Shapiro–Wilk test of univariate normality [@shapiroAnalysisVarianceTest1965] and Mardia test of multivariate normality [@mardiaMeasuresMultivariateSkewness1970] indicated that our data violated both univariate and multivariate normality. The multivariate skewness was `r printnum(mardia.all.data$b1p)` (p \<0.001), and the multivariate kurtosis was `r printnum(mardia.all.data$b2p)` (p \<0.001). 
+Figures \@ref(fig:efagtPic1) and \@ref(fig:efagtPic2) depict the response patterns of our total sample (n=`r nrow(sem.data)`) for all 48 items. Most of the items appeared skewed and violated univariate [@shapiroAnalysisVarianceTest1965] and multivariate normality ([@mardiaMeasuresMultivariateSkewness1970]; multivariate skewness=`r printnum(mardia.all.data$b1p)`, p<0.001); multivariate kurtosis=`r printnum(mardia.all.data$b2p)`,p<0.001). 
 
 ```{r EFAdata, include=FALSE}
 #This chunk holds code for creating EFA data subset
