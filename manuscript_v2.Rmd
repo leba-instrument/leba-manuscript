@@ -1057,7 +1057,7 @@ cols_label(
   
 ```
 
-**Supplementary Figure 1** summarises the univariate descriptive statistics for the 48 items in the EFA sample (n=`r nrow(EFA.data)`). Likewise, our data violated the univariate [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions [@mardiaMeasuresMultivariateSkewness1970]. The multivariate skew was `r printnum(mardia$b1p)` (p \<0.001) and the multivariate kurtosis yielded a value of `r printnum(mardia$b2p)` (p \<0.001). The corrected item-total correlation ranged between `r apa(low.r.corec,2,F)` and `r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
+**Supplementary Figure 1** summarises the univariate descriptive statistics for the 48 items in the EFA sample (n=`r nrow(EFA.data)`). Likewise, our data violated the both univariate [@shapiroAnalysisVarianceTest1965] and multivariate normality assumptions ([@mardiaMeasuresMultivariateSkewness1970]; multivariate skew=`r printnum(mardia$b1p)`, p<0.001; multivariate kurtosis= `r printnum(mardia$b2p)`,p <0.001). The corrected item-total correlation ranged between `r apa(low.r.corec,2,F)` and `r apa(high.r.corec,2,F)`. However, no item was discarded based on descriptive statistics or item analysis.
 
 ### Exploratory Factor Analysis and Reliability Analysis
 
