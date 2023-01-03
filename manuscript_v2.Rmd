@@ -509,7 +509,7 @@ The present article is a fully reproducible open access "R Markdown" document. A
 
 ## Development of the initial item pool
 
-An expert panel comprising all authors -- researchers from chronobiology, light research, neuroscience and psychology in different geographical contexts -- developed a comprehensive item pool of 48 items. The 48 items were examined independently based on their relevance and representativeness of the construct light-exposure related behaviour by each panel member, and modifications were suggested as required. The author team discussed the suggestions and amended the items as indicated, thus creating a 48-item inventory. 
+An expert panel comprising all authors -- researchers from chronobiology, light research, neuroscience and psychology in different geographical contexts -- developed a comprehensive item pool of 48 items. Face validity examination of all 48 items by each panel member indicated all items were relevant and appropriate and a few modifications were suggested as required. The author team discussed the suggestions and amended the items as indicated, thus creating a 48-item inventory. 
 
 ## Measurement of light exposure behaviour in an online sample
 
@@ -819,7 +819,7 @@ knitr::include_graphics('Figures/Figure3.png')
 
 ```
 
-Figures \@ref(fig:efagtPic1) and \@ref(fig:efagtPic2) summarise the response patterns of our total sample (n=`r nrow(sem.data)`) for all 48 items. Most of the items appeared skewed. The Shapiro–Wilk test of univariate normality [@shapiroAnalysisVarianceTest1965] and Mardia test of multivariate normality [@mardiaMeasuresMultivariateSkewness1970] indicated that our data violated both univariate and multivariate normality. The multivariate skewness was `r printnum(mardia.all.data$b1p)` (p \<0.001), and the multivariate kurtosis was `r printnum(mardia.all.data$b2p)` (p \<0.001). 
+Figures \@ref(fig:efagtPic1) and \@ref(fig:efagtPic2) depict the response patterns of our total sample (n=`r nrow(sem.data)`) for all 48 items. Most of the items appeared skewed. The Shapiro–Wilk test of univariate normality [@shapiroAnalysisVarianceTest1965] and Mardia test of multivariate normality [@mardiaMeasuresMultivariateSkewness1970] indicated that our data violated both univariate and multivariate normality. The multivariate skewness was `r printnum(mardia.all.data$b1p)` (p \<0.001), and the multivariate kurtosis was `r printnum(mardia.all.data$b2p)` (p \<0.001). 
 
 ```{r EFAdata, include=FALSE}
 #This chunk holds code for creating EFA data subset
