@@ -65,7 +65,7 @@ devtools::install_github("crsh/citr")
 install.packages("questionr")
 devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)#Others
 install.packages("magick")
-
+devtools::install_github("paleolimbot/rbbt")
 #fonts
 install.packages("extrafont")
 extrafont::fonttable()
