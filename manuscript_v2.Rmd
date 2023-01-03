@@ -1904,7 +1904,7 @@ mi.des.sum.english <- as.data.frame(mi.des.sum$Yes)
 mi.des.sum.nonenglish <- as.data.frame(mi.des.sum$No)
 ```
 
-Our CFA sample consisted of `r mi.count[1,2]` native English speakers and `r mi.count[2,2]` non-native English speakers, whose demographic data are contrasted in **Supplementary Table 5**. As shown in Table \@ref(tab:InvarianceTab), the employed five-factor model generated acceptable fit indices over all of the fitted MI models. The model fit did not significantly decrease across the nested models, implying the acceptability of the highest measurement invariance model (residual model). This indicated the construct demonstrated psychometric equivalence and the same meaning across native and non-native English speaking participants
+Our CFA sample consisted of `r mi.count[1,2]` native English speakers and `r mi.count[2,2]` non-native English speakers, whose demographic data are contrasted in **Supplementary Table 5**. As shown in Table \@ref(tab:InvarianceTab), our results indicated that LEBA inventory demonstrated highest level of (residual model) psychometric equivalence across native and non-native English speaking participants, thus permitting group level mean based comparisons. The four fitted MI models generated acceptable fit indices and the model fit did not significantly decrease across the nested models ($\Delta$CFI>-0.01; $\Delta$RMSEA<0.01), implying the acceptability of the highest measurement invariance model.
 
 ```{r Invariancedetail, include=FALSE}
 #This chunk holds codes for measurement Invariance
@@ -2019,8 +2019,7 @@ apa_table(Invariance.table, align = "c",  caption = "Measurement Invariance anal
 ```
 
 ## Secondary Analysis: Grade Level Identification and Semantic Scale Network Analysis
-A grade level identification and Semantic Scale analysis were additionally administered to assess the LEBA's (23 items) language-based accessibility and its' semantic relation to other questionnaires. The results of the Flesch-Kincaid grade level analysis [@flesch1948new] displayed a required educational grade level of four (US education system) with age above 8.33 years. Furthermore, the
-Semantic Scale Network (SSN) analysis [@rosenbusch2020semantic] indicated that the LEBA appeared most strongly semantically related to scales about sleep: The "Sleep Disturbance Scale For Children" [@bruni1996sleep] and the "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. The cosine similarity yielded values between .47 to .51. 
+A grade level identification and Semantic Scale analysis were additionally administered to assess the LEBA's (23 items) language-based accessibility and its' semantic relation to other questionnaires. The results of the Flesch-Kincaid grade level analysis [@flesch1948new] displayed a required educational grade level of four (US education system) with age above 8.33 years. Furthermore, the Semantic Scale Network (SSN) analysis [@rosenbusch2020semantic] indicated that the LEBA appeared most strongly semantically related to scales about sleep: The "Sleep Disturbance Scale For Children" [@bruni1996sleep] and the "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. The cosine similarity yielded values between .47 to .51. 
 
 ```{r textanalysis, include=F}
 #This chunk holds codes for semantic analysis and readability test
@@ -2064,7 +2063,7 @@ readability <- readability(ques,
 ```
 
 ## Developing a Short Form of LEBA: IRT-Based Analysis
-In order to derive a short form of the LEBA inventory, we fitted each factor of the LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n=690). The resulting item discrimination parameters of the inventory fell into categories of "very high" (10 items), "high" (4 items), "moderate" (4 items), and "low" ( 5 items), indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 6**). An examination of the item information curve (**Supplementary Figure 3**) revealed five items (1, 25, 30, 38, & 41) with relatively flat curves (I($\theta$) \<.20). We discarded those items, culminating in a short form of LEBA with five factors and 18 items (**Supplementary File 2**).
+In order to derive a short form of the LEBA inventory, we fitted each factor of the LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n=690). The resulting item discrimination parameters of the inventory fell into categories of "very high" (10 items), "high" (4 items), "moderate" (4 items), and "low" ( 5 items), indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 6**). An examination of the item information curve (**Supplementary Figure 3**) revealed five items (1, 25, 30, 38, & 41) provided very low information regarding light exposure related behaviors with relatively flat curves (I($\theta$) \<.20). We discarded those items, culminating in a short form of LEBA with five factors and 18 items (**Supplementary File 2**).
 
 ```{r IRTdata, include=FALSE}
 #This chunk holds codes for preparing IRT data and 1st IRT model fitting
@@ -2998,7 +2997,7 @@ ggsave("Figures/Figure6.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = 
 knitr::include_graphics('Figures/Figure6.png', dpi =600)
 ```
 
-Subsequently, we treated each factor of the short-LEBA as a unidimensional construct and obtained five test information curves (TICs). As Figure \@ref(fig:Testinfo) illustrates, the TICs of the first and fifth factors peaked on the right side of the centre of their latent traits, while the TICs of the other three factors were roughly centred on the respective trait continuum ($\theta$). This points out that the LEBA short-form estimates the light exposure-related behaviour most precisely near the centre of the trait continuum for the second, third and fourth factors and, in contrast, to the right of the centre for the first and fifth factors [@bakerBasicsItemResponse2017].
+Subsequently, we obtained five test information curves (TICs). As Figure \@ref(fig:Testinfo) illustrates, the TICs of the first and fifth factors peaked on the right side of the centre of their latent traits, while the TICs of the other three factors were roughly centred on the respective trait continuum ($\theta$). This points out that the LEBA short-form estimates the light exposure-related behaviour most precisely near the centre of the trait continuum for the second, third and fourth factors and, in contrast, to the right of the centre for the first and fifth factors [@bakerBasicsItemResponse2017].
 
 Finally, **Supplementary Table 7** summarises the item fit indexes of the LEBA short form. All 18 items yielded RMSEA value $\le$.06, indicating an adequate fit to the fitted IRT model. Furthermore, **Supplementary Figure 4** depicts the person fit Zh statistics histogram for the five IRT models. Zh statistics are larger than -2 for most participants, suggesting a good person fit regarding the selected IRT models.
 
