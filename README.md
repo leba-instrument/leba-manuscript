@@ -20,7 +20,7 @@ This repository contains:
 - **manuscript.Rmd**: R Markdown file containing all codes and text body for the manuscript: LEBA.
 - **lib_reference.bib**: Contains all references of the packages used in the manuscript.
 - **reference.bib**: Contains all references  used in the manuscript.
-- **manuscript.pdf**: PDF of the manuscript rendered using `manuscript_v1.Rmd`.
+- **manuscript.pdf**: PDF of the manuscript rendered using `manuscript.Rmd`.
 - **Supplementary_materials.docx**: All supplementary materials in a `.docx` format.
 - **Supplementary_materials.pdf**: All supplementary materials in a `.pdf` format.
 - **full_manuscript.pdf**: Combined pdf created from `manuscript.pdf` and `Supplementary_materials.pdf`.
