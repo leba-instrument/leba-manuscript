@@ -23,7 +23,7 @@ This repository contains:
 - **manuscript.pdf**: PDF of the manuscript rendered using `manuscript_v1.Rmd`.
 - **Supplementary_materials.docx**: All supplementary materials in a `.docx` format.
 - **Supplementary_materials.pdf**: All supplementary materials in a `.pdf` format.
-- **full_manuscript.pdf**: Combined pdf created from `manuscript_v2.pdf` and `Supplementary_materials.pdf`.
+- **full_manuscript.pdf**: Combined pdf created from `manuscript.pdf` and `Supplementary_materials.pdf`.
 
 # Workflow:
 
