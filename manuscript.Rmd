@@ -1,0 +1,3309 @@
+---
+title             : "An inventory of human light exposure related behaviour"
+shorttitle        : "LEBA"
+
+author: 
+  - name          : "Mushfiqul Anwar Siraji"
+    affiliation   : "1, *"
+    email         : "mushfiqul.anwarsiraji@monash.edu"
+    role:         
+      - Formal Analysis
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing
+       
+  - name          : "Rafael Robert Lazar"
+    affiliation   : "2, 3, *"
+    role:
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing
+      
+  - name          : "Juliëtte	van Duijnhoven"
+    affiliation   : "4, 5"
+    email         : "j.v.duijnhoven1@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Luc Schlangen"
+    affiliation   : "5, 6"
+    email         : "l.j.m.schlangen@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Shamsul Haque"
+    affiliation   : "1"
+    email         : "shamsul@monash.edu"
+    role:         
+      - Conceptualization
+      - Supervision
+      - Writing – review & editing
+      
+  - name          : "Vineetha Kalavally"
+    affiliation   : "7"
+    email         : "vineetha@monash.edu"
+    role:         
+      - Supervision
+      - Writing – review & editing
+      
+  - name          : "Céline Vetter"
+    affiliation   : "8"
+    email         : "celine.vetter@colorado.edu"
+    role:         
+      - Conceptualization
+      - Writing – review & editing
+      
+  - name          : "Gena Glickman"
+    affiliation   : "9"
+    email         : "gena.glickman@usuhs.edu"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+      
+  - name          : "Karin Smolders"
+    affiliation   : "5,6"
+    email         : "k.c.h.j.smolders@tue.nl"
+    role:         
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+
+  - name          : "Manuel Spitschan"
+    corresponding : yes
+    affiliation   : "10, 11, 12"
+    email         : "manuel.spitschan@tum.de "
+    role:         
+      - Conceptualization
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Methodology
+      - Writing – original draft
+      - Writing – review & editing
+
+affiliation:
+  - id            : "1"
+    institution   : "Monash University, Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
+  - id            : "2"
+    institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+  - id            : "3"
+    institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
+  - id            : "4"
+    institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
+  - id            : "5"
+    institution   : "Eindhoven University of Technology, Intelligent Lighting Institute, Eindhoven, Netherlands"
+  - id            : "6"
+    institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Human-Technology Interaction, Eindhoven, Netherlands"
+  - id            : "7"
+    institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Selangor, Malaysia"
+  - id            : "8"
+    institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
+
+
+  - id            : "9"
+    institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"   
+  - id            : "10"
+    institution   : "Translational Sensory & Circadian Neuroscience, Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
+  - id            : "11"
+    institution   : "TUM Department of Sport and Health Sciences (TUM SG), Technical University of Munich, Munich, Germany"
+  - id            : "12"
+    institution   : "TUM Institute of Advanced Study (TUM-IAS), Technical University of Munich, Garching, Germany"
+  - id            : "*"
+    institution   : "Joint first author"   
+
+
+authornote: |
+  This research is supported by funding from the Welcome Trust (204686/Z/16/Z), the European Training Network LIGHTCAP (project number 860613) under the Marie Skłodowska-Curie actions framework H2020-MSCA-ITN-2019, the BioClock project (number 1292.19.077) of the research program Dutch Research Agenda: Onderzoek op Routes door Consortia (NWA-ORC) which is (partly) financed by the Dutch Research Council (NWO), and the European Union and the nationals contributing in the context of the ECSEL Joint Undertaking programme (2021-2024) under the grant #101007319.
+
+
+
+abstract: |
+  Light exposure is an essential driver of health and well-being, and individual behaviours during rest and activity modulate physiologically-relevant aspects of light exposure. Further understanding the behaviours that influence individual photic exposure patterns may provide insight into the volitional contributions to the physiological effects of light and guide bevavioral points of intervention.  Here, we present a novel, self-reported and psychometrically validated inventory to capture light exposure-related behaviour, the Light Exposure Behaviour Assessment (LEBA). 
+  
+  An expert panel prepared the initial 48-item pool spanning different light exposure-related behaviours. Responses, consisting of rating the frequency of engaging in the per-item behaviour on a 5-point Likert type scale, were collected in an online survey yielding responses from a geographically unconstrained sample (690 completed responses, 74 countries, 28 time zones). The exploratory factor analysis (EFA) on an initial subsample (n=428) rendered a five-factor solution with 25 items (Wearing blue light filters, spending time outdoors, using a phone and smartwatch in bed, using light before bedtime, using light in the morning and during daytime). In a confirmatory factor analysis (CFA) performed on an independent subset of participants (n=262), we removed two additional items to attain the best fit for the five-factor solution (CFI=0.95, TLI=0.95, RMSEA=0.06). The internal consistency reliability coefficient for the total instrument yielded McDonald’s Omega=0.68. Measurement model invariance analysis between native and non-native English speakers showed our model attained the highest level of invariance (residual invariance; CFI=0.95, TLI=0.95, RMSEA=0.05). Lastly, a short form of the LEBA (n=18) was developed using Item Response Theory on the complete sample (n=690). 
+  
+  The psychometric properties of the LEBA indicate the usability to measure light exposure-related behaviours. The instrument may offer a scalable solution to characterize behaviours that influence individual photic exposure patterns in remote samples. The LEBA inventory is  available under the open-access CC-BY-NC-ND license.
+  
+  Instrument webpage: https://leba-instrument.org/
+  GitHub repository containing this manuscript: https://github.com/leba-instrument/leba-manuscript
+
+
+  
+keywords          : "light exposure, light-related behaviours, non-visual effects of light, psychometrics"
+wordcount         : "6314"
+
+bibliography      : ["references.bib", "lib_references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : 
+  papaja::apa6_pdf:
+    keep_tex: true
+    latex_engine: xelatex
+    includes:
+      in_header: header.tex
+header-includes:
+  - \usepackage{rotating}
+  - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
+
+mainfont: Arial
+---
+
+```{r setup, warning=FALSE, include=FALSE}
+#This chunk controls the common chunk parameters for the whole manuscript
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi=600, fig.width = 6,
+ fig.asp = 0.8,out.width = "80%", dev=c('png','postscript'))
+#options(knitr.duplicate.label = "allow")
+set.seed(123)
+par(family = "Arial")
+```
+
+```{r pacman, eval=FALSE, include=FALSE}
+#This chunk holds code for 'pacman' based library management.
+
+#You need to run this chunk 1X in your system 
+#install.packages("pacman")#Run this if you don't have pacman installed.
+pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr, paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,reshape, ggsci,ggtext)
+webshot::install_phantomjs()
+pacman::p_install_gh("jthomasmock/gtExtras")
+pacman::p_install_gh("crsh/papaja")
+pacman::p_install_gh("masiraji/tabledown")
+pacman::p_install_gh("crsh/citr")
+devtools::install_github("unDocUMeantIt/koRpus")
+koRpus::install.koRpus.lang(lang=c("en"))
+
+install.packages("correlation")
+install.packages("ggtext")
+#if you don't have LaTeX installed run the following lines
+#install.packages("tinytex")
+#tinytex::install_tinytex()
+```
+
+```{r library, include=FALSE}
+#This chunk holds code for calling the required packages
+
+library(papaja) 
+library(lavaan)
+library(semPlot) 
+library(semTools)
+library(MOTE)
+library(car)#reverse-coding 
+library(psych)
+library(dlookr)
+library(tidyverse)
+library(qgraph)
+library(kableExtra)
+library(paran) # Parallel analysis
+library(EFA.MRFA) # Hull method
+library(ggcorrplot)
+library(semTable)
+library(mirt)
+library(gtsummary)
+library(gt)
+library(gtExtras)
+library(likert)
+library(VIM) #Missing data
+library(kutils)
+library(tabledown)
+library(readxl)
+library(koRpus)# stable release
+library(koRpus.lang.en)
+library(reshape)
+library(ggsci)
+library(ggtext)
+r_refs("lib_references.bib")
+```
+
+```{r ggplot2, include=F}
+#This chunk holds code for creating ggplot2 based apatheme for plots.
+apatheme=theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x = element_text(size = 80),
+        axis.text.y = element_text(size = 80),
+        axis.title.x = element_text(size = 80),
+        axis.title.y = element_text(size = 80),
+        plot.title = element_text(size = 80),
+        legend.text = element_text(size =80),
+        legend.title=element_blank(),
+        axis.line.x = element_line(color='black'),
+        axis.line.y = element_line(color='black'),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+
+
+apatheme_2=theme_bw()+ #Figure 4
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x = element_text(size = 35),
+        axis.text.y = element_text(size = 35),
+        axis.title.x = element_text(size = 35),
+        axis.title.y = element_text(size = 35),
+        plot.title = element_text(size = 35),
+        legend.text = element_text(size =35),
+        legend.title=element_blank(),
+        axis.line.x = element_line(color='black'),
+        axis.line.y = element_line(color='black'),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+
+
+apatheme_3=theme_bw()+ #Figure 6
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x = element_text(size = 90),
+        axis.text.y = element_text(size = 90),
+        axis.title.x = element_text(size = 90),
+        axis.title.y = element_text(size = 90),
+        plot.title = element_text(size = 90),
+        legend.text = element_text(size =90),
+        legend.title=element_blank(),
+        axis.line.x = element_line(color='black'),
+        axis.line.y = element_line(color='black'),
+        panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))
+
+```
+
+---
+nocite: |
+  `r cite_r("lib_references.bib")`
+  [@verriotto2017new][@eklund1996development][@bajaj2011validation][@dianat2013objective]
+  [@horne1976self][@roenneberg2003life][@buysse1989pittsburgh][@Xie.2021][@bossini2006sensibilita][@grandner2014development]
+---
+
+# Introduction
+
+Light exposure received by the eyes affects many facets of human health, well-being, and performance beyond visual sensation and perception [@boyce_light_2022]. The non-image-forming (NIF) effects of light comprise light’s circadian and non-circadian influence on several physiological and psychological functions, such as the secretion of melatonin, sleep, mood, pupil size, body temperature, alertness, and higher cognitive functions [@Bedrosian.2017;@lok2018light; @siraji2021effects; @blume_effects_2019; @paul_direct_2019; @santhi_applications_2020; @zele_editorial_2020].
+
+With the introduction of artificial electric light, human behaviour has become dissociated from the light-dark cycle given by solar radiation. People can now frequently choose when to be exposed to light or darkness. For example, they can decide whether to go outdoors and seek out sunlight, switch on/off light-emitting devices, use certain types of lights at home, or avoid specific light environments altogether. Additionally, when light sources cannot be directly manipulated, sought out, or avoided (for example, at school, work, or in public places), there is still potential leeway to influence personal light exposure behaviourally, for instance, by wearing sunglasses, directing one’s gaze away or supplementing the situation with additional light sources. Although clearly yielding the potential for good, these behaviours are further associated with increased electric light exposure at night and indoor time during the day, compromising the natural temporal organisation of the light-dark cycle. For example, in the US, an average of 87% of the time is spent in enclosed buildings [@Klepeis.2001], and more than 80% of the population is exposed to a night sky that is brighter than nights with a full moon due to electric light at night [@navara2007dark].
+
+An extensive body of scientific evidence suggests that improper light exposure may be disruptive for health and well-being, giving rise to a series of adverse consequences, including the alteration of hormonal rhythms, increased cancer rates, cardiovascular diseases, and metabolic disorders, such as obesity and type II diabetes [@Lunn.2017; @navara2007dark; @Chellappa.2019]. These findings have sparked a significant call for assessment and guidance regarding healthy light exposure as exemplified by a recently published set of consensus-based experts’ recommendations with specific requirements for indoor light environments during the daytime, evening, and nighttime [@Brown.2022].
+
+Furthermore, building on earlier attempts [e.g. @hubalek_ambulant_2006], there was a recent push toward the development and use of portable light loggers to improve ambulant light assessment and gain more insight into the NIF effects of light on human health in field conditions [@stampfli_light-dosimeter_2021; @van_duijnhoven_recommendations_2017; @webler_towards_2021; @aarts2017performance]. Attached to different body parts (e.g., wrist; head, at eye level; chest), these light loggers allow for the objective measurement of individual photic exposure patterns under real-world conditions and thus are valuable tools for field studies. Nevertheless, these devices also encompass limiting factors such as potentially being intrusive (e.g., when eye-level worn), yielding the risk of getting covered (e.g., when wrist- or chest-worn) and requiring (monetary) resources and expertise for acquisition and maintenance of the devices.
+
+On the other hand, several attempts have been made to quantify received light exposure subjectively with self-report questionnaires (**Supplementary Table 1**), bypassing the cost and intrusiveness issues. However, subjective light intensity assessments pose a new set of challenges: The human visual system constantly adapts to brightness [@hurvich_perception_1966], while the signals underlying the non-visual effects of light are independent from perception [@allen_exploiting_2018], making the self-report assessment of light properties challenging. Retrospectively recalling the properties of a light source can further complicate such subjective evaluations. Moreover, measuring light properties alone does not yield any information about how individuals might behave differently regarding diverse light environments such  as work, home or outdoors.
+
+These measurement limitations point to a couple of research challenges which we adressed here: How can we gain insight into light exposure patterns via self-report but circumvent directly inquiring about the specific properties and intensity of a light source? And how can we simultaneously assess how people habitually interact with the received light? We propose that these challenges can be tackled by assessing light-exposure-related behaviour. We argue that, besides measuring received light exposure as intensity, it is also essential to understand people's behaviours with respect to different light situations. In many cases, humans have become their own agents regarding their exposure to light or darkness through daylight and electric light, and as such people’s light exposure-related behaviours ultimately determine their light consumption and timing: People receive different light depending on their daily activities, including workplace habits, bedtime hygiene, pastime and social activities. Ultimately, in order to optimize lighting for human health and well being, better understanding of light-related behaviours will serve to identify additional points of intervention as well as to provide an added dimension to efficacy and implementation studies of novel lighting strategies. We argue that assessing these activities is a beneficial stepping stone for prospective behaviour change to maintain light hygiene: a proper balance of exposures to light to maintain circadian rhythms. 
+
+To date, little effort has been made to understand and capture these activities. **Supplementary Table 1** summarises the existing questionnaire literature assessing light exposure-related properties. However, only a few questions of these existing tools were associated with light exposure-related behaviour. For example, the “Munich Chronotype  Questionnaire” [@roenneberg2003life], a popular self-report tool for identifying chronotypes via mid-sleep times, includes questions about the individual’s typical time spent outdoors on workdays and free days. The Visual Light Sensitivity Questionnaire-8 [@verriotto2017new] and Photosensitivity Assessment Questionnaire [@bossini2006sensibilita] are a couple of self-report tools measuring visual light sensitivity. They contain single items which probe the preference for specific light situations such as: “In the past month, how often did you need to wear dark glasses on cloudy days or indoors?” [@verriotto2017new];"I prefer rooms that are in semi-darkness."; [@bossini2006sensibilita]. In addition, the “Pittsburgh Sleep Quality Index” [@buysse1989pittsburgh], is a popular measure of sleep quality. It contains questions about bedtime and wake-up times, which are relevant to light exposure around bedtime. However, none of these questionnaires provides a scalable solution to capture light exposure-related behaviour in various lighting situations. To fill this gap, we here present the development process of a novel self-reported inventory - the Light Exposure Behaviour Assessment (LEBA) - for characterizing diverse light exposure-related behaviours. 
+
+
+
+```{r Data, include=FALSE}
+#This chunk holds code for data wrangling
+
+data <- readRDS("leba_2021-09-08.rds")
+
+# Separating EFA and CFA samples with descriptive column
+descriptives.data <- data
+
+## Merge "0"s and "1"s into "1"s select,subset assign)
+descriptives.data[ , 9:56 ][ descriptives.data[ , 9:56 ] == 0 ] <- 1
+#EFA.descriptives <- descriptives.data[1:428,]
+EFA.descriptives <- subset(descriptives.data, IncludedInEFA == "TRUE")
+#CFA.descriptives <- descriptives.data[429:690, ]
+CFA.descriptives<- subset(descriptives.data, IncludedInEFA == "FALSE")
+
+#Separating the EFA and CFA(only items)
+sem.data <- data[, 9:56] #EFA & CFA data
+sem.data[ sem.data == 0] <- 1 #Merged "0"s and "1"s into "1"s
+
+
+
+invariance.data.descriptives.count <- CFA.descriptives %>% 
+  group_by(slypos_demographics_language.factor) %>% 
+  count() %>% 
+  as.data.frame()
+
+
+
+## renaming the column-header
+prefix <- "item"
+sufix <- c(1:48)
+colnam <- paste(prefix,sufix, sep = "" )
+colnames(sem.data) <- colnam
+names(sem.data)[names(sem.data) == "item1"] <- "item01"
+names(sem.data)[names(sem.data) == "item2"] <- "item02"
+names(sem.data)[names(sem.data) == "item3"] <- "item03"
+names(sem.data)[names(sem.data) == "item4"] <- "item04"
+names(sem.data)[names(sem.data) == "item5"] <- "item05"
+names(sem.data)[names(sem.data) == "item6"] <- "item06"
+names(sem.data)[names(sem.data) == "item7"] <- "item07"
+names(sem.data)[names(sem.data) == "item8"] <- "item08"
+names(sem.data)[names(sem.data) == "item9"] <- "item09"
+```
+
+```{r country, include=FALSE}
+#This chunk holds code for time-zone calculation
+
+library(stringr)
+country <- data
+
+TZ <- as.data.frame(str_split_fixed(country$slypos_demographics_tz.factor, "-", 2))
+TZ[97, 2] <- " East Africa/Dodoma (UTC +03:00)"
+TZ[146, 2] <- " European /Skopje (UTC +01:00)"
+TZ[176, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[574, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[690, 2] <- " Asia /Taipei City (UTC +08:00)"
+TZ[273, 2] <- " Iran /Tehran (UTC +0:30)"
+TZ[418, 2] <- " Iran /Tehran (UTC +0:30)"
+TZ[673, 2] <- " Iran /Tehran (UTC +0:30)"
+
+num.countries <- as.data.frame(unique(TZ$V1))
+num.Timezone <- unique(TZ$V2)
+
+UTC <- as.data.frame(str_split_fixed(TZ$V2, "UTC", 2))
+numUTC <- as.data.frame(unique(UTC$V2))
+nrow(numUTC)
+```
+
+```{r timezone, include=F}
+#This chunk holds code for creating time-zone.csv file
+timezone <- TZ %>% 
+  group_by(V2) %>% 
+  count() %>% 
+  as.data.frame()
+
+write.csv(timezone, "Table_raw/timezone.csv")
+
+
+```
+
+```{r prepareDescTable, include=FALSE}
+#This chunk holds code for demographic data wrangling.
+
+listdescVars <- colnames(descriptives.data[c(1:3,5:7)])
+
+
+#separating naming and  reducing data for descriptive Table 
+desctable.data <- dplyr::select(descriptives.data, c(listdescVars,
+                          IncludedInCFA))
+
+#renaming TRUE and FALSE from the IncludedInCFA to EFA and CFA for Descriptive Table
+desctable.data$IncludedInCFA[desctable.data$IncludedInCFA == T ] <-
+ "2. CFA Sample"
+desctable.data$IncludedInCFA[desctable.data$IncludedInCFA == F ] <- 
+ "1. EFA Sample"
+
+# recode the Gender factor so it will only show "Gender Diverse" in the summary table
+desctable.data$slypos_demographics_gender.factor <-
+  recode_factor(desctable.data$slypos_demographics_gender.factor, "No" = "Yes",
+         "Yes"= "No")
+       
+# create descriptive table for the demographic vars (excluding tz & Country) with gtsummary
+desctable.data %>%
+  tbl_summary(
+    by = IncludedInCFA,
+    statistic = list(all_continuous() ~ "{mean} ({sd})",
+                     all_categorical() ~ "{n} ({p}%)"),
+    digits = all_continuous() ~ 2,
+    label = list(slypos_demographics_age ~ "Age",
+                 slypos_demographics_sex.factor ~ "Sex",
+                 slypos_demographics_gender.factor ~ "Gender-Variant Identity",
+                 slypos_demographics_language.factor ~ "Native English Speaker",
+                 slypos_demographics_work_or_school.factor ~ "Occupational Status",
+                 slypos_demographics_school.factor ~ "Occupational setting"
+                 ),
+    
+    missing = "no"
+    ) %>% add_overall() %>% bold_labels() %>% 
+  # add_p() %>% add_q() %>%
+modify_header(label ~ "**Variable**") %>% 
+  # separate_p_footnotes() %>%
+  modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table 
+
+as_tibble(desc_table) -> desc_tibble 
+as_kable_extra(desc_table, format = "latex",booktabs = T) -> desc_kable #save it as a knitr::kable
+
+#summarise country/time zone data
+#The following chunk is not working now. May be package problem (Sorting command is not working)
+
+descriptives.data%>%
+  tbl_summary(
+    label = slypos_demographics_tz.factor ~ "Time zone - Country",
+    statistic = list(all_categorical() ~ "{n} ({p}%)"),
+    missing = "no",
+    sort = all_categorical() ~ "frequency",
+    include = "slypos_demographics_tz.factor"
+  )  %>% bold_labels() %>%
+  modify_header(label ~ "") %>%
+  as_tibble(format = 'pipe') -> tz_tibble
+
+```
+
+```{r demotab, warning=F, message=F}
+desc_kable  %>% kable_styling(latex_options = c("scale_down")) %>% landscape()
+```
+
+```{r EFAdata, include=FALSE}
+#This chunk holds code for creating EFA data subset
+### EFA data
+EFA.data <- sem.data[1:428, ]
+#library(VIM)
+missing <- VIM::aggr(EFA.data, plot =T)
+CFA.data <- sem.data[429:690,]
+```
+
+
+# Results
+
+Our results focus on the development of the LEBA inventory and its psychometric validation using a large scale online sample data (n = `r nrow(data)`).
+
+## Development of the initial item pool
+To capture the human light exposure related behaviours, 48 items were developed by an expert panel (all authors -- researchers from chronobiology, light research, neuroscience and psychology in different geographical contexts). Face validity examination by each panel member indicated all items were relevant and a few modifications were suggested. The author team discussed the suggestions and amended the items as indicated, thus creating a 48-item inventory. 
+
+## Measurement of light exposure behaviour in an online sample
+
+We conducted two rounds of large scale online survey between 17 May 2021 and 3 September 2021 to generate data from `r nrow(data)` participants with varied geographic locations (countries = `r nrow(num.countries)`; time-zone = `r nrow(numUTC)`). For a complete list of geographic locations, see **Supplementary Table 2**. Table 1 presents the survey participants' demographic characteristics. Only participants completing the full LEBA inventory were included. We used the data from first round for the exploratory factor analysis (EFA sample; n = `r nrow(EFA.data)`) and data from the second round was used in the confirmatory factor analysis (CFA sample; n = `r nrow(CFA.data)`). Participants in our survey were aged between `r min(desctable.data$slypos_demographics_age)` to `r max(desctable.data$slypos_demographics_age)` years, with an overall mean of \~ `r round(mean(desctable.data$slypos_demographics_age), 2)` years of age [Overall: `r mean(desctable.data$slypos_demographics_age)`±`r sd(desctable.data$slypos_demographics_age)`; EFA: `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`±`r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "1. EFA Sample"])`; CFA: `r mean(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`±`r sd(desctable.data$slypos_demographics_age[desctable.data$IncludedInCFA == "2. CFA Sample"])`]. In the entire sample, `r desc_tibble[4,2]` were male, `r desc_tibble[3,2]` were female, `r desc_tibble[5,2]` reported other sex, and `r desc_tibble[6,2]` reported a gender-variant identity. In a "Yes/No" question regarding native language, `r desc_tibble[7,2]` of respondents [EFA: `r desc_tibble[7,3]`; CFA: `r desc_tibble[7,4]`] indicated to be native English speakers. For their "Occupational Status", more than half of the overall sample (`r desc_tibble[9,2]`) reported that they currently work, whereas `r desc_tibble[10,2]` reported that they go to school, and `r desc_tibble[11,2]` responded that they do "Neither". With respect to the COVID-19 pandemic, we asked participants to indicate their occupational setting during the last four weeks: In the entire sample, `r desc_tibble[13,2]` of the participants indicated that they were in a home office/ home schooling setting, `r desc_tibble[14,2]` reported face-to-face work/schooling, `r desc_tibble[15,2]`  reported a combination of home- and face-to-face work/schooling, and `r desc_tibble[16,2]`  filled in the "Neither (no work or school, or on vacation)" response option.
+
+## Psychometric analysis: Development of the long form
+
+### Descriptive statistics and item analysis
+
+```{r full-data-mardia, include =F}
+mardia.all.data <- psych::mardia(sem.data, na.rm = T, plot =T)
+descriptives.all.data <- tabledown::des.tab(sem.data)
+```
+
+```{r gtvis, include =F}
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (data preparation)
+
+## Recoding sem.data$item8
+gt.data <- sem.data
+gt.data$item08 <- as.character(gt.data$item08)
+gt.data$item08 <- fct_recode(gt.data$item08,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+## Recoding gt.data$item26
+gt.data$item26 <- as.character(gt.data$item26)
+gt.data$item26 <- fct_recode(gt.data$item26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+## Recoding gt.data$item37
+gt.data$item37 <- as.character(gt.data$item26)
+gt.data$item37 <- fct_recode(gt.data$item26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+
+# all data Gt Table
+##Long table
+gt.long <- as.data.frame(gather(gt.data, Items, value))
+gt.long$value <- as.numeric(as.character(gt.long$value))
+
+##Summarizing and creating gt object
+
+gt.tab <- gt.long %>% 
+  group_by(Items) %>% 
+  # calculate summary stats & create data for the histogram and density plot
+  dplyr::summarise(
+    nr = n(),
+    mean = mean(value, na.rm = TRUE),
+    # med = median(value, na.rm = TRUE),
+    sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  gt() 
+
+gt.tab1 <- gt.tab$`_data` 
+
+gt.tab2 <- gt.tab1[,-c(1,2)]
+
+
+
+
+vars_labels = as.data.frame(sapply(sem.data,
+       function(x){attr(x,"label")}))
+
+vars_labels<- tibble::rownames_to_column(vars_labels, "Items")
+colnames(vars_labels) <- c("Item", "Stem")
+
+
+
+
+gt.tab3 <- cbind(vars_labels, gt.tab2[,c(1,2)], descriptives.all.data$Normality,gt.tab2[,c(3,4)] )
+
+colnames(gt.tab3) <- c("Item", "Stem", "mean", "sd","S-W Statistics", "hist_data","dens_data"  )
+#Preparation for likert data
+LEBA.likert <- as.data.frame(gt.data) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+LEBA.likert <-  mutate(LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+LEBA.Factor = as.data.frame(lapply(LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+items <- names(LEBA.Factor) 
+#Calculate percentage
+percentage <- kutils::likert(LEBA.Factor, vlist = items ) 
+
+percentage <- percentage$table %>% 
+  as.data.frame(.)
+
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.percentage <- cbind(labels,percentage) #tables with labels  
+full.percentage<- t(full.percentage ) #transpose
+as.data.frame(full.percentage)
+full.percentage1 <- full.percentage[-1,-6] #removing 1st row and total column
+full.percentage2 <- full.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.percentage2)
+
+
+colnames(full.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+Items <- rownames(full.percentage2)
+as.data.frame(Items)
+full.percentage3 <- cbind(Items,full.percentage2)
+
+full.percentage3 <- full.percentage3[order(Items),] 
+full.percentage3 <- as.data.frame(full.percentage3[,-1]) %>% 
+  gt()
+
+
+
+liket.full <- full.percentage3$"_data"
+
+
+full.table <-  cbind( gt.tab3, liket.full)%>% 
+  gt()
+
+
+```
+
+```{r fullgt,  include=FALSE}
+#This chunk holds codes for creating 'gtExtra' based descriptive figures  
+
+full.tab <- full.table$`_data`
+
+full.tab.1 <- full.tab[1:24,] %>% 
+  gt()
+
+full.tab.2 <- full.tab[25:48,] %>% 
+  gt()
+
+full.tab.1 %>% 
+# histogram and density plots
+  gtExtras::gt_plt_dist(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_plt_dist(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "grey",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# format decimals
+  fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("Summary Descriptives (n=690)"),
+    subtitle = md("Items 01-24 ")) %>%
+  cols_align(
+    align = "left",
+    columns = Item:Stem
+  ) %>% 
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = mean:sd
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+     tab_footnote(
+     footnote = md("**Shapiro–Wilk test**"),
+     locations = cells_column_labels(columns = `S-W Statistics`)
+  ) %>% 
+# change column names to appear in the table
+cols_label(
+  Item = ("Items"),
+  Stem = ("Stem"),
+  mean = ("Mean"),
+  sd = (("SD")),
+  `S-W Statistics` = ("SW"),
+  hist_data = "Histogram",
+  dens_data = "Density"
+)  %>% 
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = mean:Always
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    mean,
+    Item,
+    palette = "ggthemes::fivethirtyeight"
+  ) %>% tab_options(
+    table.font.size = px(14L)) %>% 
+  cols_width(
+    Stem ~ px(200)) %>% 
+ gtsave("Figures/Figure2.png", vwidth = 6000)
+
+
+
+full.tab.2 %>% 
+# histogram and density plots
+  gtExtras::gt_plt_dist(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_plt_dist(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "grey",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# format decimals
+  fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("Summary Descriptives (n=690)"),
+    subtitle = md("Items 25-48 ")) %>% 
+#create groups of columns
+# tab_spanner(
+#   label = "Item",
+#   columns = Item:Stem
+# ) %>%
+  cols_align(
+    align = "left",
+    columns = Item:Stem
+  ) %>% 
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = mean:sd
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+  
+     tab_footnote(
+     footnote = md("**Shapiro–Wilk test**"),
+     locations = cells_column_labels(columns = `S-W Statistics`)
+  ) %>% 
+# change column names to appear in the table
+cols_label(
+  Item = ("LEBA  Items"),
+  Stem = ("Stem"),
+  mean = ("Mean"),
+  sd = (("SD")),
+  `S-W Statistics` = ("SW"),
+  hist_data = "Histogram",
+  dens_data = "Density"
+)  %>% 
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = mean:Always
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    mean,
+    Item,
+    palette = "ggthemes::fivethirtyeight"
+  ) %>% tab_options(
+    table.font.size = px(14L)) %>% 
+  cols_width(
+    Stem ~ px(200)) %>% 
+gtsave("Figures/Figure3.png",vwidth = 6000)
+
+```
+
+```{r efagtPic1, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern observed in the large-scale survey for item 01-24. All items violated normality assumption.', out.height='100%', out.width='250%'}
+knitr::include_graphics('Figures/Figure2.png')
+
+```
+
+```{r efagtPic2, echo=FALSE,  fig.cap= 'Summary descriptives and response pattern observed in the large-scale survey for item 25-48. All items violated normality assumption.', out.height='100%', out.width='250%'}
+knitr::include_graphics('Figures/Figure3.png')
+
+```
+
+We observed that the response patterns of LEBA inventory for the entire sample (n = `r nrow(sem.data)`) were not normally distributed (Figures \@ref(fig:efagtPic1) and \@ref(fig:efagtPic2)). All items violated both univariate [@shapiroAnalysisVarianceTest1965] and multivariate normality [@mardiaMeasuresMultivariateSkewness1970]. The multivariate skewness was`r printnum(mardia.all.data$b1p)` (p<0.001) and the multivariate kurtosis was `r printnum(mardia.all.data$b2p)` (p<0.001). 
+
+```{r EFAassumptions, include=FALSE}
+#This chunk holds code for checking assumptions of EFA
+
+#KMO test
+KMO <- psych::KMO(EFA.data) 
+
+# Test of correlation matrix
+bartlet <- psych::cortest.bartlett(EFA.data, n =428)
+
+
+#Histogram
+psych::multi.hist(EFA.data[,sapply(EFA.data, is.numeric)])
+
+# Univariate normality
+
+descriptives <- tabledown::des.tab(EFA.data)
+
+colnames(descriptives) <- c("Items", "Mean", "SD", "Skew", "Kurtosis", "SW", "Item Total Correlation")
+
+vars_labels = as.data.frame(sapply(EFA.data,
+       function(x){attr(x,"label")}))
+
+vars_labels<- tibble::rownames_to_column(vars_labels, "Items")
+colnames(vars_labels) <- c("Item", "Stem")
+
+
+descriptives2 <- cbind(vars_labels, descriptives[,-1])
+# Multivariate Normality
+mardia <- psych::mardia(EFA.data, na.rm = T, plot =T)
+
+
+```
+
+```{r ItemAnalysis, include=FALSE}
+#This chunk holds code for Item analysis (Classical Test Theory)
+# Item analysis
+Item_analysis <- psych::alpha(EFA.data,check.keys=TRUE)
+Item_analysis$item.stats$r.cor
+low.r.corec <- (min(Item_analysis$item.stats$r.cor))  #minimum item total correlation
+high.r.corec <- (max(Item_analysis$item.stats$r.cor))     # maximum item total correlation
+```
+
+```{r gt-EFA, include =F}
+#EFA data
+gt.efa.data <- EFA.data
+
+# gt.efa.data.table <- gt.efa.data %>% 
+#   dplyr::select(item16, item36, item17,
+#                  item11, item10,item12,item07,item08,item09,
+#                  item27,  item03, item40,  item30, item41,
+#                  item33, item32,item35, item37,item38, 
+#                  item46, item45, item25, item04, item01,item26)
+
+#Creating long data
+gt.efa.long <- as.data.frame(gather(gt.efa.data, Items, value))
+gt.efa.long$value <- as.numeric(as.character(gt.efa.long$value))
+
+#Summarizing and creating gt object
+gt.efa.tab <- gt.efa.long %>% 
+  group_by(Items) %>% 
+  # calculate summary stats & create data for the histogram and density plot
+  dplyr::summarise(
+    # nr = n(),
+    # mean = mean(value, na.rm = TRUE),
+    # med = median(value, na.rm = TRUE),
+    # sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  gt() 
+
+
+#Preparation for likert data
+efa.LEBA.likert <- as.data.frame(gt.efa.data) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+efa.LEBA.likert <-  mutate(efa.LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+efa.LEBA.Factor = as.data.frame(lapply(efa.LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+efa.items <- names(efa.LEBA.Factor) 
+#Calculate percentage
+efa.percentage <- kutils::likert(efa.LEBA.Factor, vlist = efa.items ) 
+
+efa.percentage <- efa.percentage$table %>% 
+  as.data.frame(.)
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.efa.percentage <- cbind(labels,efa.percentage) #tables with labels  
+full.efa.percentage<- t(full.efa.percentage ) #transpose
+as.data.frame(full.efa.percentage)
+full.efa.percentage1 <- full.efa.percentage[-1,-6] #removing 1st row and total column
+full.efa.percentage2 <- full.efa.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.efa.percentage2)
+
+
+colnames(full.efa.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+efa.Items <- rownames(full.efa.percentage2)
+as.data.frame(efa.Items)
+full.efa.percentage3 <- cbind(efa.Items,full.efa.percentage2)
+
+full.efa.percentage3 <- full.efa.percentage3[order(efa.Items),] 
+full.efa.percentage3 <- as.data.frame(full.efa.percentage3[,-1]) %>% 
+  gt()
+
+
+gt.efa.table <- gt.efa.tab$'_data'
+gt.liket.efa <- full.efa.percentage3$"_data"
+
+
+efaTable <-  cbind( gt.efa.table, gt.liket.efa)%>% 
+  gt()
+
+
+ efa.gt <- efaTable$"_data"
+ 
+ efa.gt.2 <- cbind(descriptives2[,-2], efa.gt[,-1])
+```
+
+```{r efagt,include=F}
+
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (EFA descriptives Supplementary
+
+efa.gt.2 %>% 
+gt() %>% 
+# histogram and density plots
+  gtExtras::gt_plt_dist(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_plt_dist(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "#E64B3599",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# # format decimals
+#   fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("**Light Exposure Behaviour Assessment**"),
+    subtitle = md("Summary Descriptives EFA Sample (n=428)")
+  ) %>% 
+   tab_footnote(
+     footnote = md("**Shapiro–Wilk test**"),
+     locations = cells_column_labels(columns = SW)
+  ) %>%
+  
+#create groups of columns
+tab_spanner(
+  label = "Items",
+  columns = Item
+)  %>% 
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = Mean:SW
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+# change column names to appear in the table
+cols_label(
+  hist_data = "Histogram",
+  dens_data = "Density"
+) %>%
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+  gt_plt_dot(
+    Mean,
+    Item,
+    palette = "ggthemes::fivethirtyeight") %>% 
+  tab_options(
+    table.font.size = px(14L)) %>% 
+  
+  gtsave("Figures/S1_Fig.png", vwidth=6000)
+  
+# tab_row_group(
+  #     label = md("**F5: Using light in the morning and during daytime**"),
+  #     rows = c(1,3,12,13,24,25) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F4: Using light before bedtime**"),
+  #     rows = c(16,17,18,20,21) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F3: Using phone and smartwatch in bed**"),
+  #     rows = c(2,14,15,22,23) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F2: Spending time outdoors**"),
+  #     rows = c(4,5,6,7,8,9) 
+  #       ) %>% 
+  # tab_row_group(
+  #     label = md("**F1: Wearing blue light filters**"),
+  #     rows = c(10,11,19) )
+
+  
+  
+  
+  
+  
+  
+  
+```
+
+Similar non-normal distribution of response pattern was also observed in the EFA sample. **Supplementary Figure 1** depicts the univariate descriptive statistics for the EFA sample (n = `r nrow(EFA.data)`). Further, We observed that each item's correlation with the aggregated sum of the 48-item's score varied largely (corrected item-total correlation= `r apa(low.r.corec,2,T)` -`r apa(high.r.corec,2,T)`) indicating the possibility of multi-factor structure  of the LEBA inventory. 
+
+
+### Exploratory factor analysis and reliability analysis
+
+```{r CorrMatrix, include=FALSE}
+#This chunk holds code for producing correlation matrix and its details.
+
+#Polychoric Correlation matrix
+
+correlations <- psych::polychoric(EFA.data, correct = 0)
+
+upper <- correlations$rho[upper.tri(correlations$rho, diag = F)]
+
+min.cor <- apa(min((upper)),2,T) #minimum cor.coefficient of the matrix
+max.cor <- apa(max((upper)),2,T) # max. correlation coefficient of the matrix
+
+determinets <- det(correlations$rho) 
+# Calculating the percentage of correlations higher than .30
+
+BigR = sum(correlations$rho >= abs(.30) & correlations$rho < abs(1.0), na.rm =T)/2 
+totR = length(EFA.data)*(length(EFA.data)-1)/2
+cor.per <- print (BigR/totR)*100
+```
+
+```{r tabDes, eval=FALSE, include=FALSE, results='asis'}
+descriptives2 %>% 
+apa_table(landscape =T,caption ="Univariate Descriptive Statistics for the 48 Items. All Items Violated Univariate Normality Assumption Assessed by Shapiro–Wilk (SW) Test. The  Item-total Correlation Ranges Between .03-.48", escape =F, font_size = "footnotesize", note = ("$^{*}$p<.001, $^{1}$Shapiro–Wilk Statistics"), align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(descriptives2)))) 
+```
+
+```{r correlation-hits, eval=FALSE, include=FALSE}
+#This chunk holds code for plotting the correlation matrix in histogram format
+
+cor.hits <- as.data.frame(melt(upper))
+colnames(cor.hits) <- c("value")
+corr.histogram <- ggplot(cor.hits,aes(x=value)) + 
+  geom_histogram(binwidth=.1, col=I("black"),fill="#00A08799")+apatheme+
+  labs( y="", x = "Inter-item correlation")
+
+# ggsave("Figures/correlation_histogram.png", corr.histogram, width = 6, height = 6, dpi = 600, bg ="white")
+```
+
+```{r corplot, include =F}
+#This chunk holds code for plotting the correlation matrix
+#
+p.mat <- correlation::cor_to_p(correlations$rho, 428, method = "polychoric")
+
+
+corplot <- ggcorrplot(correlations$rho, p.mat=p.mat$p, insig = "pch", hc.order = FALSE, outline.col = "white", type = "lower", legend.title = "Correlation",sig.level = 0.05, pch.cex=1.2,
+                      # insig = "blank",
+           ggtheme = ggplot2::theme_minimal(),tl.srt = 90,  colors = c("#E64B35FF", "white", "#3C5488FF") )+
+  theme( panel.grid.major = element_blank(),
+         axis.text.x = element_text(size = 35),
+         axis.text.y = element_text(size = 35),
+         legend.text=element_text(size =35),
+         legend.title = element_text(size =35),
+          plot.title = element_text(size = 35),
+         panel.border = element_rect(color = "black",
+                                    fill = NA,
+                                    size = 1))+labs(title = "(A)")
+
+
+
+```
+
+```{r ParallelEFA, eval=FALSE, include=FALSE}
+#This chunk holds code for factor identification method : Horn
+# Parallel analysis
+Horn <- paran(correlations$rho, iterations=500, centile=0, quietly=FALSE,
+           status=TRUE, all=FALSE, cfa=FALSE, graph=TRUE,
+           color=TRUE, col=c("black","red","blue"),
+           lty=c(1,2,3), lwd=1, legend=TRUE, 
+           width=640, height=640, grdevice=png, seed=0, mat=NA, n=NA)
+
+
+Adjusted.EV <- data.frame(Horn$AdjEv)
+Adjusted.EV$type = c('Adjusted Ev')
+Adjusted.EV$num = c(row.names(Adjusted.EV))
+Adjusted.EV$num = as.numeric(Adjusted.EV$num)
+colnames(Adjusted.EV) = c('eigenvalue', 'type', 'num')
+
+
+Random.EV <- data.frame(Horn$RndEv)
+Random.EV$type = c('Random EV')
+Random.EV$num = c(row.names(Random.EV))
+Random.EV$num = as.numeric(Random.EV$num)
+colnames(Random.EV) = c('eigenvalue', 'type', 'num')
+
+
+Unadjusted.EV <- data.frame(Horn$Ev)
+Unadjusted.EV$type = c('Unadjusted EV')
+Unadjusted.EV$num = c(row.names(Unadjusted.EV))
+Unadjusted.EV$num = as.numeric(Unadjusted.EV$num)
+colnames(Unadjusted.EV) = c('eigenvalue', 'type', 'num')
+
+
+
+parallel = ggplot(Adjusted.EV, aes(x=num, y=eigenvalue, shape=type, color=type)) +
+  #Add lines connecting data points
+  geom_line(colour ='#DC000099')+
+    #geom_line(data = Random.EV) +
+  #geom_line(data = Unadjusted.EV)+
+    #Add the data points.
+  geom_point(size=1.5,colour ='#3C5488FF')+
+  #geom_point(data = Random.EV, size=3)+
+  #geom_point(data = Unadjusted.EV, size=3)+
+  scale_y_continuous(name="Eigen Value", limits=c(0, 7), breaks=seq(0,7,1)) +
+   #Label the x-axis 'Factor Number', and ensure that it ranges from 1-max # of factors, increasing by one with each 'tick' mark.
+  scale_x_continuous(name='Factor Number (Parallel Analysis)', limits=c(0, 48),breaks=seq(0,48,4))+
+    #Add vertical line indicating parallel analysis suggested max # of factors to retain
+  geom_hline(yintercept=1, linetype = 'dashed') + apatheme +theme(,legend.position = "None") 
+#text = element_text(size = 25)
+
+```
+
+```{r ScreePlot, include=FALSE}
+
+#This chunk holds code for factor identification method : Scree Plot
+
+Scree <- scree(correlations$rho,factors=TRUE,pc=TRUE,main="(B)",
+      hline=NULL,add=F)
+
+
+FA.Scree <- data.frame(Scree$fv)
+FA.Scree$type = c('Factor Analysis')
+FA.Scree$num = c(row.names(FA.Scree))
+FA.Scree$num = as.numeric(FA.Scree$num)
+colnames(FA.Scree) = c('eigenvalue', 'type', 'num')
+
+PA.Scree <- data.frame(Scree$pcv)
+PA.Scree$type = c('Principal Component Analysis')
+PA.Scree$num = c(row.names(PA.Scree))
+PA.Scree$num = as.numeric(PA.Scree$num)
+colnames(PA.Scree) = c('eigenvalue', 'type', 'num')
+
+
+scree.plot <-ggplot(FA.Scree, aes(x=num, y=eigenvalue,color=type, shape=type))+
+   geom_line(colour ='#DC000099')+
+  #geom_line(data = PA.Scree)+ 
+  geom_point(size=1.5,colour ='#3C5488FF')+
+  #geom_point(data = PA.Scree, size=3)+
+  scale_y_continuous(name="Eigen Value", limits=c(0, 5), breaks=seq(0,5,1)) +
+  scale_x_continuous(name="Factor Number", limits=c(0, 18),breaks=c(0,6,18))+
+  geom_hline(yintercept=1, linetype = 'dashed') + apatheme_2 +theme(legend.position = "None")+labs(title= "(B)")
+# ggsave("Figures/scree.plot.png",scree.plot, width = 4, height =4, dpi = 600,bg = "white", unit ="in")
+
+
+
+#text = element_text(size = 25
+
+```
+
+```{r HullEFA, include=FALSE}
+#This chunk holds code for factor identification method : Hull
+
+# HULL
+EFA.MRFA::hullEFA(EFA.data,extr = "ULS", index_hull = "CAF", display = TRUE, graph = T,
+        details = TRUE)
+hull <- ggplot2::last_plot()
+Hull <- hull+ ggtitle(NULL)+xlab("Factor Number")+ylab("CAF")+ aes(color = '#DC000099')+geom_point(color ='#3C5488FF',size =1)+
+  apatheme_2 +theme(legend.position = "None") +scale_fill_identity()+
+  scale_x_continuous(breaks=c(0,5,12))+labs(title= "(C)")
+
+# ggsave("Figures/Hull.png",Hull, width = 4, height =4, dpi = 600,bg = "white")
+
+
+```
+
+```{r MAPefa, include=FALSE}
+#This chunk holds code for factor identification method : MAP
+#MAP
+map <- psych::VSS(EFA.data, rotate = "varimax", fm = 'minres', n.obs =428 )
+map.map <- as.data.frame(map$map)
+colnames(map.map) <- "MAP Statistic"
+map.statistics <- map$vss.stats[,c(1,2,5,6,7,10,11)]
+full.map <- cbind(map.map,map.statistics)
+
+write.csv(full.map, "Table_raw/map_stat.csv")
+```
+
+```{r EFA, include=FALSE}
+#This chunk holds code for five factor EFA (pa-varimax)
+
+fa.5F.1 <- fa(r=correlations$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+AA <- print(fa.5F.1, cut = .3, digits = 3, sort = TRUE)
+
+
+reduced.model.5F.1 <- dplyr::select(EFA.data ,
+                                    -c( item20, item19, item05, item31, item44, item24, item43, item39, item22, item02, item18, item48, item42, item29, item06, item15, item23, item28, item14))
+
+correlations.red.5F.1 <- polychoric(reduced.model.5F.1,correct = 0)
+
+fa.5F.2 <- fa(r=correlations.red.5F.1$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428)
+
+BB <- print(fa.5F.2, cut = .3, digits = 3, sort = TRUE)
+
+reduced.model.5F.2 <- dplyr::select(EFA.data, -c( item20, item19, item05, item31, item44, item24, item43, item39, item22, item02, item18, item48, item42, item29, item06, item15, item23, item28, item14, item34, item47, item21, item13))
+
+correlations.red.5F.2 <- polychoric(reduced.model.5F.2,correct = 0)
+
+
+fa.5F.3 <- fa(r=correlations.red.5F.2$rho, nfactors = 5, fm= "pa",rotate ="varimax",
+              residuals = TRUE, SMC = TRUE, n.obs =428,max.iter = 500 )
+
+CC <- print(fa.5F.3, cut = .3, digits = 3, sort = TRUE)
+
+var1 <- CC$Vaccounted[2,1]*100
+var2 <- CC$Vaccounted[2,2]*100
+var3 <- CC$Vaccounted[2,3]*100
+var4 <- CC$Vaccounted[2,4]*100
+var5 <- CC$Vaccounted[2,5]*100
+
+omega <- omega(reduced.model.5F.2,nfactors=5,fm="minres",n.iter=1,p=.05,poly=T,key=NULL,
+    flip=TRUE,digits=2, title="Omega",sl=TRUE,labels=NULL,
+    plot=TRUE,n.obs=NA,rotate="oblimin",Phi=NULL,option="equal",covar=FALSE)
+```
+
+```{r Cronbach alpha for 5 fators, message=TRUE, warning=FALSE, include=FALSE}
+#This chunk holds code for estimating cronbach's alpha for the five factors.
+
+Five.F1 <- dplyr::select(EFA.data, item16, item36, item17)
+Five.F2 <- dplyr::select(EFA.data, item11, item10, item12, item07, item08, item09) 
+Five.F3 <-  dplyr::select(EFA.data, item27, item03,item40, item30, item41)
+Five.F4 <-  dplyr::select(EFA.data, item33,item32,item35, item37, item38)
+Five.F5 <- dplyr::select(EFA.data, item46, item45, item25, item04, item01, item26)
+
+#ordinal alpha
+Five.F1.alpha <- psych::alpha(polychoric(Five.F1)$rho,check.keys=TRUE)
+Five.F2.alpha <- psych::alpha(polychoric(Five.F2)$rho,check.keys=TRUE)
+Five.F3.alpha <- psych::alpha(polychoric(Five.F3)$rho,check.keys=TRUE)
+Five.F4.alpha <- psych::alpha(polychoric(Five.F4)$rho,check.keys=TRUE)
+Five.F5.alpha <- psych::alpha(polychoric(Five.F5)$rho,check.keys=TRUE)
+
+F1.alpha <- Five.F1.alpha$total$raw_alpha
+F2.alpha <- Five.F2.alpha$total$raw_alpha
+F3.alpha <- Five.F3.alpha$total$raw_alpha
+F4.alpha <- Five.F4.alpha$total$raw_alpha
+F5.alpha <- Five.F5.alpha$total$raw_alpha
+
+
+alpha.tab <- rbind(F1.alpha,F2.alpha,F3.alpha,F4.alpha,F5.alpha )
+
+
+```
+
+```{r tabledown, include=F}
+#This chunk holds codes for creating factor analysis output table
+
+efa.table <- tabledown::fac.tab(fa.5F.3,cut=.3, complexity = F)
+efa.table$Communality <- round(as.numeric(efa.table$Communality),2)
+
+item16 <- Hmisc::label(EFA.data$item16)
+item36 <- Hmisc::label(EFA.data$item36)
+item17 <- Hmisc::label(EFA.data$item17)
+item11 <- Hmisc::label(EFA.data$item11)
+item10 <- Hmisc::label(EFA.data$item10)
+item12 <- Hmisc::label(EFA.data$item12)
+item07 <- Hmisc::label(EFA.data$item07)
+item08 <- Hmisc::label(EFA.data$item08)
+item09 <- Hmisc::label(EFA.data$item09)
+item27 <- Hmisc::label(EFA.data$item27)
+item03 <- Hmisc::label(EFA.data$item03)
+item40 <- Hmisc::label(EFA.data$item40)
+item30 <- Hmisc::label(EFA.data$item30)
+item41 <- Hmisc::label(EFA.data$item41)
+item33 <- Hmisc::label(EFA.data$item33)
+item32 <- Hmisc::label(EFA.data$item32)
+item35 <- Hmisc::label(EFA.data$item35)
+item37 <- Hmisc::label(EFA.data$item37)
+item38 <- Hmisc::label(EFA.data$item38)
+item46 <- Hmisc::label(EFA.data$item46)
+item45 <- Hmisc::label(EFA.data$item45)
+item25 <- Hmisc::label(EFA.data$item25)
+item04 <- Hmisc::label(EFA.data$item04)
+item01 <- Hmisc::label(EFA.data$item01)
+item26 <- Hmisc::label(EFA.data$item26)
+
+efa.stems <- as.data.frame(rbind(item16,item36, item17, item11, item10, item12, item07, item08, item09, item27, item03, item40, item30, item41, item33, item32, item35, item37, item38, item46, item45, item25, item04, item01, item26, ""))
+colnames(efa.stems) <- "Stem"
+
+efa.tab.ful <- cbind(efa.table[,1],efa.stems, efa.table[,2:7] )
+
+efa.tab.ful[26,8] <- "-"
+
+
+#Communality
+Fac.5 <- fa.5F.3
+min.com <- min(Fac.5$communality)
+max.com <- max(Fac.5$communality)
+
+# loading
+Fac.5.min.max <- Fac.5$loadings %>% 
+  subset(abs(Fac.5$loadings)>(.3))
+min.loadings <- min(abs(Fac.5.min.max))
+max.loadings <- max(Fac.5.min.max)
+
+# Residuals
+residual.5F =residuals(fa.5F.3, diag = FALSE, na.rm =T)
+#Count of numbers of residuals>.05
+BigRR= sum(residual.5F>abs(.05), na.rm =T)
+print(BigRR)
+
+#Total number of off diagonal elements in the data matrix
+totRR = length(reduced.model.5F.2)*(length(reduced.model.5F.2)-1)/2
+
+# Proportion of off-diagonal elements >.05
+sumR <- sum(BigRR/totRR*100)
+
+
+```
+
+```{r EFARes, message=FALSE, warning=FALSE, include=F}
+#This chunk holds codes for creating the residual plot for 5 factor EFA (pa-varimax)
+res.dat <- as.data.frame(unclass(residual.5F))
+residual.data <- as.data.frame(gather(res.dat, Items, Residuals))
+
+residual.plot <- ggplot(residual.data, aes(x=Residuals)) + geom_histogram(binwidth=.04, col=I("black"),fill="#00A08799") + xlim(-.2,.2)+ ylim(0,250)+apatheme_2 +geom_vline(xintercept = .05)+
+  labs( y="Frequency",title = "(D)")
+
+# ggsave("Figures/residual.plot.png",residual.plot, width = 4, height =4, dpi = 600,bg = "white")
+
+
+```
+
+```{r efa-plot, include=FALSE}
+
+#This chunk holds code for compiled factor identification plots
+
+library(patchwork)
+
+# all_plot <-corplot|(Hull|scree.plot)/residual.plot
+# ggsave("Figures/all_plot.png",all_plot, width = 16, height = 8, dpi = 600, bg = "white")
+
+all_plot_2 <-corplot|(scree.plot|Hull)/residual.plot
+# all_plot_3 <-corplot|(scree.plot|Hull)/(residual.plot|plot_spacer())
+
+ggsave("Figures/Figure4.png",all_plot_2, width = 8, height = 4, dpi = 600, bg = "white", units = "in")
+
+
+
+```
+
+Exploratory analysis revealed that items of LEBA inventory can be categorized into five major factors: (i) wearing blue light filters; (ii) spending time out doors; (iii) using phone and smartwatch in bed; (iv) using light before bedtime (v) using light in the morning and during daytime. In this stage of analysis, we retained 25 items. the first factor had three items and encapsulated the individual's preference for using blue light filters in different light environments. The second factor contained six items that incorporated the individuals' hours spent outdoors. The third factor contained five items that looked into specific behaviours of using a phone and smartwatch in bed. The fourth factor comprised five items investigated the other behaviours related to the individual's electric light exposure before bedtime. lastly, the fifth factor encompassed six items capturing the individual's morning and daytime light exposure-related behaviour. 
+
+Prior to conducting the EFA, we have checked the post-hoc sampling adequacy by applying Kaiser-Meyer-Olkin (KMO) measures of sampling adequacy on the EFA sample (n = `r nrow(EFA.data)`) [@kaiserIndexFactorialSimplicity1974] and the quality of the correlation matrix by Bartlett's test of sphericity [@bartlettNoteMultiplyingFactors1954]. KMO>0.50 would indicate adequate sample size [@hutchesonMultivariateSocialScientist1999] and a significant test of sphericity would indicate satisfactory quality of the correlation matrix . Results indicated that we had an adequate sample size (KMO = `r printnum(KMO$MSA)`) and correlation matrix ($\chi^2_{1128}$ = `r apa(bartlet$chisq, 2, T)`, p< 0.001). However, `r apa(cor.per, 2,T)`% of the inter-item correlation coefficients were greater than |0.30|, and the inter-item correlation coefficients ranged between `r min.cor` to `r max.cor`. Figure \@ref(fig:efa-plot-print)-A depicts the respective correlation matrix. To identify how many factors are required to optimally express human light exposure related behaviors we used a combination of methods. the Scree plot ( Figure \@ref(fig:efa-plot-print)-B) revealed a six-factor solution, whereas the minimum average partial (MAP) method [@velicerDeterminingNumberComponents1976] (**Supplementary Table 3**) and Hull method [@lorenzo-sevaHullMethodSelecting2011] implied a five-factor solution (Figure \@ref(fig:efa-plot-print)-C). Hence, we tested both five-factor and six-factor solutions using iterative EFA where we gradually identified and discarded problematic items (factor-loading <0.30 and cross-loading >0.30). In this process, we found a five-factor structure for LEBA inventory with 25 items. Table \@ref(tab:EFATable) displays the factor-loading ($\lambda$) and communality of the items. Both factor loadings and commonalities advocate to accept this five-factor solution ( |$\lambda$| = `r apa(min.loadings,2,T)`-`r apa(max.loadings, 2, T)`; commonalities = `r apa(min.com,2,T)`-`r apa(max.com, 2, T)`). These five factors explains `r apa(var1,2,T)`%, `r apa(var2,2,T)`%, `r apa(var3,2,T)`%, `r apa(var4,2,T)`%, `r apa(var5,2,T)`% of the total variance in individual's light exposure related behaviours respectively. All factors exhibited excellent to satisfactory reliability (ordinal $\alpha$ = `r apa(F1.alpha,2,T)`, `r apa(F2.alpha,2,T)`, `r apa(F3.alpha,2,T)`, `r apa(F4.alpha,2,T)`, `r apa(F5.alpha,2,T)` respectively). The entire inventory also exhibited satisfactory reliability ($\omega_t$=`r apa(omega$omega.tot,2,T)`).
+
+However, the histogram of the absolute values of nonredundant residual correlations (Figure \@ref(fig:efa-plot-print)-D) displayed that `r sumR`% of correlations were greater >|.05|, indicating a possible under-factoring. [@desjardinsHandbookEducationalMeasurement2018]. Subsequently, we fitted a six-factor solution, where a factor with only two salient variables emerged, thus disqualifying the six-factor solution (**Supplementary Table 4**). While making the judgement of accepting this five-factor solution we considered both factor's interpretability and their psychometric properties. We deemed the five derived factors as highly interpretable  and relevant concerning our aim to capture light exposure-related behaviour, we retained all of them with 25 items. Two of the items showed negative factor-loading (item 08: `r Hmisc::label(data$slypos_leba_08)` and item 37: `r Hmisc::label(data$slypos_leba_37)`). Upon re-inspection, we recognized these items to be negatively correlated to the respective factor, and thus, we reverse-scored these two items.
+
+
+(ref:efa-plot-print) (A) Inter-item polychoric correlation coefficients for the 48 items. 4.9 % inter-item correlation coefficients were higher than |.30|. 'x' denotes non-significant correlation. (B) The Scree plot suggested six factors. (C) Hull method indicated that five factors were required to balance the model fit and number of parameters. (D) The histogram of nonredundant residual correlations in the five-factor model indicated that 26% of inter-item correlations were higher than .05, hinting at a possible under-factoring.
+
+```{r efa-plot-print, fig.align= 'center', fig.cap='(ref:efa-plot-print)',  warning=FALSE,  out.height='130%', out.width='100%'}
+
+knitr::include_graphics('Figures/Figure4.png', dpi =600)
+
+```
+
+
+```{r EFATable, results='asis'}
+
+apa_table(efa.tab.ful, caption = "Factor loadings and communality of the retained items in EFA using principal axis extraction method (n=482).", note = "Only loading > .30 is reported.", 
+          font_size = "footnotesize", escape=F,landscape = T,
+           align = c("p{1cm}","p{10cm}", rep("p{1cm}", ncol(efa.tab.ful))))
+```
+
+```{r EFAplotprep, eval=FALSE, include=FALSE}
+#This chunk holds codes for co-plotting EFA-plot and residual plot.
+
+library(jpeg)
+library(png)
+library(cowplot)
+
+img1 <- png::readPNG("Figures/EFAplot.png")
+ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200)
+
+
+
+p1 <- ggplot2::ggplot() + ggplot2::annotation_custom(grid::rasterGrob(img1,
+                                                                      width=.4,
+                                                                      height=.8),
+                                                     -Inf, Inf, -Inf, Inf)+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank())
+        
+
+
+EFAplot.1 <- cowplot::plot_grid(
+  NULL, residual.plot,
+  labels = c("", "B"),
+  align="h",
+  ncol = 1,
+  label_size = 15,
+  label_fontfamily = "Arial",
+  label_fontface = "plain",
+  label_y = .99
+)
+
+EFAplot.2 <- cowplot::plot_grid(
+  p1, EFAplot.1,
+  labels = c("A",""),
+  align="h",
+  ncol = 2,
+  label_size = 15,
+  label_fontfamily = "Arial",
+  label_fontface = "plain",
+  label_y = .99,
+  label_x = .02
+)
+
+ggsave("Figures/EFAfull.png",EFAplot.2, width = 6, height =7, dpi = 1200)
+
+```
+
+### Confirmatory factor analysis
+
+```{r gt-CFA, include =F}
+gt.cfa.data <- gt.data[429:690,]
+gt.cfa.data.table <- gt.cfa.data %>% 
+  dplyr::select(item16, item36, item17,
+                 item11, item10,item12,item07,item08,item09,
+                 item27,  item03, item40,  item30, item41,
+                 item32,item35,item38, item33, 
+                 item46, item45, item25, item04, item01 )
+
+gt.cfa.long <- gather(gt.cfa.data.table, Items, value)
+gt.cfa.long$value <- as.numeric(as.character(gt.cfa.long$value))
+gt.cfa.tab <- gt.cfa.long %>% 
+  group_by(Items) %>% 
+# calculate summary stats & create data for the histogram and density plot
+  dplyr::summarise(
+    nr = n(),
+    mean = mean(value, na.rm = TRUE),
+    med = median(value, na.rm = TRUE),
+    sd = sd(value, na.rm = TRUE),
+    hist_data = list(value),
+    dens_data = list(value),
+    .groups = "drop"
+  ) %>% 
+  
+  gt()
+
+#Preparation for likert data
+cfa.LEBA.likert <- as.data.frame(gt.cfa.data.table) 
+
+recod_LEBA <- c( "1" = "Never", "2" = "Rarely", "3"= "Sometimes","4" = "Often",
+                 "5" = "Always")
+cfa.LEBA.likert <-  mutate(cfa.LEBA.likert, across(starts_with("item"), ~unname(recod_LEBA[.])))
+
+cfa.LEBA.Factor = as.data.frame(lapply(cfa.LEBA.likert,factor,
+                                   ordered = T))
+#get the items name
+cfa.items <- names(cfa.LEBA.Factor) 
+#Calculate percentage
+cfa.percentage <- kutils::likert(cfa.LEBA.Factor, vlist = cfa.items ) 
+
+cfa.percentage <- cfa.percentage$table %>% 
+  as.data.frame(.)
+
+#data wrangling
+labels <- c("Always", "Never","Often", "Rarely", "Sometimes","Total")
+as.data.frame(labels)
+
+full.cfa.percentage <- cbind(labels,cfa.percentage) #tables with labels  
+full.cfa.percentage <- t(full.cfa.percentage ) #transpose
+as.data.frame(full.cfa.percentage)
+full.cfa.percentage1 <- full.cfa.percentage[-1,-6] #removing 1st row and total column
+full.cfa.percentage2 <- full.cfa.percentage1[, c(2, 4, 5, 3,1)]# rearranging
+as.data.frame(full.cfa.percentage2)
+
+
+colnames(full.cfa.percentage2) <- c("Never","Rarely","Sometimes","Often","Always")
+
+cfa.Items <- rownames(full.cfa.percentage2)
+as.data.frame(cfa.Items)
+full.cfa.percentage3 <- cbind(cfa.Items,full.cfa.percentage2)
+
+full.cfa.percentage3 <- full.cfa.percentage3[order(cfa.Items),] 
+full.cfa.percentage3 <- as.data.frame(full.cfa.percentage3[,-1]) %>% 
+  gt()
+
+
+gt.cfa.table <- gt.cfa.tab$'_data'
+gt.liket.cfa <- full.cfa.percentage3$"_data"
+
+
+cfaTable <-  cbind( gt.cfa.table, gt.liket.cfa) %>% 
+  gt() 
+
+
+cfa.gt <- cfaTable$"_data"
+
+```
+
+```{r cfagt,include=F}
+#This chunk holds codes for creating 'gtExtra' based descriptive figures (CFA Descriptives Supplementary
+
+
+cfa.gt %>% 
+gt() %>% 
+# histogram and density plots
+  gtExtras::gt_plt_dist(
+    hist_data,
+    type = "histogram",
+    line_color = "black", 
+    fill_color = "#00A08799",
+    bw = 1,
+    same_limit = TRUE)%>%
+  gtExtras::gt_plt_dist(
+    dens_data,
+    type = "density",
+    line_color = "black", 
+    fill_color = "#E64B3599",
+    bw = 0.75,
+    same_limit = TRUE
+  )%>%
+# format decimals
+  fmt_number(columns = mean:sd, decimals = 1) %>%
+# header
+  tab_header(
+    title = md("**Light Exposure Behaviour Assessment**"),
+    subtitle = md("Summary Descriptives CFA Sample (n=262)")
+  ) %>% 
+  # tab_footnote(
+  #   footnote = md("**Histogram**"),
+  #   locations = cells_column_labels(columns = hist_data)
+  # ) %>%
+  # tab_footnote(
+  #   footnote = md("**Density**"),
+  #   locations = cells_column_labels(columns = dens_data)
+  # ) %>% 
+#create groups of columns
+# tab_spanner(
+#   label = "Items",
+#   columns = Items
+# ) %>%
+  tab_spanner(
+    label = "Summary Statistics",
+    columns = nr:sd
+  ) %>%
+  tab_spanner(
+    label = "Graphics",
+    columns = hist_data:dens_data
+  ) %>% 
+  tab_spanner(
+    label = "Response Pattern",
+    columns = Never:Always
+  ) %>%
+# change column names to appear in the table
+cols_label(
+  Items = (""),
+  nr = ("n"),
+  mean = ("Mean"),
+  med = ("Median "),
+  sd = (("SD")),
+  hist_data = "Histogram",
+  dens_data = "Density"
+) %>%
+# set alignment as per wish
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  opt_align_table_header(align = "left") %>%
+# add coloured dots and lines on the first column
+gt_plt_dot(
+  mean,
+  Items,
+  palette = "ggthemes::fivethirtyeight") %>%
+  tab_row_group(
+      label = md("**F5: Using light in the morning and during daytime**"),
+      rows = c(1,3,12,13,22,23) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F4: Using light before bedtime**"),
+      rows = c(15,16,17,19) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F3: Using phone and smartwatch in bed**"),
+      rows = c(2,13,14,20,21) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F2: Spending time outdoors**"),
+      rows = c(4,5,6,7,8,9) 
+        ) %>% 
+  tab_row_group(
+      label = md("**F1: Wearing blue light filters**"),
+      rows = c(10,11,18) 
+        ) %>% 
+  gtsave("Figures/S2_Fig.png",vwidth = 7000)
+
+```
+
+```{r CFAdataframe, include=FALSE}
+#This chunk holds codes for CFA data preparation.
+
+### CFA Data
+CFA.data <- sem.data[429:690,]
+
+## Recoding CFA.data$item8 into CFA.data$Ritem8
+CFA.data$Ritem08 <- as.character(CFA.data$item08)
+CFA.data$Ritem08 <- fct_recode(CFA.data$Ritem08,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+CFA.data$Ritem08 <- as.numeric(as.character(CFA.data$Ritem08))
+
+## Recoding CFA.data$item37 into CFA.data$item37_rec
+CFA.data$Ritem37 <- as.character(CFA.data$item37)
+CFA.data$Ritem37 <- fct_recode(CFA.data$Ritem37,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+CFA.data$Ritem37 <- as.numeric(as.character(CFA.data$Ritem37))
+
+## Recoding CFA.data$item26 into CFA.data$Ritem26
+CFA.data$Ritem26 <- as.character(CFA.data$item26)
+CFA.data$Ritem26 <- fct_recode(CFA.data$Ritem26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+
+#Hitogram
+#psych::multi.hist(CFA.data[,sapply(CFA.data, is.numeric)])
+```
+
+```{r CFA25items, include=FALSE }
+#This chunk holds codes for 1st CFA 
+
+LB.model.Cor.1 <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
+                 F3 =~  item27+ item03+ item40 + item30 + item41
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 + item37
+                 F5 =~ item46+ item45+ item25+ item04+ item01 +item26
+                       a1==a2
+                       a3==a4" 
+
+
+
+
+fit.Cor.1 <- cfa(LB.model.Cor.1, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
+
+## Summary of Model 
+cfa.sum.1 <- summary(fit.Cor.1, fit.measures =TRUE,standardized = TRUE,rsq =TRUE)
+
+
+## Selected Fit measures 
+fit.1 <- fitmeasures (fit.Cor.1,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.scaled","tli.scaled",
+                       "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
+
+
+reliability1 <- semTools::reliability(fit.Cor.1)
+
+```
+
+```{r mod1, eval=FALSE, include=FALSE}
+#This chunk holds codes for modification indices for 1st CFA
+modfit.Cor.one <- modindices(fit.Cor.1, sort. = TRUE) 
+modfit.Cor.one[modfit.Cor.one$mi>3.84,]
+```
+
+```{r CFA23withMI, include=FALSE}
+#This chunk holds codes for 2nd CFA (Accepted)
+
+LB.model.Cor.2 <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
+                 F3 =~  item27+ item03+ item40 + item30 + item41
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
+                 F5 =~ item46+ item45+ item25+ item04+ item01 
+                       a1==a2
+                       a3==a4
+                item30 ~~  item41
+                     F1 ~~ 0*F2
+F1 ~~ 0*F3
+F1 ~~ 0*F4
+F1 ~~ 0*F5
+F2 ~~ 0*F3
+F2 ~~ 0*F4
+F2 ~~ 0*F5
+F3 ~~ 0*F4
+F3 ~~ 0*F5
+F4 ~~ 0*F5"  
+
+
+#item26 & 37 are removed
+                
+## Fit the model 
+fit.Cor.2 <- cfa(LB.model.Cor.2, data = CFA.data, ordered = names(CFA.data),estimator = "WLSMV") 
+
+rel.k <- semTools::reliability(fit.Cor.2, return.total = T)
+## Summary of Model 
+cfa.sum.2 <- summary(fit.Cor.2, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
+
+## Selected Fit measures 
+fit.2 <- fitmeasures (fit.Cor.2,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.scaled","tli.scaled",
+                       "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
+
+
+
+```
+
+```{r mod2, eval=FALSE, include=FALSE}
+#This chunk holds codes for modification indices for 2nd CFA
+modfit.Cor.one <- modindices(fit.Cor.2, sort. = TRUE) 
+modfit.Cor.one[modfit.Cor.one$mi>3.84,]
+```
+
+To investigate the structural validity of the five-factor structure obtained in EFA, we conducted a confirmatory factor analysis (CFA) on the CFA sample. The five-factor structure with 25 items showed acceptable fit (Table \@ref(tab:tabCfa)) providing evidence of structural validity (CFI = `r apa(fit.1[5],2,T)`; TLI = `r apa(fit.1[6],2,T)`; RMSEA = `r apa(fit.1[7],2,T)` [`r apa(fit.1[8],2,T)`-`r apa(fit.1[9],2,T)`, 90% CI]). Two equity constraints were imposed on item pairs 32-33 (item 32: I dim my mobile phone screen within 1 hour before attempting to fall asleep; item 33: I dim my computer screen within 1 hour before attempting to fall asleep) and 16-17 (item 16: I wear blue-filtering, orange-tinted, and/or red-tinted glasses indoors during the day; item 17: I wear blue-filtering, orange-tinted, and/or red-tinted glasses outdoors during the day). Item pair 32-33 describes the preference for dimming the electric devices' brightness before bedtime, whereas item pair 16-17 represents the use of blue filtering or coloured glasses during the daytime. Given the similar nature of captured behaviours within each item pair, we accepted the imposed equity constraints. Nevertheless, the SRMR value exceeded the guideline recommendation (SRMR = `r apa(fit.1[10],2,T)`). In order to improve the model fit, we conducted a post-hoc model modification. Firstly, the  modification indices suggested cross-loadings between item 37 and 26 (item 37: I purposely leave a light on in my sleep environment while sleeping; item 26: I turn on my ceiling room light when it is light outside), which were hence discarded.  Secondly, items 30 and 41 (item 30: I look at my smartwatch within 1 hour before attempting to fall asleep; item 41: I look at my smartwatch when I wake up at night) showed a tendency to co-vary in their error variance (MI = 141.127, p<0.001 ). By allowing the latter pair of items (30 $\&$ 41) to co-vary, the model's error variance attained an improved fit (CFI = `r apa(fit.2[5],2,T)`; TLI = `r apa(fit.2[6],2,T)`); RMSEA = `r apa(fit.2[7],2,T)` [`r apa(fit.2[8],2,T)`-`r apa(fit.2[9],2,T)`, 90% CI]; SRMR = `r apa(fit.2[10],2,T) `).  
+
+Accordingly, we accept the five-factor model with 23 items, finalizing the long Form of LEBA inventory (see **Supplementary File 1**). Internal consistency ordinal $\alpha$ for the five factors of the LEBA were `r apa(rel.k[2,1],2,T)`, `r apa(rel.k[2,2],2,T)`, `r apa(rel.k[2,3],2,T)`, `r apa(rel.k[2,4],2,T)`, `r apa(rel.k[2,5],2,T)`, respectively. The reliability of the total inventory was satisfactory ($\omega_t$ = `r apa(rel.k[5,6],2,T)`). Figure \@ref(fig:figcfa) depicts the obtained CFA structure, while  **Supplementary Figure 2** depicts the data distribution and endorsement pattern of the retained 23 items in our CFA sample.
+
+```{r cfaMat, results='asis'}
+#This chunk holds codes to create CFA output table (better options are avaiable at 'tabledown' package)
+
+CFa.matrix <- matrix("NA", nrow =2, ncol = 9)
+colnames(CFa.matrix) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
+
+
+Cfa.matrix <- tabledown::cfa.tab.multi(fit.Cor.1,fit.Cor.2)
+Cfa.matrix.selected <- as.data.frame(Cfa.matrix[, c(1,2,6,7,8,9,10,11)])
+Cfa.matrix.selected <- tibble::rowid_to_column(Cfa.matrix.selected,"Model")
+colnames(Cfa.matrix.selected) = c("Model", "$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper CI", "SRMR")
+
+Cfa.matrix.selected$CFI[1] <- round(fit.1[5],2)
+Cfa.matrix.selected$TLI[1] <- round(fit.1[6],2)
+Cfa.matrix.selected$RMSEA[1] <- round(fit.1[7],2)
+Cfa.matrix.selected[1,7] <- round(fit.1[8],2)
+Cfa.matrix.selected[1,8] <- round(fit.1[9],2)
+
+Cfa.matrix.selected$CFI[2] <- round(fit.2[5],2)
+Cfa.matrix.selected$TLI[2] <- round(fit.2[6],2)
+Cfa.matrix.selected$RMSEA[2] <- round(fit.1[7],2)
+Cfa.matrix.selected[2,7] <- round(fit.2[8],2)
+Cfa.matrix.selected[2,8] <- round(fit.2[9],2)
+
+
+```
+
+```{r tabCfa}
+apa_table(Cfa.matrix.selected, caption = "Confirmatory Factor Analysis model fit indices of the two model: (a) Model 1: five factor model with 25 items (b) Model 2:  five factor model with 23 items. Model 2 attained the best fit.", align = "c", landscape = T, escape=F, note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square.")
+```
+
+```{r cfaplot, eval=FALSE, include=FALSE}
+#This chunk holds codes to store CFA plot
+
+
+png(filename="Figures/CFAplot2.png", 
+    type="cairo",
+    units="in", 
+    width=12, 
+    height=12, 
+    pointsize=12, 
+    res=1200)
+semPaths (fit.Cor.2 , 
+          what= "std",
+          #"hide", #(hides coefficeits)
+          #whatLabels = "std",
+          intercepts = F,
+          style ="OpenMx",
+          #residScale = 6,
+          theme = "colorblind",
+          nCharNodes = 0,
+          reorder =T,
+          rotation =2,
+          layout ="tree",
+          cardinal = T,
+          curvePivot =T,
+          sizeMan =8,#items length
+          sizeMan2 = 2,#items
+          sizeLat = 12,#factors
+          thresholds = FALSE,
+          equalizeManifests =F,
+          fade = FALSE,
+          edge.label.cex = .8,
+          #exoCov = T,
+          centerLevels = T,
+          #edge.color="black",
+          label.scale=T,
+          label.cex=1.2, #Font of factor and item name
+          residuals=T,
+           #exoVar=FALSE,
+          #fixedStyle=6, #Style of arrow (guide item)
+          #freeStyle=1#Style of arrow (other item), #XKCD = TRUE
+           
+          )
+
+
+dev.off()
+```
+
+```{r figcfa, fig.cap = "Five factor  model of LEBA obtained by confirmatory factor analysis. By allowing item pair 41 and 30 to co-vary their error variance our model attained the best fit.",  out.height='100%',out.width='100%', warning=FALSE}
+
+knitr::include_graphics("Figures/Figure5.png", dpi =600)
+
+
+```
+
+### Measurement invariance
+
+```{r InvarianceAnalysis_data, include=FALSE}
+#This chunk holds codes to prepare measurement invariance data.
+
+invariance.data <- cbind(CFA.data, data$slypos_demographics_language.factor[429:690])
+colnames(invariance.data)[52] <- "English_Speaking"
+
+
+
+mi.count <- invariance.data %>% 
+  group_by(English_Speaking) %>% 
+  count() %>% 
+  as.data.frame()
+
+mi.descriptives <- CFA.descriptives[, c(1,2,5,6,7)] 
+colnames(mi.descriptives)[3] <- "English_Speaking"
+
+
+english.speaking <- mi.descriptives %>% 
+  subset(English_Speaking=="Yes")
+
+non.english.speaking <- mi.descriptives %>% 
+  subset(English_Speaking=="No")
+
+
+mi.des.sum <- mi.descriptives %>% 
+psych::describeBy("English_Speaking")
+
+mi.english.sum <- english.speaking %>% 
+psych::describeBy("slypos_demographics_sex.factor")
+
+mi.non.english.sum <- non.english.speaking %>% 
+psych::describeBy("slypos_demographics_sex.factor")
+
+mi.des.sum.english <- as.data.frame(mi.des.sum$Yes)
+mi.des.sum.nonenglish <- as.data.frame(mi.des.sum$No)
+```
+
+We reported the measurement invariance (MI) analysis on the CFA sample based on native (n = `r mi.count[1,2]`) and non-native English speakers (n = `r mi.count[2,2]`). A detailed demographic description are provided in **Supplementary Table 5**.  Our MI results (Table \@ref(tab:InvarianceTab)) indicated that LEBA inventory demonstrated highest level of (residual model) psychometric equivalence across native and non-native English speaking participants, thus permitting group-mean based comparisons. The four fitted MI models generated acceptable fit indices and the model fit did not significantly decrease across the nested models ($\Delta$CFI>-0.01; $\Delta$RMSEA<0.01).
+
+```{r Invariancedetail, include=FALSE}
+#This chunk holds codes for measurement Invariance
+
+LB.model.Cor.2 <- "F1 =~ a1*item16 + item36 + a2*item17
+                 F2 =~ item11 + item10 + item12+ item07+ Ritem08+ item09
+                 F3 =~  item27+ item03+ item40 + item30 + item41
+                 F4 =~ a3*item32 + item35 + item38+ a4*item33 
+                 F5 =~ item46+ item45+ item25+ item04+ item01 
+                       a1==a2
+                       a3==a4
+                item30 ~~  item41
+                       "  
+# Configural invariance ####
+configural <- cfa(model = LB.model.Cor.2,
+                  data = invariance.data,
+                  group = "English_Speaking",
+                  ordered =   names(CFA.data),
+                  estimator = "WLSMV")
+
+summary(configural, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+fitmeasures (configural,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.scaled","tli.scaled",
+                       "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
+
+#Metric
+weak <- cfa(model = LB.model.Cor.2,
+                  data = invariance.data,
+                  group = "English_Speaking",
+                  ordered =   names(CFA.data),
+                  estimator = "WLSMV", 
+            group.equal = "loadings")
+            
+summary(weak, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+
+fitmeasures (weak,c("gfi", "agfi", "nfi","rfi", 
+                       "cfi.scaled","tli.scaled",
+                       "rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled","srmr"))
+
+First.comp <- compareFit (configural, weak)
+summary(First.comp)
+
+
+
+#Scaler
+strong <- cfa(model = LB.model.Cor.2,
+                  data = invariance.data,
+                  group = "English_Speaking",
+                  ordered =   names(CFA.data),
+                  estimator = "WLSMV", 
+              group.equal = c("loadings", "intercepts"))
+summary(strong, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+
+Second.comp <- compareFit  (weak, strong)
+summary(Second.comp)
+
+#residual
+strict <- cfa(model = LB.model.Cor.2,
+                  data = invariance.data,
+                  group = "English_Speaking",
+                  ordered =   names(CFA.data),
+                  estimator = "WLSMV",  
+              group.equal = c("loadings", "intercepts", "residuals")) 
+
+summary(strict, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+residual.fitm <- as.data.frame(fitmeasures (strict,c("gfi", "agfi", "nfi","rfi", "cfi","tli","rmsea", "srmr","aic")))
+
+Third.comp <- compareFit(strict,strong)
+summary(Third.comp)
+#structural
+structural <-cfa(model = LB.model.Cor.2,
+                  data = invariance.data,
+                  group = "English_Speaking",
+                  ordered =   names(CFA.data),
+                  estimator = "WLSMV",  
+                 group.equal = c("loadings", "intercepts", "residuals", "means","lv.variances","lv.covariances"))
+
+summary(structural, fit.measures =TRUE,standardized = TRUE, rsq =TRUE)
+fitmeasures (structural,c("gfi", "agfi", "nfi","rfi", "cfi","tli","rmsea", "srmr","aic"))
+
+fourth.comp <- compareFit  (structural,strict)
+summary(fourth.comp)
+comfit.par <- compareFit(configural, weak, strong, strict)
+summary (comfit.par)
+
+models <-  list("Configural" = configural, 
+                "Metric" = weak, 
+                "Scalar" = strong, 
+                "Residual" = strict)
+
+
+
+Invariance.table <- compareLavaan(models,
+              nesting = "Configural > Metric > Scalar > Residual", 
+              fitmeas = c("chisq.scaled", "df",  "cfi.scaled","tli.scaled","rmsea.scaled", "rmsea.ci.lower.scaled", "rmsea.ci.upper.scaled" ),
+              scaled = T,
+              chidif = T, digits = 2)
+
+
+
+
+colnames(Invariance.table) <- c("$\\chi^{2}$", "df", "CFI", "TLI", "RMSEA", "RMSEA 90\\% Lower CI", "RMSEA 90\\% Upper", "$\\Delta$ $\\chi^{2}$", "$\\Delta$ df*", "p")
+
+
+```
+
+```{r InvarianceTab, results='asis'}
+apa_table(Invariance.table, align = "c",  caption = "Measurement Invariance analysis on CFA sample (n = 262) across native and non-native English speakers.", note = "df: Degrees of Freedom; CFI: Comparative Fit Index; TLI: Tucker Lewis Index; RMSEA: Root Mean Square Error of Approximation; CI: Confidence Interval; SRMR: Standardized Root Mean Square; a = Metric vs Configural; b = Scalar vs Metric; c = Residual vs Scalar; * =  df of model comparison.", landscape = T, font_size = "footnotesize", escape=F )
+
+```
+
+## Secondary analysis: Grade level identification and semantic scale network analysis
+
+We investigated the language-based accessibility of LEBA using Flesch-Kincaid grade level analysis [@flesch1948new]. Results indicated that at least a language proficiency of educational grade level-four (US education system) with age above eight years  are required to comprehend the items used in LEBA inventory. Semantic Scale analysis [@rosenbusch2020semantic]  was administered to assess the LEBA's (23 items) semantic relation to other questionnaires. LEBA inventory was most strongly semantically related to scales about sleep: The "Sleep Disturbance Scale For Children" [@bruni1996sleep] and the "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. The cosine similarity index ranged between 0.47 to 0.51. 
+
+```{r textanalysis, include=F}
+#This chunk holds codes for semantic analysis and readability test
+
+#devtools::install_github("unDocUMeantIt/koRpus")
+library(koRpus)# stable release
+#koRpus::install.koRpus.lang(lang=c("en"))
+library(koRpus)
+library(koRpus.lang.en)
+ques <- tokenize("Table_raw/items.txt", 
+                 format = "file",
+                 fileEncoding = NULL,
+                 split = "[[:space:]]",
+                 ign.comp = "-",
+                 heuristics = "abbr",
+                 heur.fix = list(pre = c("\u2019", "'"), suf = c("\u2019", "'")),
+                 abbrev = NULL,
+                 tag = TRUE,
+                 lang = "en",
+                 sentc.end = c(".", "!", "?", ";", ":"),
+                 detect = c(parag = FALSE, hline = FALSE),
+                 clean.raw = NULL,
+                 perl = FALSE,
+                 stopwords = NULL,
+                 stemmer = NULL,
+                 doc_id = NA,
+                 add.desc = "kRp.env")
+
+readability <- readability(ques,
+                           hyphen = NULL,
+                           index = "Flesch.Kincaid",
+                           parameters = list(),
+                           word.lists = list(Bormuth = NULL, Dale.Chall = NULL,                              Harris.Jacobson = NULL, Spache =NULL),
+                           fileEncoding = "UTF-8",
+                           sentc.tag = "sentc",
+                           nonword.class = "nonpunct",
+                           nonword.tag = c(),
+                           quiet = FALSE,
+                           keep.input = NULL,
+                           as.feature = FALSE)
+```
+
+## Developing a short form of LEBA: IRT-based analysis
+
+In order to derive a short form of the LEBA inventory, we fitted each factor of the LEBA with the graded response model [@samejima1997handbook] to the combined EFA and CFA sample (n=690). The resulting item discrimination parameters of the inventory fell into categories of "very high" (10 items), "high" (4 items), "moderate" (4 items), and "low" ( 5 items), indicating a good range of discrimination along the latent trait level ($\theta$) (**Supplementary Table 6**). An examination of the item information curve (**Supplementary Figure 3**) revealed five items (1, 25, 30, 38, & 41) provided very low information regarding light exposure related behaviors with relatively flat curves (I($\theta$) \<0.20). We discarded those items, culminating in a short form of LEBA with five factors and 18 items (**Supplementary File 2**).
+
+```{r IRTdata, include=FALSE}
+#This chunk holds codes for preparing IRT data and 1st IRT model fitting
+
+## Recoding sem.data$item8 into sem.data$Ritem8
+sem.data$Ritem08 <- as.character(sem.data$item08)
+sem.data$Ritem08 <- fct_recode(sem.data$Ritem08,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+sem.data$Ritem08 <- as.numeric(as.character(sem.data$Ritem08))
+# Recoding sem.data$item26 
+sem.data$Ritem26 <- as.character(sem.data$item26)
+sem.data$Ritem26 <- fct_recode(sem.data$Ritem26,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+sem.data$Ritem26 <- as.numeric(as.character(sem.data$Ritem26))
+
+# Recoding sem.data$item37 i
+sem.data$Ritem37 <- as.character(sem.data$item37)
+sem.data$Ritem37 <- fct_recode(sem.data$Ritem37,
+  "5" = "1",
+  "4" = "2",
+  "2" = "4",
+  "1" = "5"
+)
+sem.data$Ritem37 <- as.numeric(as.character(sem.data$Ritem37))
+
+
+
+F1 <- sem.data %>% 
+  dplyr::select(item16, item36,  item17)
+
+
+F2 <- sem.data %>% 
+  dplyr::select(item11,  item10 , item12, item07, Ritem08, item09)
+
+F3 <- sem.data %>% 
+ dplyr::select(item27, item03,  item40,  item30,  item41)
+
+
+F4 <- sem.data %>% 
+ dplyr::select(item32, item35,  item38,  item33)
+
+F5 <- sem.data %>% 
+  dplyr::select(item46, item45, item25, item04, item01 )
+
+
+
+
+## F1 IRT model####
+F1_fit <- mirt(F1, model = 1, itemtype = 'graded', 
+               SE = TRUE, Se.type = 'MHRM',
+               technical = list(NCYCLES = 10000))
+
+
+## F2 IRT model####
+F2_fit <- mirt(F2, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+## F3 IRT model####
+F3_fit <- mirt(F3, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+## F4 IRT model####
+F4_fit <- mirt(F4, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+## F5 IRT model####
+F5_fit <- mirt(F5, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+# Model Parameters ####
+## F1 Model Parameters####
+F1_params <- coef(F1_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F1_items <- data.frame(F1_params$items)
+F1l_se <- coef(F1_fit, printSE = TRUE)
+
+## F2 Model Parameters####
+F2_params <- coef(F2_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F2_items <- data.frame(F2_params$items)
+F2_se <- coef(F2_fit, printSE = TRUE)
+
+## F3 Model Parameters####
+F3_params <- coef(F3_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F3_items <- data.frame(F3_params$items)
+F3_se <- coef(F3_fit, printSE = TRUE)
+
+## F4 Model Parameters####
+F4_params <- coef(F4_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F4_items <- data.frame(F4_params$items)
+F4_se <- coef(F4_fit, printSE = TRUE)
+
+## F5 Model Parameters####
+F5_params <- coef(F5_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F5_items <- data.frame(F5_params$items)
+F5_se <- coef(F5_fit, printSE = TRUE)
+
+
+itemparameters <- rbind(F1_items,F2_items, F3_items, F4_items,F5_items)
+
+
+# Model Fit (degrees of freedom too low to check model fit)
+#F1.model <- M2(F1_fit)
+#F2.model <- M2(F2_fit)
+#F3.model <- M2(F3_fit)
+#F4.model <- M2(F4_fit)
+#F5.model <- M2(F5_fit)
+
+
+#Item fit
+F1.item.fit<- itemfit(F1_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F2.item.fit<- itemfit(F2_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F3.item.fit<- itemfit(F3_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F4.item.fit<- itemfit(F4_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F5.item.fit<- itemfit(F5_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+#Identifying Missfit items based on RMSEA Value
+F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
+F2.item_misfits <- subset(F2.item.fit, RMSEA.S_X2 >= .06)
+F3.item_misfits <- subset(F3.item.fit, RMSEA.S_X2 >= .06)
+F4.item_misfits <- subset(F4.item.fit, RMSEA.S_X2 >= .06)
+F5.item_misfits <- subset(F5.item.fit, RMSEA.S_X2 >= .06)
+
+# Person Fit ####
+## F1 Person fit ####
+F1.personfit <- personfit(F1_fit) 
+F1.personfit_model_misfits <- subset(F1.personfit, Zh < -2)
+rownames(F1.personfit_model_misfits)
+nrow(F1.personfit_model_misfits)
+hist(F1.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F2 Person fit ####
+F2.personfit <- personfit(F2_fit) 
+F2.personfit_model_misfits <- subset(F2.personfit, Zh < -2)
+rownames(F2.personfit_model_misfits)
+nrow(F2.personfit_model_misfits)
+hist(F2.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F3 Person fit ####
+F3.personfit <- personfit(F3_fit) 
+F3.personfit_model_misfits <- subset(F3.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F3.personfit_model_misfits)
+hist(F3.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+## F4 Person fit ####
+F4.personfit <- personfit(F4_fit) 
+F4.personfit_model_misfits <- subset(F4.personfit, Zh < -2)
+rownames(F4.personfit_model_misfits)
+nrow(F4.personfit_model_misfits)
+hist(F4.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+
+## F5 Person fit ####
+F5.personfit <- personfit(F5_fit) 
+F5.personfit_model_misfits <- subset(F5.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F5.personfit_model_misfits)
+hist(F5.personfit$Zh, xlab = "Zh Statistics",main = "F1 Person Fit")
+abline(v = -2, lwd = 2, lty = 2)
+
+
+
+# Plots ####
+## F1 Plots ####
+F1_OCC <- plot(F1_fit, type = "trace", facet =T, main = "F1: Wearing blue light filters OCC")
+F1_info <- plot(F1_fit, type = "infoSE", main = "F1: Wearing blue light filters")
+F1_iteminfo <- plot(F1_fit, type = "infotrace", 
+                    facet_items = T, main = "F1: Wearing blue light filters")
+
+## F2 Plots ####
+F2_OCC <- plot(F2_fit, type = "trace", facet =T, main = "F2: Spending time outdoors OCC")
+F2_info <- plot(F2_fit, type = "infoSE", main = "F2: Spending time outdoors")
+F2_iteminfo <- plot(F2_fit, type = "infotrace", facet_items = T, main = "F2: Spending time outdoors")
+
+## F3 Plots ####
+F3_OCC <-plot(F3_fit, type = "trace", facet =T, main = "F3: Using phone and smartwatch in bed OCC")
+F3_info <- plot(F3_fit, type = "infoSE", main = "F3: Using phone and smartwatch in bed")
+F3_iteminfo <- plot(F3_fit, type = "infotrace", 
+                    facet_items = T, main = "F3: Using phone and smartwatch in bed")
+
+## F4 Plots ####
+F4_OCC <-plot(F4_fit, type = "trace", facet =T, main = "F4: Using light before bedtime OCC")
+F4_info <- plot(F4_fit, type = "infoSE", main = "F4: Using light before bedtime")
+F4_iteminfo <- plot(F4_fit, type = "infotrace", facet_items = T,main = "F4: Using light before bedtime",cex = .8)
+
+
+## F5 Plots ####
+F5_OCC <-plot(F5_fit, type = "trace", facet =T, main = "F5: Using light in the morning and during daytime OCC")
+F5_info <- plot(F5_fit, type = "infoSE", main = "F5: Using light in the morning and during daytime")
+F5_iteminfo <- plot(F5_fit, type = "infotrace", facet_items = T,main = "F5: Using light in the morning and during daytime")
+
+
+```
+
+```{r IRTreliability, eval=FALSE, include=FALSE}
+#This chunk holds codes for IRT model's conditional  and merginal reliability
+
+#conditional reliability
+F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F2.reliability <- plot(F2_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F3.reliability <- plot(F3_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F4.reliability <- plot(F4_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+F5.reliability <- plot(F5_fit, type = 'rxx', theta_lim = c(-6, 6), 
+      main="" )
+
+##IRT reliability (marginal reliability of scales)
+F1.marginal.rel <- marginal_rxx(F1_fit)
+F2.marginal.rel <-marginal_rxx(F2_fit)
+F3.marginal.rel <-marginal_rxx(F3_fit)
+F4.marginal.rel <-marginal_rxx(F4_fit)
+F5.marginal.rel <-marginal_rxx(F5_fit)
+
+
+##Scale characteristic curve
+F1.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F2.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F3.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F4.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+F5.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+```
+
+```{r iteminfoggplot3, include=FALSE}
+#This chunk holds the code for compiled item info curve for the 1st IRT model
+
+Theta <- matrix(seq(-6,6, by = .1))
+
+##Item Extraction
+F1.item1 <- extract.item(F1_fit, 1)#item number
+F1.item2 <- extract.item(F1_fit, 2)
+F1.item3 <- extract.item(F1_fit, 3)
+F2.item1 <- extract.item(F2_fit, 1)
+F2.item2 <- extract.item(F2_fit, 2)
+F2.item3 <- extract.item(F2_fit, 3)
+F2.item4 <- extract.item(F2_fit, 4)
+F2.item5 <- extract.item(F2_fit, 5)
+F2.item6 <- extract.item(F2_fit, 6)
+F3.item1 <- extract.item(F3_fit, 1)
+F3.item2 <- extract.item(F3_fit, 2)
+F3.item3 <- extract.item(F3_fit, 3)
+F3.item4 <- extract.item(F3_fit, 4)
+F3.item5 <- extract.item(F3_fit, 5)
+F4.item1 <- extract.item(F4_fit, 1)
+F4.item2 <- extract.item(F4_fit, 2)
+F4.item3 <- extract.item(F4_fit, 3)
+F4.item4 <- extract.item(F4_fit, 4)
+F5.item1 <- extract.item(F5_fit, 1)
+F5.item2 <- extract.item(F5_fit, 2)
+F5.item3 <- extract.item(F5_fit, 3)
+F5.item4 <- extract.item(F5_fit, 4)
+F5.item5 <- extract.item(F5_fit, 5)
+
+
+##Item Info
+F1.item.info.1 <- iteminfo(F1.item1, Theta)
+F1.item.info.2 <- iteminfo(F1.item2, Theta)
+F1.item.info.3 <- iteminfo(F1.item3, Theta)
+F2.item.info.1 <- iteminfo(F2.item1, Theta)
+F2.item.info.2 <- iteminfo(F2.item2, Theta)
+F2.item.info.3 <- iteminfo(F2.item3, Theta)
+F2.item.info.4 <- iteminfo(F2.item4, Theta)
+F2.item.info.5 <- iteminfo(F2.item5, Theta)
+F2.item.info.6 <- iteminfo(F2.item6, Theta)
+F3.item.info.1 <- iteminfo(F3.item1, Theta)
+F3.item.info.2 <- iteminfo(F3.item2, Theta)
+F3.item.info.3 <- iteminfo(F3.item3, Theta)
+F3.item.info.4 <- iteminfo(F3.item4, Theta)
+F3.item.info.5 <- iteminfo(F3.item5, Theta)
+F4.item.info.1 <- iteminfo(F4.item1, Theta)
+F4.item.info.2 <- iteminfo(F4.item2, Theta)
+F4.item.info.3 <- iteminfo(F4.item3, Theta)
+F4.item.info.4 <- iteminfo(F4.item4, Theta)
+F5.item.info.1 <- iteminfo(F5.item1, Theta)
+F5.item.info.2 <- iteminfo(F5.item2, Theta)
+F5.item.info.3 <- iteminfo(F5.item3, Theta)
+F5.item.info.4 <- iteminfo(F5.item4, Theta)
+F5.item.info.5 <- iteminfo(F5.item5, Theta)
+
+
+#Data frame
+
+F1.item.info.data <- as.data.frame(cbind(Theta, F1.item.info.1, 
+                                              F1.item.info.2,
+                                              F1.item.info.3))
+
+F2.item.info.data <- as.data.frame(cbind(Theta, F2.item.info.1, 
+                                              F2.item.info.2,
+                                              F2.item.info.3,
+                                         F2.item.info.4,
+                                         F2.item.info.5,
+                                         F2.item.info.6))
+
+F3.item.info.data <- as.data.frame(cbind(Theta, F3.item.info.1, 
+                                              F3.item.info.2,
+                                              F3.item.info.3,
+                                         F3.item.info.4,
+                                         F3.item.info.5))
+
+F4.item.info.data <- as.data.frame(cbind(Theta, F4.item.info.1, 
+                                              F4.item.info.2,
+                                              F4.item.info.3,
+                                         F4.item.info.4))
+F5.item.info.data <- as.data.frame(cbind(Theta, F5.item.info.1, 
+                                              F5.item.info.2,
+                                              F5.item.info.3,
+                                         F5.item.info.4,
+                                         F5.item.info.5))
+
+
+
+
+## GGplot2 item-info
+###F1
+F1.iteminfo.1 <- ggplot(F1.item.info.data , aes(x=Theta, y=F1.item.info.1)) +
+  geom_line()  +apatheme +labs(title = "F1 item16") + geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#E64B3599", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 100, 200))
+
+
+F1.iteminfo.2 <- ggplot(F1.item.info.data , aes(x=Theta, y=F1.item.info.2)) +
+  geom_line()  +apatheme +labs( title = "F1 item36")+geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#E64B3599", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 3, 6))
+
+F1.iteminfo.3 <- ggplot(F1.item.info.data , aes(x=Theta, y=F1.item.info.3)) +
+  geom_line()  +apatheme +labs(title = "F1 item17")+geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#E64B3599", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 3, 6), limits = c(0,6))
+
+
+
+###F2
+
+F2.iteminfo.1 <- ggplot(F2.item.info.data , aes(x=Theta, y=F2.item.info.1)) +
+  geom_line()  +apatheme +labs( title = "F2 item11")+geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#00A08799", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F2.iteminfo.2 <- ggplot(F2.item.info.data , aes(x=Theta, y=F2.item.info.2)) +
+  geom_line()  + apatheme +
+  labs( title = "F2 item10")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#00A08799", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F2.iteminfo.3 <- ggplot(F2.item.info.data , aes(x=Theta, y=F2.item.info.3)) +
+  geom_line()  +apatheme +
+  labs( title = "F2 item12")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#00A08799", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F2.iteminfo.4 <- ggplot(F2.item.info.data , aes(x=Theta, y=F2.item.info.4)) +
+  geom_line()  +apatheme +
+  labs( title = "F2 item07")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#00A08799", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F2.iteminfo.5 <- ggplot(F2.item.info.data , aes(x=Theta, y=F2.item.info.5)) +
+  geom_line()  +apatheme +
+  labs( title = "F2 item08")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#00A08799", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F2.iteminfo.6 <- ggplot(F2.item.info.data , aes(x=Theta, y=F2.item.info.6)) +
+  geom_line()  +apatheme +
+  labs( title = "F2 item09")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#00A08799", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+
+
+
+###F3
+F3.iteminfo.1 <- ggplot(F3.item.info.data , aes(x=Theta, y=F3.item.info.1)) +
+  geom_line()  +apatheme +labs( title = "F3 item27")+
+ geom_hline(yintercept = .18, colour ="red")+geom_area( fill="3C5488FF", alpha=0.6)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F3.iteminfo.2 <- ggplot(F3.item.info.data , aes(x=Theta, y=F3.item.info.2)) +
+  geom_line()  +apatheme +
+  labs(title = "F3 item03")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="3C5488FF", alpha=0.6)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F3.iteminfo.3 <- ggplot(F3.item.info.data , aes(x=Theta, y=F3.item.info.3)) +
+  geom_line()  +apatheme +
+  labs(title = "F3 item40")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="3C5488FF", alpha=0.6)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F3.iteminfo.4 <- ggplot(F3.item.info.data , aes(x=Theta, y=F3.item.info.4)) +
+  geom_line()  +apatheme +
+  labs(title = "F3 item30")+
+  geom_hline(yintercept = .18, colour ="red")+theme(axis.line.x = element_line(color='red'),
+        axis.line.y = element_line(color='red'),
+        panel.border = element_rect(color = "red",
+                                    fill = NA,
+                                    size = 1))+geom_area( fill="3C5488FF", alpha=0.6)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F3.iteminfo.5 <- ggplot(F3.item.info.data , aes(x=Theta, y=F3.item.info.5)) +
+  geom_line()  +apatheme +
+  labs(title = "F3 item41")+
+ geom_hline(yintercept = .18, colour ="red")+theme(axis.line.x = element_line(color='red'),
+        axis.line.y = element_line(color='red'),
+        panel.border = element_rect(color = "red",
+                                    fill = NA,
+                                    size = 1))+geom_area( fill="3C5488FF", alpha=0.6)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+#F4
+
+F4.iteminfo.1 <- ggplot(F4.item.info.data , aes(x=Theta, y=F4.item.info.1)) +
+  geom_line()  +apatheme +labs(title = "F4 item32")+
+ geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#4DBBD5FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F4.iteminfo.2 <- ggplot(F4.item.info.data , aes(x=Theta, y=F4.item.info.2)) +
+  geom_line()  +apatheme +
+  labs(title = "F4 item35")+
+  geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#4DBBD5FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F4.iteminfo.3 <- ggplot(F4.item.info.data , aes(x=Theta, y=F4.item.info.3)) +
+  geom_line()  +apatheme +
+  labs(title = "F4 item38")+
+ geom_hline(yintercept = .18, colour ="red")+theme(axis.line.x = element_line(color='red'),
+        axis.line.y = element_line(color='red'),
+        panel.border = element_rect(color = "red",
+                                    fill = NA,
+                                    size = 1))+geom_area( fill="#4DBBD5FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1.5, 3), limits = c(0,3))
+
+F4.iteminfo.4 <- ggplot(F4.item.info.data , aes(x=Theta, y=F4.item.info.4)) +
+  geom_line()  +apatheme +
+  labs(title = "F4 item33")+geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#4DBBD5FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 20, 40))
+
+
+#F5
+
+F5.iteminfo.1 <- ggplot(F3.item.info.data , aes(x=Theta, y=F5.item.info.1)) +
+  geom_line()  +apatheme +labs(title = "F5 item46")+
+ geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#7E6148FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1, 2), limits = c(0,2))
+
+F5.iteminfo.2 <- ggplot(F3.item.info.data , aes(x=Theta, y=F5.item.info.2)) +
+  geom_line()  +apatheme +
+  labs(title = "F5 item45")+
+ geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#7E6148FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1, 2), limits = c(0,2))
+
+F5.iteminfo.3 <- ggplot(F3.item.info.data , aes(x=Theta, y=F5.item.info.3)) +
+  geom_line()  +apatheme +
+  labs(title = "F5 item25")+
+  geom_hline(yintercept = .18, colour ="red")+theme(axis.line.x = element_line(color='red'),
+        axis.line.y = element_line(color='red'),
+        panel.border = element_rect(color = "red",
+                                    fill = NA,
+                                    size = 1))+geom_area( fill="#7E6148FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1, 2), limits = c(0,2))
+
+F5.iteminfo.4 <- ggplot(F3.item.info.data , aes(x=Theta, y=F5.item.info.4)) +
+  geom_line()  +apatheme +
+  labs(title = "F5 item04")+
+ geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#7E6148FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+scale_y_continuous(breaks=c(0, 1, 2), limits = c(0,2))
+
+F5.iteminfo.5 <- ggplot(F3.item.info.data , aes(x=Theta, y=F5.item.info.5)) +
+  geom_line()  +apatheme +
+  labs( title = "F5 item01")+
+ geom_hline(yintercept = .18, colour ="red")+geom_area( fill="#7E6148FF", alpha=0.4)+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))+theme(axis.line.x = element_line(color='red'),
+        axis.line.y = element_line(color='red'),
+        panel.border = element_rect(color = "red",
+                                    fill = NA,
+                                    size = 1))+scale_y_continuous(breaks=c(0, 1, 2), limits = c(0,2))
+
+
+
+
+#Panel plots
+
+F1.plots <- cowplot::plot_grid(F1.iteminfo.1,F1.iteminfo.2, F1.iteminfo.3,NULL, NULL, NULL,
+                     labels = c("A", "B", "C"),
+                     align="h",
+                     nrow = 1,
+                     label_size = 60,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+
+F2.plots <- cowplot::plot_grid(F2.iteminfo.1,F2.iteminfo.2, F2.iteminfo.3,F2.iteminfo.4,F2.iteminfo.5,F2.iteminfo.6,
+                     labels = c("D", "E", "F", "G", "H", "I"),
+                     align="h",
+                     nrow = 1,
+                     label_size = 60,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+F3.plots <- cowplot::plot_grid(F3.iteminfo.1, F3.iteminfo.2, F3.iteminfo.3, F3.iteminfo.4, F3.iteminfo.5,NULL,
+                     labels = c("J", "K", "L", "M", "N"),
+                     align="h",
+                     nrow = 1,
+                     label_size = 60,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+F4.plots <- cowplot::plot_grid(F4.iteminfo.1, F4.iteminfo.2 ,F4.iteminfo.3 ,F4.iteminfo.4,NULL, NULL,
+                     labels = c("O", "P", "Q", "R"),
+                     align="h",
+                     nrow = 1,
+                     label_size = 60,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+F5.plots <- cowplot::plot_grid(F5.iteminfo.1,F5.iteminfo.2,F5.iteminfo.3,F5.iteminfo.4,F5.iteminfo.5,NULL,
+                     labels = c("S", "T", "U", "V", "W"),
+                     align="h",
+                     nrow = 1,
+                     label_size = 60,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+
+all.factot.itemplots <- cowplot::plot_grid(F1.plots,
+                                           F2.plots,
+                                           F3.plots,
+                                           F4.plots,
+                                           F5.plots,
+                     
+                     align="v",
+                     nrow = 5,
+                     label_size = 60,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+
+ggsave("Figures/S3_Fig.png",all.factot.itemplots, width = 18, height = 12, dpi = 600, bg = "white")
+
+
+# allitemplots <- cowplot::plot_grid(F1.iteminfo.1,F1.iteminfo.2, F1.iteminfo.3,NULL, NULL,NULL,
+#                                    
+#                                    F2.iteminfo.1,F2.iteminfo.2, F2.iteminfo.3,F2.iteminfo.4,F2.iteminfo.5,F2.iteminfo.6, 
+#                                    
+#                                    F3.iteminfo.1, F3.iteminfo.2, F3.iteminfo.3, F3.iteminfo.4, F3.iteminfo.5,   NULL, 
+#                                    F4.iteminfo.1, F4.iteminfo.2 ,F4.iteminfo.3 ,F4.iteminfo.4,NULL, NULL,
+#                                    F5.iteminfo.1,F5.iteminfo.2,F5.iteminfo.3,F5.iteminfo.4,F5.iteminfo.5,NULL,
+#                                    
+#                                    
+#                      labels = "AUTO",
+#                      align="v",
+#                      ncol = 6,
+#                      label_size = 12,
+#                      label_fontfamily = "Arial",
+#                      label_fontface = "plain")
+# 
+# 
+# # ggsave("Figures/allitemplots.png",allitemplots, width = 18, height = 12, dpi = 600, bg = "white")
+# 
+# 
+# 
+# 
+# 
+# discarded.items.plot <- cowplot::plot_grid(F3.iteminfo.4,
+#                                            F3.iteminfo.5,
+#                                            F4.iteminfo.3,
+#                                            F5.iteminfo.3,
+#                                            F5.iteminfo.5, 
+#                                             labels = "AUTO",
+#                                    align="v",
+#                                    ncol = 5,
+#                                    label_size = 12,
+#                                    label_fontfamily = "Arial",
+#                                    label_fontface = "plain")
+# 
+
+
+
+
+# ggsave("Figures/discarded.png",discarded.items.plot, width = 18, height = 4, dpi = 600, bg = "white")
+
+
+```
+
+```{r IRTparameters, eval=FALSE, include=FALSE, results='asis'}
+apa_table(itemparameters, caption = "Items discrimination and response category difficulty thresholds of 23 items in  LEBA (n = 690)", note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
+```
+
+```{r shortIRT, include=FALSE}
+#This chunk holds codes for our SHORT LEBA IRT with item = 18 (2nd IRT)
+
+#Define model
+F1 <- sem.data %>% 
+  dplyr::select(item16, item36,  item17)
+F2.redu <- sem.data %>% 
+  dplyr::select(item11,  item10 , item12, item07, Ritem08, item09)
+F3.redu <- sem.data %>% 
+ dplyr::select(item27, item03,  item40)
+
+F4.redu <- sem.data %>% 
+ dplyr::select(item32, item35,  item33)
+
+F5.redu <- sem.data %>% 
+  dplyr::select(item46, item45, item25 )
+
+
+
+#fit model
+F1_fit <- mirt(F1, model = 1, itemtype = 'graded', 
+               SE = TRUE, Se.type = 'MHRM',
+               technical = list(NCYCLES = 10000))
+
+F2_fit.redu <- mirt(F2.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+F3_fit.redu <- mirt(F3.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+F4_fit.redu <- mirt(F4.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+F5_fit.redu <- mirt(F5.redu, model = 1, itemtype = 'graded', SE = TRUE,
+               Se.type = 'MHRM',technical = list(NCYCLES = 10000))
+
+
+
+#Item fit
+F1.item.fit<- itemfit(F1_fit, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F2.item.fit<- itemfit(F2_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F3.item.fit<- itemfit(F3_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+F4.item.fit<- itemfit(F4_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+F5.item.fit<- itemfit(F5_fit.redu, fit_stats = c("S_X2", "G2","Zh", "infit"),
+                                  impute=10)
+
+
+#Itemfit short
+#Item fit
+F1.item.fit<- itemfit(F1_fit, fit_stats = c("S_X2"),
+                                  impute=10)
+
+F2.item.fit<- itemfit(F2_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+F3.item.fit<- itemfit(F3_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+F4.item.fit<- itemfit(F4_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+
+F5.item.fit<- itemfit(F5_fit.redu, fit_stats = c("S_X2"),
+                                  impute=10)
+
+itemfit <- rbind(F1.item.fit,F2.item.fit,F3.item.fit,F4.item.fit,F5.item.fit)
+
+colnames(itemfit) <- c("Item","Signed Chi-square", "df", "RMSEA", "p")
+
+#Identifying Missfit items based on RMSEA Value
+F1.item_misfits <- subset(F1.item.fit, RMSEA.S_X2 >= .06)
+F2.item_misfits <- subset(F2.item.fit, RMSEA.S_X2 >= .06)
+F3.item_misfits <- subset(F3.item.fit, RMSEA.S_X2 >= .06)
+F4.item_misfits <- subset(F4.item.fit, RMSEA.S_X2 >= .06)
+F5.item_misfits <- subset(F5.item.fit, RMSEA.S_X2 >= .06)
+
+
+# Person Fit ####
+## F1 Person fit ####
+F1.personfit <- personfit(F1_fit) 
+F1.personfit_model_misfits <- subset(F1.personfit, Zh < -2)
+rownames(F1.personfit_model_misfits)
+nrow(F1.personfit_model_misfits)
+
+F1.person <- ggplot(F1.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5,col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics: F1")+apatheme+ ylim(0,600) + xlim(-4,2)
+
+## F2 Person fit ####
+F2.personfit <- personfit(F2_fit.redu) 
+F2.personfit_model_misfits <- subset(F2.personfit, Zh < -2)
+rownames(F2.personfit_model_misfits)
+nrow(F2.personfit_model_misfits)
+
+
+F2.person <- ggplot(F2.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+
+  scale_x_continuous(limits = c(-5, 1))+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics: F2")+apatheme+ylim(0,600) + xlim(-4,2)
+
+
+
+## F3 Person fit ####
+F3.personfit <- personfit(F3_fit.redu) 
+F3.personfit_model_misfits <- subset(F3.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F3.personfit_model_misfits)
+
+
+F3.person <- ggplot(F3.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics: F3")+apatheme+ylim(0,600) + xlim(-4,2)
+
+
+## F4 Person fit ####
+F4.personfit <- personfit(F4_fit.redu) 
+F4.personfit_model_misfits <- subset(F4.personfit, Zh < -2)
+rownames(F4.personfit_model_misfits)
+nrow(F4.personfit_model_misfits)
+
+
+F4.person <- ggplot(F4.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics: F4")+apatheme+ylim(0,600) + xlim(-4,2)
+
+
+## F5 Person fit ####
+F5.personfit <- personfit(F5_fit) 
+F5.personfit_model_misfits <- subset(F5.personfit, Zh < -2)
+rownames(F3.personfit_model_misfits)
+nrow(F5.personfit_model_misfits)
+
+F5.person <- ggplot(F5.personfit, aes(x=Zh)) + geom_histogram(binwidth=.5, col=I("black"),fill="#00A08799")+geom_vline(xintercept = -2)+
+  labs( y="Number of Participants", x = "Zh Statistics: F5")+apatheme+ylim(0,600) + xlim(-4,2)
+
+# Model Parameters ####
+## F1 Model Parameters####
+F1_params <- coef(F1_fit, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F1_items.redu <- data.frame(F1_params$items)
+F1l_se <- coef(F1_fit, printSE = TRUE)
+
+## F2 Model Parameters####
+F2_params <- coef(F2_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F2_items.redu <- data.frame(F2_params$items)
+F2_se <- coef(F2_fit.redu, printSE = TRUE)
+
+## F3 Model Parameters####
+F3_params <- coef(F3_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F3_items.redu <- data.frame(F3_params$items)
+F3_se <- coef(F3_fit.redu, printSE = TRUE)
+
+## F4 Model Parameters####
+F4_params <- coef(F4_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F4_items.redu <- data.frame(F4_params$items)
+F4_se <- coef(F4_fit.redu, printSE = TRUE)
+
+## F5 Model Parameters####
+F5_params <- coef(F5_fit.redu, IRTpars = TRUE, simplify = TRUE, rawug = FALSE) 
+F5_items.redu<- data.frame(F5_params$items)
+F5_se.redu <- coef(F5_fit.redu, printSE = TRUE)
+
+
+items.quality.2 <- rbind(F1_items.redu,F2_items.redu,F3_items.redu,F4_items.redu,F5_items.redu )
+
+itemfit2 <- itemfit[,-1] 
+
+
+IRT.details <- as.data.frame(cbind(items.quality.2 ,itemfit2))
+IRT.details <- tibble::rownames_to_column(IRT.details, "Items")
+
+#F1.reliability <- plot(F1_fit, type = 'rxx', theta_lim = c(-6, 6),  main="" )
+#F2.reliability <- plot(F2_fit.redu, type = 'rxx', theta_lim = c(-6, 6),  main="" )
+#F3.reliability <- plot(F3_fit.redu, type = 'rxx', theta_lim = c(-6, 6), main="" )
+#F4.reliability <- plot(F4_fit.redu, type = 'rxx', theta_lim = c(-6, 6), main="" )
+#F5.reliability <- plot(F5_fit, type = 'rxx', theta_lim = c(-6, 6), main="" )
+
+##IRT reliability (marginal reliability of scales)
+# F1.marginal.rel <- marginal_rxx(F1_fit)
+# F2.marginal.rel <-marginal_rxx(F2_fit.redu)
+# F3.marginal.rel <-marginal_rxx(F3_fit.redu)
+# F4.marginal.rel <-marginal_rxx(F4_fit.redu)
+# F5.marginal.rel <-marginal_rxx(F5_fit)
+
+
+# Plots2 ####
+
+#F1_test.info <- plot(F1_fit, type = "infoSE", main = "F1: Wearing blue light filters") 
+
+#F2_test.info.redu <- plot(F2_fit.redu, type = "infoSE", main = "F2: Spending time outdoors")
+
+
+#F3_test.info.redu <- plot(F3_fit.redu, type = "infoSE", main = "F3: Using phone and smartwatch in bed")
+
+#F4_test.info.redu <- plot(F4_fit.redu, type = "infoSE", main = "F4: Using light before bedtime")
+
+#F5_test.info <- plot(F5_fit.redu, type = "infoSE", main = "F5: Using light in the morning and during daytime")
+
+
+
+
+##Scale characteristic curve
+#F1.scale <- plot(F1_fit, type = 'score', theta_lim = c(-6, 6), main = "")
+#F2.scale <- plot(F2_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+#F3.scale <- plot(F3_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+#F4.scale <- plot(F4_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+#F5.scale <- plot(F5_fit.redu, type = 'score', theta_lim = c(-6, 6), main = "")
+
+```
+
+```{r testinfoggplot2, include=F}
+
+#This chunk holds codes for Test information curve (IRT model 2)
+
+Theta <- matrix(seq(-6,6, by = .1))
+
+F1.T1 <- 0
+for(i in 1:ncol(F1)){
+  F1.T1 <- F1.T1 + iteminfo(extract.item(F1_fit, i), Theta)
+}
+
+F2.T1 <- 0
+for(i in 1:ncol(F2.redu)){
+  F2.T1 <- F2.T1 + iteminfo(extract.item(F2_fit.redu, i), Theta)
+}
+
+F3.T1 <- 0
+for(i in 1:ncol(F3.redu)){
+  F3.T1 <- F3.T1 + iteminfo(extract.item(F3_fit.redu, i), Theta)
+}
+
+F4.T1 <- 0
+for(i in 1:ncol(F4.redu)){
+  F4.T1 <- F4.T1 + iteminfo(extract.item(F4_fit.redu, i), Theta)
+}
+
+F5.T1 <- 0
+for(i in 1:ncol(F5.redu)){
+  F5.T1 <- F5.T1 + iteminfo(extract.item(F5_fit.redu, i), Theta)
+}
+
+
+
+F1.test.data <- as.data.frame(cbind(Theta, F1.T1))
+
+F2.test.data <- as.data.frame(cbind(Theta, F2.T1))
+
+F3.test.data <- as.data.frame(cbind(Theta, F3.T1))
+
+F4.test.data <- as.data.frame(cbind(Theta, F4.T1))
+
+F5.test.data <- as.data.frame(cbind(Theta, F5.T1))
+
+Test.data <- as.data.frame(cbind(F1.T1,F2.T1, F3.T1, F4.T1, F5.T1))
+
+Test.data.long <- melt(Test.data)
+Test.data.2 <- data.frame(Theta=seq(-6,6, by =.1),Test.data.long)
+
+
+TIC <- ggplot(Test.data.2,aes(Theta,value))+geom_line(size = 1)+apatheme+
+  ggtitle("Test Information Plot")+theme(legend.position = "none")+
+  labs(y = "Test Information")+ geom_path()+facet_wrap(~variable,scales = "free") +theme(strip.text.x = element_text(size = 15))+geom_area()+ scale_color_npg()+aes(fill = as.factor(variable))
+
+
+F1.tic <- ggplot(F1.test.data, aes(x=Theta, y=F1.T1)) +
+  geom_line()+apatheme_3+
+  labs(y="Test Information", title = "F1: Wearing blue light filters")+geom_area()+theme(legend.position = "none")+
+  aes(fill =  "#E64B3599")+
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+F2.tic <- ggplot(F2.test.data, aes(x=Theta, y=F2.T1)) +
+  geom_line()+apatheme_3+
+  labs(y="Test Information", title = "F2: Spending time outdoors")+ylim(0,8)+
+  geom_area()+aes(fill =  "#4DBBD599")+theme(legend.position = "none")+
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+F3.tic <- ggplot(F3.test.data, aes(x=Theta, y=F3.T1)) +
+  geom_line()+apatheme_3+
+  labs(y="Test Information", title = "F3: Using phone and smartwatch in bed")+ylim(0,8)+
+  geom_area()+aes(fill =  "#00A08799")+theme(legend.position = "none")+
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
+  geom_line()+apatheme_3+
+  labs(y="Test Information", title = "F4: Using light before bedtime")+
+  geom_area()+aes(fill =  "#3C548899")+theme(legend.position = "none")+
+     scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+F5.tic <- ggplot(F5.test.data, aes(x=Theta, y=F5.T1)) +
+  geom_line()+apatheme_3+
+  labs(y="Test Information", title = "F5:Using light in the morning and during daytime") +ylim(0,8)+geom_area()+aes(fill =  "#B09C8599")+theme(legend.position = "none")+
+scale_fill_identity()+xlab(expression(theta)) + 
+  ylab(expression(I(theta)))
+
+
+#panel TIC
+
+TIC.plot <- cowplot::plot_grid(F1.tic,F2.tic, F3.tic,
+                                   F4.tic,F5.tic,
+                   labels = c("(A)", "(B)", "(C)", "(D)", "(E)"),
+                     align="v",
+                     ncol = 3,
+                     label_size = 90,
+                     label_fontfamily = "Arial",
+                     label_fontface = "plain")
+ggsave("Figures/Figure6.png",TIC.plot, width = 18, height = 12, dpi = 600, bg = "white")
+
+```
+
+```{r Testinfo,  fig.cap="Test information curves for the five factors of LEBA: (A) wearing blue light filters (B) spending time outdoors (C) using a phone and smartwatch in bed (D) using light before bedtime (E) using light in the morning and during daytime. Along the x-axis, we plotted the underlying latent trait continuum for each factor. Along the y-axis, we plotted how much information a particular factor is carrying across its latent trait continuum", warning=FALSE, out.width="100%", out.height="120%"}
+
+knitr::include_graphics('Figures/Figure6.png', dpi =600)
+```
+
+Subsequently, we obtained five test information curves (TICs). As Figure \@ref(fig:Testinfo) illustrates, the TICs of the first and fifth factors peaked on the right side of the centre of their latent traits, while the TICs of the other three factors were roughly centred on the respective trait continuum ($\theta$). This points out that the LEBA short-form estimates the light exposure-related behaviour most precisely near the centre of the trait continuum for the second, third and fourth factors. In contrast, for the first and fifth factors the TICs were left skewed indicating their increased sensitivity in identifying people who are engaging more in those particular light exposure related behavior dimensions [@bakerBasicsItemResponse2017].
+
+Finally, **Supplementary Table 7** summarises the item fit indexes of the LEBA short form. All 18 items yielded RMSEA value $\le$ 0.06, indicating an adequate fit to the fitted IRT model. Furthermore, **Supplementary Figure 4** depicts the person fit Zh statistics histogram for the five IRT models. Zh statistics are larger than -2 for most participants, suggesting a good person fit regarding the selected IRT models.
+
+
+```{r itemfittab, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+apa_table(IRT.details , caption ="Item discrimination, response category difficulty thrsholds and fit statistics of the 18 items in short LEBA (n = 690)",note = "a = item discrimination parameter; b(1-4) = response category difficulty parameter")
+```
+
+```{r perfit, include=F}
+#This chunk holds codes for arranging the person fit plot of IRT model 2
+
+personfit <- cowplot::plot_grid(F1.person, F2.person,F3.person,F4.person,F5.person, 
+          labels = "AUTO", label_size = 12,align = "v", ncol =2,
+                       label_fontfamily = "Arial",
+                     label_fontface = "plain")
+
+
+ggsave("Figures/S4_Fig.png",personfit , width = 10, height = 12, dpi = 600, bg = "white")
+
+```
+
+```{r fscore, include=FALSE}
+#This chunk holds codes for score estimation using IRT model 2
+
+LEBA.Total <- sem.data %>% 
+  rowwise() %>% 
+  mutate(F1.Total = sum(item16, item36,  item17))
+
+
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F2.Total = sum(item11,  item10 , item12, item07, Ritem08, item09))
+
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F3.Total = sum(item27, item03,  item40))
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F4.Total = sum(item32, item35,  item33))
+
+LEBA.Total <- LEBA.Total %>% 
+  rowwise() %>% 
+  mutate(F5.Total = sum(item46, item45, item25))
+
+
+
+F1.estimation <- as.vector(fscores(F1_fit, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+
+F2.estimation <- as.vector(fscores(F2_fit.redu, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+F3.estimation <- as.vector(fscores(F3_fit.redu, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+F4.estimation <- as.vector(fscores(F4_fit.redu, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+F5.estimation <- as.vector(fscores(F5_fit, method = "EAP",
+                                           full.scores = TRUE, 
+                                           full.scores.SE = F))
+
+
+
+
+
+Ability.F1 <- data.frame(Rawscore = LEBA.Total$F1.Total,
+                      Theta =  F1.estimation)
+
+
+
+Ability.F2 <- data.frame(Rawscore = LEBA.Total$F2.Total,
+                      Theta =  F2.estimation)
+
+Ability.F3 <- data.frame(Rawscore = LEBA.Total$F3.Total,
+                      Theta =  F3.estimation)
+
+Ability.F4 <- data.frame(Rawscore = LEBA.Total$F3.Total,
+                      Theta =  F3.estimation)
+
+Ability.F5 <- data.frame(Rawscore = LEBA.Total$F3.Total,
+                      Theta =  F3.estimation)
+
+
+
+
+ggplot(Ability.F1, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+ggplot(Ability.F2, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+
+ggplot(Ability.F3, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+ggplot(Ability.F4, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+ggplot(Ability.F5, aes(x =Theta, y =Rawscore)) +
+  geom_point() +
+  geom_smooth(method='lm', se =TRUE, formula= y~x,colour = "red")+
+  xlim(-2,2) +
+  ylim(0,15)
+
+
+Score.correation <- cbind(Ability.F1,Ability.F2, Ability.F3, Ability.F4, Ability.F5)
+colnames(Score.correation) <- c("F1.Raw", "F1.Estimated","F2.Raw", "F2.Estimated","F3.Raw", "F3.Estimated","F4.Raw", "F4.Estimated","F5.Raw", "F5.Estimated")
+
+F1.cor <- corr.test(Score.correation$F1.Raw, Score.correation$F1.Estimated)
+
+F2.cor <- corr.test(Score.correation$F2.Raw, Score.correation$F2.Estimated)
+
+F3.cor <- corr.test(Score.correation$F3.Raw, Score.correation$F3.Estimated)
+
+F4.cor <- corr.test(Score.correation$F4.Raw, Score.correation$F4.Estimated)
+
+F5.cor <- corr.test(Score.correation$F5.Raw, Score.correation$F5.Estimated)
+
+
+#Putting significance star for correlation
+F1.p <-F1.cor$p
+F1.stars <- ifelse(F1.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+
+F2.p <-F2.cor$p
+F2.stars <- ifelse(F2.p < .001, "**"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+
+F3.p <-F3.cor$p
+F3.stars <- ifelse(F3.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+F4.p <-F4.cor$p
+F4.stars <- ifelse(F4.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+F5.p <-F5.cor$p
+F5.stars <- ifelse(F5.p < .001, "***"
+                   , ifelse(p < .01, "**"
+                            , ifelse(p < .05, "*"
+                                     , ifelse(p < .10, "+", " "))))
+
+
+theta.correlation.matrix <- matrix("NA", nrow =1, ncol = 5)
+
+theta.correlation.matrix[1,1] <- paste(apa(F1.cor$r,2,F), F1.stars,sep="")
+theta.correlation.matrix[1,2] <- paste(apa(F2.cor$r,2,F), F2.stars,sep="")
+theta.correlation.matrix[1,3] <- paste(apa(F3.cor$r,2,F), F3.stars,sep="")
+theta.correlation.matrix[1,4] <- paste(apa(F4.cor$r,2,F), F4.stars,sep="")
+theta.correlation.matrix[1,5] <- paste(apa(F5.cor$r,2,F), F5.stars,sep="")
+
+
+as.data.frame(theta.correlation.matrix)
+colnames(theta.correlation.matrix) <- c("F1", "F2", "F3", "F4", "F5")
+```
+
+```{r WPdata, warning=F, include=FALSE}
+#This chunk holds codes for preparing data for wright-map
+library(RColorBrewer)
+F1.e <- as.data.frame(F1.estimation)
+F2.e <- as.data.frame(F2.estimation)
+F3.e <- as.data.frame(F3.estimation)
+F4.e <- as.data.frame(F4.estimation)
+F5.e <- as.data.frame(F5.estimation)
+
+estimation <- as.data.frame(cbind(F1.e,F2.e,F3.e,F4.e,F5.e))
+
+
+
+
+threshold <- rbind(F1_items.redu[,2:5],
+                   F2_items.redu[,2:5],
+                   F3_items.redu[,2:5],
+                   F4_items.redu[,2:5],
+                   F5_items.redu[,2:5])
+
+
+itemlevelcolors <- matrix(rep(brewer.pal(4, "Set1"), 18), byrow = TRUE, ncol = 4)
+
+```
+
+```{r saveWrightmao, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#This chunk holds codes for saving the wright-map
+jpeg("Figures/wm.png", width = 800, height = 750)
+WrightMap::wrightMap(estimation, threshold, 
+          item.prop = 0.65,
+          
+          main.title = "LEBA",
+          dim.names = c("F1", "F2", "F3", "F4", "F5"),
+          thr.sym.col.fg = itemlevelcolors,
+          thr.sym.col.bg = itemlevelcolors,
+          vertLines = TRUE,
+          show.thr.lab = T,
+          dim.color = brewer.pal(5, "Set3"))
+dev.off()
+```
+
+```{r WP, eval=FALSE, fig.cap="Person Item Map", warning=FALSE, include=FALSE, out.height="120%", out.width="100%"}
+
+knitr::include_graphics('Figures/wm.png')
+```
+
+```{r IRTscoreCor, eval=FALSE, include=FALSE, results='asis'}
+apa_table (theta.correlation.matrix, caption = "correlation coefficents of obtained scores and estimated latent trait for each factots", note = "* p < 0.05; ** p < 0.01; *** p < 0.001"  )
+```
+
+
+# Discussion
+Today, in most industrialized countries, the vast majority of time is spent in built environments [@Klepeis.2001], where photic exposure patterns are determined not only by the solar cycle but by electrical light sources as well. As a consequence, light received may vary considerably, in terms of timing, intensity and spectrum, all of which are subject to the further influence of individual behaviours. [reviewed in @Bedrosian.2017;@lok2018light; @siraji2021effects; @blume_effects_2019; @paul_direct_2019; @santhi_applications_2020; @zele_editorial_2020; @vetter2022review]. Thus, there is a clear need for guidance [@Brown.2022] and assessment regarding healthy light exposure and consequentially healthy light-related behaviour. 
+
+In reviewing the literature, we found that a handful of previously introduced instruments assess aspects of light exposure by self-report (see **Supplementary Table 1**). Few studies to date have attempted to assess light exposure by self-report. That body of research becomes even smaller when limiting it to those focusing on <behaviours> that influence photic exposure patterns, and typically these home in only on particular behaviours of interest, such as estimates of time spent outside [@roenneberg2003life] or preferences for specific lighting situations [@bossini2006sensibilita]. To our knowledge, there is no questionnaire in existence that captures behaviours that modify light exposure across different scenarios in a comprehensive way. We have developed two versions of a self-report inventory-LEBA, that can capture light exposure-related behaviours in multiple dimensions.
+
+
+The 48 generated items were applied in a large-scale, geographically unconstrained, cross-sectional study, yielding `r nrow(data)` completed surveys. To assure high data quality, participant responses were only included when the five “attention check items” throughout the survey were passed. Ultimately, data was recorded from `r nrow(num.countries)` countries and `r nrow(numUTC)` time zones, including native and non-native English speakers from a sex-balanced and age-diverse sample (see Table 1). The acquired study population complied with our objective to avoid bias from a selective sample, which is crucial when relying on voluntary uncompensated participation.
+
+Data collected in the first round was used to explore the latent structure (EFA sample; n=`r nrow(EFA.descriptives)`). The exploratory factor analysis revealed a highly interpretable five-factor solution ("Wearing blue light filters", "Spending time outdoors", "Using phone and smartwatch in bed", "Using light before bedtime", and "Using light in the morning and during daytime") with 25 items. Our CFA analysis (CFA sample; n=`r nrow(CFA.descriptives)`) confirmed the five-factor structure we obtained in our EFA, thus providing evidence for structural validity.(CFI = `r apa(fit.2[5],2,T)`; TLI = `r apa(fit.2[6],2,T)`; RMSEA = `r apa(fit.2[7],2,T)`). In this model, we discarded two more items (item 26 $\&$ 37 ) for possible cross-loadings. As a rule of thumb, reliability coefficients higher than .70 are regarded as “satisfactory”. However, at the early developmental stage, a value of .50 is considered acceptable [@dall2010developmental; @field2013discovering; @Nunnally1978]. Thus, we confer, the internal consistency coefficients ordinal alpha for the five factors and the total inventory were satisfactory (Ordinal alpha ranged between `r apa(min(rel.k[2,(1:5)]),2,T)` to `r apa(max(rel.k[2,(1:5)]),2,T)`; McDonald's $\omega_t$ = `r apa(rel.k[5,6],2,T)`). 
+
+The results of the measurement invariance analysis indicate that the construct "Light exposure-related behaviour" is equivalent across native and non-native English speakers and thus suitable for assessment in both groups. Furthermore, according to the grade level identification method, the LEBA appears understandable for students at least 8.33 years of age visiting grade four or higher. Interestingly, the semantic similarity analysis ("Semantic Scale Network" database @rosenbusch2020semantic) revealed that the "LEBA" is semantically related to the "Sleep Disturbance Scale For Children" (SDSC) [@bruni1996sleep] and the "Composite International Diagnostic Interview (CIDI): Insomnia"[@robins1988composite]. Upon inspecting the questionnaire contents, we found that some items in the factors "Using phone and smartwatch in bed" and "Using light before bedtime" have semantic overlap with the SDSC’s and CIDI’s items. However, while the CIDI and the SDSC capture various clinically relevant sleep problems and related activities, the LEBA aims to assess light-exposure-related behaviour. Since light exposure at night has been shown to influence sleep negatively [@Brown.2022; @santhi_applications_2020], this overlap confirms our aim to measure the physiologically relevant aspects of light-exposure-related behaviour. Nevertheless, the general objectives of the complete questionnaires and the LEBA differ evidently.
+
+Often psychological measurements require application of several questionnaires simultaneously. Responding to several lengthy questionnaires increases the participants losing focus and becoming tried. To avoid these situations we  derived a short version of the LEBA (18 items) using IRT analysis. We fitted a graded response model to the combined EFA and CFA sample (n = `r nrow(data)`) and discarded five items (1, 25, 30, 38, & 41) with relatively flat item information curve [I($\theta$) <.20]. The resulting test information curves suggest that the short-LEBA is a psychometrically sound measure with adequate coverage of underlying traits and can be applied to capture the frequency of different light exposure related behaviours reliably.
+
+Findings from the Item and person fit index analysis demonstrate that all five fitted models were acceptable and provide evidence of validity for the factors. In addition, the diverse item discrimination parameters indicate an appropriate range of discrimination -- the ability to differentiate respondents with different levels of light exposure-related behaviour. 
+
+## Known limitations
+
+We acknowledge that this work is limited concerning the following aspects:
+
+The fifth factor, "using light in the morning and during daytime", exhibited low internal consistency both in the exploratory and confirmatory factor analysis (EFA: `r apa(F5.alpha,2,T)`; CFA:`r apa(rel.k[2,5],2,T)` ). Since, it was above .50, considering the developmental phase of this inventory we accepted the fifth factor. This particular factor captures our behaviour related to usages of light in the morning and daytime. Since, light exposure during morning and daytime influences our alertness and cognition [@lok2018light; @siraji2021effects], we deemed capturing these behaviours is essential for the sake of completeness of our inventory. However, the possibility of improving the reliability should be investigated further by adding more appropriate and relevant items to this factor.
+
+During the post-hoc model modification, as part of the confirmatory factor analysis, we discarded two items (item 26 $\&$ 37 ) for possible cross-loadings, as demonstrated in the data. However, two additional items covaried in their error variance. By allowing the latter pair (30 $\&$ 41) to covary, the model attained an improved fit ( **Figure 5**). A possible explanation for the covariation is that many respondents might not have used a smartwatch at all, resulting in similar response patterns between these two items. Thus, though rather unconventional, we decided to accept this post-hoc modification to our five-factor model.
+
+The habitual patterns queried in the developed inventory might not exhaustively represent all relevant light-exposure-related behaviours. For instance, it is conceivable that additional light-related activities not included in the LEBA depend on the respondents' profession/occupation, geographical context, and socio-economic status. However, we generated the initial item pool with an international team of researchers and followed a thorough psychometric analysis. Therefore, we are confident that the developed LEBA inventory can serve as a good starting point for exploring the light exposure related behaviours in more depth and inform room for modification of light exposure-related behaviour to improve light hygiene.
+
+As with all studies relying on retrospective self-report data, individuals filling in the LEBA may have difficulties precisely recalling the inquired light-related behaviours. In the interest of bypassing a substantial memory component, we limited the recall period to four weeks and chose response options that do not require exact memory recall. In contrast to directly assessing light properties via self-report, we assume that reporting behaviours might be more manageable for inexperienced laypeople, as the latter does not rely on existing knowledge about light sources. The comprehensibility of the LEBA is also reflected by the Flesch-Kincaid grade level identification method [@flesch1948new] that suggested a minimum age of 8.33 years and an educational grade of four or higher (US grading system). We argue that measuring light-related behaviours via self-report is crucial because these behaviours will hardly be as observable by anyone else or measurable with other methods (like behavioural observations) with reasonable effort. 
+
+
+## Future directions
+
+To our knowledge, the LEBA is the first inventory characterising light exposure-related behaviour in a scalable manner. Thus, estimating convergent validity with similar subjective scales was impossible. Alternatively, the validity of the LEBA could be evaluated by administering it conjointly with objective field measurements of light exposure (e.g. with portable light loggers, see literature review). By this route, one could study how the (subjectively measured) light exposure-related behavioural patterns translate into (objectively measured) received light exposure. 
+
+Additionally, developing daily recall scales of light-related behaviour could provide a more detailed behavioural assessment to supplement the LEBA's broader (four-week) measurement approach. Comparing the LEBA scores to 24-hour recall scores could provide helpful information about how light exposure-related behaviour assessment is related between different time perspectives.
+
+Moreover, light-exposure-related behaviour might depend on the respondents' profession, geographical location, housing conditions, socio-economic status, or other contextual factors. As the current data is limited to our international online survey context, future research should apply the LEBA across more variable populations and contexts. On the other hand, this will require the development of cross-cultural adaptations and translations into other languages of the LEBA, which should be targeted in prospective studies.
+
+Finally, in the future, the use of the LEBA instrument need not remain restricted to gathering information in cross-sectinal quantitative studies. The instrument can also be used for individual behavioural profiling. For instance, the LEBA could be applied in a clinical context as part of Cognitive Behavioural Therapy for Insomnia (CBT-I). More specifically, it could be used to supplement the sleep hygiene aspects of CBT-I, as receiving light exposure at different times has implications for sleep [@santhi_applications_2020]. This match was also evident in the semantic relationship between the LEBA and two scales capturing sleep problems (CIDI: Insomnia; @robins1988composite & SDSC; @bruni1996sleep) found in the semantic similarity analysis. However, before applying the LEBA in such contexts in the future, more work is certainly needed to understand light exposure-related behaviour and its’ relationship to relevant health outcomes measured subjectively and objectively.
+
+## Conclusion
+
+Here, we developed a novel, internally consistent and structurally valid 23-item self-report inventory for capturing light exposure-related behaviour in five scalable factors. In addition, an 18-item short-form of the LEBA was derived using IRT analysis, yielding adequate coverage across the underlying trait continuum. Applying the LEBA inventory can provide insights into light exposure-related habits on a population-based level. Furthermore, it can serve as a good starting point to profile individuals based on their light  exposure-related behaviour and to asseses their light consumption and timing.
+
+
+# Methods
+
+## Data collection
+
+A quantitative cross-sectional, fully anonymous, geographically unconstrained online survey was conducted via REDCap [@harris2009research; @harris2019redcap] by way of the University of Basel [sciCORE](https://redcap.scicore.unibas.ch). Participants were recruited via the [website](https://enlightenyourclock.org/participate-in-research) (<https://enlightenyourclock.org/participate-in-research>) of the science-communication comic book "Enlighten your clock", co-released with the survey [@Weinzaepflen.2021], social media (i.e., LinkedIn, Twitter, Facebook), mailing lists, word of mouth, the investigators' personal contacts, and supported by the distribution of the survey link via f.lux [@f.lux]. The initial page of the online survey provided information about the study, including that participation was voluntary and that respondents could withdraw from participation at any time without being penalised. Subsequently, consent was recorded digitally for the adult participants (\>18 years), while under-aged participants (\<18 years) were prompted to obtain additional assent from their parents/legal guardians. Filling in all questionnaires was estimated to take less than 30 minutes, and participation was not compensated.
+
+As a part of the demographic data, participants provided information regarding age, sex, gender identity, occupational status, COVID-19-related occupational setting, time zone/country of residence and native language. The demographic characteristics of our sample are given in **Table 1**. Participants were further asked to confirm that they participated in the survey for the first time.  All questions incorporating retrospective recall were aligned to a "past four weeks" period. Additionally, four attention check items  were included among the questionnaires to ensure high data quality, with the following phrasing:
+- We want to make sure you are paying attention. What is 4+5?
+- [...] Please select "Strongly disagree" here.
+- [...] Please type in "nineteen" as a number.
+- [...] Please select "Does not apply/I don't know." here.
+
+## Analytic strategy
+
+Figure \@ref(fig:FlowchartFig) summarises the steps we followed while developing the LEBA. We conducted all analyses with the statistical software environment R [@R-base]. 
+**Firstly**, we set an item pool of 48 items with a six-point Likert-type response format (0-Does not apply/I don't know, 1-Never, 2-Rarely 3-Sometimes, 4-Often, 5-Always) for our initial inventory. Our purpose was to capture light exposure-related behaviour. In that context, the first two response options: "Does not apply/I don't know" and "Never", provided similar information. As such, we collapsed them into one, making it a 5-point Likert-type response format (1-Never, 2-Rarely, 3-Sometimes, 4-Often, 5-Always).
+
+**Secondly**, the two rounds of data collection were administered. In the first round (EFA sample; n=`r nrow(EFA.descriptives)`) we collected data for the exploratory factor analysis (EFA). A sample of at least 250-300 is recommended for EFA [@comreyFirstCourseFactor1992; @schonbrodtWhatSampleSize2013]. The EFA sample exceeded this recommendation. The second round data (CFA sample; n=`r nrow(CFA.descriptives)`) was subjected to confirmatory factor analysis (CFA). To assess sampling adequacy for CFA, we followed the N:q rule [@bentlerPracticalIssuesStructural1987; @jacksonRevisitingSampleSize2003; @klinePrinciplesPracticeStructural2015; @worthingtonScaleDevelopmentResearch2006], where at least ten participants per item are required to earn trustworthiness of the result. Again, our CFA sample exceeded this guidelines.
+
+
+**Thirdly**, we conducted descriptive and item analyses and proceeded to EFA using the "psych" package [@R-psych] on the EFA sample. Prior to the EFA, the necessary assumptions, including sample adequacy, normality assumptions, and quality of correlation matrix, were assessed. As our data violated both the univariate and multivariate normality assumption and yielded ordinal response data, we used a polychoric correlation matrix in the EFA and employed "principal axis" (PA) as the factor extraction method [@desjardinsHandbookEducationalMeasurement2018; @watkinsStepbyStepGuideExploratory2020]. We applied a combination of methods, including a Scree plot [@cattellScreeTestNumber1966], minimum average partials method [@velicerDeterminingNumberComponents1976], and Hull method [@lorenzo-sevaHullMethodSelecting2011] to identify factor numbers. To determine the latent structure, we followed the common guidelines: (i) no factors with fewer than three items (ii) no factors with a factor loading \<0.3 (iii) no items with cross-loading \> .3 across factors [@bandalosFactorAnalysisExploratory2018]. <!-- We also conducted an EFA on the non-merged response options data set (**Supplementary File 1**). -->
+
+For reliability estimation, the "psych" package was applied [@R-psych]. Though Cronbach's internal consistency coefficient alpha is widely used for estimating internal consistency, it tends to deflate the estimates for Likert-type data since the calculation is based on the Pearson-correlation matrix, which requires response data to be continuous in nature [@gadermann2012estimating; @zumbo2007ordinal]. Subsequently, we reported ordinal alpha for each factor obtained in the EFA which was suggested as a better reliability estimates for ordinal data [@zumbo2007ordinal]. We also estimated the internal consistency reliability of the total inventory using McDonald's $\omega_t$ coefficient, which was suggested as a better reliability estimate for multidimensional constructs [@dunn2014alpha; @sijtsma2009use]. Both ordinal alpha and McDonald's $\omega_t$ coefficient values range between 0 to 1, where higher values represent better reliability. 
+
+To validate the latent structure obtained in the EFA, we conducted a categorical confirmatory factor analysis (CFA) with the weighted least squares means and variance adjusted (WLSMV) estimation [@desjardinsHandbookEducationalMeasurement2018], using the "lavaan" package [@R-lavaan] on the CFA sample. We assessed the model fit using standard model fit guidelines: (i) $\chi^2$ test statistics: a non-significant test statistics is required to accept the model (ii) comparative fit index (CFI) and Tucker Lewis index (TLI): close to 0.95 or above/ between 0.90-0.95 and above (iii) root mean square error of approximation (RMSEA): close to 0.06 or below, (iv) Standardized root mean square (SRMR): close to 0.08 or below [@huCutoffCriteriaFit1999; @schumacker2004beginner]. However, the $\chi^2$ test is sensitive to sample size [@brownConfirmatoryFactorAnalysis2015], and SRMR does not work well with ordinal data [@RN1272]. Consequently, we judged the model fit using CFI, TLI and RMSEA.
+
+In order to evaluate whether the construct demonstrated psychometric equivalence and the same meaning across native English speakers (n=`r invariance.data.descriptives.count[1,2]`) and non-native English speakers (n=`r invariance.data.descriptives.count[2,2]`) in the CFA sample (n=`r nrow(CFA.descriptives)`) [@putnick2016measurement; @klinePrinciplesPracticeStructural2015] measurement invariance analysis was used. We used structural equation modelling framework applying the "lavaan" package [@R-lavaan] to assess the measurement invariance. We successively compared four nested models: configural, metric, scalar, and residual models using the $\chi^2$ difference test ($\Delta \chi^2$). Among MI models, the configural model is the least restrictive, and the residual model is the most restrictive. A non-significant $\Delta \chi^2$ test between two nested measurement invariance models indicates mode fit does not significantly decrease for the superior model, thus allowing the superior invariance model to be accepted [@dimitrov2010testing; @widaman1997exploring].
+
+
+**Fourthly**, in a secondary analysis, we identified the educational grade level (US education system) required to understand the items in our inventory with the Flesch-Kincaid grade level identification method [@flesch1948new] applying the "koRpus" [@R-koRpus] package. Correspondingly, we analysed possible semantic overlap of our developed inventory using the ["Semantic Scale Network" (SSN)](https://rosenbusch.shinyapps.io/semantic_net/) engine [@rosenbusch2020semantic]. The SSN detects semantically related scales and provides a cosine similarity index ranging between -.66 to 1 [@rosenbusch2020semantic]. Pairs of scales with a cosine similarity index value of 1 inidicate full semantical similarity, suggesting redundancy.
+
+**Lastly**, we derived a short form of the LEBA employing an Item Response Theory (IRT) based analysis. We fitted each factor of the LEBA to the combined EFA and CFA sample (n=`r nrow(sem.data)`) using the graded response model [@samejima1997handbook] via the "mirt" package [@R-mirt]. IRT assesses the item quality by estimating the item discrimination, item difficulty, item information curve, and test information curve [@bakerBasicsItemResponse2017]. Item discrimination indicates how well a particular item can differentiate between participants across the given latent trait continuum ($\theta$). Item difficulty corresponds to the latent trait level at which the probability of endorsing a particular response option is 50%. The item information curve (IIC) indicates the amount of information an item carries along the latent trait continuum. Here, we reported the item difficulty and discrimination parameter and categorized the items based on their item discrimination index: (i) none = 0; (ii) very low = 0.01 to 0.34; (iii) low = 0.35 to 0.64; (iv) moderate = 0.65 to 1.34 ; (v) high = 1.35 to 1.69; (vi) very high \>1.70 [@bakerBasicsItemResponse2017]. We discarded the items with a relatively flat item information curve (information \<.2) to derive the short form of LEBA. We also assessed the precision of the short LEBA utilizing the test information curve (TIC). TIC indicates the amount of information a particular scale carries along the latent trait continuum. Additionally, the item and person fit of the fitted IRT models were analysed to gather more evidence on the validity and meaningfulness of our scale [@desjardinsHandbookEducationalMeasurement2018]. The item fit was evaluated using the RMSEA value obtained from Signed-$\chi^2$ index implementation, where an RMSEA value $\le$.06 was considered an adequate item fit. The person fit was estimated employing the standardized fit index Zh statistics [@drasgow1985appropriateness]. Here, Zh \< -2 was considered as a misfit [@drasgow1985appropriateness].
+
+```{r FlowchartFig, echo=FALSE, fig.align='center', fig.cap='Flow chart of the LEBA (long and short form) development and evaluation. ', out.height='50%', out.width='50%'}
+knitr::include_graphics('Figures/Figure1.png', dpi = 600 )
+```
+
+
+## Ethical approval
+
+The current research project utilizes fully anonymous online survey data and therefore does not fall under the scope of the Human Research Act, making an authorisation from the ethics committee redundant. Nevertheless, the cantonal ethics commission (Ethikkommission Nordwest- und Zentralschweiz, EKNZ) reviewed our proposition (project ID Req-2021-00488) and issued an official clarification of responsibility.
+
+## Code, materials and data availability
+
+The present article is a fully reproducible open access "R Markdown" document. All code and data underlying this article is available on a public [GitHub repository](https://github.com/leba-instrument). The English version of long and short form of LEBA  inventory and online survey implementation templates on common survey platforms(Qualtrics and REDCap) -- is available  on another public [GitHub repository](https://github.com/leba-instrument/leba-instrument-en) as well as on the dedicated [website](https://leba-instrument.org/) of the LEBA inventory under an open-access licence (Creative Commons CC-BY-NC-ND). 
+
+
+
+
+\newpage
+
+# References
+
+```{=tex}
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+```
+::: {#refs custom-style="Bibliography"}
+:::
+
+```{=tex}
+\endgroup
+```
