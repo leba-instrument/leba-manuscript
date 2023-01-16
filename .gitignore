@@ -46,3 +46,4 @@ manuscript_files/
 *.log
 *.tex
 manuscript_v2_files/*
+manuscript.out
