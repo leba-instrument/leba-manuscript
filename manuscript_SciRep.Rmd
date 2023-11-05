@@ -192,7 +192,7 @@ pacman::p_install_gh("masiraji/tabledown")
 pacman::p_install_gh("crsh/citr")
 devtools::install_github("unDocUMeantIt/koRpus")
 koRpus::install.koRpus.lang(lang=c("en"))
-
+install.packages("latticeExtra")
 install.packages("correlation")
 install.packages("ggtext")
 #if you don't have LaTeX installed run the following lines
@@ -232,6 +232,7 @@ library(koRpus.lang.en)
 library(reshape)
 library(ggsci)
 library(ggtext)
+library(latticeExtra)
 r_refs("lib_references.bib")
 ```
 
