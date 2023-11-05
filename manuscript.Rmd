@@ -438,6 +438,30 @@ modify_header(label ~ "**Variable**") %>%
   # separate_p_footnotes() %>%
   modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table 
 
+
+
+desctable.data %>%
+  tbl_summary(
+    by=slypos_demographics_sex.factor,
+    statistic=list(all_continuous() ~ "{mean} ({sd})",
+                     all_categorical() ~ "{n} ({p}%)"),
+    digits=all_continuous() ~ 2,
+    label=list(slypos_demographics_age ~ "Age",
+                 # slypos_demographics_sex.factor ~ "Sex",
+                 slypos_demographics_gender.factor ~ "Gender-Variant Identity",
+                 slypos_demographics_language.factor ~ "Native English Speaker",
+                 slypos_demographics_work_or_school.factor ~ "Occupational Status",
+                 slypos_demographics_school.factor ~ "Occupational setting"
+                 ),
+    
+    missing="no"
+    ) %>% add_overall() %>% bold_labels() %>% 
+  # add_p() %>% add_q() %>%
+modify_header(label ~ "**Variable**") %>% 
+  # separate_p_footnotes() %>%
+  modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table_gender 
+
+
 as_tibble(desc_table) -> desc_tibble 
 as_kable_extra(desc_table, format="latex",booktabs=T) -> desc_kable #save it as a knitr::kable
 
@@ -454,6 +478,33 @@ descriptives.data%>%
   )  %>% bold_labels() %>%
   modify_header(label ~ "") %>%
   as_tibble(format='pipe') -> tz_tibble
+
+
+# # create descriptive table for the demographic vars (excluding tz & Country) with gtsummary
+# desctable.data %>%
+#   tbl_summary(
+#     by=slypos_demographics_sex.factor,
+#     statistic=list(all_continuous() ~ "{mean} ({sd})",
+#                      all_categorical() ~ "{n} ({p}%)"),
+#     digits=all_continuous() ~ 2,
+#     label=list(slypos_demographics_age ~ "Age",
+#                  # slypos_demographics_sex.factor ~ "Sex",
+#                  slypos_demographics_gender.factor ~ "Gender-Variant Identity",
+#                  slypos_demographics_language.factor ~ "Native English Speaker",
+#                  slypos_demographics_work_or_school.factor ~ "Occupational Status",
+#                  slypos_demographics_school.factor ~ "Occupational setting"
+#                  ),
+#     
+#     missing="no"
+#     ) %>% add_overall() %>% bold_labels() %>% 
+#   # add_p() %>% add_q() %>%
+# modify_header(label ~ "**Variable**") %>% 
+#   # separate_p_footnotes() %>%
+#   modify_caption("Demographic Characteristics of Participants (n=690).") -> desc_table 
+# 
+# as_tibble(desc_table) -> desc_tibble 
+# as_kable_extra(desc_table, format="latex",booktabs=T) -> desc_kable #save it as a knitr::kable
+
 
 ```
 
