@@ -1852,7 +1852,7 @@ mi.des.sum <- psych::describeBy(mi.descriptives ~ English_Speaking)
 
 mi.english.sum <- psych::describeBy(english.speaking ~ slypos_demographics_sex.factor)
 
-mi.non.english.sum <- psych::describeBy(non.english.speaking %>% slypos_demographics_sex.factor)
+mi.non.english.sum <- psych::describeBy(non.english.speaking %>% slypos_demographics_sex.factor")
 
 mi.des.sum.english <- as.data.frame(mi.des.sum$Yes)
 mi.des.sum.nonenglish <- as.data.frame(mi.des.sum$No)
