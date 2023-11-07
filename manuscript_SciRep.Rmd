@@ -141,7 +141,7 @@ abstract: |
 
   
 keywords          : "light exposure, light-related behaviours, non-visual effects of light, psychometrics"
-wordcount         : "6314"
+wordcount         : "5767"
 
 #bibliography      : ["references.bib", "lib_references.bib"]
 bibliography      : ["references.bib"]
@@ -183,7 +183,7 @@ par(family="Arial")
 #This chunk holds code for 'pacman' based library management.
 
 #You need to run this chunk 1X in your system 
-#install.packages("pacman")#Run this if you don't have pacman installed.
+install.packages("pacman")#Run this if you don't have pacman installed.
 pacman::p_load(MOTE, tidyverse, psych, lavaan,kableExtra,gt,gtsummary, mirt,likert,kutils,semPlot,semTable,semTools,ggcorrplot,dlookr, paran,EFA.MRFA,VIM,DiagrammeR,DiagrammeRsvg,ggplot2,cowplot,questionr,magick, simsem,readxl, stringr,RColorBrewer,WrightMap,reshape, ggsci,ggtext)
 webshot::install_phantomjs()
 pacman::p_install_gh("jthomasmock/gtExtras")
@@ -196,8 +196,8 @@ install.packages("latticeExtra")
 install.packages("correlation")
 install.packages("ggtext")
 #if you don't have LaTeX installed run the following lines
-#install.packages("tinytex")
-#tinytex::install_tinytex()
+install.packages("tinytex")
+tinytex::install_tinytex()
 ```
 
 ```{r library, include=FALSE}
@@ -3220,7 +3220,7 @@ As with all studies relying on retrospective self-report data, individuals filli
 
 It is important to note that, LEBA utilizes a five-point Likert-type response scale which is often susceptible to central tendency bias, where responses are biased towards the central value of the response scale [@aston2022central]. Without proper corrections of the response pattern, the interpretation of the scores could be erroneous. We recommend using the sensory precision suggested by @aston2022central method to correct the central tendency bias.
 
-Lastly, this study is the lack of convergent validity evidence. LEBA being the first of its kind, lacks golden standard against which its convergent validity evidence  could be established. However, a recent study [@Siraji.2023] demonstrates the predictive validity of LEBA by successfully relating LEBA behaviour factors to chronotype, mood, sleep quality, and memory and concentration difficulties. The results of their study confirmed the very essence of LEBA-behaviour could led to different light exposure experiences that differentially influence health, wellness and performance. 
+Lastly, this study lacks convergent validity evidence. LEBA being the first of its kind, lacks golden standard against which its convergent validity evidence  could be established. However, a recent study [@Siraji.2023] demonstrates the predictive validity of LEBA by successfully relating LEBA behaviour factors to chronotype, mood, sleep quality, and memory and concentration difficulties. The results of their study confirmed the very essence of LEBA-behaviour could led to different light exposure experiences that differentially influence health, wellness and performance. 
 
 
 ## Future directions
