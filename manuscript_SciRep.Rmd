@@ -7,6 +7,8 @@ author:
     affiliation   : "1, 2,+"
     email         : "mushfiqul.anwarsiraji@monash.edu"
     role:
+      - Project administration
+      - Methodology
       - Formal Analysis
       - Visualization
       - Writing – original draft
@@ -91,37 +93,39 @@ author:
       - Methodology
       - Writing – original draft
       - Writing – review & editing
-
+      - Supervision
+      
 affiliation:
   - id            : "1"
     institution   : "Monash Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
   - id            : "2"
     institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+    
   - id            : "3"
-    institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
+    institution   : "North South University, Department of History and Philosophy, Bangladesh"
+    
   - id            : "4"
-    institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
+    institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
   - id            : "5"
-    institution   : "Eindhoven University of Technology, Intelligent Lighting Institute, Eindhoven, Netherlands"
+    institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
   - id            : "6"
-    institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Human-Technology Interaction, Eindhoven, Netherlands"
+    institution   : "Eindhoven University of Technology, Intelligent Lighting Institute, Eindhoven, Netherlands"
   - id            : "7"
-    institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Selangor, Malaysia"
+    institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Human-Technology Interaction, Eindhoven, Netherlands"
   - id            : "8"
-    institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
+    institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Selangor, Malaysia"
   - id            : "9"
-    institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"
+    institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
   - id            : "10"
-    institution   : "Translational Sensory & Circadian Neuroscience, Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
+    institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"
   - id            : "11"
-    institution   : "TUM School of Medicine and Health, Technical University of Munich, Munich, Germany"
+    institution   : "Translational Sensory & Circadian Neuroscience, Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
   - id            : "12"
+    institution   : "TUM School of Medicine and Health, Technical University of Munich, Munich, Germany"
+  - id            : "13"
     institution   : "TUM Institute of Advanced Study (TUM-IAS), Technical University of Munich, Garching, Germany"
   - id            : "+"
     institution   : "Joint first author"
-    
-  - id            : "13"
-    institution   : "North South University, Department of History and Philosophy, Bangladesh"
     
   - id            : "*"
     institution   : "Corresponding Author"
