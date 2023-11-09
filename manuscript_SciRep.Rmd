@@ -2,127 +2,132 @@
 title             : "An inventory of human light exposure related behaviour"
 shorttitle        : "LEBA"
 
-# author: 
-#   - name          : "Mushfiqul Anwar Siraji"
-#     affiliation   : "1, *"
-#     email         : "mushfiqul.anwarsiraji@monash.edu"
-#     role:         
-#       - Formal Analysis
-#       - Visualization
-#       - Writing – original draft
-#       - Writing – review & editing
-#        
-#   - name          : "Rafael Robert Lazar"
-#     affiliation   : "2, 3, *"
-#     role:
-#       - Data curation
-#       - Investigation
-#       - Project administration
-#       - Visualization
-#       - Writing – original draft
-#       - Writing – review & editing
-#       
-#   - name          : "Juliëtte	van Duijnhoven"
-#     affiliation   : "4, 5"
-#     email         : "j.v.duijnhoven1@tue.nl"
-#     role:         
-#       - Conceptualization
-#       - Methodology
-#       - Investigation
-#       - Writing – review & editing
-# 
-#   - name          : "Luc Schlangen"
-#     affiliation   : "5, 6"
-#     email         : "l.j.m.schlangen@tue.nl"
-#     role:         
-#       - Conceptualization
-#       - Methodology
-#       - Investigation
-#       - Writing – review & editing
-# 
-#   - name          : "Shamsul Haque"
-#     affiliation   : "1"
-#     email         : "shamsul@monash.edu"
-#     role:         
-#       - Conceptualization
-#       - Supervision
-#       - Writing – review & editing
-#       
-#   - name          : "Vineetha Kalavally"
-#     affiliation   : "7"
-#     email         : "vineetha@monash.edu"
-#     role:         
-#       - Supervision
-#       - Writing – review & editing
-#       
-#   - name          : "Céline Vetter"
-#     affiliation   : "8"
-#     email         : "celine.vetter@colorado.edu"
-#     role:         
-#       - Conceptualization
-#       - Writing – review & editing
-#       
-#   - name          : "Gena Glickman"
-#     affiliation   : "9"
-#     email         : "gena.glickman@usuhs.edu"
-#     role:         
-#       - Conceptualization
-#       - Methodology
-#       - Writing – review & editing
-#       
-#   - name          : "Karin Smolders"
-#     affiliation   : "5,6"
-#     email         : "k.c.h.j.smolders@tue.nl"
-#     role:         
-#       - Conceptualization
-#       - Methodology
-#       - Writing – review & editing
-# 
-#   - name          : "Manuel Spitschan"
-#     corresponding : yes
-#     affiliation   : "10, 11, 12"
-#     email         : "manuel.spitschan@tum.de "
-#     role:         
-#       - Conceptualization
-#       - Data curation
-#       - Investigation
-#       - Project administration
-#       - Visualization
-#       - Methodology
-#       - Writing – original draft
-#       - Writing – review & editing
-# 
-# affiliation:
-#   - id            : "1"
-#     institution   : "Monash University, Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
-#   - id            : "2"
-#     institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
-#   - id            : "3"
-#     institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
-#   - id            : "4"
-#     institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
-#   - id            : "5"
-#     institution   : "Eindhoven University of Technology, Intelligent Lighting Institute, Eindhoven, Netherlands"
-#   - id            : "6"
-#     institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Human-Technology Interaction, Eindhoven, Netherlands"
-#   - id            : "7"
-#     institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Selangor, Malaysia"
-#   - id            : "8"
-#     institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
-#   - id            : "9"
-#     institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"   
-#   - id            : "10"
-#     institution   : "Translational Sensory & Circadian Neuroscience, Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
-#   - id            : "11"
-#     institution   : "TUM School of Medicine and Health, Technical University of Munich, Munich, Germany"
-#   - id            : "12"
-#     institution   : "TUM Institute of Advanced Study (TUM-IAS), Technical University of Munich, Garching, Germany"
-#   - id            : "*"
-#     institution   : "Joint first author"   
-# 
-# 
-# authornote: |
-#   This research is supported by funding from the Welcome Trust (204686/Z/16/Z), the European Training Network LIGHTCAP (project number 860613) under the Marie Skłodowska-Curie actions framework H2020-MSCA-ITN-2019, the BioClock project (number 1292.19.077) of the research program Dutch Research Agenda: Onderzoek op Routes door Consortia (NWA-ORC) which is (partly) financed by the Dutch Research Council (NWO), and the European Union and the nationals contributing in the context of the ECSEL Joint Undertaking programme (2021-2024) under the grant #101007319.
+author:
+  - name          : "Mushfiqul Anwar Siraji"
+    affiliation   : "1, 2,+"
+    email         : "mushfiqul.anwarsiraji@monash.edu"
+    role:
+      - Formal Analysis
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing
+
+  - name          : "Rafael Robert Lazar"
+    affiliation   : "3, 4, +"
+    role:
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Writing – original draft
+      - Writing – review & editing
+
+  - name          : "Juliëtte	van Duijnhoven"
+    affiliation   : "5, 6"
+    email         : "j.v.duijnhoven1@tue.nl"
+    role:
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Luc Schlangen"
+    affiliation   : "6, 7"
+    email         : "l.j.m.schlangen@tue.nl"
+    role:
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+
+  - name          : "Shamsul Haque"
+    affiliation   : "1"
+    email         : "shamsul@monash.edu"
+    role:
+      - Conceptualization
+      - Supervision
+      - Writing – review & editing
+
+  - name          : "Vineetha Kalavally"
+    affiliation   : "8"
+    email         : "vineetha@monash.edu"
+    role:
+      - Supervision
+      - Writing – review & editing
+
+  - name          : "Céline Vetter"
+    affiliation   : "9"
+    email         : "celine.vetter@colorado.edu"
+    role:
+      - Conceptualization
+      - Writing – review & editing
+
+  - name          : "Gena Glickman"
+    affiliation   : "10"
+    email         : "gena.glickman@usuhs.edu"
+    role:
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+
+  - name          : "Karin Smolders"
+    affiliation   : "6,7"
+    email         : "k.c.h.j.smolders@tue.nl"
+    role:
+      - Conceptualization
+      - Methodology
+      - Writing – review & editing
+
+  - name          : "Manuel Spitschan"
+    corresponding : yes
+    affiliation   : "11, 12, 13, *"
+    email         : "manuel.spitschan@tum.de "
+    role:
+      - Conceptualization
+      - Data curation
+      - Investigation
+      - Project administration
+      - Visualization
+      - Methodology
+      - Writing – original draft
+      - Writing – review & editing
+
+affiliation:
+  - id            : "1"
+    institution   : "Monash Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
+  - id            : "2"
+    institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+  - id            : "3"
+    institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
+  - id            : "4"
+    institution   : "Eindhoven University of Technology, Department of the Built Environment, Building Lighting, Eindhoven, Netherlands"
+  - id            : "5"
+    institution   : "Eindhoven University of Technology, Intelligent Lighting Institute, Eindhoven, Netherlands"
+  - id            : "6"
+    institution   : "Eindhoven University of Technology, Department of Industrial Engineering and Innovation Sciences, Human-Technology Interaction, Eindhoven, Netherlands"
+  - id            : "7"
+    institution   : "Monash University, Department of Electrical and Computer Systems Engineering, Selangor, Malaysia"
+  - id            : "8"
+    institution   : "University of Colorado Boulder, Department of Integrative Physiology, Boulder, USA"
+  - id            : "9"
+    institution   : "Uniformed Services University of the Health Sciences, Department of Psychiatry, Bethesda, USA"
+  - id            : "10"
+    institution   : "Translational Sensory & Circadian Neuroscience, Max Planck Institute for Biological Cybernetics, Tübingen, Germany"
+  - id            : "11"
+    institution   : "TUM School of Medicine and Health, Technical University of Munich, Munich, Germany"
+  - id            : "12"
+    institution   : "TUM Institute of Advanced Study (TUM-IAS), Technical University of Munich, Garching, Germany"
+  - id            : "+"
+    institution   : "Joint first author"
+    
+  - id            : "13"
+    institution   : "North South University, Department of History and Philosophy, Bangladesh"
+    
+  - id            : "*"
+    institution   : "Corresponding Author"
+
+authornote: |
+  This research is supported by funding from the Welcome Trust (204686/Z/16/Z), the European Training Network LIGHTCAP (project number 860613) under the Marie Skłodowska-Curie actions framework H2020-MSCA-ITN-2019, the BioClock project (number 1292.19.077) of the research program Dutch Research Agenda: Onderzoek op Routes door Consortia (NWA-ORC) which is (partly) financed by the Dutch Research Council (NWO), and the European Union and the nationals contributing in the context of the ECSEL Joint Undertaking programme (2021-2024) under the grant #101007319.
 
 
 
@@ -164,7 +169,7 @@ output            :
 header-includes:
   - \usepackage{rotating}
   - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
-
+csl: "nature.csl"
 mainfont: Arial
 ---
 

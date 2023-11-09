@@ -44,7 +44,7 @@ manuscript_files/
 *.ttt
 *.fff
 *.log
-*.tex
 manuscript_v2_files/*
 manuscript.out
 manuscript_SciRep_files/*
+nature.csl
