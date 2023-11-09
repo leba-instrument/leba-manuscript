@@ -98,11 +98,13 @@ author:
 affiliation:
   - id            : "1"
     institution   : "Monash Department of Psychology, Jeffrey Cheah School of Medicine and Health Sciences, Malaysia"
+    
   - id            : "2"
-    institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+    institution   : "North South University, Department of History and Philosophy, Bangladesh"
     
   - id            : "3"
-    institution   : "North South University, Department of History and Philosophy, Bangladesh"
+    institution   : "Psychiatric Hospital of the University of Basel (UPK), Centre for Chronobiology, Basel, Switzerland"
+    
     
   - id            : "4"
     institution   : "University of Basel, Transfaculty Research Platform Molecular and Cognitive Neurosciences, Basel, Switzerland"
