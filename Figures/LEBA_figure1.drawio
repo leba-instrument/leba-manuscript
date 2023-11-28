@@ -1,1 +1,55 @@
-<mxfile host="Electron" modified="2022-12-16T03:01:52.354Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.6.2 Chrome/106.0.5249.199 Electron/21.3.3 Safari/537.36" etag="nEfA7VPhzM7Tc5-r-y20" version="20.6.2" type="device"><diagram id="IvUtkHYbbf2gIWvYoiBI" name="Page-1">5ZnJbtswEIafxkB7SGEtVpRjbCdt0LpLfCjQ20QaSUQoUiXprU9fUqJiq1RaF4hjJHYOoYccLv9HDkfyIJiU6/cCqmLGU6QDf5iuB8F04PteFEX6n7FsGst57DWGXJDUNtoa5uQXWuPQWhckRdlpqDinilRdY8IZw0R1bCAEX3WbZZx2R60gR8cwT4C61u8kVUVjjf3zrf0DkrxoR/aii6amhLaxXYksIOWrHVNwNQgmgnPVlMr1BKkRr9Wl8bt+pPZhYgKZ2seh+vKx/LyCz2I2u12Pf96w5bcfZ+06lkAXdsV2tmrTSiD4gqVoehkOgvGqIArnFSSmdqWha1uhSqq/ebrozspOdIlC4XrHZGf5HnmJSmx0E1vrD4PGxW6Z0Aq42uoftqIWO9qPYmsEyzx/6Horiy5YZf5DJc8R6YYRRcA4ynqv+MM3YWy6UVjKt3+R0Pu3hBmhdMIpF7VvkI3Mn7FzpnbszUfbpRL8HndqovrzRDDaHdKe35EDwx/2wIgOxSJ0WHwCkeMOCbkQSzRLeMN0g+hi+Jp5eEcHMnKATFEmglSKLA0OYEA3ksgWSOjHGkhE9bzGd0KXclO60Qdn78ZX60qLC4rXymSQ6NLezrdICdwRStRmb58JZxkR5aMj1q5+5Pe4zhD0hsTSINdKsiUIAizBdsDG69Xuz70DhucdaoNGzgbVuUpqAFBcYuOuF0wykoAiXEO5dDFeU72pi7OPhCWgR9P3O6qCp27DOZagO0t2AhJDteLivrPb/nQ7hb0Q+seOVW62Y+OOQFlxJg0tVWBzyl1IdyAx7Qkar/yOGR2dm9d3yeizyysbV3nWkOvFlgBLSQoK2wTNYaWFUV0gQElu0FLMTI0RT4cHemnNJUlT4zzWG4f8gru6I5MeV5wwVS9/NB6MpqanheKyea7xHHKMM/wDvzU9Accw7CbS8fk7F6QX9IAMDwbSDcZTUFA/wFGqH+BM/D1NOt6F34en75wFB8PjBsivcpMUdff1nfYQ+vouyfSxM0k5y03exEV5onQDr5du/KyHL3bozjHhLAXRTYVPklAY9hLqC4+HO38X+99zsuBCnfahGvUj6ztUB0PmBw4yh4YsoDJFSVhO8dK8ljTRkgh74ekavjDT/1eaCLJqXnJmZG1Sy6cQVUem7j0U9GR74TOGKd99xfOyFfWPrqibPr9sRYP42Iq6eezLVjQ8nKL66/ZXjrpu57ei4Oo3</diagram></mxfile>
+<mxfile host="Electron" modified="2023-11-28T13:21:36.496Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="LnoCxYYTHvLUfwPPfMbI" version="22.1.2" type="device">
+  <diagram id="IvUtkHYbbf2gIWvYoiBI" name="Page-1">
+    <mxGraphModel dx="954" dy="597" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-27" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="203" y="40" width="420" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-1" value="Initial scale (48 items)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="227" y="75" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-4" value="Large scale survey (n=690)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="227" y="175" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-5" value="Descriptive analysis (n=428)&lt;br&gt;Item analysis (n=428)&lt;br&gt;Exploratory factor analysis (n=428)&lt;br&gt;Reliability analysis (n=428)&lt;br&gt;Confirmatory factor analysis(n=262)&lt;br&gt;Measurement invariance (n=262)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="227" y="275" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-6" value="Grade level identification:&lt;br&gt;Flesch-Kincaid method&lt;br&gt;Semantic scale network analysis&lt;br&gt;(n=262)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="227" y="425" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-7" value="Item Response Theory-based analysis (n=690)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="227" y="525" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-15" value="Development of the &lt;br&gt;candidate items" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="443" y="87.5" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-16" value="Data collection" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="443" y="192.5" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-17" value="Psychometric analysis:&lt;br&gt;development of the long form" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="443" y="312.5" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-18" value="Secondary analysis" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="443" y="442.5" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-19" value="Development of the short form" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="443" y="542.5" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-23" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="312" y="135" width="24" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-24" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="312" y="235" width="24" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-25" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="312" y="385" width="24" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pOKmNwaNrMMRxBqInvQZ-26" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="312" y="485" width="24" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
