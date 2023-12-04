@@ -2939,7 +2939,7 @@ F4.tic <- ggplot(F4.test.data, aes(x=Theta, y=F4.T1)) +
 
 F5.tic <- ggplot(F5.test.data, aes(x=Theta, y=F5.T1)) +
   geom_line()+apatheme_3+
-  labs(y="Test Information", title="F5:Using light in the morning and during daytime") +ylim(0,8)+geom_area()+aes(fill= "#B09C8599")+theme(legend.position="none")+
+  labs(y="Test Information", title="F5: Using light in the morning and during daytime") +ylim(0,8)+geom_area()+aes(fill= "#B09C8599")+theme(legend.position="none")+
 scale_fill_identity()+xlab(expression(theta)) + 
   ylab(expression(I(theta)))
 
